@@ -1,0 +1,143 @@
+---
+// Tarjeta de producto con fotos reales.
+// - Hover (escritorio): cambia a la segunda foto, zoom leve, aparecen COMPRAR + WhatsApp.
+// - Táctil: acciones siempre visibles debajo de la foto.
+// - Colores: cambian foto, enlace, mensaje de WhatsApp y lo que se agrega a la bolsa.
+import type { Product, ProductColor } from '@/data/products';
+import { altFor, pad2, productTag } from '@/data/products';
+import { getMedia, thumbUrl } from '@/lib/media';
+import { productMessage, waLink } from '@/lib/whatsapp';
+import Img from './Img.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  product: Product;
+  size?: 'xl' | 'lg' | 'md' | 'sm';
+  sizes: string;
+  colorId?: string;
+  showIndex?: boolean;
+  heading?: 'h2' | 'h3';
+  class?: string;
+  eager?: boolean;
+  style?: string;
+  reveal?: boolean;
+}
+
+const { product: p, size = 'md', sizes, colorId, showIndex = true, heading = 'h3', class: cls, eager = false, style, reveal = true } = Astro.props;
+const Heading = heading;
+const active = p.colors.find((c) => c.id === colorId) ?? p.colors[0];
+const firstBg = getMedia(active.images[0].id).bg;
+const isStudio = firstBg === 'studio';
+const productUrl = (c: ProductColor) => (c.id === p.colors[0].id ? `/producto/${p.slug}/` : `/producto/${p.slug}/?color=${c.id}`);
+const altImage = (c: ProductColor) => {
+  if (c.images[1]) return c.images[1];
+  const next = p.colors[(p.colors.indexOf(c) + 1) % p.colors.length];
+  return next && next.id !== c.id ? next.images[0] : null;
+};
+const variant = (c: ProductColor) => p.shopifyVariants?.[c.id] ?? '';
+---
+
+<article
+  class:list={['card', `card--${size}`, cls]}
+  data-card
+  data-slug={p.slug}
+  data-color={active.id}
+  data-reveal={reveal ? '' : undefined}
+  style={style}
+>
+  <div class="card__top">
+    {showIndex && p.priority && <span class="card__idx t-index">{pad2(p.priority)}</span>}
+    <span class="card__tag t-label t-mute">{productTag(p)}</span>
+  </div>
+
+  <div class="card__media" data-card-media>
+    <a
+      class:list={['card__frame', isStudio ? 'card__frame--studio' : 'on-paper']}
+      href={productUrl(active)}
+      tabindex="-1"
+      aria-hidden="true"
+      data-card-link
+    >
+      {
+        p.colors.map((c) => {
+          const alt = altImage(c);
+          const isActive = c.id === active.id;
+          return (
+            <span class:list={['card__layer', { 'is-active': isActive }]} data-layer={c.id}>
+              <Img
+                id={c.images[0].id}
+                alt={altFor(p, c, c.images[0])}
+                sizes={sizes}
+                class="card__img card__img--main"
+                loading={eager && isActive ? 'eager' : 'lazy'}
+                draggable="false"
+              />
+              {alt && <Img id={alt.id} alt="" sizes={sizes} class="card__img card__img--alt" loading="lazy" draggable="false" />}
+            </span>
+          );
+        })
+      }
+    </a>
+
+    <div class="card__actions">
+      <button
+        class="btn card__buy"
+        type="button"
+        data-add
+        data-open-bag
+        data-slug={p.slug}
+        data-name={p.name}
+        data-color={active.id}
+        data-color-label={active.label}
+        data-image={thumbUrl(active.images[0].id)}
+        data-bg={firstBg}
+        data-variant={variant(active)}
+      >
+        <span class="roll"><span>Comprar</span><span aria-hidden="true">Comprar</span></span>
+        <span class="sr-only">{p.name}, color {active.label}</span>
+      </button>
+      <a
+        class="btn btn--ghost btn--icon card__wa"
+        href={waLink(productMessage(p.name, active.label))}
+        target="_blank"
+        rel="noopener"
+        aria-label={`Pedir ${p.name} por WhatsApp`}
+        data-wa-product
+      >
+        <Icon name="whatsapp" />
+      </a>
+    </div>
+  </div>
+
+  <div class="card__info">
+    <Heading class="card__name"><a href={productUrl(active)} data-card-link>{p.name}</a></Heading>
+    <div class="card__row">
+      <p class="card__price">{p.price ? `$${p.price.toLocaleString('es-CO')}` : 'Precio por WhatsApp'}</p>
+      {
+        p.colors.length > 1 ? (
+          <div class="swatches" role="group" aria-label={`Colores de ${p.name}`}>
+            {p.colors.map((c) => (
+              <button
+                class="swatch"
+                type="button"
+                style={`--sw:${c.swatch}`}
+                aria-pressed={c.id === active.id ? 'true' : 'false'}
+                aria-label={c.label}
+                title={c.label}
+                data-swatch={c.id}
+                data-label={c.label}
+                data-image={thumbUrl(c.images[0].id)}
+                data-bg={getMedia(c.images[0].id).bg}
+                data-href={productUrl(c)}
+                data-wa={waLink(productMessage(p.name, c.label))}
+                data-variant={variant(c)}
+              />
+            ))}
+          </div>
+        ) : (
+          <p class="card__color t-mute">{active.label}</p>
+        )
+      }
+    </div>
+  </div>
+</article>

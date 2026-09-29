@@ -1,0 +1,45 @@
+---
+import { site } from '@/data/site';
+import { waLink, generalMessage } from '@/lib/whatsapp';
+import Wordmark from './Wordmark.astro';
+
+const year = new Date().getFullYear();
+const socials = Object.entries(site.social).filter(([, url]) => Boolean(url)) as [string, string][];
+const socialLabel: Record<string, string> = { instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook' };
+---
+
+<footer class="ftr" data-tone="dark">
+  <div class="ftr__top">
+    <a class="ftr__logo" href="/" aria-label="MAGIC, ir al inicio"><Wordmark /></a>
+    <nav class="ftr__nav" aria-label="Pie de página">
+      <ul>
+        <li><a href="/hombre/">Hombre</a></li>
+        <li><a href="/mujer/">Mujer</a></li>
+        <li><a href="/coleccion/">Colección</a></li>
+        <li><a href="/#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="ftr__contact">
+      <p class="t-label t-mute">WhatsApp</p>
+      <a href={waLink(generalMessage())} target="_blank" rel="noopener">{site.whatsapp.display}</a>
+      {
+        socials.length > 0 && (
+          <>
+            <p class="t-label t-mute" style="margin-top:18px">Redes</p>
+            {socials.map(([key, url]) => (
+              <a href={url} target="_blank" rel="noopener">
+                {socialLabel[key] ?? key}
+              </a>
+            ))}
+          </>
+        )
+      }
+    </div>
+  </div>
+  <div class="ftr__bottom">
+    <p>© {year} MAGIC · Chaquetas y buzos para hombre y mujer</p>
+    <div class="ftr__legal">
+      <a href="/politicas/">Políticas</a>
+    </div>
+  </div>
+</footer>

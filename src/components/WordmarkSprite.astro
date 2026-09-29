@@ -1,0 +1,11 @@
+---
+// Definición única del logotipo (trazados de Mona Sans Expanded 800).
+// Va al inicio del <body>; cada logo lo reutiliza con <use href="#wm">.
+import wm from '@/data/wordmark.json';
+---
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="wm" viewBox={wm.viewBox}>
+    <path d={wm.d}></path>
+  </symbol>
+</svg>

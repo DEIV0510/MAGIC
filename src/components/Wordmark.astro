@@ -1,0 +1,33 @@
+---
+// Logotipo MAGIC. variant="cut": dos mitades independientes (el "truco"):
+// la superior y la inferior son SVG distintos, así se pueden mover y colorear
+// por separado y la línea de corte coincide con el borde de una foto.
+import wm from '@/data/wordmark.json';
+
+interface Props {
+  variant?: 'solid' | 'cut';
+  class?: string;
+  label?: string;
+}
+const { variant = 'solid', class: cls, label } = Astro.props;
+const W = wm.width;
+const H = wm.height;
+const C = wm.cut;
+---
+
+{
+  variant === 'solid' ? (
+    <svg class:list={['wm', cls]} viewBox={`0 0 ${W} ${H}`} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'} focusable="false">
+      <use href="#wm" width={W} height={H} />
+    </svg>
+  ) : (
+    <span class:list={['wm-cut', cls]} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'}>
+      <svg class="wm-cut__t" viewBox={`0 0 ${W} ${C}`} preserveAspectRatio="xMidYMin meet" focusable="false" aria-hidden="true">
+        <use href="#wm" width={W} height={H} />
+      </svg>
+      <svg class="wm-cut__b" viewBox={`0 ${C} ${W} ${H - C}`} preserveAspectRatio="xMidYMax meet" focusable="false" aria-hidden="true">
+        <use href="#wm" width={W} height={H} />
+      </svg>
+    </span>
+  )
+}

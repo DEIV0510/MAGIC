@@ -1,0 +1,164 @@
+---
+import '@/styles/tokens.css';
+import '@/styles/base.css';
+import '@/styles/chrome.css';
+import WordmarkSprite from '@/components/WordmarkSprite.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Dialogs from '@/components/Dialogs.astro';
+import Icon from '@/components/Icon.astro';
+import { site } from '@/data/site';
+import { products, productTag } from '@/data/products';
+import { getMedia, thumbUrl } from '@/lib/media';
+import { waLink, generalMessage } from '@/lib/whatsapp';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'product';
+  page: 'home' | 'catalog' | 'product' | 'page';
+  headerSurface?: 'clear' | 'paper';
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = site.description,
+  image = '/og/og-home.jpg',
+  imageAlt = 'MAGIC — chaquetas y buzos para hombre y mujer',
+  type = 'website',
+  page,
+  headerSurface = 'paper',
+  jsonLd = [],
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = Astro.site;
+const canonical = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : null;
+const ogImage = siteUrl ? new URL(image, siteUrl).href : image;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  description: site.description,
+  ...(siteUrl ? { url: siteUrl.href, logo: new URL('/icon-512.png', siteUrl).href } : {}),
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+57 323 898 7323',
+    contactType: 'sales',
+    availableLanguage: 'es',
+  },
+};
+
+// Índice del buscador (pequeño, sin datos inventados).
+const searchIndex = products.map((p) => {
+  const first = p.colors[0]?.images[0]?.id;
+  return {
+    s: p.slug,
+    n: p.name,
+    t: productTag(p),
+    c: p.colors.map((c) => c.label),
+    k: [p.name, p.type, p.gender ?? '', ...p.categories, ...p.colors.map((c) => c.label), ...p.details].join(' '),
+    i: first ? thumbUrl(first) : null,
+    b: first ? getMedia(first).bg : null,
+  };
+});
+---
+
+<!doctype html>
+<html lang={site.lang} data-page={page}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#f0efeb" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/mona-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <slot name="head" />
+
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        var rm = false;
+        try {
+          rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        } catch (e) {}
+        d.classList.add(rm ? 'rm' : 'mo');
+        try {
+          var c = navigator.connection;
+          var slow = c && (c.saveData || /2g/.test(c.effectiveType || ''));
+          if (d.getAttribute('data-page') === 'home' && !slow && !sessionStorage.getItem('magic:intro')) {
+            d.classList.add('intro');
+            sessionStorage.setItem('magic:intro', '1');
+          }
+        } catch (e) {}
+        // Transición entre páginas: la foto principal de la ficha recibe el nombre compartido.
+        window.addEventListener('pagereveal', function (e) {
+          if (!e.viewTransition) return;
+          var t = document.getElementById('vt-target');
+          if (!t) return;
+          t.style.viewTransitionName = 'product-hero';
+          e.viewTransition.finished.then(function () {
+            t.style.viewTransitionName = '';
+          });
+        });
+        // Red de seguridad: si main.js nunca llega, todo se muestra a los 7 s.
+        window.__magicFallback = setTimeout(function () {
+          d.classList.add('fallback-show');
+        }, 7000);
+      })();
+    </script>
+
+    <script type="speculationrules" is:inline>
+      { "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
+    </script>
+
+    <script type="application/ld+json" set:html={JSON.stringify([org, ...jsonLd])} />
+  </head>
+  <body>
+    <WordmarkSprite />
+    <a class="skip" href="#main">Saltar al contenido</a>
+    <slot name="before" />
+    <Header surface={headerSurface} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+    <Dialogs />
+    <a class="wa-float" href={waLink(generalMessage())} target="_blank" rel="noopener" aria-label="Pedir por WhatsApp" data-wa-float>
+      <span class="wa-float__icon"><Icon name="whatsapp" /></span>
+      <span class="wa-float__label" aria-hidden="true">Pedir por WhatsApp</span>
+    </a>
+    <script type="application/json" id="search-index" set:html={JSON.stringify(searchIndex)} />
+    <script>
+      import '@/scripts/main.ts';
+    </script>
+  </body>
+</html>

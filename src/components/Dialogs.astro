@@ -1,0 +1,118 @@
+---
+// Bolsa, buscador y menú móvil: <dialog> nativo (foco atrapado, Escape, fondo inerte).
+import { nav, site } from '@/data/site';
+import { collections } from '@/data/products';
+import { waLink, generalMessage } from '@/lib/whatsapp';
+import Wordmark from './Wordmark.astro';
+import Icon from './Icon.astro';
+
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => (href === '/' ? path === '/' : !href.includes('#') && path.startsWith(href));
+const quick = collections.filter((c) => c.slug !== 'coleccion');
+---
+
+<!-- Bolsa -->
+<dialog class="sheet bag" id="bag" aria-labelledby="bag-title">
+  <div class="sheet__scrim" data-close aria-hidden="true"></div>
+  <div class="bag__panel" data-tone="light">
+    <div class="bag__head">
+      <h2 class="bag__title" id="bag-title">Bolsa <span data-bag-title-count></span></h2>
+      <button class="sheet__close" type="button" data-close aria-label="Cerrar bolsa">
+        <Icon name="close" />
+      </button>
+    </div>
+    <div class="bag__body" data-lenis-prevent>
+      <ul class="bag__lines" data-bag-lines aria-live="polite"></ul>
+      <div class="bag__empty" data-bag-empty hidden>
+        <p>Tu bolsa está vacía.</p>
+        <a class="btn" href="/coleccion/" data-close-nav>
+          <span class="roll"><span>Ver colección</span><span aria-hidden="true">Ver colección</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="bag__foot" data-bag-foot>
+      <div class="bag__total">
+        <span>Total</span>
+        <span data-bag-total>Por confirmar</span>
+      </div>
+      <p class="bag__note">Precio, talla y disponibilidad se confirman por WhatsApp.</p>
+      <button class="btn btn--block" type="button" data-checkout>
+        <Icon name="whatsapp" />
+        <span class="roll"><span>Finalizar pedido</span><span aria-hidden="true">Finalizar pedido</span></span>
+      </button>
+      <button class="btn btn--ghost btn--block" type="button" data-close>
+        <span class="roll"><span>Seguir comprando</span><span aria-hidden="true">Seguir comprando</span></span>
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Buscador -->
+<dialog class="sheet search" id="search" aria-label="Buscar en la colección">
+  <div class="sheet__scrim" data-close aria-hidden="true"></div>
+  <div class="search__panel" data-tone="light">
+    <form class="search__form" role="search" data-search-form>
+      <Icon name="search" />
+      <label class="sr-only" for="search-input">Buscar prendas</label>
+      <input
+        class="search__input"
+        id="search-input"
+        type="search"
+        name="q"
+        placeholder="Chaqueta, hoodie, rojo…"
+        autocomplete="off"
+        spellcheck="false"
+        enterkeyhint="search"
+        data-search-input
+      />
+      <button class="sheet__close" type="button" data-close aria-label="Cerrar buscador">
+        <Icon name="close" />
+      </button>
+    </form>
+    <div class="search__body" data-lenis-prevent>
+      <p class="search__status t-label t-mute" data-search-status aria-live="polite">Categorías</p>
+      <div class="search__hint" data-search-hint>
+        {quick.map((c) => <a href={c.path}>{c.title}</a>)}
+        <a href="/coleccion/">Toda la colección</a>
+      </div>
+      <ul class="search__results" data-search-results></ul>
+      <div class="search__empty" data-search-empty hidden>
+        <p>No encontramos esa prenda en la colección.</p>
+        <a class="link" href={waLink(generalMessage())} target="_blank" rel="noopener">Pregúntanos por WhatsApp <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Menú móvil -->
+<dialog class="sheet menu" id="menu" aria-label="Menú">
+  <div class="menu__panel" data-tone="dark">
+    <div class="menu__top">
+      <a class="hdr__logo" href="/" aria-label="MAGIC, ir al inicio"><Wordmark /></a>
+      <button class="sheet__close" type="button" data-close aria-label="Cerrar menú">
+        <Icon name="close" />
+      </button>
+    </div>
+    <nav aria-label="Menú principal" style="flex:1;display:flex">
+      <ol class="menu__list">
+        {
+          nav.map((item, i) => (
+            <li style={`--i:${i}`}>
+              <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined} data-close-nav>
+                <span class="t-index">{String(i + 1).padStart(2, '0')}</span>
+                <span class="menu__word">{item.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+    <div class="menu__foot">
+      <a class="btn btn--red btn--block" href={waLink(generalMessage())} target="_blank" rel="noopener">
+        <Icon name="whatsapp" />
+        <span>Pedir por WhatsApp</span>
+      </a>
+      <p>WhatsApp {site.whatsapp.display}</p>
+    </div>
+  </div>
+</dialog>

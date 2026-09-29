@@ -1,0 +1,32 @@
+---
+import { site } from '@/data/site';
+import { waLink, generalMessage } from '@/lib/whatsapp';
+import Icon from '@/components/Icon.astro';
+import Wordmark from '@/components/Wordmark.astro';
+---
+
+<section class="final" id="contacto" data-tone="dark" aria-labelledby="final-title">
+  <div class="final__grid">
+    <div>
+      <p class="t-label t-mute" style="margin-bottom:22px">Contacto</p>
+      <h2 class="final__title t-display" id="final-title" data-reveal="lines">
+        <span class="ln"><span>Pídela</span></span>
+        <span class="ln" style="--l:1"><span>por WhatsApp.</span></span>
+      </h2>
+    </div>
+    <div class="final__side">
+      <p class="final__text">Te confirmamos talla, color y precio. Sin formularios.</p>
+      <div class="final__ctas">
+        <a class="btn btn--red" href={waLink(generalMessage())} target="_blank" rel="noopener">
+          <Icon name="whatsapp" />
+          <span class="roll"><span>Pedir por WhatsApp</span><span aria-hidden="true">Pedir por WhatsApp</span></span>
+        </a>
+        <a class="link" href="/coleccion/">Ver colección <Icon name="arrow" /></a>
+      </div>
+      <p class="t-label t-mute">WhatsApp {site.whatsapp.display}</p>
+    </div>
+  </div>
+  <div class="final__mark" data-progress="enter">
+    <Wordmark variant="cut" />
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import '@/styles/shop.css';
+import '@/styles/home.css';
+import Base from '@/layouts/Base.astro';
+import Loader from '@/components/home/Loader.astro';
+import Hero from '@/components/home/Hero.astro';
+import Lookbook from '@/components/home/Lookbook.astro';
+import Pieces from '@/components/home/Pieces.astro';
+import Feature from '@/components/home/Feature.astro';
+import Categories from '@/components/home/Categories.astro';
+import Proof from '@/components/home/Proof.astro';
+import FinalCta from '@/components/home/FinalCta.astro';
+import { site } from '@/data/site';
+
+const siteUrl = Astro.site;
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.name,
+  description: site.description,
+  inLanguage: site.lang,
+  ...(siteUrl ? { url: siteUrl.href } : {}),
+};
+---
+
+<Base
+  title="MAGIC · Chaquetas y buzos para hombre y mujer"
+  description="Chaquetas y buzos para hombre y mujer en tela premium de alta calidad: hoodie para hombre, chaqueta deportiva táctica, chaquetón para dama y más. Pide por WhatsApp."
+  page="home"
+  headerSurface="clear"
+  jsonLd={[website]}
+>
+  <Loader slot="before" />
+  <Hero />
+  <Lookbook />
+  <Pieces />
+  <Feature />
+  <Categories />
+  <Proof />
+  <FinalCta />
+</Base>

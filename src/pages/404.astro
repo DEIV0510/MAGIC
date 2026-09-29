@@ -1,0 +1,19 @@
+---
+import '@/styles/shop.css';
+import Base from '@/layouts/Base.astro';
+import Icon from '@/components/Icon.astro';
+---
+
+<Base title="Página no encontrada · MAGIC" description="Esta página no existe." page="page" noindex>
+  <section class="page" aria-labelledby="page-title">
+    <p class="t-label t-mute">Error 404</p>
+    <h1 class="page__title t-display" id="page-title">
+      <span class="cut" style="--shift:4%"><span>Desapareció.</span><span aria-hidden="true">Desapareció.</span></span>
+    </h1>
+    <p class="t-lead" style="max-width:32ch">Esta página no existe. La colección sigue aquí.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <a class="btn" href="/coleccion/"><span class="roll"><span>Ver colección</span><span aria-hidden="true">Ver colección</span></span></a>
+      <a class="link" href="/">Ir al inicio <Icon name="arrow" /></a>
+    </div>
+  </section>
+</Base>

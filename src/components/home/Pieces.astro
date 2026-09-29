@@ -1,0 +1,65 @@
+---
+// Piezas clave 01–06: el orden comercial del cliente con jerarquía visual
+// (01 y 04 grandes, 02 y 05 medianas, 03 y 06 tipográficas hasta tener fotos).
+import { priorityProducts, secondaryProducts, hasPhotos } from '@/data/products';
+import ProductCard from '@/components/ProductCard.astro';
+import ProductTile from '@/components/ProductTile.astro';
+import Icon from '@/components/Icon.astro';
+
+const layout: Record<number, { size: 'xl' | 'lg' | 'md'; sizes: string; tone?: 'dark' | 'light' }> = {
+  1: { size: 'xl', sizes: '(min-width: 768px) 56vw, 92vw' },
+  2: { size: 'md', sizes: '(min-width: 768px) 32vw, 92vw' },
+  3: { size: 'md', sizes: '(min-width: 768px) 38vw, 92vw', tone: 'dark' },
+  4: { size: 'lg', sizes: '(min-width: 768px) 52vw, 92vw' },
+  5: { size: 'md', sizes: '(min-width: 768px) 40vw, 92vw' },
+  6: { size: 'md', sizes: '(min-width: 768px) 38vw, 92vw', tone: 'light' },
+};
+---
+
+<section class="pieces" id="piezas" aria-labelledby="pieces-title">
+  <header class="pieces__head">
+    <div>
+      <p class="t-label t-mute" style="margin-bottom:16px">Selección — 01/06</p>
+      <h2 class="pieces__title t-display" id="pieces-title" data-reveal="lines">
+        <span class="ln"><span>Piezas</span></span>
+        <span class="ln" style="--l:1"><span>clave</span></span>
+      </h2>
+    </div>
+    <div class="pieces__side">
+      <p>Precio y tallas por WhatsApp. Eliges color, lo agregas a la bolsa y te respondemos.</p>
+      <a class="link" href="/coleccion/">Toda la colección <Icon name="arrow" /></a>
+    </div>
+  </header>
+
+  <div class="pieces__grid">
+    {
+      priorityProducts.map((p) => {
+        const l = layout[p.priority!];
+        const cls = `piece piece--${p.priority}`;
+        return hasPhotos(p) ? (
+          <ProductCard product={p} size={l.size} sizes={l.sizes} class={cls} />
+        ) : (
+          <ProductTile product={p} tone={l.tone} class={cls} />
+        );
+      })
+    }
+  </div>
+
+  {
+    secondaryProducts.length > 0 && (
+      <div class="pieces__more">
+        <div class="pieces__more-head">
+          <h3 class="pieces__more-title t-display">También en la colección</h3>
+          <a class="link" href="/coleccion/">
+            Ver todo <Icon name="arrow" />
+          </a>
+        </div>
+        <div class="pieces__more-grid">
+          {secondaryProducts.map((p) => (
+            <ProductCard product={p} size="md" sizes="(min-width: 768px) 32vw, 92vw" showIndex={false} heading="h3" />
+          ))}
+        </div>
+      </div>
+    )
+  }
+</section>

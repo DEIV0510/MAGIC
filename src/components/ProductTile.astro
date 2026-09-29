@@ -1,0 +1,91 @@
+---
+// Prenda prioritaria sin fotos todavía: nombre en tipografía + WhatsApp.
+// El nombre aparece "cortado" (recurso de marca); al pasar el cursor, se alinea.
+import type { Product } from '@/data/products';
+import { pad2, productTag } from '@/data/products';
+import { productMessage, waLink } from '@/lib/whatsapp';
+import Icon from './Icon.astro';
+
+interface Props {
+  product: Product;
+  tone?: 'dark' | 'light';
+  heading?: 'h2' | 'h3';
+  class?: string;
+  style?: string;
+  reveal?: boolean;
+}
+const { product: p, tone = 'dark', heading = 'h3', class: cls, style, reveal = true } = Astro.props;
+const Heading = heading;
+const [word = p.name, sub] = p.mark ?? [];
+const url = `/producto/${p.slug}/`;
+const single = word.length <= 4;
+---
+
+<article class:list={['card', 'tile', `tile--${tone}`, cls]} data-card data-slug={p.slug} data-reveal={reveal ? '' : undefined} style={style}>
+  <div class="card__top">
+    {p.priority && <span class="card__idx t-index">{pad2(p.priority)}</span>}
+    <span class="card__tag t-label t-mute">{productTag(p)}</span>
+  </div>
+
+  <div class="card__media">
+    <a class:list={['tile__frame', single ? 'tile__frame--wide' : 'tile__frame--stack']} href={url} tabindex="-1" aria-hidden="true" data-tone={tone}>
+      <span class="tile__words">
+        <span class="tile__word cut">
+          <span>{word}</span><span aria-hidden="true">{word}</span>
+        </span>
+        {
+          sub &&
+            (single ? (
+              <span class="tile__sub">{sub}</span>
+            ) : (
+              <span class="tile__word cut">
+                <span>{sub}</span>
+                <span aria-hidden="true">{sub}</span>
+              </span>
+            ))
+        }
+      </span>
+      <span class="tile__note">
+        <span class="t-label">Fotos por WhatsApp</span>
+        <Icon name="arrow-ur" />
+      </span>
+    </a>
+
+    <div class="card__actions">
+      <button
+        class="btn card__buy"
+        type="button"
+        data-add
+        data-open-bag
+        data-slug={p.slug}
+        data-name={p.name}
+        data-color=""
+        data-color-label=""
+        data-image=""
+        data-bg="text"
+        data-mark={word}
+        data-variant=""
+      >
+        <span class="roll"><span>Comprar</span><span aria-hidden="true">Comprar</span></span>
+        <span class="sr-only">{p.name}</span>
+      </button>
+      <a
+        class="btn btn--ghost btn--icon card__wa"
+        href={waLink(productMessage(p.name))}
+        target="_blank"
+        rel="noopener"
+        aria-label={`Pedir fotos de ${p.name} por WhatsApp`}
+      >
+        <Icon name="whatsapp" />
+      </a>
+    </div>
+  </div>
+
+  <div class="card__info">
+    <Heading class="card__name"><a href={url}>{p.name}</a></Heading>
+    <div class="card__row">
+      <p class="card__price">Precio por WhatsApp</p>
+      <p class="card__color t-mute">Colores por confirmar</p>
+    </div>
+  </div>
+</article>

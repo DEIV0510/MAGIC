@@ -1,0 +1,34 @@
+---
+// <picture> con AVIF + WebP. Los anchos del srcset salen del archivo generado
+// (media.json), nunca de lo pedido, así el navegador elige bien.
+import type { HTMLAttributes } from 'astro/types';
+import { pictureData, type MediaId } from '@/lib/media';
+
+interface Props extends Omit<HTMLAttributes<'img'>, 'src' | 'srcset' | 'width' | 'height' | 'id'> {
+  id: MediaId;
+  alt: string;
+  sizes: string;
+  priority?: boolean;
+  variant?: 'full' | 'trim';
+  domId?: string;
+}
+
+const { id, alt, sizes, priority = false, variant = 'full', loading = 'lazy', domId, ...rest } = Astro.props;
+const d = pictureData(id, variant);
+---
+
+<picture>
+  <source type="image/avif" srcset={d.avif} sizes={sizes} />
+  <source type="image/webp" srcset={d.webp} sizes={sizes} />
+  <img
+    id={domId}
+    src={d.src}
+    width={d.width}
+    height={d.height}
+    alt={alt}
+    loading={priority ? 'eager' : loading}
+    decoding="async"
+    fetchpriority={priority ? 'high' : undefined}
+    {...rest}
+  />
+</picture>

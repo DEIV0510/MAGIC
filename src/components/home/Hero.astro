@@ -1,0 +1,91 @@
+---
+// Portada: la chaqueta deportiva táctica en sus tres colores (fotos reales del
+// showroom) y el logotipo cortado justo en el borde de las fotos.
+import wm from '@/data/wordmark.json';
+import { bySlug, pad2 } from '@/data/products';
+import { waLink, generalMessage } from '@/lib/whatsapp';
+import Img from '@/components/Img.astro';
+import Icon from '@/components/Icon.astro';
+import Wordmark from '@/components/Wordmark.astro';
+
+const tactica = bySlug('chaqueta-deportiva-tactica')!;
+const panels = tactica.colors.map((c) => ({
+  color: c,
+  image: c.images.find((i) => i.view === 'puesta') ?? c.images[0],
+  href: c.id === tactica.colors[0].id ? `/producto/${tactica.slug}/` : `/producto/${tactica.slug}/?color=${c.id}`,
+}));
+const topRatio = (wm.cut / wm.width).toFixed(5);
+---
+
+<section class="hero" data-progress="hero" aria-label="Portada" data-hero>
+  <div class="hero__stage">
+    {
+      panels.map((pnl, i) => (
+        <a
+          class:list={['hero__panel', { 'is-active': i === 0 }]}
+          href={pnl.href}
+          style={`--i:${i};--speed:${[9, 15, 6][i]}`}
+          data-hero-panel
+          data-label={pnl.color.label}
+          aria-label={`${tactica.name}, color ${pnl.color.label.toLowerCase()}`}
+        >
+          <Img
+            id={pnl.image.id}
+            alt={`${tactica.name} en color ${pnl.color.label.toLowerCase()}, puesta`}
+            sizes="(min-width: 768px) 34vw, 118vw"
+            class="hero__img"
+            priority={i === 0}
+            loading="eager"
+            fetchpriority={i === 0 ? 'high' : 'low'}
+            draggable="false"
+          />
+          <span class="hero__cap t-label">
+            <span class="t-index">{pad2(i + 1)}</span>
+            <span>{pnl.color.label}</span>
+          </span>
+          <span class="hero__view" aria-hidden="true"><Icon name="arrow-ur" /></span>
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="hero__base">
+    <h1 class="hero__mark" style={`--top-ratio:${topRatio}`}>
+      <span class="sr-only">MAGIC — chaquetas y buzos para hombre y mujer</span>
+      <Wordmark variant="cut" />
+    </h1>
+
+    <div class="hero__meta">
+      <div class="hero__now">
+        <p class="t-label"><span data-hero-now>{tactica.name} — {panels[0].color.label}</span></p>
+        <div class="hero__dots" role="group" aria-label="Color de la chaqueta">
+          {
+            panels.map((pnl, i) => (
+              <button
+                class="hero__dot"
+                type="button"
+                style={`--sw:${pnl.color.swatch}`}
+                aria-label={pnl.color.label}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+                data-hero-dot={i}
+              />
+            ))
+          }
+        </div>
+      </div>
+      <div class="hero__label">
+        <span class="scrollcue t-label" aria-hidden="true"><span class="scrollcue__bar"></span>Desliza</span>
+        <p class="t-label t-mute">Colección 01 — Chaquetas y buzos · Hombre / Mujer</p>
+      </div>
+      <p class="hero__line">Capas para la ciudad.<br />Tela premium.</p>
+      <div class="hero__ctas">
+        <a class="btn" href="#coleccion">
+          <span class="roll"><span>Ver colección</span><span aria-hidden="true">Ver colección</span></span>
+        </a>
+        <a class="btn btn--ghost btn--icon" href={waLink(generalMessage())} target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+          <Icon name="whatsapp" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

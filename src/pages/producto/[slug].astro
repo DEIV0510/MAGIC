@@ -1,0 +1,271 @@
+---
+import '@/styles/shop.css';
+import fs from 'node:fs';
+import Base from '@/layouts/Base.astro';
+import Img from '@/components/Img.astro';
+import Icon from '@/components/Icon.astro';
+import ProductCard from '@/components/ProductCard.astro';
+import ProductTile from '@/components/ProductTile.astro';
+import { products, collections, hasPhotos, altFor, pad2, productTag, type Product } from '@/data/products';
+import { getMedia, thumbUrl } from '@/lib/media';
+import { productMessage, waLink } from '@/lib/whatsapp';
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+
+interface Props {
+  product: Product;
+}
+const { product: p } = Astro.props;
+const photos = hasPhotos(p);
+const c0 = p.colors[0];
+const crumb = collections.find((c) => c.slug === (p.gender ?? p.categories[0]))!;
+const [word = p.name, sub] = p.mark ?? [];
+
+// Relacionados: primero el mismo género, luego los que tienen fotos.
+const related = products
+  .filter((x) => x.slug !== p.slug)
+  .sort((a, b) => Number(b.gender === p.gender) - Number(a.gender === p.gender) || Number(hasPhotos(b)) - Number(hasPhotos(a)) || (a.priority ?? 99) - (b.priority ?? 99))
+  .slice(0, 3);
+
+const colorsText = p.colors.map((c) => c.label.toLowerCase()).join(', ').replace(/, ([^,]*)$/, ' y $1');
+const description = photos
+  ? `${p.name} de MAGIC en ${colorsText}. ${p.summary} Tela premium. Pide por WhatsApp y te confirmamos precio y talla.`
+  : `${p.name} de MAGIC. Pide fotos, colores y precio por WhatsApp.`;
+const ogPath = `/og/og-${p.slug}.jpg`;
+const ogImage = fs.existsSync(`public${ogPath}`) ? ogPath : '/og/og-home.jpg';
+
+const siteUrl = Astro.site;
+const abs = (path: string) => (siteUrl ? new URL(path, siteUrl).href : path);
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: p.name,
+  description: p.summary,
+  brand: { '@type': 'Brand', name: 'MAGIC' },
+  category: p.type,
+  ...(photos ? { image: p.colors.flatMap((c) => c.images.map((i) => abs(getMedia(i.id).fallback))), color: p.colors.map((c) => c.label).join(', ') } : {}),
+  ...(siteUrl ? { url: abs(`/producto/${p.slug}/`) } : {}),
+};
+const breadcrumbLd = siteUrl
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: abs('/') },
+        { '@type': 'ListItem', position: 2, name: crumb.title, item: abs(crumb.path) },
+        { '@type': 'ListItem', position: 3, name: p.name, item: abs(`/producto/${p.slug}/`) },
+      ],
+    }
+  : null;
+
+const buyData = photos
+  ? {
+      'data-slug': p.slug,
+      'data-name': p.name,
+      'data-color': c0.id,
+      'data-color-label': c0.label,
+      'data-image': thumbUrl(c0.images[0].id),
+      'data-bg': getMedia(c0.images[0].id).bg,
+      'data-variant': p.shopifyVariants?.[c0.id] ?? '',
+    }
+  : { 'data-slug': p.slug, 'data-name': p.name, 'data-color': '', 'data-color-label': '', 'data-image': '', 'data-bg': 'text', 'data-mark': word, 'data-variant': '' };
+const waHref = waLink(productMessage(p.name, photos ? c0.label : null));
+---
+
+<Base
+  title={`${p.name} · MAGIC`}
+  description={description}
+  image={ogImage}
+  imageAlt={p.name}
+  type="product"
+  page="product"
+  jsonLd={[productLd, ...(breadcrumbLd ? [breadcrumbLd] : [])]}
+>
+  <link slot="head" rel="expect" href="#vt-target" blocking="render" />
+
+  <article class="pdp" data-pdp data-slug={p.slug}>
+    <div class="pdp__gallery">
+      {
+        photos ? (
+          <>
+            {p.colors.map((c, ci) => (
+              <div class:list={['pdp__set', { 'is-active': ci === 0 }]} data-set={c.id} role="group" aria-label={`Fotos en color ${c.label.toLowerCase()}`}>
+                {c.images.map((img, ii) => {
+                  const studio = getMedia(img.id).bg === 'studio';
+                  const first = ci === 0 && ii === 0;
+                  return (
+                    <figure class:list={['pdp__shot', studio ? 'pdp__shot--studio' : 'on-paper']}>
+                      <Img
+                        id={img.id}
+                        alt={altFor(p, c, img)}
+                        sizes="(min-width: 1024px) 29vw, 100vw"
+                        priority={first}
+                        loading={ci === 0 ? 'eager' : 'lazy'}
+                        domId={first ? 'vt-target' : undefined}
+                        draggable="false"
+                      />
+                    </figure>
+                  );
+                })}
+              </div>
+            ))}
+            <p class="pdp__count" aria-hidden="true" data-count>
+              1 / {c0.images.length}
+            </p>
+          </>
+        ) : (
+          <div class="pdp__textframe" id="vt-target" aria-hidden="true">
+            <span class="tile__words">
+              <span class="tile__word cut" style={`font-size:${word.length <= 4 ? 31 : 25}cqw;font-stretch:${word.length <= 4 ? 125 : 75}%`}>
+                <span>{word}</span>
+                <span aria-hidden="true">{word}</span>
+              </span>
+              {sub &&
+                (word.length <= 4 ? (
+                  <span class="tile__sub">{sub}</span>
+                ) : (
+                  <span class="tile__word cut" style="font-size:25cqw;font-stretch:75%">
+                    <span>{sub}</span>
+                    <span aria-hidden="true">{sub}</span>
+                  </span>
+                ))}
+            </span>
+          </div>
+        )
+      }
+    </div>
+
+    <div class="pdp__info">
+      <nav class="crumbs" aria-label="Ruta de navegación">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li><a href={crumb.path}>{crumb.title}</a></li>
+          <li aria-current="page">{p.name}</li>
+        </ol>
+      </nav>
+
+      <div class="pdp__head">
+        <div class="pdp__idx">
+          <span class="t-index">{p.priority ? pad2(p.priority) : '—'}</span>
+          <span class="t-label t-mute">{productTag(p)}</span>
+        </div>
+        <h1 class="pdp__name t-display">{p.name}</h1>
+        <p class="pdp__price">
+          Precio por WhatsApp
+          <small>Te lo confirmamos junto con la talla.</small>
+        </p>
+        <p class="pdp__summary">{photos ? p.summary : 'Todavía no tenemos fotos publicadas de esta prenda. Escríbenos y te enviamos fotos, colores y precio.'}</p>
+      </div>
+
+      {
+        photos && (
+          <div class="pdp__field">
+            <p class="pdp__field-label" id="color-label">
+              Color: <strong data-color-name>{c0.label}</strong>
+            </p>
+            <div class="pdp__colors" role="radiogroup" aria-labelledby="color-label">
+              {p.colors.map((c, i) => (
+                <button
+                  type="button"
+                  role="radio"
+                  class="pdp__color"
+                  style={`--sw:${c.swatch}`}
+                  aria-checked={i === 0 ? 'true' : 'false'}
+                  tabindex={i === 0 ? 0 : -1}
+                  data-color-pick={c.id}
+                  data-label={c.label}
+                  data-image={thumbUrl(c.images[0].id)}
+                  data-bg={getMedia(c.images[0].id).bg}
+                  data-variant={p.shopifyVariants?.[c.id] ?? ''}
+                  data-wa={waLink(productMessage(p.name, c.label))}
+                >
+                  {c.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      <div class="pdp__field">
+        <p class="pdp__field-label">Talla</p>
+        <p class="pdp__note">{p.sizes ? p.sizes.join(' · ') : 'Te asesoramos con la talla por WhatsApp.'}</p>
+      </div>
+
+      <div class="pdp__ctas" data-main-cta>
+        <button class="btn btn--block" type="button" data-add data-open-bag {...buyData}>
+          <span class="roll"><span>Comprar ahora</span><span aria-hidden="true">Comprar ahora</span></span>
+        </button>
+        <button class="btn btn--ghost btn--block" type="button" data-add {...buyData}>
+          <span class="roll"><span>Agregar a la bolsa</span><span aria-hidden="true">Agregar a la bolsa</span></span>
+        </button>
+        <a class="link" href={waHref} target="_blank" rel="noopener" data-wa-product style="justify-self:start">
+          <Icon name="whatsapp" />
+          {photos ? '¿Dudas? Escríbenos por WhatsApp' : 'Pedir fotos por WhatsApp'}
+        </a>
+      </div>
+
+      <div class="pdp__details">
+        {
+          p.details.length > 0 && (
+            <details open>
+              <summary>
+                Detalles <Icon name="plus" />
+              </summary>
+              <div class="body">
+                <ul>
+                  {p.details.map((d) => (
+                    <li>{d}</li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          )
+        }
+        <details>
+          <summary>Tela <Icon name="plus" /></summary>
+          <div class="body"><p>Tela premium de alta calidad.</p></div>
+        </details>
+        <details>
+          <summary>Pedidos <Icon name="plus" /></summary>
+          <div class="body">
+            <p>Haces el pedido por WhatsApp y te confirmamos precio, talla y disponibilidad.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </article>
+
+  <section class="related" aria-labelledby="related-title">
+    <div class="related__head">
+      <h2 class="related__title t-display" id="related-title">También<br />en MAGIC</h2>
+      <a class="link" href="/coleccion/">Ver colección <Icon name="arrow" /></a>
+    </div>
+    <div class="related__row">
+      {
+        related.map((r) =>
+          hasPhotos(r) ? (
+            <ProductCard product={r} size="sm" sizes="(min-width: 1024px) 31vw, 76vw" reveal={false} eager />
+          ) : (
+            <ProductTile product={r} tone="dark" reveal={false} />
+          ),
+        )
+      }
+    </div>
+  </section>
+
+  <div class="buybar" data-buybar>
+    <p class="buybar__name">
+      {p.name}
+      <small data-buybar-color>{photos ? c0.label : 'Precio por WhatsApp'}</small>
+    </p>
+    <button class="btn" type="button" data-add data-open-bag {...buyData}>
+      <span class="roll"><span>Comprar</span><span aria-hidden="true">Comprar</span></span>
+    </button>
+    <a class="btn btn--ghost btn--icon" href={waHref} target="_blank" rel="noopener" aria-label={`Pedir ${p.name} por WhatsApp`} data-wa-product>
+      <Icon name="whatsapp" />
+    </a>
+  </div>
+</Base>

@@ -1,0 +1,42 @@
+---
+// Beneficios SOLO con lo que se puede comprobar: tela premium y fabricación
+// (información de la marca), cortes (visibles en las fotos), hombre/mujer
+// (catálogo) y la bodega real (fotos 1.png y 2.png de la carpeta MAGIC).
+import Img from '@/components/Img.astro';
+
+const items = [
+  { t: 'Tela premium', d: 'Telas de alta calidad en cada chaqueta y cada buzo.' },
+  { t: 'Calidad', d: 'Fabricación propia.' },
+  { t: 'Diseño', d: 'Cuellos altos, cierres asimétricos y capuchas amplias.' },
+  { t: 'Hombre / Mujer', d: 'Chaquetas y buzos para los dos.' },
+];
+---
+
+<section class="proof" aria-labelledby="proof-title">
+  <h2 class="proof__title t-display" id="proof-title" data-reveal="lines">
+    <span class="ln"><span>Sin trucos.</span></span>
+  </h2>
+  <ul class="proof__list">
+    {
+      items.map((it, i) => (
+        <li class="proof__item" data-reveal style={`--i:${i}`}>
+          <span class="t-index">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{it.t}</h3>
+          <p>{it.d}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="proof__docs">
+    <figure data-reveal="mask">
+      <Img id="bodega-1" alt="Estantería de la bodega de MAGIC con buzos empacados" sizes="(min-width: 1024px) 20vw, 46vw" />
+    </figure>
+    <figure data-reveal="mask" style="--i:1">
+      <Img id="bodega-2" alt="Bodega de MAGIC con chaquetas y buzos empacados en estantes" sizes="(min-width: 1024px) 20vw, 46vw" />
+    </figure>
+    <p class="t-label" style="grid-column:1/-1;display:flex;justify-content:space-between;gap:12px;padding-top:10px;color:var(--fg-mute)">
+      <span>Nuestra bodega</span>
+      <span>Stock propio</span>
+    </p>
+  </div>
+</section>

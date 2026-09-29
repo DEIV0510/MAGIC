@@ -1,0 +1,1264 @@
+{
+  "hoodie-hombre-negro-frente": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1321,
+    "avif": [
+      [
+        "/img/hoodie-hombre-negro-frente-480.417de7eb.avif",
+        480
+      ],
+      [
+        "/img/hoodie-hombre-negro-frente-720.9dd8ffd0.avif",
+        720
+      ],
+      [
+        "/img/hoodie-hombre-negro-frente-960.1d8a30cf.avif",
+        960
+      ],
+      [
+        "/img/hoodie-hombre-negro-frente-1080.65989cb1.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/hoodie-hombre-negro-frente-480.32147635.webp",
+        480
+      ],
+      [
+        "/img/hoodie-hombre-negro-frente-720.8bc7b038.webp",
+        720
+      ],
+      [
+        "/img/hoodie-hombre-negro-frente-960.a92a3c23.webp",
+        960
+      ],
+      [
+        "/img/hoodie-hombre-negro-frente-1080.1e192782.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/hoodie-hombre-negro-frente-1080.1e192782.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/hoodie-hombre-negro-frente-trim-480.7e3dcdb3.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/hoodie-hombre-negro-frente-trim-480.4355f50d.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 559
+    }
+  },
+  "hoodie-hombre-gris-frente": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1334,
+    "avif": [
+      [
+        "/img/hoodie-hombre-gris-frente-480.d1d11be3.avif",
+        480
+      ],
+      [
+        "/img/hoodie-hombre-gris-frente-720.8ee11e44.avif",
+        720
+      ],
+      [
+        "/img/hoodie-hombre-gris-frente-960.2ef1639c.avif",
+        960
+      ],
+      [
+        "/img/hoodie-hombre-gris-frente-1080.e47182e9.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/hoodie-hombre-gris-frente-480.6b27f9c2.webp",
+        480
+      ],
+      [
+        "/img/hoodie-hombre-gris-frente-720.b2a836bb.webp",
+        720
+      ],
+      [
+        "/img/hoodie-hombre-gris-frente-960.5e5d215e.webp",
+        960
+      ],
+      [
+        "/img/hoodie-hombre-gris-frente-1080.7c0b2a32.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/hoodie-hombre-gris-frente-1080.7c0b2a32.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/hoodie-hombre-gris-frente-trim-480.21eb15ae.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/hoodie-hombre-gris-frente-trim-480.836d6a90.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 564
+    }
+  },
+  "tactica-azul-modelo": {
+    "bg": "studio",
+    "w": 896,
+    "h": 1198,
+    "avif": [
+      [
+        "/img/tactica-azul-modelo-480.942beb21.avif",
+        480
+      ],
+      [
+        "/img/tactica-azul-modelo-720.bee6022f.avif",
+        720
+      ],
+      [
+        "/img/tactica-azul-modelo-896.e84ad2c9.avif",
+        896
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-azul-modelo-480.5066f62f.webp",
+        480
+      ],
+      [
+        "/img/tactica-azul-modelo-720.3800e7c8.webp",
+        720
+      ],
+      [
+        "/img/tactica-azul-modelo-896.4ab3c72d.webp",
+        896
+      ]
+    ],
+    "fallback": "/img/tactica-azul-modelo-896.4ab3c72d.webp"
+  },
+  "tactica-azul-frente": {
+    "bg": "studio",
+    "w": 766,
+    "h": 1024,
+    "avif": [
+      [
+        "/img/tactica-azul-frente-480.c691055b.avif",
+        480
+      ],
+      [
+        "/img/tactica-azul-frente-720.5cfff7f9.avif",
+        720
+      ],
+      [
+        "/img/tactica-azul-frente-766.31dd8605.avif",
+        766
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-azul-frente-480.c377e181.webp",
+        480
+      ],
+      [
+        "/img/tactica-azul-frente-720.63bb46b4.webp",
+        720
+      ],
+      [
+        "/img/tactica-azul-frente-766.c05ac5da.webp",
+        766
+      ]
+    ],
+    "fallback": "/img/tactica-azul-frente-766.c05ac5da.webp"
+  },
+  "tactica-azul-abierta": {
+    "bg": "studio",
+    "w": 766,
+    "h": 1024,
+    "avif": [
+      [
+        "/img/tactica-azul-abierta-480.1dd35c77.avif",
+        480
+      ],
+      [
+        "/img/tactica-azul-abierta-720.20bb0e83.avif",
+        720
+      ],
+      [
+        "/img/tactica-azul-abierta-766.ce1d23fa.avif",
+        766
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-azul-abierta-480.e7b589d6.webp",
+        480
+      ],
+      [
+        "/img/tactica-azul-abierta-720.8bda4e96.webp",
+        720
+      ],
+      [
+        "/img/tactica-azul-abierta-766.9e6ce716.webp",
+        766
+      ]
+    ],
+    "fallback": "/img/tactica-azul-abierta-766.9e6ce716.webp"
+  },
+  "tactica-rojo-modelo": {
+    "bg": "studio",
+    "w": 766,
+    "h": 1024,
+    "avif": [
+      [
+        "/img/tactica-rojo-modelo-480.a762e186.avif",
+        480
+      ],
+      [
+        "/img/tactica-rojo-modelo-720.0d70f6ef.avif",
+        720
+      ],
+      [
+        "/img/tactica-rojo-modelo-766.08298219.avif",
+        766
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-rojo-modelo-480.996f734e.webp",
+        480
+      ],
+      [
+        "/img/tactica-rojo-modelo-720.bf720e73.webp",
+        720
+      ],
+      [
+        "/img/tactica-rojo-modelo-766.307a3716.webp",
+        766
+      ]
+    ],
+    "fallback": "/img/tactica-rojo-modelo-766.307a3716.webp"
+  },
+  "tactica-rojo-frente": {
+    "bg": "studio",
+    "w": 896,
+    "h": 1198,
+    "avif": [
+      [
+        "/img/tactica-rojo-frente-480.8ff31844.avif",
+        480
+      ],
+      [
+        "/img/tactica-rojo-frente-720.368f7b78.avif",
+        720
+      ],
+      [
+        "/img/tactica-rojo-frente-896.471c2b68.avif",
+        896
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-rojo-frente-480.69676484.webp",
+        480
+      ],
+      [
+        "/img/tactica-rojo-frente-720.4b48b42d.webp",
+        720
+      ],
+      [
+        "/img/tactica-rojo-frente-896.f2b0e0eb.webp",
+        896
+      ]
+    ],
+    "fallback": "/img/tactica-rojo-frente-896.f2b0e0eb.webp"
+  },
+  "tactica-rojo-abierta": {
+    "bg": "studio",
+    "w": 766,
+    "h": 1024,
+    "avif": [
+      [
+        "/img/tactica-rojo-abierta-480.684be2d8.avif",
+        480
+      ],
+      [
+        "/img/tactica-rojo-abierta-720.44afce34.avif",
+        720
+      ],
+      [
+        "/img/tactica-rojo-abierta-766.249c2365.avif",
+        766
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-rojo-abierta-480.f7ac4307.webp",
+        480
+      ],
+      [
+        "/img/tactica-rojo-abierta-720.612fc97b.webp",
+        720
+      ],
+      [
+        "/img/tactica-rojo-abierta-766.92eced4a.webp",
+        766
+      ]
+    ],
+    "fallback": "/img/tactica-rojo-abierta-766.92eced4a.webp"
+  },
+  "tactica-negro-modelo": {
+    "bg": "studio",
+    "w": 766,
+    "h": 1024,
+    "avif": [
+      [
+        "/img/tactica-negro-modelo-480.7047f941.avif",
+        480
+      ],
+      [
+        "/img/tactica-negro-modelo-720.d30f52d4.avif",
+        720
+      ],
+      [
+        "/img/tactica-negro-modelo-766.bf3cfdd0.avif",
+        766
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-negro-modelo-480.f40ce038.webp",
+        480
+      ],
+      [
+        "/img/tactica-negro-modelo-720.b18ec65f.webp",
+        720
+      ],
+      [
+        "/img/tactica-negro-modelo-766.2751bb4f.webp",
+        766
+      ]
+    ],
+    "fallback": "/img/tactica-negro-modelo-766.2751bb4f.webp"
+  },
+  "tactica-negro-frente": {
+    "bg": "studio",
+    "w": 896,
+    "h": 1198,
+    "avif": [
+      [
+        "/img/tactica-negro-frente-480.252593d1.avif",
+        480
+      ],
+      [
+        "/img/tactica-negro-frente-720.314bf863.avif",
+        720
+      ],
+      [
+        "/img/tactica-negro-frente-896.4e478da5.avif",
+        896
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-negro-frente-480.212a796c.webp",
+        480
+      ],
+      [
+        "/img/tactica-negro-frente-720.49634d1d.webp",
+        720
+      ],
+      [
+        "/img/tactica-negro-frente-896.c5f43081.webp",
+        896
+      ]
+    ],
+    "fallback": "/img/tactica-negro-frente-896.c5f43081.webp"
+  },
+  "tactica-negro-abierta": {
+    "bg": "studio",
+    "w": 766,
+    "h": 1024,
+    "avif": [
+      [
+        "/img/tactica-negro-abierta-480.76542c61.avif",
+        480
+      ],
+      [
+        "/img/tactica-negro-abierta-720.c675343d.avif",
+        720
+      ],
+      [
+        "/img/tactica-negro-abierta-766.5323158a.avif",
+        766
+      ]
+    ],
+    "webp": [
+      [
+        "/img/tactica-negro-abierta-480.61eb029d.webp",
+        480
+      ],
+      [
+        "/img/tactica-negro-abierta-720.799db842.webp",
+        720
+      ],
+      [
+        "/img/tactica-negro-abierta-766.fa79d58a.webp",
+        766
+      ]
+    ],
+    "fallback": "/img/tactica-negro-abierta-766.fa79d58a.webp"
+  },
+  "chaqueton-negro-frente": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1344,
+    "avif": [
+      [
+        "/img/chaqueton-negro-frente-480.75b07ded.avif",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-frente-720.6db65bdf.avif",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-frente-960.fda8551c.avif",
+        960
+      ],
+      [
+        "/img/chaqueton-negro-frente-1080.5378d211.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/chaqueton-negro-frente-480.c25038b2.webp",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-frente-720.be142dc8.webp",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-frente-960.95c235ef.webp",
+        960
+      ],
+      [
+        "/img/chaqueton-negro-frente-1080.beae7ba2.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/chaqueton-negro-frente-1080.beae7ba2.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/chaqueton-negro-frente-trim-480.fbf801ee.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/chaqueton-negro-frente-trim-480.289a8e1d.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 926
+    }
+  },
+  "chaqueton-negro-frente-2": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1345,
+    "avif": [
+      [
+        "/img/chaqueton-negro-frente-2-480.7fd60d4c.avif",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-frente-2-720.b411c849.avif",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-frente-2-960.c9c5ad0a.avif",
+        960
+      ],
+      [
+        "/img/chaqueton-negro-frente-2-1080.008afe44.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/chaqueton-negro-frente-2-480.5dc4d825.webp",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-frente-2-720.93056539.webp",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-frente-2-960.de248e28.webp",
+        960
+      ],
+      [
+        "/img/chaqueton-negro-frente-2-1080.9fa38f0c.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/chaqueton-negro-frente-2-1080.9fa38f0c.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/chaqueton-negro-frente-2-trim-480.3ab816f2.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/chaqueton-negro-frente-2-trim-480.b638799d.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 1022
+    }
+  },
+  "chaqueton-negro-cuello": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1343,
+    "avif": [
+      [
+        "/img/chaqueton-negro-cuello-480.c6aed913.avif",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-cuello-720.a1e5cf74.avif",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-cuello-960.6ab0be7b.avif",
+        960
+      ],
+      [
+        "/img/chaqueton-negro-cuello-1080.614f7bd9.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/chaqueton-negro-cuello-480.a864f74c.webp",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-cuello-720.a605a103.webp",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-cuello-960.c3bcf18a.webp",
+        960
+      ],
+      [
+        "/img/chaqueton-negro-cuello-1080.53014de6.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/chaqueton-negro-cuello-1080.53014de6.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/chaqueton-negro-cuello-trim-480.0ca92e09.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/chaqueton-negro-cuello-trim-480.4cddf6ad.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 974
+    }
+  },
+  "chaqueton-negro-espalda": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1345,
+    "avif": [
+      [
+        "/img/chaqueton-negro-espalda-480.00031a51.avif",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-espalda-720.545c1261.avif",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-espalda-960.46c07b7d.avif",
+        960
+      ],
+      [
+        "/img/chaqueton-negro-espalda-1080.6f48c567.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/chaqueton-negro-espalda-480.70f45230.webp",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-espalda-720.f1220eae.webp",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-espalda-960.bb31b491.webp",
+        960
+      ],
+      [
+        "/img/chaqueton-negro-espalda-1080.71d675c3.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/chaqueton-negro-espalda-1080.71d675c3.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/chaqueton-negro-espalda-trim-480.a18baab4.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/chaqueton-negro-espalda-trim-480.8c0a76ae.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 702
+    }
+  },
+  "casual-negro-frente": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1332,
+    "avif": [
+      [
+        "/img/casual-negro-frente-480.8e384d8c.avif",
+        480
+      ],
+      [
+        "/img/casual-negro-frente-720.12cda588.avif",
+        720
+      ],
+      [
+        "/img/casual-negro-frente-960.daa91070.avif",
+        960
+      ],
+      [
+        "/img/casual-negro-frente-1080.23345275.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/casual-negro-frente-480.99c2cd3c.webp",
+        480
+      ],
+      [
+        "/img/casual-negro-frente-720.295680ac.webp",
+        720
+      ],
+      [
+        "/img/casual-negro-frente-960.f460bc16.webp",
+        960
+      ],
+      [
+        "/img/casual-negro-frente-1080.ec29988f.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/casual-negro-frente-1080.ec29988f.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/casual-negro-frente-trim-480.a167d52b.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/casual-negro-frente-trim-480.fad92e3c.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 579
+    }
+  },
+  "casual-negro-lado": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1335,
+    "avif": [
+      [
+        "/img/casual-negro-lado-480.adca3ed7.avif",
+        480
+      ],
+      [
+        "/img/casual-negro-lado-720.95441ce4.avif",
+        720
+      ],
+      [
+        "/img/casual-negro-lado-960.bab1f3c8.avif",
+        960
+      ],
+      [
+        "/img/casual-negro-lado-1080.d3cef630.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/casual-negro-lado-480.1ae02ca7.webp",
+        480
+      ],
+      [
+        "/img/casual-negro-lado-720.7d19098b.webp",
+        720
+      ],
+      [
+        "/img/casual-negro-lado-960.fe997286.webp",
+        960
+      ],
+      [
+        "/img/casual-negro-lado-1080.5758637c.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/casual-negro-lado-1080.5758637c.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/casual-negro-lado-trim-480.c1bc4606.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/casual-negro-lado-trim-480.e35165f9.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 629
+    }
+  },
+  "casual-rojo-lado": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1340,
+    "avif": [
+      [
+        "/img/casual-rojo-lado-480.689ff178.avif",
+        480
+      ],
+      [
+        "/img/casual-rojo-lado-720.ce6567f2.avif",
+        720
+      ],
+      [
+        "/img/casual-rojo-lado-960.e69cd553.avif",
+        960
+      ],
+      [
+        "/img/casual-rojo-lado-1080.93b335f6.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/casual-rojo-lado-480.282cf892.webp",
+        480
+      ],
+      [
+        "/img/casual-rojo-lado-720.0fba0908.webp",
+        720
+      ],
+      [
+        "/img/casual-rojo-lado-960.e9b98df4.webp",
+        960
+      ],
+      [
+        "/img/casual-rojo-lado-1080.6be926d8.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/casual-rojo-lado-1080.6be926d8.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/casual-rojo-lado-trim-480.6f261942.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/casual-rojo-lado-trim-480.065b088c.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 632
+    }
+  },
+  "casual-rojo-espalda": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1340,
+    "avif": [
+      [
+        "/img/casual-rojo-espalda-480.f4a85563.avif",
+        480
+      ],
+      [
+        "/img/casual-rojo-espalda-720.66c9ef16.avif",
+        720
+      ],
+      [
+        "/img/casual-rojo-espalda-960.0e1b744c.avif",
+        960
+      ],
+      [
+        "/img/casual-rojo-espalda-1080.9ddee040.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/casual-rojo-espalda-480.c9c30bde.webp",
+        480
+      ],
+      [
+        "/img/casual-rojo-espalda-720.5ce111c9.webp",
+        720
+      ],
+      [
+        "/img/casual-rojo-espalda-960.835fc615.webp",
+        960
+      ],
+      [
+        "/img/casual-rojo-espalda-1080.d85750b8.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/casual-rojo-espalda-1080.d85750b8.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/casual-rojo-espalda-trim-480.13f50c04.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/casual-rojo-espalda-trim-480.04c00b3d.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 599
+    }
+  },
+  "casual-azul-lado": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1343,
+    "avif": [
+      [
+        "/img/casual-azul-lado-480.9c6c9056.avif",
+        480
+      ],
+      [
+        "/img/casual-azul-lado-720.638cbc5c.avif",
+        720
+      ],
+      [
+        "/img/casual-azul-lado-960.8b9f0f1a.avif",
+        960
+      ],
+      [
+        "/img/casual-azul-lado-1080.1e367634.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/casual-azul-lado-480.66828b5a.webp",
+        480
+      ],
+      [
+        "/img/casual-azul-lado-720.7bdd3ed6.webp",
+        720
+      ],
+      [
+        "/img/casual-azul-lado-960.b7b08122.webp",
+        960
+      ],
+      [
+        "/img/casual-azul-lado-1080.4eac58e3.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/casual-azul-lado-1080.4eac58e3.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/casual-azul-lado-trim-480.39f246f8.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/casual-azul-lado-trim-480.a8193279.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 639
+    }
+  },
+  "buzo-largo-gris-frente": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1074,
+    "avif": [
+      [
+        "/img/buzo-largo-gris-frente-480.3a59e20a.avif",
+        480
+      ],
+      [
+        "/img/buzo-largo-gris-frente-720.32f034f1.avif",
+        720
+      ],
+      [
+        "/img/buzo-largo-gris-frente-960.f321b0dd.avif",
+        960
+      ],
+      [
+        "/img/buzo-largo-gris-frente-1080.9e01bfb6.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/buzo-largo-gris-frente-480.22809803.webp",
+        480
+      ],
+      [
+        "/img/buzo-largo-gris-frente-720.dc44d667.webp",
+        720
+      ],
+      [
+        "/img/buzo-largo-gris-frente-960.4c382507.webp",
+        960
+      ],
+      [
+        "/img/buzo-largo-gris-frente-1080.ba2b8ab9.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/buzo-largo-gris-frente-1080.ba2b8ab9.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/buzo-largo-gris-frente-trim-480.70978bc3.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/buzo-largo-gris-frente-trim-480.46b9fdb7.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 759
+    }
+  },
+  "buzo-largo-gris-espalda": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1071,
+    "avif": [
+      [
+        "/img/buzo-largo-gris-espalda-480.88e3c424.avif",
+        480
+      ],
+      [
+        "/img/buzo-largo-gris-espalda-720.3ae589dd.avif",
+        720
+      ],
+      [
+        "/img/buzo-largo-gris-espalda-960.c9f2a0d1.avif",
+        960
+      ],
+      [
+        "/img/buzo-largo-gris-espalda-1080.e3e47598.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/buzo-largo-gris-espalda-480.258c622c.webp",
+        480
+      ],
+      [
+        "/img/buzo-largo-gris-espalda-720.34e55f0a.webp",
+        720
+      ],
+      [
+        "/img/buzo-largo-gris-espalda-960.f259c697.webp",
+        960
+      ],
+      [
+        "/img/buzo-largo-gris-espalda-1080.63cdc36c.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/buzo-largo-gris-espalda-1080.63cdc36c.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/buzo-largo-gris-espalda-trim-480.71ac6650.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/buzo-largo-gris-espalda-trim-480.301ed592.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 785
+    }
+  },
+  "buzo-largo-negro-frente": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1075,
+    "avif": [
+      [
+        "/img/buzo-largo-negro-frente-480.d638e246.avif",
+        480
+      ],
+      [
+        "/img/buzo-largo-negro-frente-720.1338664b.avif",
+        720
+      ],
+      [
+        "/img/buzo-largo-negro-frente-960.e0eca956.avif",
+        960
+      ],
+      [
+        "/img/buzo-largo-negro-frente-1080.da71a6fa.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/buzo-largo-negro-frente-480.99424dd0.webp",
+        480
+      ],
+      [
+        "/img/buzo-largo-negro-frente-720.7338ea05.webp",
+        720
+      ],
+      [
+        "/img/buzo-largo-negro-frente-960.2707dd5d.webp",
+        960
+      ],
+      [
+        "/img/buzo-largo-negro-frente-1080.2166cd68.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/buzo-largo-negro-frente-1080.2166cd68.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/buzo-largo-negro-frente-trim-480.682ff324.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/buzo-largo-negro-frente-trim-480.bdab9a66.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 745
+    }
+  },
+  "buzo-largo-negro-espalda": {
+    "bg": "white",
+    "w": 1080,
+    "h": 1074,
+    "avif": [
+      [
+        "/img/buzo-largo-negro-espalda-480.36b7e71a.avif",
+        480
+      ],
+      [
+        "/img/buzo-largo-negro-espalda-720.3f56d879.avif",
+        720
+      ],
+      [
+        "/img/buzo-largo-negro-espalda-960.d5e3829d.avif",
+        960
+      ],
+      [
+        "/img/buzo-largo-negro-espalda-1080.35496c97.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/buzo-largo-negro-espalda-480.b1bb0b98.webp",
+        480
+      ],
+      [
+        "/img/buzo-largo-negro-espalda-720.e6ce79c7.webp",
+        720
+      ],
+      [
+        "/img/buzo-largo-negro-espalda-960.51840145.webp",
+        960
+      ],
+      [
+        "/img/buzo-largo-negro-espalda-1080.35c6b099.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/buzo-largo-negro-espalda-1080.35c6b099.webp",
+    "trim": {
+      "avif": [
+        [
+          "/img/buzo-largo-negro-espalda-trim-480.a79ef014.avif",
+          480
+        ]
+      ],
+      "webp": [
+        [
+          "/img/buzo-largo-negro-espalda-trim-480.5e335fbd.webp",
+          480
+        ]
+      ],
+      "w": 480,
+      "h": 708
+    }
+  },
+  "bodega-1": {
+    "bg": "doc",
+    "w": 545,
+    "h": 716,
+    "avif": [
+      [
+        "/img/bodega-1-360.6b77d055.avif",
+        360
+      ],
+      [
+        "/img/bodega-1-545.5cee0044.avif",
+        545
+      ]
+    ],
+    "webp": [
+      [
+        "/img/bodega-1-360.04e15ac1.webp",
+        360
+      ],
+      [
+        "/img/bodega-1-545.6e4127fe.webp",
+        545
+      ]
+    ],
+    "fallback": "/img/bodega-1-545.6e4127fe.webp"
+  },
+  "bodega-2": {
+    "bg": "doc",
+    "w": 540,
+    "h": 717,
+    "avif": [
+      [
+        "/img/bodega-2-360.b5de5564.avif",
+        360
+      ],
+      [
+        "/img/bodega-2-540.81606e28.avif",
+        540
+      ]
+    ],
+    "webp": [
+      [
+        "/img/bodega-2-360.676c2b64.webp",
+        360
+      ],
+      [
+        "/img/bodega-2-540.06a65ca3.webp",
+        540
+      ]
+    ],
+    "fallback": "/img/bodega-2-540.06a65ca3.webp"
+  },
+  "chaqueton-negro-frente-cut": {
+    "bg": "cutout",
+    "w": 1080,
+    "h": 1344,
+    "avif": [
+      [
+        "/img/chaqueton-negro-frente-cut-480.dd53bebb.avif",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-frente-cut-720.ad970888.avif",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-frente-cut-1080.4e816b0d.avif",
+        1080
+      ]
+    ],
+    "webp": [
+      [
+        "/img/chaqueton-negro-frente-cut-480.89ad9564.webp",
+        480
+      ],
+      [
+        "/img/chaqueton-negro-frente-cut-720.1d628c3a.webp",
+        720
+      ],
+      [
+        "/img/chaqueton-negro-frente-cut-1080.213c8af2.webp",
+        1080
+      ]
+    ],
+    "fallback": "/img/chaqueton-negro-frente-cut-1080.213c8af2.webp"
+  }
+}

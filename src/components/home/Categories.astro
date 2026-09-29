@@ -1,0 +1,51 @@
+---
+// Categorías como índice tipográfico. Al pasar el cursor la palabra se ensancha
+// (eje de ancho de Mona Sans) y una foto real la sigue. En táctil: miniatura fija.
+import { collections, products, pad2 } from '@/data/products';
+import { getMedia } from '@/lib/media';
+import Img from '@/components/Img.astro';
+import Icon from '@/components/Icon.astro';
+
+const order = ['hombre', 'mujer', 'chaquetas', 'buzos', 'coleccion'];
+const rows = order.map((slug) => {
+  const c = collections.find((x) => x.slug === slug)!;
+  return { ...c, count: products.filter(c.filter).length, bg: getMedia(c.preview).bg };
+});
+---
+
+<section class="cats" aria-labelledby="cats-title" data-cats>
+  <div class="cats__head">
+    <h2 class="t-label" id="cats-title">Categorías</h2>
+    <p class="t-label t-mute">{pad2(rows.length)}</p>
+  </div>
+  <ul class="cats__list">
+    {
+      rows.map((r, i) => (
+        <li data-reveal style={`--i:${i}`}>
+          <a class="cat" href={r.path} data-cat={r.slug}>
+            <span class="cat__main">
+              <span class="cat__idx t-index">{pad2(i + 1)}</span>
+              <span class="cat__name">{r.title}</span>
+              <span class="cat__count t-index">({pad2(r.count)})</span>
+            </span>
+            <span class="cat__side">
+              <span class:list={['cat__thumb', r.bg === 'studio' ? 'cat__thumb--studio' : 'on-paper']}>
+                <Img id={r.preview} alt="" sizes="76px" loading="lazy" />
+              </span>
+              <Icon name="arrow" class="cat__arrow" />
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="cats__float" aria-hidden="true" data-cats-float>
+    {
+      rows.map((r) => (
+        <span data-float={r.slug} data-bg={r.bg}>
+          <Img id={r.preview} alt="" sizes="280px" loading="lazy" />
+        </span>
+      ))
+    }
+  </div>
+</section>

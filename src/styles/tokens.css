@@ -1,0 +1,88 @@
+/* MAGIC — tokens de diseño.
+   Papel hueso + tinta + el rojo de las propias chaquetas. Una sola familia
+   tipográfica (Mona Sans) jugando con su eje de ancho: 75 % condensada para
+   titulares, 125 % expandida para la marca. Esquinas rectas en todo. */
+
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('/fonts/mona-sans-latin.woff2') format('woff2');
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Respaldo métrico para que el cambio de fuente mueva lo mínimo. */
+@font-face {
+  font-family: 'Mona Fallback';
+  src: local('Arial');
+  size-adjust: 104%;
+  ascent-override: 96%;
+  descent-override: 26%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --paper: #f0efeb;
+  --paper-2: #e6e5e0;
+  --paper-3: #d9d8d2;
+  --ink: #0d0d0d;
+  --ink-2: #1a1a1a;
+  --mute: #5c5b57;
+  --mute-dark: #a3a29d;
+  --red: #b0161f;
+  --red-light: #ef5a5f;
+  --studio: #c9c8c3;
+
+  /* Semánticos (cambian por superficie) */
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --fg-mute: var(--mute);
+  --line: rgba(13, 13, 13, 0.14);
+  --line-strong: rgba(13, 13, 13, 0.32);
+  --accent: var(--red);
+
+  --font: 'Mona Sans', 'Mona Fallback', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+
+  --m: clamp(16px, 3.4vw, 48px);
+  --g: clamp(12px, 1.7vw, 24px);
+  --header-h: 56px;
+  --section: clamp(80px, 11vw, 176px);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+
+  --z-base: 1;
+  --z-float: 40;
+  --z-header: 50;
+  --z-dialog: 90;
+  --z-loader: 100;
+
+  color-scheme: light;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 64px;
+  }
+}
+
+[data-tone='dark'] {
+  --bg: var(--ink);
+  --fg: var(--paper);
+  --fg-mute: var(--mute-dark);
+  --line: rgba(240, 239, 235, 0.16);
+  --line-strong: rgba(240, 239, 235, 0.36);
+  --accent: var(--red-light);
+  color-scheme: dark;
+}
+
+[data-tone='light'] {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --fg-mute: var(--mute);
+  --line: rgba(13, 13, 13, 0.14);
+  --line-strong: rgba(13, 13, 13, 0.32);
+  --accent: var(--red);
+}

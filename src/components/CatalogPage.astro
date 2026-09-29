@@ -1,0 +1,91 @@
+---
+import '@/styles/shop.css';
+import Base from '@/layouts/Base.astro';
+import ProductCard from './ProductCard.astro';
+import ProductTile from './ProductTile.astro';
+import Icon from './Icon.astro';
+import { collections, products, hasPhotos, pad2 } from '@/data/products';
+import { waLink, generalMessage } from '@/lib/whatsapp';
+
+interface Props {
+  slug: string;
+}
+const def = collections.find((c) => c.slug === Astro.props.slug)!;
+const list = products.filter(def.filter).sort((a, b) => (a.priority ?? 99) - (b.priority ?? 99));
+const filterOrder = ['coleccion', 'hombre', 'mujer', 'chaquetas', 'buzos'];
+const filters = filterOrder.map((s) => collections.find((c) => c.slug === s)!);
+const label = (slug: string, title: string) => (slug === 'coleccion' ? 'Todo' : title);
+
+const siteUrl = Astro.site;
+const itemList = siteUrl
+  ? [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: def.title,
+        itemListElement: list.map((p, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: new URL(`/producto/${p.slug}/`, siteUrl).href,
+          name: p.name,
+        })),
+      },
+    ]
+  : [];
+---
+
+<Base title={`${def.title} · MAGIC`} description={def.description} page="catalog" jsonLd={itemList}>
+  <section class="catalog" aria-labelledby="catalog-title">
+    <header class="catalog__head">
+      <nav class="crumbs" aria-label="Ruta de navegación">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li aria-current="page">{def.title}</li>
+        </ol>
+      </nav>
+      <div class="catalog__title-row">
+        <h1 class="catalog__title t-display" id="catalog-title" data-reveal="lines">
+          <span class="ln"><span>{def.heading}</span></span>
+        </h1>
+        <p class="catalog__count t-label t-mute">{pad2(list.length)} {list.length === 1 ? 'prenda' : 'prendas'}</p>
+      </div>
+      <p class="catalog__lead">{def.description}</p>
+      <nav class="filters" aria-label="Categorías">
+        {
+          filters.map((f) => (
+            <a href={f.path} aria-current={f.slug === def.slug ? 'page' : undefined}>
+              {label(f.slug, f.title)}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+
+    <div class="catalog__grid">
+      {
+        list.map((p, i) =>
+          hasPhotos(p) ? (
+            <ProductCard
+              product={p}
+              size="md"
+              sizes="(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw"
+              heading="h2"
+              eager={i < 2}
+              style={`--i:${i % 3}`}
+            />
+          ) : (
+            <ProductTile product={p} tone={p.priority === 3 ? 'dark' : 'light'} heading="h2" style={`--i:${i % 3}`} />
+          ),
+        )
+      }
+    </div>
+
+    <div class="catalog__cta">
+      <p class="t-lead">¿Dudas con la talla o el color? Escríbenos.</p>
+      <a class="btn btn--red" href={waLink(generalMessage())} target="_blank" rel="noopener">
+        <Icon name="whatsapp" />
+        <span class="roll"><span>Pedir por WhatsApp</span><span aria-hidden="true">Pedir por WhatsApp</span></span>
+      </a>
+    </div>
+  </section>
+</Base>

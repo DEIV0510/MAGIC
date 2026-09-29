@@ -1,0 +1,38 @@
+---
+// Solo describe cómo funciona ESTE sitio. No incluye condiciones comerciales
+// (cambios, garantías, envíos) porque la marca aún no las ha entregado.
+import '@/styles/shop.css';
+import Base from '@/layouts/Base.astro';
+import { site } from '@/data/site';
+import { waLink, generalMessage } from '@/lib/whatsapp';
+---
+
+<Base title="Políticas · MAGIC" description="Cómo funcionan los pedidos y qué datos usa el sitio de MAGIC." page="page">
+  <section class="page" aria-labelledby="page-title">
+    <nav class="crumbs" aria-label="Ruta de navegación">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li aria-current="page">Políticas</li>
+      </ol>
+    </nav>
+    <h1 class="page__title t-display" id="page-title">Políticas</h1>
+    <div class="prose">
+      <h2>Pedidos</h2>
+      <p>
+        Los pedidos se hacen por WhatsApp al <a href={waLink(generalMessage())} target="_blank" rel="noopener">{site.whatsapp.display}</a>. La bolsa
+        del sitio arma el mensaje con las prendas y los colores que elegiste; el precio, la talla y la disponibilidad se confirman en esa
+        conversación.
+      </p>
+      <p>Las condiciones de pago, cambios y entregas te las indicamos por WhatsApp antes de cerrar el pedido.</p>
+
+      <h2>Datos y privacidad</h2>
+      <ul>
+        <li>El sitio no tiene formularios ni cuentas de usuario y no pide datos personales.</li>
+        <li>La bolsa se guarda solo en tu navegador (almacenamiento local) para que no se pierda al recargar. Puedes vaciarla cuando quieras.</li>
+        <li>No usamos cookies de publicidad ni de seguimiento.</li>
+        <li>Al tocar un botón de WhatsApp sales de este sitio; esa conversación se rige por las condiciones de WhatsApp.</li>
+      </ul>
+      <p>En Colombia, el tratamiento de datos personales se rige por la Ley 1581 de 2012.</p>
+    </div>
+  </section>
+</Base>
