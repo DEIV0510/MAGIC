@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
-// SITE_URL se define al publicar (p. ej. https://magic.vercel.app) para que
-// canonical, Open Graph y el sitemap salgan con URL absoluta.
-const site = process.env.SITE_URL || undefined;
+// Dominio público: canonical, Open Graph y sitemap salen con URL absoluta.
+// Con dominio propio, cambiarlo aquí o definir SITE_URL.
+const site = process.env.SITE_URL || 'https://magic-tienda.vercel.app';
 
 export default defineConfig({
   site,

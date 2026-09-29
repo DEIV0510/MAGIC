@@ -43,8 +43,7 @@ favicon e imágenes para compartir (`public/og/`).
   solo con su nombre y botón de WhatsApp).
 - Redes sociales (Instagram, TikTok…).
 - Condiciones de pago, cambios y envíos, si se quieren publicar.
-- Dominio: al publicar, definir `SITE_URL` para que canonical, Open Graph y sitemap
-  salgan con URL absoluta.
+- Dominio propio (si lo compran): cambiarlo en `astro.config.mjs` (hoy https://magic-tienda.vercel.app).
 
 ## Estructura
 

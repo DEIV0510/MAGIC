@@ -24,5 +24,8 @@
     "opentype.js": "^2.0.0",
     "subset-font": "^2.9.0",
     "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
