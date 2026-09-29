@@ -11,6 +11,10 @@ import Categories from '@/components/home/Categories.astro';
 import Proof from '@/components/home/Proof.astro';
 import FinalCta from '@/components/home/FinalCta.astro';
 import { site } from '@/data/site';
+import { pictureData } from '@/lib/media';
+
+// Foto del LCP (primer panel del héroe): se pide antes que el CSS en línea.
+const lcp = pictureData('tactica-azul-modelo');
 
 const siteUrl = Astro.site;
 const website = {
@@ -30,6 +34,7 @@ const website = {
   headerSurface="clear"
   jsonLd={[website]}
 >
+  <link slot="head" rel="preload" as="image" type="image/avif" imagesrcset={lcp.avif} imagesizes="(min-width: 768px) 34vw, 118vw" fetchpriority="high" />
   <Loader slot="before" />
   <Hero />
   <Lookbook />

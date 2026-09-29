@@ -55,6 +55,14 @@ async function master(entry) {
     const gain = med.map((m) => Math.min(1.03, 255 / Math.max(m, 240)));
     if (gain.some((g) => g > 1.001)) img = sharp(await img.clone().linear(gain, [0, 0, 0]).png().toBuffer());
     entry._wb = med.join(',');
+    // Fondo limpio: casi-blancos (ruido de compresión, sobre todo en los bordes)
+    // → blanco puro. Las prendas son oscuras/rojas/azules: no se tocan.
+    const raw = await img.clone().removeAlpha().raw().toBuffer({ resolveWithObject: true });
+    const px = raw.data;
+    for (let i = 0; i < px.length; i += 3) {
+      if (px[i] >= 246 && px[i + 1] >= 246 && px[i + 2] >= 246) px[i] = px[i + 1] = px[i + 2] = 255;
+    }
+    img = sharp(px, { raw: { width: raw.info.width, height: raw.info.height, channels: 3 } });
   }
   // Materializar para que las variantes partan del mismo buffer recortado.
   const buf = await img.png().toBuffer();

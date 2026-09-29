@@ -50,6 +50,7 @@ const layout: Record<number, { size: 'xl' | 'lg' | 'md'; sizes: string; tone?: '
       <div class="pieces__more">
         <div class="pieces__more-head">
           <h3 class="pieces__more-title t-display">También en la colección</h3>
+          <p class="pieces__more-text">{secondaryProducts.map((p) => `${p.name}: ${p.summary.charAt(0).toLowerCase()}${p.summary.slice(1)}`).join(' ')}</p>
           <a class="link" href="/coleccion/">
             Ver todo <Icon name="arrow" />
           </a>

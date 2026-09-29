@@ -1,3 +1,5 @@
+import { rafThrottle } from './env';
+
 // Ficha de producto: selector de color (radio accesible), galería deslizable
 // con contador, color desde ?color= y barra de compra fija en móvil.
 export function initPdp() {
@@ -73,15 +75,22 @@ export function initPdp() {
   sets.forEach((s) => s.addEventListener('scroll', updateCount, { passive: true }));
   updateCount();
 
-  // Barra fija: aparece cuando los botones principales salen de la pantalla.
+  // Barra fija: aparece cuando los botones principales quedaron por encima de la
+  // pantalla. Se mide en cada scroll (un IntersectionObserver no avisa si un salto
+  // —ancla, volver atrás— pasa el elemento de abajo a arriba sin cruzar la vista).
   const bar = document.querySelector<HTMLElement>('[data-buybar]');
   const main = pdp.querySelector<HTMLElement>('[data-main-cta]');
-  if (bar && main && 'IntersectionObserver' in window) {
-    bar.inert = true;
-    new IntersectionObserver(([e]) => {
-      const show = !e.isIntersecting && e.boundingClientRect.top < 0;
+  if (bar && main) {
+    let shown: boolean | null = null;
+    const check = () => {
+      const show = main.getBoundingClientRect().bottom < 0;
+      if (show === shown) return;
+      shown = show;
       bar.classList.toggle('is-visible', show);
       bar.inert = !show;
-    }).observe(main);
+    };
+    window.addEventListener('scroll', rafThrottle(check), { passive: true });
+    window.addEventListener('resize', rafThrottle(check), { passive: true });
+    check();
   }
 }

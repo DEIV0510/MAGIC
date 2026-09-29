@@ -35,6 +35,9 @@ const altImage = (c: ProductColor) => {
   return next && next.id !== c.id ? next.images[0] : null;
 };
 const variant = (c: ProductColor) => p.shopifyVariants?.[c.id] ?? '';
+// Proporción real de la foto principal (en móvil el marco se ajusta a ella).
+const firstMeta = getMedia(active.images[0].id);
+const ratio = Math.max(0.74, Math.min(1, firstMeta.w / firstMeta.h)).toFixed(3);
 ---
 
 <article
@@ -53,6 +56,7 @@ const variant = (c: ProductColor) => p.shopifyVariants?.[c.id] ?? '';
   <div class="card__media" data-card-media>
     <a
       class:list={['card__frame', isStudio ? 'card__frame--studio' : 'on-paper']}
+      style={`--ar:${ratio}`}
       href={productUrl(active)}
       tabindex="-1"
       aria-hidden="true"
@@ -63,7 +67,7 @@ const variant = (c: ProductColor) => p.shopifyVariants?.[c.id] ?? '';
           const alt = altImage(c);
           const isActive = c.id === active.id;
           return (
-            <span class:list={['card__layer', { 'is-active': isActive }]} data-layer={c.id}>
+            <span class:list={['card__layer', { 'is-active': isActive, 'card__layer--alt': Boolean(alt) }]} data-layer={c.id}>
               <Img
                 id={c.images[0].id}
                 alt={altFor(p, c, c.images[0])}

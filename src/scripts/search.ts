@@ -8,6 +8,8 @@ interface Entry {
   k: string;
   i: string | null;
   b: string | null;
+  /** Colores: id, etiqueta, miniatura, fondo y si es el color principal. */
+  v: { id: string; l: string; i: string; b: string; d: boolean }[];
 }
 
 const norm = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
@@ -75,14 +77,17 @@ export function initSearch() {
     if (status) status.textContent = found.length ? `${found.length} ${found.length === 1 ? 'resultado' : 'resultados'}` : 'Sin resultados';
 
     for (const e of found) {
+      // Si la búsqueda nombra un color, se muestra y enlaza ese color.
+      const hit = e.v.find((c) => terms.some((t) => norm(c.l).includes(t)));
+      const thumb = hit ?? (e.i ? { i: e.i, b: e.b ?? '' } : null);
       const li = document.createElement('li');
       const a = document.createElement('a');
-      a.href = `/producto/${e.s}/`;
+      a.href = hit && !hit.d ? `/producto/${e.s}/?color=${hit.id}` : `/producto/${e.s}/`;
       const th = document.createElement('span');
-      th.className = `search__thumb${e.b === 'studio' ? ' search__thumb--studio' : ''}${!e.i ? ' search__thumb--text' : ''}`;
-      if (e.i) {
+      th.className = `search__thumb${thumb?.b === 'studio' ? ' search__thumb--studio' : ''}${!thumb ? ' search__thumb--text' : ''}`;
+      if (thumb) {
         const img = document.createElement('img');
-        img.src = e.i;
+        img.src = thumb.i;
         img.alt = '';
         img.width = 56;
         img.height = 70;

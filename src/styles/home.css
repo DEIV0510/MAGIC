@@ -503,13 +503,11 @@
   padding-top: var(--section);
 }
 
-.look.look__intro {
+.lookbook__intro {
   display: grid;
-  flex: 0 0 auto;
-  width: min(80vw, 420px);
-  gap: 20px;
-  align-content: center;
-  padding-right: 12px;
+  gap: 18px;
+  padding: 0 var(--m);
+  margin-bottom: 32px;
 }
 
 .lookbook__title {
@@ -584,7 +582,7 @@
 
 .look {
   flex: 0 0 auto;
-  width: min(78vw, 420px);
+  width: min(72vw, 420px);
   scroll-snap-align: start;
   display: grid;
   gap: 12px;
@@ -693,7 +691,7 @@
   overflow: visible;
   align-items: center;
   gap: clamp(28px, 3.6vw, 64px);
-  padding: calc(var(--header-h) + 8px) var(--m) 0;
+  padding: calc(var(--header-h) + 8px) var(--m) 0 calc(var(--m) + min(34vw, 540px) + clamp(28px, 3.6vw, 64px));
   translate: calc(var(--p, 0) * var(--dist, 0px) * -1) 0;
   will-change: translate;
 }
@@ -721,11 +719,17 @@
   margin-top: 3svh;
 }
 
-.lookbook.is-pinned .look.look__intro {
+.lookbook.is-pinned .lookbook__intro {
+  position: absolute;
+  left: var(--m);
+  top: calc(50% + var(--header-h) / 2);
+  z-index: 1;
   width: min(34vw, 540px);
+  margin: 0;
+  padding: 0;
   gap: 24px;
-  align-self: center;
-  padding-right: clamp(16px, 3vw, 56px);
+  translate: calc(var(--p, 0) * var(--dist, 0px) * -1) -50%;
+  will-change: translate;
 }
 
 .lookbook.is-pinned .lookbook__progress {
@@ -802,6 +806,11 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
+}
+
+.pieces__more-text {
+  max-width: 34ch;
+  color: var(--fg-mute);
 }
 
 .pieces__more-title {
@@ -1050,14 +1059,22 @@
 }
 
 @media (max-width: 767.98px) {
+  .callout {
+    --to: 62%;
+  }
+
   .callout__label {
+    width: max-content;
+    max-width: 33vw;
     font-size: 0.625rem;
     padding: 4px 6px;
     letter-spacing: 0.06em;
+    white-space: normal;
   }
 
   .feature__word {
-    top: 38%;
+    top: 36%;
+    font-size: clamp(7rem, 32vh, 18rem);
   }
 }
 
@@ -1426,6 +1443,12 @@
   max-width: 32ch;
   color: var(--mute-dark);
   font-size: 1.0625rem;
+}
+
+.final__side {
+  display: grid;
+  gap: 22px;
+  justify-items: start;
 }
 
 .final__ctas {

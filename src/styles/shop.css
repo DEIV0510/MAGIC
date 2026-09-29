@@ -43,6 +43,12 @@
   background: var(--studio);
 }
 
+@media (max-width: 767.98px) {
+  .card__frame.on-paper {
+    aspect-ratio: var(--ar, 4 / 5);
+  }
+}
+
 .card__layer {
   position: absolute;
   inset: 0;
@@ -171,7 +177,7 @@
     opacity: 1;
   }
 
-  .card__media:hover .card__img--main:has(+ .card__img--alt) {
+  .card__media:hover .card__layer--alt .card__img--main {
     opacity: 0;
   }
 
@@ -274,12 +280,19 @@
 .crumbs ol {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 10px;
+  align-items: center;
+  gap: 0 10px;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg-mute);
+}
+
+.crumbs li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
 }
 
 .crumbs li + li::before {
@@ -289,8 +302,9 @@
 }
 
 .crumbs a {
-  display: inline-block;
-  padding-block: 8px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
 }
 
 .crumbs a:hover {
@@ -683,9 +697,13 @@ fieldset.pdp__field {
     position: sticky;
     top: var(--header-h);
     padding: clamp(32px, 4vw, 64px) var(--m) 64px clamp(32px, 4vw, 64px);
-    max-height: calc(100svh - var(--header-h));
-    overflow-y: auto;
-    scrollbar-width: thin;
+  }
+
+  /* Número impar de fotos: la última, centrada y del mismo tamaño. */
+  .pdp__set > .pdp__shot:last-child:nth-child(odd):not(:only-child) {
+    grid-column: 1 / -1;
+    width: calc(50% - 2px);
+    justify-self: center;
   }
 }
 

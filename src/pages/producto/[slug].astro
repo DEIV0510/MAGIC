@@ -91,7 +91,7 @@ const waHref = waLink(productMessage(p.name, photos ? c0.label : null));
         photos ? (
           <>
             {p.colors.map((c, ci) => (
-              <div class:list={['pdp__set', { 'is-active': ci === 0 }]} data-set={c.id} role="group" aria-label={`Fotos en color ${c.label.toLowerCase()}`}>
+              <div class:list={['pdp__set', { 'is-active': ci === 0 }]} data-set={c.id} role="region" tabindex="0" aria-label={`Fotos en color ${c.label.toLowerCase()}`}>
                 {c.images.map((img, ii) => {
                   const studio = getMedia(img.id).bg === 'studio';
                   const first = ci === 0 && ii === 0;

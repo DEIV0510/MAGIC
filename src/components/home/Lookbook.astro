@@ -33,23 +33,23 @@ const items = looks.map((l) => {
 
 <section class="lookbook" id="coleccion" data-lookbook aria-labelledby="lookbook-title">
   <div class="lookbook__pin">
-    <div class="lookbook__track" data-lookbook-track>
-      <div class="look look__intro">
-        <p class="t-label t-mute">Colección 01</p>
-        <h2 class="lookbook__title t-display" id="lookbook-title" data-reveal="lines">
-          <span class="ln"><span>Chaquetas</span></span>
-          <span class="ln" style="--l:1"><span>y buzos.</span></span>
-        </h2>
-        <p class="lookbook__text">Para él y para ella. Tela premium en cuatro colores.</p>
-        <ul class="palette" aria-label="Colores de la colección">
-          {collectionPalette.map((c) => <li style={`--sw:${c.swatch}`}>{c.label}</li>)}
-        </ul>
-        <p class="lookbook__hint t-label">
-          <span data-hint-touch>Desliza</span>
-          <Icon name="arrow" />
-        </p>
-      </div>
+    <div class="lookbook__intro">
+      <p class="t-label t-mute">Colección 01</p>
+      <h2 class="lookbook__title t-display" id="lookbook-title" data-reveal="lines">
+        <span class="ln"><span>Chaquetas</span></span>
+        <span class="ln" style="--l:1"><span>y buzos.</span></span>
+      </h2>
+      <p class="lookbook__text">Para él y para ella. Tela premium en cuatro colores.</p>
+      <ul class="palette" aria-label="Colores de la colección">
+        {collectionPalette.map((c) => <li style={`--sw:${c.swatch}`}>{c.label}</li>)}
+      </ul>
+      <p class="lookbook__hint t-label">
+        <span data-hint-touch>Desliza</span>
+        <Icon name="arrow" />
+      </p>
+    </div>
 
+    <div class="lookbook__track" data-lookbook-track>
       {
         items.map((it, i) => (
           <a class:list={['look', `look--${it.form}`]} href={it.href}>
@@ -57,7 +57,7 @@ const items = looks.map((l) => {
               <Img
                 id={it.image}
                 alt={`${it.name} en color ${it.colorLabel.toLowerCase()}, ${it.view}`}
-                sizes="(min-width: 1024px) 34vw, (min-width: 768px) 48vw, 78vw"
+                sizes="(min-width: 1024px) 34vw, (min-width: 768px) 48vw, 72vw"
                 loading={i < 2 ? 'eager' : 'lazy'}
                 fetchpriority="low"
                 draggable="false"
