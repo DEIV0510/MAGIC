@@ -1,14 +1,15 @@
 ---
-// Beneficios SOLO con lo que se puede comprobar: tela premium y fabricación
-// (información de la marca), cortes (visibles en las fotos), hombre/mujer
-// (catálogo) y la bodega real (fotos 1.png y 2.png de la carpeta MAGIC).
+// Beneficios SOLO con lo que se puede comprobar: envío incluido, telas y tallas
+// (información del cliente), hombre/mujer (catálogo), la bodega real (1.png y 2.png)
+// y el video real del buzo fit con la etiqueta MAGIC WORLD.
 import Img from '@/components/Img.astro';
+import ProductVideo from '@/components/ProductVideo.astro';
 
 const items = [
-  { t: 'Tela premium', d: 'Telas de alta calidad en cada chaqueta y cada buzo.' },
-  { t: 'Calidad', d: 'Fabricación propia.' },
-  { t: 'Diseño', d: 'Cuellos altos, cierres asimétricos y capuchas amplias.' },
-  { t: 'Hombre / Mujer', d: 'Chaquetas y buzos para los dos.' },
+  { t: 'Envío incluido', d: 'El precio de cada prenda ya lo incluye.' },
+  { t: 'Tela premium', d: 'Algodón perchado Mónaco, bisonte ovejero y nailon impermeable.' },
+  { t: 'Tallas S a XXL', d: 'En la mayoría de prendas; cada ficha muestra las suyas.' },
+  { t: 'Hombre / Mujer', d: 'Chaquetas, buzos y abrigos para los dos.' },
 ];
 ---
 
@@ -27,14 +28,15 @@ const items = [
       ))
     }
   </ul>
+  <ProductVideo class="proof__video" label="Buzo fit en gris: etiqueta MAGIC WORLD, cierre y elasticidad de la tela" caption="Buzo fit · tela Zurich, sin filtros" />
   <div class="proof__docs">
     <figure data-reveal="mask">
-      <Img id="bodega-1" alt="Estantería de la bodega de MAGIC con buzos empacados" sizes="(min-width: 1024px) 20vw, 46vw" />
+      <Img id="bodega-1" alt="Estantería de la bodega de MAGIC WORLD con buzos empacados" sizes="(min-width: 1024px) 16vw, 46vw" />
     </figure>
     <figure data-reveal="mask" style="--i:1">
-      <Img id="bodega-2" alt="Bodega de MAGIC con chaquetas y buzos empacados en estantes" sizes="(min-width: 1024px) 20vw, 46vw" />
+      <Img id="bodega-2" alt="Bodega de MAGIC WORLD con chaquetas y buzos empacados en estantes" sizes="(min-width: 1024px) 16vw, 46vw" />
     </figure>
-    <p class="t-label" style="grid-column:1/-1;display:flex;justify-content:space-between;gap:12px;padding-top:10px;color:var(--fg-mute)">
+    <p class="proof__docs-cap t-label">
       <span>Nuestra bodega</span>
       <span>Stock propio</span>
     </p>

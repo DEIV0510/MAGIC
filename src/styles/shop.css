@@ -38,13 +38,8 @@
   background: var(--paper);
 }
 
-.card__frame--studio {
-  aspect-ratio: 3 / 4;
-  background: var(--studio);
-}
-
 @media (max-width: 767.98px) {
-  .card__frame.on-paper {
+  .card__frame {
     aspect-ratio: var(--ar, 4 / 5);
   }
 }
@@ -59,21 +54,11 @@
 }
 
 .card__img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
   translate: calc(var(--mx, 0) * 7px) calc(var(--my, 0) * 7px);
   transition:
     opacity 0.7s var(--ease-out),
     scale 1.4s var(--ease-out),
     translate 0.9s var(--ease-out);
-}
-
-.card__frame--studio .card__img {
-  object-fit: cover;
-  object-position: 50% 30%;
 }
 
 .card__img--alt {
@@ -184,85 +169,6 @@
   .card:hover .card__name a,
   .card__name a:focus-visible {
     background-size: 100% 1px;
-  }
-}
-
-/* ---------- Tarjeta tipográfica (sin fotos aún) ---------- */
-.tile__frame {
-  position: relative;
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  container-type: inline-size;
-  background: var(--paper-2);
-  color: var(--ink);
-}
-
-.tile--dark .tile__frame {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.tile__words {
-  display: grid;
-  justify-items: center;
-  gap: 2cqw;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.tile__word {
-  font-weight: 800;
-  line-height: 0.82;
-  letter-spacing: -0.02em;
-}
-
-.tile__frame--wide .tile__word {
-  font-size: 31cqw;
-  font-stretch: 125%;
-}
-
-.tile__frame--stack .tile__word {
-  font-size: 25cqw;
-  font-stretch: 75%;
-}
-
-.tile__sub {
-  font-size: 5.4cqw;
-  font-weight: 700;
-  font-stretch: 100%;
-  letter-spacing: 0.34em;
-  padding-left: 0.34em;
-}
-
-.tile .tile__word.cut {
-  --cut-at: 50%;
-  --gap: 0.018em;
-}
-
-.tile__note {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  opacity: 0.8;
-}
-
-.tile__note svg {
-  width: 18px;
-  height: 18px;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .tile .card__media:hover .tile__word.cut,
-  .tile:focus-within .tile__word.cut {
-    --shift: 2.5%;
-    --gap: 0.04em;
   }
 }
 
@@ -388,11 +294,6 @@
   }
 }
 
-.catalog__grid > .card--studio-fix .card__frame--studio,
-.catalog__grid .card__frame--studio {
-  aspect-ratio: 4 / 5;
-}
-
 .catalog__cta {
   display: grid;
   gap: 18px;
@@ -434,29 +335,9 @@
 }
 
 .pdp__shot {
-  position: relative;
   flex: 0 0 100%;
   aspect-ratio: 4 / 5;
   scroll-snap-align: start;
-  overflow: hidden;
-  background: var(--paper);
-}
-
-.pdp__shot--studio {
-  background: var(--studio);
-}
-
-.pdp__shot img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.pdp__shot--studio img {
-  object-fit: cover;
-  object-position: 50% 35%;
 }
 
 .pdp__count {
@@ -519,67 +400,6 @@
 .pdp__summary {
   color: var(--fg-mute);
   max-width: 44ch;
-}
-
-.pdp__field {
-  display: grid;
-  gap: 10px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-
-.pdp__field legend,
-.pdp__field-label {
-  padding: 0;
-  font-size: 0.75rem;
-  font-weight: 620;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.pdp__field-label strong {
-  font-weight: 620;
-  color: var(--fg-mute);
-  letter-spacing: 0.08em;
-}
-
-fieldset.pdp__field {
-  margin: 0;
-  border: 0;
-  border-top: 1px solid var(--line);
-  padding: 16px 0 0;
-  min-width: 0;
-}
-
-.pdp__colors {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.pdp__color {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 14px 0 10px;
-  border: 1px solid var(--line-strong);
-  font-size: 0.8125rem;
-  font-weight: 560;
-  transition: border-color 0.3s var(--ease-out);
-}
-
-.pdp__color::before {
-  content: '';
-  width: 16px;
-  height: 16px;
-  background: var(--sw);
-}
-
-.pdp__color[aria-checked='true'] {
-  border-color: var(--fg);
-  box-shadow: inset 0 0 0 1px var(--fg);
 }
 
 .pdp__note {
@@ -651,16 +471,6 @@ fieldset.pdp__field {
   background: var(--red);
 }
 
-/* Portada tipográfica (prenda sin fotos) */
-.pdp__textframe {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 5;
-  background: var(--ink);
-  color: var(--paper);
-  container-type: inline-size;
-}
-
 @media (min-width: 1024px) {
   .pdp {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -688,9 +498,11 @@ fieldset.pdp__field {
     display: none;
   }
 
-  .pdp__textframe {
-    width: min(100%, 720px);
-    margin-inline: auto;
+  /* La columna más corta se queda fija mientras la otra avanza. La galería solo
+     si cabe entera en pantalla (la decide pdp.ts con .is-sticky). */
+  .pdp__gallery.is-sticky {
+    position: sticky;
+    top: var(--header-h);
   }
 
   .pdp__info {
@@ -835,4 +647,104 @@ fieldset.pdp__field {
   color: var(--fg);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+/* ---------- Video de producto ---------- */
+.pvideo {
+  margin: 0;
+}
+
+.pvideo__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.pvideo__v {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pvideo__btn {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--paper);
+  color: var(--ink);
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+
+.pvideo__btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pvideo__pause,
+.pvideo.is-playing .pvideo__play {
+  display: none;
+}
+
+.pvideo.is-playing .pvideo__pause {
+  display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pvideo__btn:hover {
+    background: var(--red);
+    color: #fff;
+  }
+}
+
+.pvideo__tag {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px 5px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.pvideo__tag svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pvideo__cap {
+  margin-top: 10px;
+}
+
+/* Dentro de la galería de la ficha: ocupa el marco completo */
+.pdp__shot--video .pvideo,
+.pdp__shot--video .pvideo__frame {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+/* ---------- Precio en tarjetas ---------- */
+.card__price {
+  display: grid;
+  gap: 2px;
+}
+
+.card__amount {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.card__ship {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--fg-mute);
 }

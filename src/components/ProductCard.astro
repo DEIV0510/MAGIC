@@ -2,10 +2,11 @@
 // Tarjeta de producto con fotos reales.
 // - Hover (escritorio): cambia a la segunda foto, zoom leve, aparecen COMPRAR + WhatsApp.
 // - Táctil: acciones siempre visibles debajo de la foto.
-// - Colores: cambian foto, enlace, mensaje de WhatsApp y lo que se agrega a la bolsa.
+// - COMPRAR abre la vista rápida (color + talla) → bolsa.
+// - Colores: cambian foto, enlace, mensaje de WhatsApp y la vista rápida.
 import type { Product, ProductColor } from '@/data/products';
-import { altFor, pad2, productTag } from '@/data/products';
-import { getMedia, thumbUrl } from '@/lib/media';
+import { altFor, pad2, productTag, priceLabel, productUrl, swatchStyle } from '@/data/products';
+import { getMedia, isOnWhite } from '@/lib/media';
 import { productMessage, waLink } from '@/lib/whatsapp';
 import Img from './Img.astro';
 import Icon from './Icon.astro';
@@ -26,18 +27,15 @@ interface Props {
 const { product: p, size = 'md', sizes, colorId, showIndex = true, heading = 'h3', class: cls, eager = false, style, reveal = true } = Astro.props;
 const Heading = heading;
 const active = p.colors.find((c) => c.id === colorId) ?? p.colors[0];
-const firstBg = getMedia(active.images[0].id).bg;
-const isStudio = firstBg === 'studio';
-const productUrl = (c: ProductColor) => (c.id === p.colors[0].id ? `/producto/${p.slug}/` : `/producto/${p.slug}/?color=${c.id}`);
 const altImage = (c: ProductColor) => {
   if (c.images[1]) return c.images[1];
   const next = p.colors[(p.colors.indexOf(c) + 1) % p.colors.length];
   return next && next.id !== c.id ? next.images[0] : null;
 };
-const variant = (c: ProductColor) => p.shopifyVariants?.[c.id] ?? '';
-// Proporción real de la foto principal (en móvil el marco se ajusta a ella).
-const firstMeta = getMedia(active.images[0].id);
-const ratio = Math.max(0.74, Math.min(1, firstMeta.w / firstMeta.h)).toFixed(3);
+// En móvil, si la foto principal es de estudio (fondo blanco), el marco toma su proporción.
+const main = getMedia(active.images[0].id);
+const ratio = isOnWhite(active.images[0].id) ? Math.max(0.74, Math.min(1, main.w / main.h)).toFixed(3) : '0.8';
+const wa = (c: ProductColor) => waLink(productMessage(p.name, c.label, p.price));
 ---
 
 <article
@@ -54,14 +52,7 @@ const ratio = Math.max(0.74, Math.min(1, firstMeta.w / firstMeta.h)).toFixed(3);
   </div>
 
   <div class="card__media" data-card-media>
-    <a
-      class:list={['card__frame', isStudio ? 'card__frame--studio' : 'on-paper']}
-      style={`--ar:${ratio}`}
-      href={productUrl(active)}
-      tabindex="-1"
-      aria-hidden="true"
-      data-card-link
-    >
+    <a class="card__frame frame" style={`--ar:${ratio}`} href={productUrl(p, active)} tabindex="-1" aria-hidden="true" data-card-link>
       {
         p.colors.map((c) => {
           const alt = altImage(c);
@@ -84,39 +75,23 @@ const ratio = Math.max(0.74, Math.min(1, firstMeta.w / firstMeta.h)).toFixed(3);
     </a>
 
     <div class="card__actions">
-      <button
-        class="btn card__buy"
-        type="button"
-        data-add
-        data-open-bag
-        data-slug={p.slug}
-        data-name={p.name}
-        data-color={active.id}
-        data-color-label={active.label}
-        data-image={thumbUrl(active.images[0].id)}
-        data-bg={firstBg}
-        data-variant={variant(active)}
-      >
+      <button class="btn card__buy" type="button" data-quick={p.slug} data-quick-color={active.id} data-quick-intent="buy">
         <span class="roll"><span>Comprar</span><span aria-hidden="true">Comprar</span></span>
-        <span class="sr-only">{p.name}, color {active.label}</span>
+        <span class="sr-only">{p.name}</span>
       </button>
-      <a
-        class="btn btn--ghost btn--icon card__wa"
-        href={waLink(productMessage(p.name, active.label))}
-        target="_blank"
-        rel="noopener"
-        aria-label={`Pedir ${p.name} por WhatsApp`}
-        data-wa-product
-      >
+      <a class="btn btn--ghost btn--icon card__wa" href={wa(active)} target="_blank" rel="noopener" aria-label={`Pedir ${p.name} por WhatsApp`} data-wa-product>
         <Icon name="whatsapp" />
       </a>
     </div>
   </div>
 
   <div class="card__info">
-    <Heading class="card__name"><a href={productUrl(active)} data-card-link>{p.name}</a></Heading>
+    <Heading class="card__name"><a href={productUrl(p, active)} data-card-link>{p.name}</a></Heading>
     <div class="card__row">
-      <p class="card__price">{p.price ? `$${p.price.toLocaleString('es-CO')}` : 'Precio por WhatsApp'}</p>
+      <p class="card__price">
+        <span class="card__amount">{priceLabel(p)}</span>
+        {p.price && <span class="card__ship">Envío incluido</span>}
+      </p>
       {
         p.colors.length > 1 ? (
           <div class="swatches" role="group" aria-label={`Colores de ${p.name}`}>
@@ -124,17 +99,13 @@ const ratio = Math.max(0.74, Math.min(1, firstMeta.w / firstMeta.h)).toFixed(3);
               <button
                 class="swatch"
                 type="button"
-                style={`--sw:${c.swatch}`}
+                style={swatchStyle(c)}
                 aria-pressed={c.id === active.id ? 'true' : 'false'}
                 aria-label={c.label}
                 title={c.label}
                 data-swatch={c.id}
-                data-label={c.label}
-                data-image={thumbUrl(c.images[0].id)}
-                data-bg={getMedia(c.images[0].id).bg}
-                data-href={productUrl(c)}
-                data-wa={waLink(productMessage(p.name, c.label))}
-                data-variant={variant(c)}
+                data-href={productUrl(p, c)}
+                data-wa={wa(c)}
               />
             ))}
           </div>

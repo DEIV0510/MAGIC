@@ -171,26 +171,9 @@ button {
   text-transform: uppercase;
 }
 
-.t-h2 {
-  font-size: clamp(2.75rem, 1.1rem + 6.6vw, 8rem);
-}
-
-.t-wide {
-  font-stretch: 125%;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-}
-
 /* ---------- Estructura ---------- */
 .wrap {
   padding-inline: var(--m);
-}
-
-.rule {
-  border: 0;
-  border-top: 1px solid var(--line);
-  margin: 0;
 }
 
 /* ---------- Botones ---------- */
@@ -369,7 +352,11 @@ button {
   width: 100%;
 }
 
-.wm-cut > svg {
+.wm-cut > span {
+  display: block;
+}
+
+.wm-cut svg {
   display: block;
   width: 100%;
   height: auto;
@@ -441,13 +428,28 @@ button {
   }
 }
 
-/* ---------- Imágenes con fondo blanco de estudio: se funden con el papel ---------- */
-.on-paper {
+/* ---------- Marcos de foto ----------
+   Estudio con fondo blanco → la prenda entera, fundida con el papel (multiply).
+   Ambiente o showroom → la foto cubre el marco desde su punto focal (--focus). */
+.frame {
+  position: relative;
+  overflow: hidden;
   background: var(--paper);
   isolation: isolate;
 }
 
-.on-paper img {
+.frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focus, 50% 22%);
+}
+
+.frame img[data-bg='white'] {
+  object-fit: contain;
+  object-position: 50% 50%;
   mix-blend-mode: multiply;
 }
 

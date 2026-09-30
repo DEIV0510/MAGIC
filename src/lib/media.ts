@@ -1,38 +1,40 @@
 import media from '@/data/media.json';
 
 export type MediaId = keyof typeof media;
-type Entry = (typeof media)[MediaId];
 type Set = [string, number][];
+interface Entry {
+  bg: 'white' | 'studio' | 'photo' | 'doc' | 'cutout';
+  w: number;
+  h: number;
+  focus?: string;
+  avif: Set;
+  webp: Set;
+  fallback: string;
+}
 
-export const getMedia = (id: MediaId): Entry => media[id];
+export const getMedia = (id: MediaId) => media[id] as Entry;
+
+/** Fotos de estudio con fondo blanco: se funden con el papel y se muestran enteras. */
+export const isOnWhite = (id: MediaId) => getMedia(id).bg === 'white';
 
 const toSrcset = (set: Set) => set.map(([url, w]) => `${url} ${w}w`).join(', ');
 
 /** Datos listos para <picture>: anchos medidos del archivo real (no los pedidos). */
-export function pictureData(id: MediaId, variant: 'full' | 'trim' = 'full') {
-  const m = media[id] as Entry & { trim?: { avif: Set; webp: Set; w: number; h: number } };
-  if (variant === 'trim' && m.trim) {
-    return {
-      avif: toSrcset(m.trim.avif),
-      webp: toSrcset(m.trim.webp),
-      src: m.trim.webp[m.trim.webp.length - 1][0],
-      width: m.trim.w,
-      height: m.trim.h,
-      bg: m.bg,
-    };
-  }
+export function pictureData(id: MediaId) {
+  const m = getMedia(id);
   return {
-    avif: toSrcset(m.avif as Set),
-    webp: toSrcset(m.webp as Set),
+    avif: toSrcset(m.avif),
+    webp: toSrcset(m.webp),
     src: m.fallback,
     width: m.w,
     height: m.h,
     bg: m.bg,
+    focus: m.focus ?? '50% 22%',
   };
 }
 
-/** URL pequeña (≈480 px) para miniaturas: bolsa, buscador, vista previa. */
-export function thumbUrl(id: MediaId) {
-  const m = media[id];
-  return (m.webp as Set)[0][0];
-}
+/** URL pequeña (≈480 px) para miniaturas: bolsa, buscador, vista rápida. */
+export const thumbUrl = (id: MediaId) => getMedia(id).webp[0][0];
+
+/** JPG a resolución completa con nombre estable (lo importa Shopify). */
+export const shopifyImagePath = (id: MediaId) => `/shopify/${id}.jpg`;

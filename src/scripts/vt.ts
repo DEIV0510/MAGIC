@@ -14,7 +14,6 @@ export function initViewTransitions() {
       const card = link.closest<HTMLElement>('[data-card]');
       picked =
         card?.querySelector<HTMLElement>('.card__layer.is-active .card__img--main') ??
-        card?.querySelector<HTMLElement>('.tile__frame') ??
         link.querySelector<HTMLElement>('img') ??
         null;
     },

@@ -1,4 +1,4 @@
-// Tarjetas: cambio de color (foto, enlaces, WhatsApp y lo que va a la bolsa)
+// Tarjetas: cambio de color (foto, enlaces, WhatsApp y color de la vista rápida)
 // y una reacción leve de la foto al cursor (solo puntero fino).
 import { finePointer, motionOK } from './env';
 
@@ -7,17 +7,8 @@ function selectColor(card: HTMLElement, sw: HTMLElement) {
   card.dataset.color = id;
   card.querySelectorAll<HTMLElement>('.swatch').forEach((s) => s.setAttribute('aria-pressed', String(s === sw)));
   card.querySelectorAll<HTMLElement>('[data-layer]').forEach((l) => l.classList.toggle('is-active', l.dataset.layer === id));
-
-  const buy = card.querySelector<HTMLElement>('[data-add]');
-  if (buy) {
-    buy.dataset.color = id;
-    buy.dataset.colorLabel = sw.dataset.label ?? '';
-    buy.dataset.image = sw.dataset.image ?? '';
-    buy.dataset.bg = sw.dataset.bg ?? '';
-    buy.dataset.variant = sw.dataset.variant ?? '';
-    const sr = buy.querySelector('.sr-only');
-    if (sr) sr.textContent = `${buy.dataset.name}, color ${sw.dataset.label}`;
-  }
+  // La vista rápida abre con este color; enlaces y WhatsApp apuntan a él.
+  card.querySelectorAll<HTMLElement>('[data-quick]').forEach((b) => (b.dataset.quickColor = id));
   if (sw.dataset.href) card.querySelectorAll<HTMLAnchorElement>('[data-card-link]').forEach((a) => (a.href = sw.dataset.href!));
   const wa = card.querySelector<HTMLAnchorElement>('[data-wa-product]');
   if (wa && sw.dataset.wa) wa.href = sw.dataset.wa;

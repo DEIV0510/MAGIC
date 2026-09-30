@@ -2,7 +2,8 @@
 // y sincronización entre pestañas. Se lee ANTES de cualquier escritura.
 import type { CartLine, NewLine } from './types';
 
-const KEY = 'magic:bag:v1';
+// v2: catálogo con precios y tallas (las bolsas v1 no tenían talla).
+const KEY = 'magic:bag:v2';
 const MAX_QTY = 20;
 type Listener = (lines: readonly CartLine[]) => void;
 
@@ -67,6 +68,14 @@ export const cart = {
   clear() {
     lines = [];
     persist();
+  },
+  /** Ajusta las líneas guardadas al catálogo actual (precio, nombre, foto) y quita las que ya no existen. */
+  reconcile(fix: (l: CartLine) => CartLine | null) {
+    const next = lines.map(fix).filter((l): l is CartLine => l !== null);
+    if (JSON.stringify(next) !== JSON.stringify(lines)) {
+      lines = next;
+      persist();
+    }
   },
   subscribe(fn: Listener) {
     listeners.add(fn);

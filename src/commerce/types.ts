@@ -8,14 +8,10 @@ export interface CartLine {
   size: string | null;
   qty: number;
   image: string | null;
-  /** COP. null mientras no haya precios reales. */
+  /** COP por unidad, envío incluido. null = por confirmar. */
   price: number | null;
-  /** Id de variante de Shopify (gid://shopify/ProductVariant/…) cuando exista la tienda. */
-  variantId: string | null;
-  /** Cómo pintar la miniatura: 'white' | 'studio' | 'text'. */
+  /** Cómo pintar la miniatura: 'white' | 'studio' | 'photo'. */
   bg?: string | null;
-  /** Palabra para la miniatura tipográfica (prendas sin foto). */
-  mark?: string | null;
 }
 
 export type NewLine = Omit<CartLine, 'key' | 'qty'>;

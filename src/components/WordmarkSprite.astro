@@ -1,11 +1,14 @@
 ---
-// Definición única del logotipo (trazados de Mona Sans Expanded 800).
-// Va al inicio del <body>; cada logo lo reutiliza con <use href="#wm">.
+// Definición única del logotipo MAGIC WORLD (trazados de Mona Sans Expanded 800).
+// Va al inicio del <body>; cada logo lo reutiliza con <use href="#wm-line|#wm-stack">.
 import wm from '@/data/wordmark.json';
 ---
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="wm" viewBox={wm.viewBox}>
-    <path d={wm.d}></path>
+  <symbol id="wm-line" viewBox={wm.line.viewBox}>
+    <path d={wm.line.d}></path>
+  </symbol>
+  <symbol id="wm-stack" viewBox={wm.stack.viewBox}>
+    <path d={wm.stack.d}></path>
   </symbol>
 </svg>

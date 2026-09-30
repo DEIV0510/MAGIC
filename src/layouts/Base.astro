@@ -9,7 +9,7 @@ import Footer from '@/components/Footer.astro';
 import Dialogs from '@/components/Dialogs.astro';
 import Icon from '@/components/Icon.astro';
 import { site } from '@/data/site';
-import { products, productTag } from '@/data/products';
+import { products, productTag, swatchStyle, fabricLine } from '@/data/products';
 import { getMedia, thumbUrl } from '@/lib/media';
 import { waLink, generalMessage } from '@/lib/whatsapp';
 import font from '@/data/font.json';
@@ -30,7 +30,7 @@ const {
   title,
   description = site.description,
   image = '/og/og-home.jpg',
-  imageAlt = 'MAGIC — chaquetas y buzos para hombre y mujer',
+  imageAlt = 'MAGIC WORLD — chaquetas, buzos y abrigos para hombre y mujer',
   type = 'website',
   page,
   headerSurface = 'paper',
@@ -56,20 +56,23 @@ const org = {
   },
 };
 
-// Índice del buscador (pequeño, sin datos inventados).
-const searchIndex = products.map((p) => {
-  const first = p.colors[0]?.images[0]?.id;
-  return {
-    s: p.slug,
-    n: p.name,
-    t: productTag(p),
-    c: p.colors.map((c) => c.label),
-    k: [p.name, p.type, p.gender ?? '', ...p.categories, ...p.colors.map((c) => c.label), ...p.details].join(' '),
-    i: first ? thumbUrl(first) : null,
-    b: first ? getMedia(first).bg : null,
-    v: p.colors.map((c, k) => ({ id: c.id, l: c.label, i: thumbUrl(c.images[0].id), b: getMedia(c.images[0].id).bg, d: k === 0 })),
-  };
-});
+// Catálogo mínimo para el buscador, la vista rápida y la bolsa (#shop-data).
+const shopData = products.map((p) => ({
+  s: p.slug,
+  n: p.name,
+  t: productTag(p),
+  p: p.price,
+  z: p.sizes,
+  k: [p.name, p.type, p.gender, ...p.categories, fabricLine(p), ...p.colors.map((c) => c.label), ...p.details].join(' '),
+  c: p.colors.map((c, k) => ({
+    id: c.id,
+    l: c.label,
+    sw: swatchStyle(c).replace(/^--sw:/, ''),
+    i: thumbUrl(c.images[0].id),
+    b: getMedia(c.images[0].id).bg,
+    d: k === 0,
+  })),
+}));
 ---
 
 <!doctype html>
@@ -79,7 +82,7 @@ const searchIndex = products.map((p) => {
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && !noindex && <link rel="canonical" href={canonical} />}
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#f0efeb" />
     <meta name="format-detection" content="telephone=no" />
@@ -161,7 +164,7 @@ const searchIndex = products.map((p) => {
         <span class="wa-float__label" aria-hidden="true">Pedir por WhatsApp</span>
       </a>
     </aside>
-    <script type="application/json" id="search-index" set:html={JSON.stringify(searchIndex)} />
+    <script type="application/json" id="shop-data" set:html={JSON.stringify(shopData)} />
     <script>
       import '@/scripts/main.ts';
     </script>

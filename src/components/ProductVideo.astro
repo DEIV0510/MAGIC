@@ -1,0 +1,37 @@
+---
+// Video real de la prenda (sin audio). Se carga al acercarse, se reproduce en
+// bucle mientras se ve y siempre tiene botón de pausa/reproducir (WCAG 2.2.2).
+// Con "reducir movimiento" no arranca solo: queda el póster y el botón.
+import video from '@/data/video.json';
+import Icon from './Icon.astro';
+
+interface Props {
+  label: string;
+  caption?: string;
+  class?: string;
+}
+const { label, caption, class: cls } = Astro.props;
+---
+
+<figure class:list={['pvideo', cls]} data-pvideo>
+  <div class="pvideo__frame">
+    <video
+      class="pvideo__v"
+      muted
+      playsinline
+      loop
+      preload="none"
+      poster={video.poster}
+      width={video.w}
+      height={video.h}
+      aria-label={label}
+      data-src={video.src}
+    ></video>
+    <button class="pvideo__btn" type="button" data-pvideo-toggle aria-label="Reproducir video">
+      <svg class="pvideo__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"></path></svg>
+      <svg class="pvideo__pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5h3.5v13H7zM13.5 5.5H17v13h-3.5z" fill="currentColor"></path></svg>
+    </button>
+    <span class="pvideo__tag t-label" aria-hidden="true"><Icon name="arrow-ur" />Video real</span>
+  </div>
+  {caption && <figcaption class="pvideo__cap t-label t-mute">{caption}</figcaption>}
+</figure>

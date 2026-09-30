@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --port 5441",
-    "images": "node scripts/prepare-images.mjs && node scripts/cutout.mjs",
+    "images": "node scripts/prepare-images.mjs && node scripts/cutout.mjs && node scripts/prepare-video.mjs",
     "build": "astro build",
     "preview": "node scripts/serve-dist.mjs",
     "brand": "node scripts/brand-assets.mjs",
     "font": "node scripts/subset-font.mjs",
-    "check": "astro check && astro build && node scripts/check-links.mjs"
+    "check": "astro check && astro build && node scripts/check-links.mjs",
+    "shopify": "node scripts/shopify-export.mjs"
   },
   "dependencies": {
     "astro": "^7.3.5",

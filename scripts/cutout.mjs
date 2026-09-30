@@ -1,16 +1,16 @@
-// Recorte con alfa del chaquetón (solo para el producto destacado, donde la
+// Recorte con alfa del chaquetón para dama (solo para el producto destacado, donde la
 // prenda pasa por delante de la palabra roja). No se pinta ni se deforma nada:
 // el fondo blanco del estudio pasa a transparente y el borde se suaviza.
 //  1) Relleno desde los bordes por píxeles claros (fondo y sombra suave).
 //  2) Esa zona: "color a alfa" contra blanco (la sombra queda como sombra).
-//  3) El borde de 1 px de la prenda: mismo cálculo para no dejar halo claro.
+//  3) El borde de 2 px de la prenda: mismo cálculo para no dejar halo claro.
 import sharp from 'sharp';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { images, SOURCE_DIR } from './images.config.mjs';
 
-const ID = 'chaqueton-negro-frente';
+const ID = 'chaqueton-negro-estudio';
 const OUT_ID = `${ID}-cut`;
 const entry = images.find((e) => e.id === ID);
 const c = { top: 0, bottom: 0, left: 0, right: 0, ...(entry.crop || {}) };

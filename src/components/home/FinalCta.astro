@@ -15,7 +15,7 @@ import Wordmark from '@/components/Wordmark.astro';
       </h2>
     </div>
     <div class="final__side">
-      <p class="final__text">Te confirmamos talla, color y precio. Sin formularios.</p>
+      <p class="final__text">Precio con envío incluido. Te confirmamos talla y disponibilidad. Sin formularios.</p>
       <div class="final__ctas">
         <a class="btn btn--red" href={waLink(generalMessage())} target="_blank" rel="noopener">
           <Icon name="whatsapp" />
@@ -27,6 +27,7 @@ import Wordmark from '@/components/Wordmark.astro';
     </div>
   </div>
   <div class="final__mark" data-progress="enter">
-    <Wordmark variant="cut" />
+    <Wordmark layout="line" variant="cut" class="final__wm--line" />
+    <Wordmark layout="stack" variant="cut" class="final__wm--stack" />
   </div>
 </section>

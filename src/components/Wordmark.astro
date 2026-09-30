@@ -1,33 +1,44 @@
 ---
-// Logotipo MAGIC. variant="cut": dos mitades independientes (el "truco"):
-// la superior y la inferior son SVG distintos, así se pueden mover y colorear
-// por separado y la línea de corte coincide con el borde de una foto.
+// Logotipo MAGIC WORLD.
+// layout="line"  → una línea (header, pie, héroe en escritorio)
+// layout="stack" → MAGIC sobre WORLD, mismo ancho (móvil, pantalla de carga)
+// variant="cut": dos mitades independientes (el "truco"): la de arriba y la de abajo
+// se mueven y colorean por separado y la línea de corte coincide con el borde de una
+// foto. Cada mitad va en un <span>: Chrome no compone (GPU) animaciones de
+// translate aplicadas directo a un <svg>; sobre el span sí.
 import wm from '@/data/wordmark.json';
 
 interface Props {
+  layout?: 'line' | 'stack';
   variant?: 'solid' | 'cut';
   class?: string;
   label?: string;
 }
-const { variant = 'solid', class: cls, label } = Astro.props;
-const W = wm.width;
-const H = wm.height;
-const C = wm.cut;
+const { layout = 'line', variant = 'solid', class: cls, label } = Astro.props;
+const v = wm[layout];
+const ref = `#wm-${layout}`;
+const W = v.width;
+const H = v.height;
+const C = v.cut;
 ---
 
 {
   variant === 'solid' ? (
     <svg class:list={['wm', cls]} viewBox={`0 0 ${W} ${H}`} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'} focusable="false">
-      <use href="#wm" width={W} height={H} />
+      <use href={ref} width={W} height={H} />
     </svg>
   ) : (
-    <span class:list={['wm-cut', cls]} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'}>
-      <svg class="wm-cut__t" viewBox={`0 0 ${W} ${C}`} preserveAspectRatio="xMidYMin meet" focusable="false" aria-hidden="true">
-        <use href="#wm" width={W} height={H} />
-      </svg>
-      <svg class="wm-cut__b" viewBox={`0 ${C} ${W} ${H - C}`} preserveAspectRatio="xMidYMax meet" focusable="false" aria-hidden="true">
-        <use href="#wm" width={W} height={H} />
-      </svg>
+    <span class:list={['wm-cut', `wm-cut--${layout}`, cls]} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'}>
+      <span class="wm-cut__t">
+        <svg viewBox={`0 0 ${W} ${C}`} preserveAspectRatio="xMidYMin meet" focusable="false" aria-hidden="true">
+          <use href={ref} width={W} height={H} />
+        </svg>
+      </span>
+      <span class="wm-cut__b">
+        <svg viewBox={`0 ${C} ${W} ${H - C}`} preserveAspectRatio="xMidYMax meet" focusable="false" aria-hidden="true">
+          <use href={ref} width={W} height={H} />
+        </svg>
+      </span>
     </span>
   )
 }

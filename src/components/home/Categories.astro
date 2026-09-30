@@ -2,14 +2,13 @@
 // Categorías como índice tipográfico. Al pasar el cursor la palabra se ensancha
 // (eje de ancho de Mona Sans) y una foto real la sigue. En táctil: miniatura fija.
 import { collections, products, pad2 } from '@/data/products';
-import { getMedia } from '@/lib/media';
 import Img from '@/components/Img.astro';
 import Icon from '@/components/Icon.astro';
 
 const order = ['hombre', 'mujer', 'chaquetas', 'buzos', 'coleccion'];
 const rows = order.map((slug) => {
   const c = collections.find((x) => x.slug === slug)!;
-  return { ...c, count: products.filter(c.filter).length, bg: getMedia(c.preview).bg };
+  return { ...c, count: products.filter(c.filter).length };
 });
 ---
 
@@ -29,7 +28,7 @@ const rows = order.map((slug) => {
               <span class="cat__count t-index">({pad2(r.count)})</span>
             </span>
             <span class="cat__side">
-              <span class:list={['cat__thumb', r.bg === 'studio' ? 'cat__thumb--studio' : 'on-paper']}>
+              <span class="cat__thumb frame">
                 <Img id={r.preview} alt="" sizes="76px" loading="lazy" />
               </span>
               <Icon name="arrow" class="cat__arrow" />
@@ -42,7 +41,7 @@ const rows = order.map((slug) => {
   <div class="cats__float" aria-hidden="true" data-cats-float>
     {
       rows.map((r) => (
-        <span data-float={r.slug} data-bg={r.bg}>
+        <span class="frame" data-float={r.slug}>
           <Img id={r.preview} alt="" sizes="280px" loading="lazy" />
         </span>
       ))

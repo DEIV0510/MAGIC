@@ -1,16 +1,6 @@
-// Buscador sobre el catálogo real (índice JSON incrustado en la página).
+// Buscador sobre el catálogo real (#shop-data, incrustado en cada página).
 // Sin tildes ni mayúsculas: "chaqueton" encuentra "Chaquetón".
-interface Entry {
-  s: string;
-  n: string;
-  t: string;
-  c: string[];
-  k: string;
-  i: string | null;
-  b: string | null;
-  /** Colores: id, etiqueta, miniatura, fondo y si es el color principal. */
-  v: { id: string; l: string; i: string; b: string; d: boolean }[];
-}
+import { itemUrl, money, shopData, type ShopItem } from './shopdata';
 
 const norm = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
 
@@ -56,10 +46,9 @@ export function initSearch() {
   const empty = dialog?.querySelector<HTMLElement>('[data-search-empty]');
   const status = dialog?.querySelector<HTMLElement>('[data-search-status]');
   const form = dialog?.querySelector<HTMLFormElement>('[data-search-form]');
-  const raw = document.getElementById('search-index')?.textContent;
-  if (!dialog || !input || !results || !raw) return;
+  if (!dialog || !input || !results) return;
 
-  const index: (Entry & { hay: string })[] = (JSON.parse(raw) as Entry[]).map((e) => ({ ...e, hay: norm(e.k) }));
+  const index: (ShopItem & { hay: string })[] = shopData().map((e) => ({ ...e, hay: norm(e.k) }));
 
   const render = () => {
     const q = norm(input.value.trim());
@@ -78,23 +67,22 @@ export function initSearch() {
 
     for (const e of found) {
       // Si la búsqueda nombra un color, se muestra y enlaza ese color.
-      const hit = e.v.find((c) => terms.some((t) => norm(c.l).includes(t)));
-      const thumb = hit ?? (e.i ? { i: e.i, b: e.b ?? '' } : null);
+      const hit = e.c.find((c) => terms.some((t) => norm(c.l).includes(t)));
+      const thumb = hit ?? e.c[0] ?? null;
       const li = document.createElement('li');
       const a = document.createElement('a');
-      a.href = hit && !hit.d ? `/producto/${e.s}/?color=${hit.id}` : `/producto/${e.s}/`;
+      a.href = itemUrl(e, hit);
       const th = document.createElement('span');
-      th.className = `search__thumb${thumb?.b === 'studio' ? ' search__thumb--studio' : ''}${!thumb ? ' search__thumb--text' : ''}`;
+      th.className = 'search__thumb frame';
       if (thumb) {
         const img = document.createElement('img');
+        img.dataset.bg = thumb.b;
         img.src = thumb.i;
         img.alt = '';
         img.width = 56;
         img.height = 70;
         img.decoding = 'async';
         th.append(img);
-      } else {
-        th.textContent = e.n.split(' ').slice(-2).join(' ').toUpperCase();
       }
       const text = document.createElement('span');
       const name = document.createElement('span');
@@ -102,7 +90,7 @@ export function initSearch() {
       name.append(highlight(e.n, terms));
       const tag = document.createElement('span');
       tag.className = 'search__tag';
-      tag.textContent = [e.t, e.c.length ? e.c.join(' · ') : 'Fotos por WhatsApp'].join(' — ');
+      tag.textContent = [e.p ? money(e.p) : 'Precio por WhatsApp', e.c.map((c) => c.l).join(' · ')].join(' — ');
       text.append(name, tag);
       const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       arrow.setAttribute('viewBox', '0 0 24 24');

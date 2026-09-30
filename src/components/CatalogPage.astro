@@ -2,9 +2,8 @@
 import '@/styles/shop.css';
 import Base from '@/layouts/Base.astro';
 import ProductCard from './ProductCard.astro';
-import ProductTile from './ProductTile.astro';
 import Icon from './Icon.astro';
-import { collections, products, hasPhotos, pad2 } from '@/data/products';
+import { collections, products, pad2 } from '@/data/products';
 import { waLink, generalMessage } from '@/lib/whatsapp';
 
 interface Props {
@@ -34,7 +33,7 @@ const itemList = siteUrl
   : [];
 ---
 
-<Base title={`${def.title} · MAGIC`} description={def.description} page="catalog" jsonLd={itemList}>
+<Base title={`${def.title} · MAGIC WORLD`} description={def.description} page="catalog" jsonLd={itemList}>
   <section class="catalog" aria-labelledby="catalog-title">
     <header class="catalog__head">
       <nav class="crumbs" aria-label="Ruta de navegación">
@@ -63,20 +62,16 @@ const itemList = siteUrl
 
     <div class="catalog__grid">
       {
-        list.map((p, i) =>
-          hasPhotos(p) ? (
-            <ProductCard
-              product={p}
-              size="md"
-              sizes="(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw"
-              heading="h2"
-              eager={i < 2}
-              style={`--i:${i % 3}`}
-            />
-          ) : (
-            <ProductTile product={p} tone={p.priority === 3 ? 'dark' : 'light'} heading="h2" style={`--i:${i % 3}`} />
-          ),
-        )
+        list.map((p, i) => (
+          <ProductCard
+            product={p}
+            size="md"
+            sizes="(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw"
+            heading="h2"
+            eager={i < 2}
+            style={`--i:${i % 3}`}
+          />
+        ))
       }
     </div>
 

@@ -1,33 +1,27 @@
 ---
 // Colección destacada: tira horizontal. En escritorio se fija y avanza con el
 // scroll vertical; en móvil (o con movimiento reducido) se desliza con el dedo.
-import { bySlug, collectionPalette, pad2 } from '@/data/products';
+import { bySlug, collectionPalette, pad2, priceLabel, productUrl, swatchStyle } from '@/data/products';
 import type { MediaId } from '@/lib/media';
-import { getMedia } from '@/lib/media';
 import Img from '@/components/Img.astro';
 import Icon from '@/components/Icon.astro';
 
 const looks: { slug: string; color: string; image: MediaId; form: 'tall' | 'low' | 'high' }[] = [
-  { slug: 'chaqueton-dama', color: 'negro', image: 'chaqueton-negro-cuello', form: 'tall' },
-  { slug: 'chaqueta-deportiva-tactica', color: 'rojo', image: 'tactica-rojo-abierta', form: 'low' },
-  { slug: 'hoodie-hombre', color: 'gris-carbon', image: 'hoodie-hombre-gris-frente', form: 'tall' },
-  { slug: 'chaqueta-moda-casual', color: 'rojo', image: 'casual-rojo-espalda', form: 'high' },
-  { slug: 'buzo-largo-dama', color: 'negro', image: 'buzo-largo-negro-frente', form: 'tall' },
-  { slug: 'chaqueta-moda-casual', color: 'azul-marino', image: 'casual-azul-lado', form: 'low' },
+  { slug: 'chaqueton-dama', color: 'gris', image: 'chaqueton-gris-look', form: 'tall' },
+  { slug: 'hoodie-hombre', color: 'azul-oscuro', image: 'hoodie-azul-oscuro', form: 'low' },
+  { slug: 'chaqueta-nature-flow', color: 'lila', image: 'nature-flow-lila', form: 'tall' },
+  { slug: 'chaqueta-ufc-combinada', color: 'negro', image: 'ufc-negro', form: 'high' },
+  { slug: 'abrigo-fleece-mujer', color: 'lila', image: 'fleece-lila', form: 'tall' },
+  { slug: 'chaqueta-moda-casual', color: 'gris-oscuro', image: 'casual-gris-oscuro-look', form: 'low' },
+  { slug: 'buzo-fit-hombre', color: 'azul', image: 'fit-azul', form: 'high' },
+  { slug: 'chaqueta-tipo-camisa-dama', color: 'camel', image: 'tipo-camisa-camel', form: 'tall' },
 ];
 
 const items = looks.map((l) => {
   const p = bySlug(l.slug)!;
   const c = p.colors.find((x) => x.id === l.color)!;
   const img = c.images.find((i) => i.id === l.image)!;
-  return {
-    ...l,
-    name: p.name,
-    colorLabel: c.label,
-    view: img.view,
-    href: c.id === p.colors[0].id ? `/producto/${p.slug}/` : `/producto/${p.slug}/?color=${c.id}`,
-    studio: getMedia(l.image).bg === 'studio',
-  };
+  return { ...l, name: p.name, colorLabel: c.label, view: img.view, price: priceLabel(p), href: productUrl(p, c) };
 });
 ---
 
@@ -39,13 +33,16 @@ const items = looks.map((l) => {
         <span class="ln"><span>Chaquetas</span></span>
         <span class="ln" style="--l:1"><span>y buzos.</span></span>
       </h2>
-      <p class="lookbook__text">Para él y para ella. Tela premium en cuatro colores.</p>
-      <ul class="palette" aria-label="Colores de la colección">
-        {collectionPalette.map((c) => <li style={`--sw:${c.swatch}`}>{c.label}</li>)}
-      </ul>
+      <p class="lookbook__text">Para él y para ella. Tela premium y envío incluido en todas las prendas.</p>
+      <div class="palette">
+        <ul class="palette__dots" aria-label="Colores de la colección">
+          {collectionPalette.map((c) => <li style={swatchStyle(c)} title={c.label}><span class="sr-only">{c.label}</span></li>)}
+        </ul>
+        <p class="t-label t-mute">{collectionPalette.length} colores</p>
+      </div>
       <p class="lookbook__hint t-label">
         <span data-hint-touch>Desliza</span>
-        <Icon name="arrow" />
+        <span class="lookbook__ico" aria-hidden="true"><Icon name="arrow" /></span>
       </p>
     </div>
 
@@ -53,12 +50,12 @@ const items = looks.map((l) => {
       {
         items.map((it, i) => (
           <a class:list={['look', `look--${it.form}`]} href={it.href}>
-            <span class:list={['look__frame', it.studio ? 'look__frame--studio' : 'on-paper']}>
+            <span class="look__frame frame">
               <Img
                 id={it.image}
                 alt={`${it.name} en color ${it.colorLabel.toLowerCase()}, ${it.view}`}
                 sizes="(min-width: 1024px) 34vw, (min-width: 768px) 48vw, 72vw"
-                loading={i < 2 ? 'eager' : 'lazy'}
+                loading={i < 3 ? 'eager' : 'lazy'}
                 fetchpriority="low"
                 draggable="false"
               />
@@ -67,7 +64,9 @@ const items = looks.map((l) => {
               <span class="t-index">{pad2(i + 1)}</span>
               <span class="look__name">
                 {it.name}
-                <small>{it.colorLabel}</small>
+                <small>
+                  {it.colorLabel} · {it.price}
+                </small>
               </span>
               <Icon name="arrow-ur" />
             </span>
@@ -76,7 +75,11 @@ const items = looks.map((l) => {
       }
 
       <div class="look look--end">
-        <p>Toda la<br />colección</p>
+        <p>
+          Toda la
+          <br />
+          colección
+        </p>
         <a class="btn" href="/coleccion/">
           <span class="roll"><span>Ver colección</span><span aria-hidden="true">Ver colección</span></span>
         </a>

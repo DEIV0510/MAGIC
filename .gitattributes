@@ -1,0 +1,2 @@
+# Shopify pide saltos de línea LF en el CSV de productos (no convertir a CRLF en Windows).
+shopify/*.csv text eol=lf

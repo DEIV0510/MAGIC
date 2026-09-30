@@ -1,6 +1,8 @@
 ---
 // <picture> con AVIF + WebP. Los anchos del srcset salen del archivo generado
 // (media.json), nunca de lo pedido, así el navegador elige bien.
+// data-bg permite al CSS decidir: fondo blanco → entera y fundida con el papel;
+// foto de ambiente/showroom → cubre el marco usando su punto focal.
 import type { HTMLAttributes } from 'astro/types';
 import { pictureData, type MediaId } from '@/lib/media';
 
@@ -9,12 +11,12 @@ interface Props extends Omit<HTMLAttributes<'img'>, 'src' | 'srcset' | 'width' |
   alt: string;
   sizes: string;
   priority?: boolean;
-  variant?: 'full' | 'trim';
   domId?: string;
 }
 
-const { id, alt, sizes, priority = false, variant = 'full', loading = 'lazy', domId, ...rest } = Astro.props;
-const d = pictureData(id, variant);
+const { id, alt, sizes, priority = false, loading = 'lazy', domId, style, ...rest } = Astro.props;
+const d = pictureData(id);
+const focus = `--focus:${d.focus}`;
 ---
 
 <picture>
@@ -29,6 +31,8 @@ const d = pictureData(id, variant);
     loading={priority ? 'eager' : loading}
     decoding="async"
     fetchpriority={priority ? 'high' : undefined}
+    data-bg={d.bg}
+    style={style ? `${focus};${style}` : focus}
     {...rest}
   />
 </picture>

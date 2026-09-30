@@ -1,8 +1,9 @@
 ---
 // Portada: la chaqueta deportiva táctica en sus tres colores (fotos reales del
-// showroom) y el logotipo cortado justo en el borde de las fotos.
+// showroom) y el logotipo MAGIC WORLD cortado justo en el borde de las fotos
+// (en una línea en escritorio; apilado en móvil).
 import wm from '@/data/wordmark.json';
-import { bySlug, pad2 } from '@/data/products';
+import { bySlug, formatPrice, minPrice, pad2, productUrl, swatchStyle } from '@/data/products';
 import { waLink, generalMessage } from '@/lib/whatsapp';
 import Img from '@/components/Img.astro';
 import Icon from '@/components/Icon.astro';
@@ -12,12 +13,12 @@ const tactica = bySlug('chaqueta-deportiva-tactica')!;
 const panels = tactica.colors.map((c) => ({
   color: c,
   image: c.images.find((i) => i.view === 'puesta') ?? c.images[0],
-  href: c.id === tactica.colors[0].id ? `/producto/${tactica.slug}/` : `/producto/${tactica.slug}/?color=${c.id}`,
+  href: productUrl(tactica, c),
 }));
-const topRatio = (wm.cut / wm.width).toFixed(5);
+const ratio = (v: { cut: number; width: number }) => (v.cut / v.width).toFixed(5);
 ---
 
-<section class="hero" data-progress="hero" aria-label="Portada" data-hero>
+<section class="hero" aria-label="Portada" data-hero>
   <div class="hero__stage">
     {
       panels.map((pnl, i) => (
@@ -50,9 +51,10 @@ const topRatio = (wm.cut / wm.width).toFixed(5);
   </div>
 
   <div class="hero__base">
-    <h1 class="hero__mark" style={`--top-ratio:${topRatio}`}>
-      <span class="sr-only">MAGIC — chaquetas y buzos para hombre y mujer</span>
-      <Wordmark variant="cut" />
+    <h1 class="hero__mark">
+      <span class="sr-only">MAGIC WORLD — chaquetas, buzos y abrigos para hombre y mujer</span>
+      <span class="hero__wm hero__wm--line" style={`--top-ratio:${ratio(wm.line)}`}><Wordmark layout="line" variant="cut" /></span>
+      <span class="hero__wm hero__wm--stack" style={`--top-ratio:${ratio(wm.stack)}`}><Wordmark layout="stack" variant="cut" /></span>
     </h1>
 
     <div class="hero__meta">
@@ -64,7 +66,7 @@ const topRatio = (wm.cut / wm.width).toFixed(5);
               <button
                 class="hero__dot"
                 type="button"
-                style={`--sw:${pnl.color.swatch}`}
+                style={swatchStyle(pnl.color)}
                 aria-label={pnl.color.label}
                 aria-pressed={i === 0 ? 'true' : 'false'}
                 data-hero-dot={i}
@@ -75,9 +77,12 @@ const topRatio = (wm.cut / wm.width).toFixed(5);
       </div>
       <div class="hero__label">
         <span class="scrollcue t-label" aria-hidden="true"><span class="scrollcue__bar"></span>Desliza</span>
-        <p class="t-label t-mute">Colección 01 — Chaquetas y buzos · Hombre / Mujer</p>
+        <p class="t-label t-mute">Colección 01 — Chaquetas, buzos y abrigos · Hombre / Mujer</p>
       </div>
-      <p class="hero__line">Capas para la ciudad.<br />Tela premium.</p>
+      <div>
+        <p class="hero__line">Capas para la ciudad.<br />Tela premium.</p>
+        <p class="hero__price t-label">Desde {formatPrice(minPrice)} · Envío incluido</p>
+      </div>
       <div class="hero__ctas">
         <a class="btn" href="#coleccion">
           <span class="roll"><span>Ver colección</span><span aria-hidden="true">Ver colección</span></span>

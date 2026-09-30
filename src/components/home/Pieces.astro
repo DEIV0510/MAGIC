@@ -1,18 +1,17 @@
 ---
-// Piezas clave 01–06: el orden comercial del cliente con jerarquía visual
-// (01 y 04 grandes, 02 y 05 medianas, 03 y 06 tipográficas hasta tener fotos).
-import { priorityProducts, secondaryProducts, hasPhotos } from '@/data/products';
+// Piezas clave 01–06: el orden comercial del brief con jerarquía visual
+// (01 y 04 grandes, el resto medianas) + el resto de la colección.
+import { priorityProducts, secondaryProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard.astro';
-import ProductTile from '@/components/ProductTile.astro';
 import Icon from '@/components/Icon.astro';
 
-const layout: Record<number, { size: 'xl' | 'lg' | 'md'; sizes: string; tone?: 'dark' | 'light' }> = {
+const layout: Record<number, { size: 'xl' | 'lg' | 'md'; sizes: string }> = {
   1: { size: 'xl', sizes: '(min-width: 768px) 56vw, 92vw' },
   2: { size: 'md', sizes: '(min-width: 768px) 32vw, 92vw' },
-  3: { size: 'md', sizes: '(min-width: 768px) 38vw, 92vw', tone: 'dark' },
+  3: { size: 'md', sizes: '(min-width: 768px) 38vw, 92vw' },
   4: { size: 'lg', sizes: '(min-width: 768px) 52vw, 92vw' },
   5: { size: 'md', sizes: '(min-width: 768px) 40vw, 92vw' },
-  6: { size: 'md', sizes: '(min-width: 768px) 38vw, 92vw', tone: 'light' },
+  6: { size: 'md', sizes: '(min-width: 768px) 38vw, 92vw' },
 };
 ---
 
@@ -26,7 +25,7 @@ const layout: Record<number, { size: 'xl' | 'lg' | 'md'; sizes: string; tone?: '
       </h2>
     </div>
     <div class="pieces__side">
-      <p>Precio y tallas por WhatsApp. Eliges color, lo agregas a la bolsa y te respondemos.</p>
+      <p>Precios con envío incluido. Eliges color y talla, y confirmamos tu pedido por WhatsApp.</p>
       <a class="link" href="/coleccion/">Toda la colección <Icon name="arrow" /></a>
     </div>
   </header>
@@ -36,11 +35,7 @@ const layout: Record<number, { size: 'xl' | 'lg' | 'md'; sizes: string; tone?: '
       priorityProducts.map((p) => {
         const l = layout[p.priority!];
         const cls = `piece piece--${p.priority}`;
-        return hasPhotos(p) ? (
-          <ProductCard product={p} size={l.size} sizes={l.sizes} class={cls} />
-        ) : (
-          <ProductTile product={p} tone={l.tone} class={cls} />
-        );
+        return <ProductCard product={p} size={l.size} sizes={l.sizes} class={cls} />;
       })
     }
   </div>
@@ -50,14 +45,21 @@ const layout: Record<number, { size: 'xl' | 'lg' | 'md'; sizes: string; tone?: '
       <div class="pieces__more">
         <div class="pieces__more-head">
           <h3 class="pieces__more-title t-display">También en la colección</h3>
-          <p class="pieces__more-text">{secondaryProducts.map((p) => `${p.name}: ${p.summary.charAt(0).toLowerCase()}${p.summary.slice(1)}`).join(' ')}</p>
           <a class="link" href="/coleccion/">
             Ver todo <Icon name="arrow" />
           </a>
         </div>
-        <div class="pieces__more-grid">
+        <div class="pieces__more-grid" data-reveal>
           {secondaryProducts.map((p) => (
-            <ProductCard product={p} size="md" sizes="(min-width: 768px) 32vw, 92vw" showIndex={false} heading="h3" />
+            <ProductCard
+              product={p}
+              size="sm"
+              sizes="(min-width: 1100px) 31vw, (min-width: 768px) 46vw, 72vw"
+              showIndex={false}
+              heading="h3"
+              eager
+              reveal={false}
+            />
           ))}
         </div>
       </div>

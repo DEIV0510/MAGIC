@@ -1,270 +1,99 @@
-// Catálogo real de MAGIC.
-// - Nombres: brief del cliente (6 prioritarios) + "Buzo largo para dama" (confirmado).
-// - Colores y detalles: solo lo que se ve en las fotos de la carpeta MAGIC.
-// - price / sizes en null A PROPÓSITO: no hay precios ni tallas en los archivos;
-//   la web muestra "Precio por WhatsApp". Cuando el cliente los pase, se cargan aquí.
+// Catálogo de MAGIC WORLD: tipos y utilidades sobre src/data/catalog.json
+// (la única fuente de datos; la leen también scripts/shopify-export.mjs y
+// scripts/brand-assets.mjs). No se inventa nada: lo que no está en catalog.json
+// no se muestra (p. ej. la táctica sin precio → "Precio por WhatsApp").
+import catalog from './catalog.json';
 import media from './media.json';
 
 export type Gender = 'hombre' | 'mujer';
 export type Category = 'chaquetas' | 'buzos';
+export type MediaId = keyof typeof media;
 
 export interface ProductImage {
-  id: keyof typeof media;
-  view: string; // texto para el alt
+  id: MediaId;
+  /** Texto para el alt: "puesta", "vista frontal"… */
+  view: string;
 }
 
 export interface ProductColor {
   id: string;
+  /** Código corto para SKU (NEG, BEI…). */
+  code: string;
   label: string;
   swatch: string;
+  /** Segundo tono (prendas en dos colores). */
+  swatch2?: string;
   images: ProductImage[];
 }
 
 export interface Product {
   slug: string;
-  /** Orden comercial de los prioritarios (1–6). null = secundario. */
-  priority: number | null;
+  code: string;
   name: string;
-  /** Tipo de prenda para las etiquetas cortas. */
-  type: 'Buzo' | 'Chaqueta' | 'Chaquetón';
-  gender: Gender | null;
+  /** Orden comercial de los prioritarios (1–6). null = resto de la colección. */
+  priority: number | null;
+  type: 'Buzo' | 'Chaqueta' | 'Chaquetón' | 'Abrigo';
+  gender: Gender;
   categories: Category[];
-  colors: ProductColor[];
-  /** Detalles visibles en las fotos (no se inventan materiales ni medidas). */
-  details: string[];
-  summary: string;
+  /** COP, envío incluido. null = sin precio en la info del cliente. */
   price: number | null;
   sizes: string[] | null;
-  /** Palabras para la tarjeta tipográfica cuando aún no hay fotos. */
-  mark?: string[];
-  /** Para conectar Shopify más adelante: id de variante por color. */
-  shopifyVariants?: Record<string, string>;
+  material: string | null;
+  lining?: string | null;
+  composition: string | null;
+  summary: string;
+  description: string;
+  details: string[];
+  video?: { color: string; label: string };
+  colors: ProductColor[];
 }
 
-const SW = {
-  negro: '#161616',
-  gris: '#434341',
-  azul: '#1F2940',
-  rojo: '#A52023',
-};
+const products = catalog.products as Product[];
 
-export const products: Product[] = [
-  {
-    slug: 'hoodie-hombre',
-    priority: 1,
-    name: 'Hoodie para hombre',
-    type: 'Buzo',
-    gender: 'hombre',
-    categories: ['buzos'],
-    colors: [
-      { id: 'negro', label: 'Negro', swatch: SW.negro, images: [{ id: 'hoodie-hombre-negro-frente', view: 'vista frontal' }] },
-      { id: 'gris-carbon', label: 'Gris carbón', swatch: SW.gris, images: [{ id: 'hoodie-hombre-gris-frente', view: 'vista frontal' }] },
-    ],
-    details: [
-      'Cierre frontal completo',
-      'Capucha con cordón',
-      'Dos bolsillos de pecho con solapa',
-      'Bolsillos frontales',
-      'Puños y pretina en rib',
-    ],
-    summary: 'Cierre completo, capucha con cordón y bolsillos con solapa en el pecho.',
-    price: null,
-    sizes: null,
-  },
-  {
-    slug: 'chaqueta-deportiva-tactica',
-    priority: 2,
-    name: 'Chaqueta deportiva táctica',
-    type: 'Chaqueta',
-    gender: 'hombre',
-    categories: ['chaquetas'],
-    colors: [
-      {
-        id: 'azul-marino', label: 'Azul marino', swatch: SW.azul,
-        images: [
-          { id: 'tactica-azul-modelo', view: 'puesta' },
-          { id: 'tactica-azul-frente', view: 'vista frontal' },
-          { id: 'tactica-azul-abierta', view: 'abierta, con el forro a la vista' },
-        ],
-      },
-      {
-        id: 'rojo', label: 'Rojo', swatch: SW.rojo,
-        images: [
-          { id: 'tactica-rojo-modelo', view: 'puesta' },
-          { id: 'tactica-rojo-frente', view: 'vista frontal' },
-          { id: 'tactica-rojo-abierta', view: 'abierta, con el forro a la vista' },
-        ],
-      },
-      {
-        id: 'negro', label: 'Negro', swatch: SW.negro,
-        images: [
-          { id: 'tactica-negro-modelo', view: 'puesta' },
-          { id: 'tactica-negro-frente', view: 'vista frontal' },
-          { id: 'tactica-negro-abierta', view: 'abierta, con el forro a la vista' },
-        ],
-      },
-    ],
-    details: [
-      'Cuello alto',
-      'Cierre frontal completo',
-      'Bolsillo de pecho con cierre',
-      'Dos bolsillos laterales con cierre',
-      'Franjas de contraste en blanco',
-      'Forro interior negro con bolsillo',
-    ],
-    summary: 'Cuello alto, tres bolsillos con cierre y franjas de contraste.',
-    price: null,
-    sizes: null,
-  },
-  {
-    slug: 'chaqueta-ufc-combinada',
-    priority: 3,
-    name: 'Chaqueta UFC combinada',
-    mark: ['UFC', 'Combinada'],
-    type: 'Chaqueta',
-    gender: null,
-    categories: ['chaquetas'],
-    colors: [],
-    details: [],
-    summary: 'Te enviamos fotos, colores y precio por WhatsApp.',
-    price: null,
-    sizes: null,
-  },
-  {
-    slug: 'chaqueton-dama',
-    priority: 4,
-    name: 'Chaquetón para dama',
-    type: 'Chaquetón',
-    gender: 'mujer',
-    categories: ['chaquetas'],
-    colors: [
-      {
-        id: 'negro', label: 'Negro', swatch: SW.negro,
-        images: [
-          { id: 'chaqueton-negro-frente', view: 'vista frontal' },
-          { id: 'chaqueton-negro-cuello', view: 'con el cuello abierto' },
-          { id: 'chaqueton-negro-frente-2', view: 'cerrado, vista frontal' },
-          { id: 'chaqueton-negro-espalda', view: 'vista de espalda' },
-        ],
-      },
-    ],
-    details: [
-      'Capucha amplia',
-      'Cierre asimétrico',
-      'Pestañas con hebilla metálica en los puños',
-      'Silueta entallada',
-      'Largo por debajo de la cadera',
-    ],
-    summary: 'Capucha amplia, cierre asimétrico y hebillas metálicas en los puños.',
-    price: null,
-    sizes: null,
-  },
-  {
-    slug: 'chaqueta-moda-casual',
-    priority: 5,
-    name: 'Chaqueta de moda casual',
-    type: 'Chaqueta',
-    gender: 'mujer',
-    categories: ['chaquetas'],
-    colors: [
-      {
-        id: 'rojo', label: 'Rojo', swatch: SW.rojo,
-        images: [
-          { id: 'casual-rojo-lado', view: 'vista de tres cuartos' },
-          { id: 'casual-rojo-espalda', view: 'vista de espalda' },
-        ],
-      },
-      {
-        id: 'negro', label: 'Negro', swatch: SW.negro,
-        images: [
-          { id: 'casual-negro-frente', view: 'vista frontal' },
-          { id: 'casual-negro-lado', view: 'vista de tres cuartos' },
-        ],
-      },
-      {
-        id: 'azul-marino', label: 'Azul marino', swatch: SW.azul,
-        images: [{ id: 'casual-azul-lado', view: 'vista de tres cuartos' }],
-      },
-    ],
-    details: [
-      'Capucha con cordón',
-      'Cintura ajustable con cordón',
-      'Cuello alto',
-      'Cierre frontal completo',
-      'Bolsillos de parche',
-    ],
-    summary: 'Capucha con cordón y cintura ajustable.',
-    price: null,
-    sizes: null,
-  },
-  {
-    slug: 'chaqueta-nature-flow',
-    priority: 6,
-    name: 'Chaqueta Nature Flow',
-    mark: ['Nature', 'Flow'],
-    type: 'Chaqueta',
-    gender: null,
-    categories: ['chaquetas'],
-    colors: [],
-    details: [],
-    summary: 'Te enviamos fotos, colores y precio por WhatsApp.',
-    price: null,
-    sizes: null,
-  },
-  {
-    slug: 'buzo-largo-dama',
-    priority: null,
-    name: 'Buzo largo para dama',
-    type: 'Buzo',
-    gender: 'mujer',
-    categories: ['buzos'],
-    colors: [
-      {
-        id: 'gris-carbon', label: 'Gris carbón', swatch: SW.gris,
-        images: [
-          { id: 'buzo-largo-gris-frente', view: 'vista frontal' },
-          { id: 'buzo-largo-gris-espalda', view: 'vista de espalda' },
-        ],
-      },
-      {
-        id: 'negro', label: 'Negro', swatch: SW.negro,
-        images: [
-          { id: 'buzo-largo-negro-frente', view: 'vista frontal' },
-          { id: 'buzo-largo-negro-espalda', view: 'vista de espalda' },
-        ],
-      },
-    ],
-    details: [
-      'Cierre diagonal',
-      'Capucha con cordón',
-      'Bajo cruzado y curvo',
-      'Bolsillos laterales',
-      'Puños en rib',
-    ],
-    summary: 'Cierre diagonal, capucha con cordón y bajo cruzado.',
-    price: null,
-    sizes: null,
-  },
-];
+// Validación al compilar: cada foto referenciada debe existir en media.json.
+for (const p of products) {
+  for (const c of p.colors) {
+    for (const img of c.images) {
+      if (!(img.id in media)) throw new Error(`[catálogo] ${p.slug}/${c.id}: falta la imagen "${img.id}" en media.json (npm run images)`);
+    }
+  }
+}
+
+export { products };
 
 // ---------- Utilidades ----------
 export const bySlug = (slug: string) => products.find((p) => p.slug === slug);
-export const priorityProducts = products
-  .filter((p) => p.priority !== null)
-  .sort((a, b) => (a.priority ?? 99) - (b.priority ?? 99));
+export const priorityProducts = products.filter((p) => p.priority !== null).sort((a, b) => (a.priority ?? 99) - (b.priority ?? 99));
 export const secondaryProducts = products.filter((p) => p.priority === null);
-export const hasPhotos = (p: Product) => p.colors.length > 0;
 
 export const genderLabel: Record<Gender, string> = { hombre: 'Hombre', mujer: 'Mujer' };
 
-/** "HOMBRE — BUZO" · "CHAQUETA" (si no hay género confirmado). */
-export const productTag = (p: Product) =>
-  [p.gender ? genderLabel[p.gender] : null, p.type].filter(Boolean).join(' — ');
+/** "Hombre — Buzo" */
+export const productTag = (p: Product) => `${genderLabel[p.gender]} — ${p.type}`;
 
-export const altFor = (p: Product, c: ProductColor, img: ProductImage) =>
-  `${p.name} en color ${c.label.toLowerCase()}, ${img.view}`;
+export const altFor = (p: Product, c: ProductColor, img: ProductImage) => `${p.name} en color ${c.label.toLowerCase()}, ${img.view}`;
 
 export const pad2 = (n: number) => String(n).padStart(2, '0');
+
+/** 79990 → "$79.990" (formato colombiano, sin decimales). */
+export const formatPrice = (n: number) => `$${Math.round(n).toLocaleString('es-CO').replace(/,/g, '.')}`;
+
+export const priceLabel = (p: Product) => (p.price ? formatPrice(p.price) : 'Precio por WhatsApp');
+
+/** "S · M · L · XL · XXL" */
+export const sizesLabel = (p: Product) => (p.sizes ? p.sizes.join(' · ') : null);
+
+/** CSS del recuadro de color (dos tonos = mitad y mitad). */
+export const swatchStyle = (c: ProductColor) =>
+  c.swatch2 ? `--sw:linear-gradient(135deg, ${c.swatch} 0 50%, ${c.swatch2} 50% 100%)` : `--sw:${c.swatch}`;
+
+export const minPrice = Math.min(...products.filter((p) => p.price).map((p) => p.price as number));
+
+/** Tela para mostrar: "Algodón perchado Mónaco · 94 % poliéster, 6 % spandex" */
+export const fabricLine = (p: Product) => [p.material, p.lining ? `forro en ${p.lining.toLowerCase()}` : null, p.composition].filter(Boolean).join(' · ');
+
+export const productUrl = (p: Product, c?: ProductColor) =>
+  !c || c.id === p.colors[0]?.id ? `/producto/${p.slug}/` : `/producto/${p.slug}/?color=${c.id}`;
 
 export interface CollectionDef {
   slug: string;
@@ -273,40 +102,40 @@ export interface CollectionDef {
   heading: string;
   description: string;
   filter: (p: Product) => boolean;
-  preview: ProductImage['id'];
+  preview: MediaId;
 }
 
 export const collections: CollectionDef[] = [
   {
     slug: 'hombre', path: '/hombre/', title: 'Hombre', heading: 'Hombre',
-    description: 'Chaquetas y buzos para hombre en tela premium: hoodie para hombre y chaqueta deportiva táctica.',
-    filter: (p) => p.gender === 'hombre', preview: 'tactica-negro-modelo',
+    description: 'Chaquetas, buzos y abrigos para hombre: hoodie de cordón cruzado, chaqueta UFC, chaqueta de cuatro bolsillos y más. Envío incluido.',
+    filter: (p) => p.gender === 'hombre', preview: 'hoodie-negro',
   },
   {
     slug: 'mujer', path: '/mujer/', title: 'Mujer', heading: 'Mujer',
-    description: 'Chaquetas y buzos para mujer en tela premium: chaquetón para dama, chaqueta de moda casual y buzo largo.',
-    filter: (p) => p.gender === 'mujer', preview: 'chaqueton-negro-cuello',
+    description: 'Chaquetón, chaqueta Nature Flow, abrigo fleece, buzo en peluche y chaqueta tipo camisa para mujer. Envío incluido.',
+    filter: (p) => p.gender === 'mujer', preview: 'nature-flow-lila',
   },
   {
     slug: 'chaquetas', path: '/chaquetas/', title: 'Chaquetas', heading: 'Chaquetas',
-    description: 'Chaquetas MAGIC para hombre y mujer: deportiva táctica, UFC combinada, chaquetón para dama, moda casual y Nature Flow.',
-    filter: (p) => p.categories.includes('chaquetas'), preview: 'casual-rojo-lado',
+    description: 'Chaquetas, chaquetones y abrigos para hombre y mujer, en algodón perchado Mónaco, nailon impermeable y bisonte ovejero. Envío incluido.',
+    filter: (p) => p.categories.includes('chaquetas'), preview: 'casual-gris-oscuro-look-2',
   },
   {
     slug: 'buzos', path: '/buzos/', title: 'Buzos', heading: 'Buzos',
-    description: 'Buzos MAGIC en tela premium: hoodie para hombre y buzo largo para dama.',
-    filter: (p) => p.categories.includes('buzos'), preview: 'hoodie-hombre-gris-frente',
+    description: 'Hoodies y buzos para hombre y mujer: perchado Mónaco, peluche y tela Zurich con spandex. Envío incluido.',
+    filter: (p) => p.categories.includes('buzos'), preview: 'fit-gris',
   },
   {
     slug: 'coleccion', path: '/coleccion/', title: 'Nueva colección', heading: 'Colección 01',
-    description: 'La colección completa de MAGIC: chaquetas y buzos para hombre y mujer en tela premium.',
-    filter: () => true, preview: 'buzo-largo-negro-frente',
+    description: 'La colección completa de MAGIC WORLD: chaquetas, buzos y abrigos para hombre y mujer, con envío incluido.',
+    filter: () => true, preview: 'chaqueton-gris-look',
   },
 ];
 
-/** Colores presentes en toda la colección (para la paleta de temporada). */
+/** Colores de la colección (sin repetir nombre), para la paleta de temporada. */
 export const collectionPalette = (() => {
-  const seen = new Map<string, { label: string; swatch: string }>();
-  for (const p of products) for (const c of p.colors) if (!seen.has(c.id)) seen.set(c.id, { label: c.label, swatch: c.swatch });
-  return [...seen.entries()].map(([id, v]) => ({ id, ...v }));
+  const seen = new Map<string, ProductColor>();
+  for (const p of products) for (const c of p.colors) if (!seen.has(c.label)) seen.set(c.label, c);
+  return [...seen.values()];
 })();

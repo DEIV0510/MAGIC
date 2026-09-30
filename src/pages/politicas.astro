@@ -1,13 +1,13 @@
 ---
 // Solo describe cómo funciona ESTE sitio. No incluye condiciones comerciales
-// (cambios, garantías, envíos) porque la marca aún no las ha entregado.
+// (cambios, garantías) porque la marca aún no las ha entregado; el envío incluido sí.
 import '@/styles/shop.css';
 import Base from '@/layouts/Base.astro';
 import { site } from '@/data/site';
 import { waLink, generalMessage } from '@/lib/whatsapp';
 ---
 
-<Base title="Políticas · MAGIC" description="Cómo funcionan los pedidos y qué datos usa el sitio de MAGIC." page="page">
+<Base title="Políticas · MAGIC WORLD" description="Cómo funcionan los pedidos y qué datos usa el sitio de MAGIC WORLD." page="page">
   <section class="page" aria-labelledby="page-title">
     <nav class="crumbs" aria-label="Ruta de navegación">
       <ol>
@@ -20,10 +20,11 @@ import { waLink, generalMessage } from '@/lib/whatsapp';
       <h2>Pedidos</h2>
       <p>
         Los pedidos se hacen por WhatsApp al <a href={waLink(generalMessage())} target="_blank" rel="noopener">{site.whatsapp.display}</a>. La bolsa
-        del sitio arma el mensaje con las prendas y los colores que elegiste; el precio, la talla y la disponibilidad se confirman en esa
-        conversación.
+        del sitio arma el mensaje con las prendas, colores, tallas y precios que elegiste; la disponibilidad se confirma en esa conversación
+        antes del pago.
       </p>
-      <p>Las condiciones de pago, cambios y entregas te las indicamos por WhatsApp antes de cerrar el pedido.</p>
+      <p>Los precios publicados están en pesos colombianos e incluyen el envío.</p>
+      <p>Las condiciones de pago y de cambios te las indicamos por WhatsApp antes de cerrar el pedido.</p>
 
       <h2>Datos y privacidad</h2>
       <ul>

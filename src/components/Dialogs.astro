@@ -1,5 +1,6 @@
 ---
-// Bolsa, buscador y menú móvil: <dialog> nativo (foco atrapado, Escape, fondo inerte).
+// Bolsa, vista rápida, buscador y menú móvil: <dialog> nativo (foco atrapado,
+// Escape, fondo inerte). El contenido dinámico sale de #shop-data (Base.astro).
 import { nav, site } from '@/data/site';
 import { collections } from '@/data/products';
 import { waLink, generalMessage } from '@/lib/whatsapp';
@@ -9,6 +10,7 @@ import Icon from './Icon.astro';
 const path = Astro.url.pathname;
 const isCurrent = (href: string) => (href === '/' ? path === '/' : !href.includes('#') && path.startsWith(href));
 const quick = collections.filter((c) => c.slug !== 'coleccion');
+const homeLabel = `${site.name}, ir al inicio`;
 ---
 
 <!-- Bolsa -->
@@ -33,9 +35,9 @@ const quick = collections.filter((c) => c.slug !== 'coleccion');
     <div class="bag__foot" data-bag-foot>
       <div class="bag__total">
         <span>Total</span>
-        <span data-bag-total>Por confirmar</span>
+        <span data-bag-total>—</span>
       </div>
-      <p class="bag__note">Precio, talla y disponibilidad se confirman por WhatsApp.</p>
+      <p class="bag__note" data-bag-note>Envío incluido. Confirmamos tu pedido por WhatsApp.</p>
       <button class="btn btn--block" type="button" data-checkout>
         <Icon name="whatsapp" />
         <span class="roll"><span>Finalizar pedido</span><span aria-hidden="true">Finalizar pedido</span></span>
@@ -44,6 +46,45 @@ const quick = collections.filter((c) => c.slug !== 'coleccion');
         <span class="roll"><span>Seguir comprando</span><span aria-hidden="true">Seguir comprando</span></span>
       </button>
     </div>
+  </div>
+</dialog>
+
+<!-- Vista rápida: color + talla antes de ir a la bolsa -->
+<dialog class="sheet quick" id="quick" aria-labelledby="quick-title">
+  <div class="sheet__scrim" data-close aria-hidden="true"></div>
+  <div class="quick__panel" data-tone="light">
+    <div class="quick__head">
+      <p class="t-label">Elige tu talla</p>
+      <button class="sheet__close" type="button" data-close aria-label="Cerrar">
+        <Icon name="close" />
+      </button>
+    </div>
+    <form class="quick__body" data-quick-form novalidate>
+      <div class="quick__product">
+        <span class="quick__thumb frame"><img data-quick-img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="96" height="120" /></span>
+        <div>
+          <h2 class="quick__name" id="quick-title" data-quick-name></h2>
+          <p class="quick__price"><span data-quick-price></span> <small data-quick-ship>Envío incluido</small></p>
+        </div>
+      </div>
+
+      <fieldset class="opt" data-quick-colors-field>
+        <legend class="opt__legend">Color: <strong data-quick-color-name></strong></legend>
+        <div class="opt__row" data-quick-colors></div>
+      </fieldset>
+
+      <fieldset class="opt" data-quick-sizes-field>
+        <legend class="opt__legend">Talla</legend>
+        <div class="opt__row" data-quick-sizes></div>
+        <p class="opt__error" data-quick-error role="alert" hidden>Elige una talla.</p>
+      </fieldset>
+      <p class="quick__note t-mute" data-quick-nosize hidden>Te asesoramos con la talla por WhatsApp.</p>
+
+      <button class="btn btn--block" type="submit" data-quick-submit>
+        <span class="roll"><span>Agregar a la bolsa</span><span aria-hidden="true">Agregar a la bolsa</span></span>
+      </button>
+      <a class="link quick__more" href="/" data-quick-link data-close-nav>Ver detalles <Icon name="arrow" /></a>
+    </form>
   </div>
 </dialog>
 
@@ -59,7 +100,7 @@ const quick = collections.filter((c) => c.slug !== 'coleccion');
         id="search-input"
         type="search"
         name="q"
-        placeholder="Chaqueta, hoodie, rojo…"
+        placeholder="Chaqueta, hoodie, lila…"
         autocomplete="off"
         spellcheck="false"
         enterkeyhint="search"
@@ -88,7 +129,7 @@ const quick = collections.filter((c) => c.slug !== 'coleccion');
 <dialog class="sheet menu" id="menu" aria-label="Menú">
   <div class="menu__panel" data-tone="dark">
     <div class="menu__top">
-      <a class="hdr__logo" href="/" aria-label="MAGIC, ir al inicio"><Wordmark /></a>
+      <a class="hdr__logo" href="/" aria-label={homeLabel}><Wordmark /></a>
       <button class="sheet__close" type="button" data-close aria-label="Cerrar menú">
         <Icon name="close" />
       </button>

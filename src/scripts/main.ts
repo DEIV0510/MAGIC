@@ -3,11 +3,13 @@
 import { initHeader } from './header';
 import { initDialogs } from './dialogs';
 import { initBag } from './bag';
+import { initQuick } from './quick';
 import { initCards } from './cards';
 import { initReveal } from './reveal';
 import { initProgress } from './progress';
 import { initFloat } from './float';
 import { initSearch } from './search';
+import { initVideos } from './video';
 import { initViewTransitions } from './vt';
 import { finePointer, motionOK, onIdle, page } from './env';
 
@@ -16,9 +18,11 @@ window.clearTimeout(window.__magicFallback);
 initHeader();
 initDialogs();
 initBag();
+initQuick();
 initCards();
 initSearch();
 initFloat();
+initVideos();
 initViewTransitions();
 initReveal();
 initProgress();

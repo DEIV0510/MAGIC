@@ -1,13 +1,13 @@
 ---
-// Pantalla de carga: MAGIC se arma con sus dos mitades, una línea roja marca
-// el corte y la cortina sube. ~1,6 s, solo en la primera visita de la sesión.
+// Pantalla de carga: MAGIC se arma con sus dos mitades, WORLD sube debajo, una
+// línea roja marca el corte y la cortina sube. ~1,6 s, solo en la primera visita.
 import wm from '@/data/wordmark.json';
 import Wordmark from '@/components/Wordmark.astro';
 ---
 
 <div class="loader" aria-hidden="true" data-loader>
-  <div class="loader__mark" style={`--cut-ratio:${wm.cutRatio}`}>
-    <Wordmark variant="cut" />
+  <div class="loader__mark" style={`--cut-ratio:${wm.stack.cutRatio}`}>
+    <Wordmark layout="stack" variant="cut" />
     <i class="loader__line"></i>
   </div>
   <div class="loader__meta t-label">

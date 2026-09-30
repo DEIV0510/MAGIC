@@ -1,21 +1,20 @@
 ---
 // Producto destacado: el chaquetón delante de su nombre gigante en rojo.
-// La foto (fondo blanco) se funde por multiply: la prenda tapa las letras.
-// Los rótulos señalan detalles VISIBLES en la foto.
-import { bySlug, altFor, pad2 } from '@/data/products';
-import { thumbUrl, getMedia } from '@/lib/media';
+// Se usa el recorte con alfa (scripts/cutout.mjs): la prenda tapa las letras.
+// Los rótulos señalan detalles VISIBLES en la foto (coordenadas medidas sobre ella).
+import { bySlug, altFor, formatPrice, pad2, productUrl } from '@/data/products';
 import { productMessage, waLink } from '@/lib/whatsapp';
 import Img from '@/components/Img.astro';
 import Icon from '@/components/Icon.astro';
 
 const p = bySlug('chaqueton-dama')!;
-const c = p.colors[0];
+const c = p.colors.find((x) => x.id === 'negro')!;
 const img = c.images[0];
 const callouts = [
-  { label: 'Capucha amplia', x: 47, y: 8, at: 0.2 },
-  { label: 'Hebilla metálica', x: 56, y: 40, at: 0.32 },
-  { label: 'Cierre asimétrico', x: 38, y: 55, at: 0.44 },
-  { label: 'Largo bajo la cadera', x: 61, y: 93, at: 0.56 },
+  { label: 'Capucha con cordón', x: 42, y: 34, at: 0.2 },
+  { label: 'Cierre asimétrico', x: 58.5, y: 46, at: 0.32 },
+  { label: 'Bolsillos laterales', x: 64.5, y: 63, at: 0.44 },
+  { label: 'Bajo cruzado', x: 55, y: 86, at: 0.56 },
 ];
 ---
 
@@ -30,7 +29,7 @@ const callouts = [
 
     <div class="feature__stage">
       <figure class="feature__figure">
-        <Img id="chaqueton-negro-frente-cut" alt={altFor(p, c, img)} sizes="(min-width: 1024px) 44vw, 90vw" />
+        <Img id="chaqueton-negro-estudio-cut" alt={altFor(p, c, img)} sizes="(min-width: 1024px) 44vw, 90vw" />
         {
           callouts.map((k) => (
             <span class="callout" style={`--x:${k.x}%;--y:${k.y}%;--at:${k.at}`} aria-hidden="true">
@@ -45,32 +44,20 @@ const callouts = [
     <div class="feature__buy">
       <h2 class="feature__name t-display" id="feature-title">Chaquetón<br />para dama</h2>
       <p class="feature__price">
-        Precio por WhatsApp
-        <small>Negro · Tela premium</small>
+        {formatPrice(p.price!)}
+        <small>Envío incluido · Gris y negro · Tallas S a XXL</small>
       </p>
       <p class="sr-only">Detalles: {callouts.map((k) => k.label).join(', ')}.</p>
       <div class="feature__ctas">
-        <button
-          class="btn"
-          type="button"
-          data-add
-          data-open-bag
-          data-slug={p.slug}
-          data-name={p.name}
-          data-color={c.id}
-          data-color-label={c.label}
-          data-image={thumbUrl(img.id)}
-          data-bg={getMedia(img.id).bg}
-          data-variant={p.shopifyVariants?.[c.id] ?? ''}
-        >
+        <button class="btn" type="button" data-quick={p.slug} data-quick-color={c.id} data-quick-intent="buy">
           <span class="roll"><span>Comprar ahora</span><span aria-hidden="true">Comprar ahora</span></span>
         </button>
-        <a class="btn btn--ghost" href={waLink(productMessage(p.name, c.label))} target="_blank" rel="noopener">
+        <a class="btn btn--ghost" href={waLink(productMessage(p.name, c.label, p.price))} target="_blank" rel="noopener">
           <Icon name="whatsapp" />
           <span class="roll"><span>Quiero esta prenda</span><span aria-hidden="true">Quiero esta prenda</span></span>
         </a>
       </div>
-      <a class="link" href={`/producto/${p.slug}/`}>Ver detalles <Icon name="arrow" /></a>
+      <a class="link" href={productUrl(p, c)}>Ver detalles <Icon name="arrow" /></a>
     </div>
   </div>
 </section>
