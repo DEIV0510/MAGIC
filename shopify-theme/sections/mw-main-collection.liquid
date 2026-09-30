@@ -51,15 +51,21 @@
 
   {%- paginate collection.products by 24 -%}
     <div class="catalog__grid">
+      {%- comment -%}
+        El número de cada tarjeta es su puesto en la lista (01, 02…), sea cual sea el orden
+        elegido en Shopify: con el número fijo de la prenda, una sin número podía quedar
+        de primera y la serie se veía salteada.
+      {%- endcomment -%}
       {%- assign i = 0 -%}
       {%- for p in collection.products -%}
         {%- if p.available -%}
           {%- assign m = i | modulo: 3 -%}
+          {%- assign n = paginate.current_offset | plus: i | plus: 1 -%}
           {%- capture st -%}--i:{{ m }}{%- endcapture -%}
           {%- if i < 2 -%}
-            {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', eager: true, style: st -%}
+            {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', eager: true, style: st, index: n -%}
           {%- else -%}
-            {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st -%}
+            {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st, index: n -%}
           {%- endif -%}
           {%- assign i = i | plus: 1 -%}
         {%- endif -%}
@@ -67,8 +73,9 @@
       {%- for p in collection.products -%}
         {%- unless p.available -%}
           {%- assign m = i | modulo: 3 -%}
+          {%- assign n = paginate.current_offset | plus: i | plus: 1 -%}
           {%- capture st -%}--i:{{ m }}{%- endcapture -%}
-          {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st -%}
+          {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st, index: n -%}
           {%- assign i = i | plus: 1 -%}
         {%- endunless -%}
       {%- endfor -%}

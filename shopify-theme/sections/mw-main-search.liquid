@@ -25,11 +25,14 @@
   {%- if search.performed -%}
     {%- paginate search.results by 24 -%}
       <div class="catalog__grid">
+        {%- assign i = 0 -%}
         {%- for item in search.results -%}
           {%- if item.object_type == 'product' -%}
-            {%- assign m = forloop.index0 | modulo: 3 -%}
+            {%- assign m = i | modulo: 3 -%}
+            {%- assign n = paginate.current_offset | plus: i | plus: 1 -%}
             {%- capture st -%}--i:{{ m }}{%- endcapture -%}
-            {%- render 'mw-card', product: item, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st -%}
+            {%- render 'mw-card', product: item, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st, index: n -%}
+            {%- assign i = i | plus: 1 -%}
           {%- endif -%}
         {%- endfor -%}
       </div>
