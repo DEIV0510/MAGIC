@@ -1,0 +1,75 @@
+{
+  "type": "footer",
+  "name": "Pie de página",
+  "sections": {
+    "footer": {
+      "type": "mw-footer",
+      "blocks": {
+        "hombre": {
+          "type": "link",
+          "settings": {
+            "label": "Hombre",
+            "link": "shopify://collections/hombre"
+          }
+        },
+        "mujer": {
+          "type": "link",
+          "settings": {
+            "label": "Mujer",
+            "link": "shopify://collections/mujer"
+          }
+        },
+        "coleccion": {
+          "type": "link",
+          "settings": {
+            "label": "Colección",
+            "link": "/collections/all"
+          }
+        },
+        "contacto": {
+          "type": "link",
+          "settings": {
+            "label": "Contacto",
+            "link": "/#contacto"
+          }
+        },
+        "legal-1": {
+          "type": "legal",
+          "settings": {
+            "label": "Cambios y devoluciones",
+            "link": "shopify://pages/politicas-de-reembolso"
+          }
+        },
+        "legal-2": {
+          "type": "legal",
+          "settings": {
+            "label": "Términos y condiciones",
+            "link": "shopify://pages/terminos-y-condiciones"
+          }
+        },
+        "legal-3": {
+          "type": "legal",
+          "settings": {
+            "label": "Privacidad",
+            "link": "shopify://pages/politicas-de-privacidad"
+          }
+        }
+      },
+      "block_order": [
+        "hombre",
+        "mujer",
+        "coleccion",
+        "contacto",
+        "legal-1",
+        "legal-2",
+        "legal-3"
+      ],
+      "settings": {
+        "tagline": "Chaquetas, buzos y abrigos para hombre y mujer"
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

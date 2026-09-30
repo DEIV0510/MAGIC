@@ -1,0 +1,360 @@
+{%- comment -%}
+  Ficha de producto. Precio, variantes, stock y fotos salen de Shopify; nombre y textos, de la
+  web (snippets/mw-map.liquid) cuando la prenda los tiene.
+  El formulario es el de producto de Shopify (/cart/add con name="id"): Releasit lo lee para
+  su pago contraentrega. "Pedir ahora" (href /rsi-btn-overwrite) es el botón que la app activa.
+{%- endcomment -%}
+{%- liquid
+  capture info
+    render 'mw-map', part: 'info', handle: product.handle
+  endcapture
+  assign info = info | strip | split: '~'
+  assign mapped = false
+  if info.size > 0
+    assign mapped = true
+  endif
+  assign name = info[0] | default: product.title
+  assign number = info[1]
+  assign gender = info[2]
+  assign tag = info[3] | default: product.type
+  assign video_key = info[5]
+
+  assign ci = -1
+  assign zi = -1
+  assign cprop = ''
+  assign zprop = ''
+  for o in product.options_with_values
+    assign oname = o.name | strip | downcase
+    if oname == 'color' or oname == 'colores' or oname == 'colour'
+      assign ci = forloop.index0
+      assign cprop = 'option' | append: o.position
+    elsif oname == 'talla' or oname == 'tallas' or oname == 'size' or oname == 'sizes'
+      assign zi = forloop.index0
+      assign zprop = 'option' | append: o.position
+      assign size_values = o.values
+    endif
+  endfor
+
+  capture raw
+    render 'mw-colors', product: product
+  endcapture
+  assign colors = raw | strip | split: '^'
+
+  assign sel = product.selected_variant
+  assign active_value = ''
+  if sel and ci >= 0
+    assign active_value = sel.options[ci]
+  else
+    for c in colors
+      assign f = c | split: '~'
+      if f[4] == '1'
+        assign active_value = f[0]
+        break
+      endif
+    endfor
+    if active_value == blank
+      assign af = colors[0] | split: '~'
+      assign active_value = af[0]
+    endif
+  endif
+  assign active_label = active_value | downcase | capitalize
+  for c in colors
+    assign f = c | split: '~'
+    if f[0] == active_value
+      assign active_label = f[2]
+    endif
+  endfor
+
+  assign initial = product.selected_or_first_available_variant
+  if sel == blank and ci >= 0
+    assign cands = product.variants | where: cprop, active_value
+    assign avail = cands | where: 'available'
+    if avail.size > 0
+      assign initial = avail.first
+    elsif cands.size > 0
+      assign initial = cands.first
+    endif
+  endif
+  assign selected_size = ''
+  if sel and zi >= 0
+    assign selected_size = sel.options[zi]
+  endif
+
+  assign color_soldout = true
+  if ci >= 0
+    assign cav = product.variants | where: cprop, active_value | where: 'available'
+    if cav.size > 0
+      assign color_soldout = false
+    endif
+  elsif product.available
+    assign color_soldout = false
+  endif
+
+  assign price = initial.price | money_without_trailing_zeros
+  assign was = ''
+  if settings.show_compare_at and initial.compare_at_price > initial.price
+    assign was = initial.compare_at_price | money_without_trailing_zeros
+  endif
+
+  assign crumb_url = routes.all_products_collection_url
+  assign crumb_title = 'Colección'
+  if gender == 'hombre'
+    assign crumb_url = '/collections/hombre'
+    assign crumb_title = 'Hombre'
+  elsif gender == 'mujer'
+    assign crumb_url = '/collections/mujer'
+    assign crumb_title = 'Mujer'
+  endif
+
+  assign buy_label = settings.buy_label | default: 'Pedir ahora'
+  assign lower = active_label | downcase
+-%}
+{%- capture wa_msg -%}Hola MAGIC WORLD, me interesa la prenda {{ name }}{% if active_label != blank %} en color {{ lower }}{% endif %} ({{ price }}, envío incluido). ¿Me confirmas las tallas disponibles?{%- endcapture -%}
+{%- capture wa -%}{% render 'mw-wa-href', text: wa_msg %}{%- endcapture -%}
+
+<article
+  class="pdp"
+  data-pdp
+  data-handle="{{ product.handle }}"
+  data-name="{{ name | escape }}"
+  data-ci="{{ ci }}"
+  data-zi="{{ zi }}"
+  data-selected-size="{{ selected_size | escape }}"
+>
+  <script type="application/json" data-product-json>
+    {"variants":[{%- for v in product.variants -%}{"id":{{ v.id }},"options":{{ v.options | json }},"available":{{ v.available | json }},"price":{{ v.price }},"compare_at_price":{{ v.compare_at_price | default: 'null' }}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]}
+  </script>
+
+  <div class="pdp__gallery">
+    {%- if mapped and ci >= 0 -%}
+      {%- for c in colors -%}
+        {%- liquid
+          assign f = c | split: '~'
+          assign imgs = f[6] | split: ';'
+          assign is_active = false
+          if f[0] == active_value
+            assign is_active = true
+          endif
+          assign cl = f[2] | downcase
+        -%}
+        <div class="pdp__set{% if is_active %} is-active{% endif %}" data-set="{{ f[1] }}" role="region" tabindex="0" aria-label="Fotos en color {{ cl }}">
+          {%- for im in imgs -%}
+            {%- liquid
+              assign m = im | split: ':'
+              assign alt = name | append: ' en color ' | append: cl
+              if m[3] != blank
+                assign alt = alt | append: ', ' | append: m[3]
+              endif
+            -%}
+            <figure class="pdp__shot frame">
+              {%- if is_active and forloop.first -%}
+                {%- render 'mw-img', product: product, pos: m[0], alt: alt, sizes: '(min-width: 1024px) 29vw, 100vw', bg: m[1], focus: m[2], priority: true, dom_id: 'vt-target' -%}
+              {%- elsif is_active -%}
+                {%- render 'mw-img', product: product, pos: m[0], alt: alt, sizes: '(min-width: 1024px) 29vw, 100vw', bg: m[1], focus: m[2], loading: 'eager' -%}
+              {%- else -%}
+                {%- render 'mw-img', product: product, pos: m[0], alt: alt, sizes: '(min-width: 1024px) 29vw, 100vw', bg: m[1], focus: m[2] -%}
+              {%- endif -%}
+            </figure>
+            {%- if forloop.first and video_key != blank and video_key == f[1] -%}
+              {%- capture vid -%}{% render 'mw-assets', name: 'video' %}{%- endcapture -%}
+              {%- assign vid = vid | strip | split: '~' -%}
+              <div class="pdp__shot pdp__shot--video">
+                <figure class="pvideo" data-pvideo>
+                  <div class="pvideo__frame">
+                    <video class="pvideo__v" muted playsinline loop preload="none" poster="{{ vid[1] | asset_url }}" width="{{ vid[2] }}" height="{{ vid[3] }}" aria-label="{{ name }} en color {{ cl }}: video real de la tela" data-src="{{ vid[0] | asset_url }}"></video>
+                    <button class="pvideo__btn" type="button" data-pvideo-toggle aria-label="Reproducir video">
+                      <svg class="pvideo__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"></path></svg>
+                      <svg class="pvideo__pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5h3.5v13H7zM13.5 5.5H17v13h-3.5z" fill="currentColor"></path></svg>
+                    </button>
+                    <span class="pvideo__tag t-label" aria-hidden="true">{% render 'mw-icon', name: 'arrow-ur' %}Video real</span>
+                  </div>
+                </figure>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    {%- else -%}
+      <div class="pdp__set is-active" data-set="all" role="region" tabindex="0" aria-label="Fotos de {{ name }}">
+        {%- for m in product.media -%}
+          {%- if m.media_type == 'image' -%}
+            {%- assign malt = m.alt | default: name -%}
+            <figure class="pdp__shot frame">
+              {%- if forloop.first -%}
+                {%- render 'mw-img', image: m.preview_image, alt: malt, sizes: '(min-width: 1024px) 29vw, 100vw', priority: true, dom_id: 'vt-target' -%}
+              {%- else -%}
+                {%- render 'mw-img', image: m.preview_image, alt: malt, sizes: '(min-width: 1024px) 29vw, 100vw' -%}
+              {%- endif -%}
+            </figure>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+    <p class="pdp__count" aria-hidden="true" data-count></p>
+  </div>
+
+  <div class="pdp__info">
+    <nav class="crumbs" aria-label="Ruta de navegación">
+      <ol>
+        <li><a href="{{ routes.root_url }}">Inicio</a></li>
+        <li><a href="{{ crumb_url }}">{{ crumb_title }}</a></li>
+        <li aria-current="page">{{ name }}</li>
+      </ol>
+    </nav>
+
+    <div class="pdp__head">
+      <div class="pdp__idx">
+        {%- if number != blank -%}
+          {%- assign num = number | plus: 0 -%}
+          <span class="t-index">{% if num < 10 %}0{% endif %}{{ num }}</span>
+        {%- else -%}
+          <span class="t-index">—</span>
+        {%- endif -%}
+        <span class="t-label t-mute">{{ tag }}</span>
+      </div>
+      <h1 class="pdp__name t-display">{{ name }}</h1>
+      <p class="pdp__price">
+        <span data-price>{{ price }}</span>
+        <s class="pdp__was" data-compare{% if was == blank %} hidden{% endif %}>{{ was }}</s>
+        <small>{% if color_soldout %}Agotado en este color{% else %}{{ settings.ship_note | default: 'Envío gratis' }} · {{ settings.cod_note | default: 'Pago contraentrega' }}{% endif %}</small>
+      </p>
+      {%- if mapped -%}
+        <p class="pdp__summary">{% render 'mw-map', part: 'description', handle: product.handle %}</p>
+      {%- endif -%}
+    </div>
+
+    {%- form 'product', product, id: 'mw-product-form', class: 'pdp__form', data-pdp-form: '' -%}
+      <input type="hidden" name="id" value="{{ initial.id }}">
+      <input type="hidden" name="quantity" value="1">
+
+      {%- if ci >= 0 and colors.size > 0 -%}
+        <fieldset class="opt">
+          <legend class="opt__legend">Color: <strong data-color-name>{{ active_label }}</strong></legend>
+          <div class="opt__row">
+            {%- for c in colors -%}
+              {%- assign f = c | split: '~' -%}
+              <label class="opt__item opt__item--color{% if f[4] != '1' %} is-out{% endif %}">
+                <input class="sr-only" type="radio" name="mw-color" value="{{ f[0] | escape }}" data-key="{{ f[1] }}" data-label="{{ f[2] | escape }}"{% if f[0] == active_value %} checked{% endif %}>
+                <span class="opt__swatch" style="--sw:{{ f[3] }}" aria-hidden="true"></span>
+                <span>{{ f[2] }}</span>
+                {%- if f[4] != '1' -%}<span class="sr-only">, agotado</span>{%- endif -%}
+              </label>
+            {%- endfor -%}
+          </div>
+        </fieldset>
+      {%- endif -%}
+
+      {%- if zi >= 0 -%}
+        <fieldset class="opt" data-size-field>
+          <legend class="opt__legend">Talla</legend>
+          <div class="opt__row">
+            {%- for z in size_values -%}
+              {%- liquid
+                if ci >= 0
+                  assign zv = product.variants | where: cprop, active_value | where: zprop, z | where: 'available'
+                else
+                  assign zv = product.variants | where: zprop, z | where: 'available'
+                endif
+                assign ok = false
+                if zv.size > 0
+                  assign ok = true
+                endif
+              -%}
+              <label class="opt__item opt__item--size{% unless ok %} is-out{% endunless %}">
+                <input class="sr-only" type="radio" name="mw-size" value="{{ z | escape }}"{% unless ok %} disabled{% endunless %}>
+                <span>{{ z }}</span>
+                <span class="sr-only" data-out{% if ok %} hidden{% endif %}>, agotada</span>
+              </label>
+            {%- endfor -%}
+          </div>
+          <p class="opt__error" data-size-error role="alert" hidden>Elige una talla.</p>
+        </fieldset>
+      {%- endif -%}
+
+      <div class="pdp__ctas" data-main-cta>
+        <a class="btn btn--block btn--cod{% if color_soldout %} is-disabled{% endif %}" href="/rsi-btn-overwrite" role="button" data-pdp-buy{% if color_soldout %} aria-disabled="true"{% endif %}>
+          <span class="roll"><span data-buy-label>{% if color_soldout %}Agotado{% else %}{{ buy_label }}{% endif %}</span><span aria-hidden="true" data-buy-label>{% if color_soldout %}Agotado{% else %}{{ buy_label }}{% endif %}</span></span>
+          <span class="btn__sub">{{ settings.buy_sub | default: 'Pago contraentrega · Envío gratis' }}</span>
+        </a>
+        <button class="btn btn--ghost btn--block" type="button" data-pdp-add{% if color_soldout %} disabled{% endif %}>
+          <span class="roll"><span>Agregar a la bolsa</span><span aria-hidden="true">Agregar a la bolsa</span></span>
+        </button>
+        <a class="link" href="{{ wa }}" target="_blank" rel="noopener" data-wa-product style="justify-self:start">
+          {%- render 'mw-icon', name: 'whatsapp' -%}
+          ¿Dudas? Escríbenos por WhatsApp
+        </a>
+      </div>
+    {%- endform -%}
+
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          <div class="pdp__app">{% render block %}</div>
+      {%- endcase -%}
+    {%- endfor -%}
+
+    <div class="pdp__details">
+      {%- if mapped -%}
+        <details open>
+          <summary>Detalles {% render 'mw-icon', name: 'plus' %}</summary>
+          <div class="body">
+            <ul>{% render 'mw-map', part: 'details', handle: product.handle %}</ul>
+          </div>
+        </details>
+        {%- capture fabric -%}{% render 'mw-map', part: 'fabric', handle: product.handle %}{%- endcapture -%}
+        {%- if fabric != blank -%}
+          <details>
+            <summary>Tela {% render 'mw-icon', name: 'plus' %}</summary>
+            <div class="body"><p>{{ fabric }}.</p></div>
+          </details>
+        {%- endif -%}
+      {%- elsif product.description != blank -%}
+        <details open>
+          <summary>Descripción {% render 'mw-icon', name: 'plus' %}</summary>
+          <div class="body rte">{{ product.description }}</div>
+        </details>
+      {%- endif -%}
+      <details>
+        <summary>Envío y pedidos {% render 'mw-icon', name: 'plus' %}</summary>
+        <div class="body">
+          <p>
+            {{ settings.shipping_text | default: 'Envío gratis a toda Colombia. Pagas contraentrega, cuando recibes tu pedido.' }}
+            {%- if zi >= 0 %} Tallas: {{ size_values | join: ' · ' }}.{% endif %}
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+</article>
+
+<div class="buybar" data-buybar inert>
+  <p class="buybar__name">
+    {{ name }}
+    <small><span data-buybar-color>{{ active_label }}</span> · <span data-buybar-price>{{ price }}</span></small>
+  </p>
+  <button class="btn" type="button" data-pdp-buybar{% if color_soldout %} disabled{% endif %}>
+    <span class="roll"><span>Comprar</span><span aria-hidden="true">Comprar</span></span>
+  </button>
+  <a class="btn btn--ghost btn--icon" href="{{ wa }}" target="_blank" rel="noopener" aria-label="Pedir {{ name }} por WhatsApp" data-wa-product>
+    {%- render 'mw-icon', name: 'whatsapp' -%}
+  </a>
+</div>
+
+<script type="application/ld+json">{{ product | structured_data }}</script>
+<script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Inicio","item":{{ shop.url | json }}},
+    {"@type":"ListItem","position":2,"name":{{ crumb_title | json }},"item":{{ crumb_url | prepend: shop.url | json }}},
+    {"@type":"ListItem","position":3,"name":{{ name | json }},"item":{{ product.url | prepend: shop.url | json }}}
+  ]}
+</script>
+
+{% schema %}
+{
+  "name": "Ficha de producto",
+  "blocks": [{ "type": "@app" }],
+  "settings": [
+    { "type": "paragraph", "content": "Precio, colores, tallas, stock y fotos salen del producto en Shopify. Puedes agregar bloques de apps (reseñas, contador, etc.)." }
+  ]
+}
+{% endschema %}

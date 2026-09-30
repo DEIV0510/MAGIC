@@ -1,0 +1,55 @@
+{%- comment -%} Resultados de búsqueda (página /search): mismo diseño que el catálogo. {%- endcomment -%}
+{%- capture wa_msg -%}Hola MAGIC WORLD, estoy buscando «{{ search.terms }}». ¿Me ayudas?{%- endcapture -%}
+<section class="catalog" aria-labelledby="catalog-title">
+  <header class="catalog__head">
+    <nav class="crumbs" aria-label="Ruta de navegación">
+      <ol>
+        <li><a href="{{ routes.root_url }}">Inicio</a></li>
+        <li aria-current="page">Buscar</li>
+      </ol>
+    </nav>
+    <div class="catalog__title-row">
+      <h1 class="catalog__title t-display" id="catalog-title">{% if search.performed %}{{ search.terms }}{% else %}Buscar{% endif %}</h1>
+      {%- if search.performed -%}
+        <p class="catalog__count t-label t-mute">{% if search.results_count < 10 %}0{% endif %}{{ search.results_count }} {% if search.results_count == 1 %}resultado{% else %}resultados{% endif %}</p>
+      {%- endif -%}
+    </div>
+    <form class="search-page__form" action="{{ routes.search_url }}" method="get" role="search">
+      <label class="sr-only" for="search-page-input">Buscar prendas</label>
+      <input class="search__input" id="search-page-input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Chaqueta, hoodie, lila…" autocomplete="off">
+      <input type="hidden" name="type" value="product">
+      <button class="btn" type="submit"><span class="roll"><span>Buscar</span><span aria-hidden="true">Buscar</span></span></button>
+    </form>
+  </header>
+
+  {%- if search.performed -%}
+    {%- paginate search.results by 24 -%}
+      <div class="catalog__grid">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            {%- assign m = forloop.index0 | modulo: 3 -%}
+            {%- capture st -%}--i:{{ m }}{%- endcapture -%}
+            {%- render 'mw-card', product: item, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      {%- if paginate.pages > 1 -%}
+        <nav class="pager" aria-label="Páginas">
+          {%- if paginate.previous -%}<a class="link" href="{{ paginate.previous.url }}">Anterior</a>{%- endif -%}
+          <span class="t-label t-mute">Página {{ paginate.current_page }} de {{ paginate.pages }}</span>
+          {%- if paginate.next -%}<a class="link" href="{{ paginate.next.url }}">Siguiente {% render 'mw-icon', name: 'arrow' %}</a>{%- endif -%}
+        </nav>
+      {%- endif -%}
+    {%- endpaginate -%}
+    {%- if search.results_count == 0 -%}
+      <div class="search__empty" style="margin-top:12px">
+        <p class="t-lead">No encontramos esa prenda en la colección.</p>
+        <a class="link" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener">Pregúntanos por WhatsApp {% render 'mw-icon', name: 'arrow' %}</a>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</section>
+
+{% schema %}
+{ "name": "Resultados de búsqueda", "settings": [] }
+{% endschema %}

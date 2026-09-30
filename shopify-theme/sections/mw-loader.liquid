@@ -1,0 +1,30 @@
+{%- comment -%}
+  Pantalla de carga: MAGIC se arma con sus dos mitades, WORLD sube debajo, una línea roja
+  marca el corte y la cortina sube. ~1,6 s, solo la primera visita a la portada en la sesión
+  (html.intro, ver layout/theme.liquid). CSS puro: termina sola aunque falle el JS.
+{%- endcomment -%}
+{%- capture d -%}{% render 'mw-wordmark-data', wl: 'stack' %}{%- endcapture -%}
+{%- assign d = d | strip | split: '~' -%}
+<div class="loader" aria-hidden="true" data-loader>
+  <div class="loader__mark" style="--cut-ratio:{{ d[3] }}">
+    {% render 'mw-wordmark', wm_layout: 'stack', variant: 'cut' %}
+    <i class="loader__line"></i>
+  </div>
+  <div class="loader__meta t-label">
+    <span>{{ section.settings.left }}</span>
+    <span>{{ section.settings.right }}</span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Pantalla de carga",
+  "settings": [
+    { "type": "paragraph", "content": "Se muestra solo en la primera visita a la portada (no en el editor)." },
+    { "type": "text", "id": "left", "label": "Texto izquierdo", "default": "Colección 01" },
+    { "type": "text", "id": "right", "label": "Texto derecho", "default": "Hombre / Mujer" }
+  ],
+  "presets": [{ "name": "Pantalla de carga" }],
+  "enabled_on": { "templates": ["index"] }
+}
+{% endschema %}

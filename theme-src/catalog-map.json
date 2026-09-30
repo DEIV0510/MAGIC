@@ -1,0 +1,228 @@
+{
+  "_nota": "Contenido editorial del tema Shopify por handle REAL de la tienda (worldmagic.store). Precios, tallas, colores, stock y fotos salen de Shopify; aquí solo el nombre limpio, los textos de la web y qué foto (posición en la tienda, 1 = primera) va con cada color. Los valores de color son los de la tienda tal cual. Genera snippets/mw-map.liquid con: npm run theme",
+  "swatches": {
+    "negro": "#161616",
+    "blanco": "#f4f4f2",
+    "gris": "#8f8f93",
+    "gris-claro": "#b4b4b8",
+    "gris-oscuro": "#3a3a3c",
+    "gris-perla": "#b9b6b1",
+    "azul": "#232b40",
+    "azul-oscuro": "#1d2438",
+    "azul-marino": "#1f2940",
+    "beige": "#c9b09a",
+    "camel": "#c48c5c",
+    "tabaco": "#7a3a26",
+    "cafe": "#5a3b2a",
+    "lila": "#a07aa8",
+    "rosa": "#d8a3a6",
+    "rosado": "#e3a9b4",
+    "rojo": "#a52023",
+    "verde": "#4a5a3c"
+  },
+  "products": {
+    "hoodie-para-hombre-algodonn": {
+      "name": "Hoodie para hombre",
+      "priority": 1,
+      "gender": "hombre",
+      "type": "Buzo",
+      "categories": ["buzos"],
+      "material": "Algodón perchado Mónaco",
+      "composition": "94 % poliéster, 6 % spandex",
+      "summary": "Cordón cruzado al cuello, capucha y bolsillo canguro.",
+      "description": "Nuestro hoodie de cordón cruzado. Algodón perchado Mónaco, suave por dentro, con 6 % de spandex para que acompañe el movimiento.",
+      "details": ["Cordón cruzado al cuello", "Capucha", "Bolsillo canguro", "Puños y bajo en rib"],
+      "colors": {
+        "BEIGE": { "swatch": "#c9b09a", "images": [[1, "puesto"], [2, "puesto, de cuerpo entero"], [7, "vista frontal"]] },
+        "NEGRO": { "swatch": "#161616", "images": [[3, "puesto"], [4, "puesto, de cuerpo entero"], [9, "vista frontal"]] },
+        "AZUL OSCURO": { "swatch": "#1d2438", "images": [[5, "puesto"], [6, "puesto, sentado"], [8, "vista frontal"]] }
+      }
+    },
+    "chaqueta-deportiva-para-hombre": {
+      "name": "Chaqueta deportiva táctica",
+      "priority": 2,
+      "gender": "hombre",
+      "type": "Chaqueta",
+      "categories": ["chaquetas"],
+      "material": "Algodón perchado Mónaco",
+      "composition": null,
+      "summary": "Capucha y bolsillos con detalles en contraste, cierre completo.",
+      "description": "Capucha forrada en contraste, cierre completo y dos bolsillos frontales con el mismo detalle. Algodón perchado Mónaco.",
+      "details": ["Capucha forrada en contraste", "Capucha con cordón", "Cierre completo", "Dos bolsillos frontales"],
+      "colors": {
+        "NEGRO": { "swatch": "#111111", "images": [[3, "puesta"], [4, "de espalda"], [12, "vista frontal"]] },
+        "GRIS OSCURO": { "swatch": "#38383d", "images": [[1, "puesta"], [2, "puesta, de perfil"], [11, "vista frontal"]] },
+        "AZUL OSCURO": { "swatch": "#1b2138", "images": [[7, "puesta"], [13, "puesta, de cerca"], [8, "puesta, de espalda"]] },
+        "BEIGE": { "swatch": "#bfa189", "images": [[6, "puesta"], [5, "puesta, de perfil"], [10, "vista frontal"]] }
+      }
+    },
+    "chaqueta-ufc-combinada-para-hombre": {
+      "name": "Chaqueta UFC combinada para hombre",
+      "priority": 3,
+      "gender": "hombre",
+      "type": "Chaqueta",
+      "categories": ["chaquetas"],
+      "material": "Algodón perchado Mónaco",
+      "composition": null,
+      "summary": "Dos tonos, capucha con cordón y dos bolsillos laterales.",
+      "description": "Cuerpo y mangas en dos tonos, capucha con cordón y cierre completo. Algodón perchado Mónaco con dos bolsillos laterales.",
+      "details": ["Mangas en contraste", "Capucha con cordón", "Cierre completo", "Dos bolsillos laterales", "Estampado en el pecho"],
+      "colors": {
+        "NEGRO": { "swatch": "#111114", "swatch2": "#8f9097", "images": [[6, "puesta"], [5, "puesta, de frente"], [7, "vista frontal"]] },
+        "GRIS CLARO": { "swatch": "#bdbac2", "swatch2": "#141414", "images": [[3, "puesta"], [4, "puesta, de cerca"], [9, "vista frontal"]] },
+        "BEIGE": { "swatch": "#cfa585", "swatch2": "#141414", "images": [[1, "puesta"], [2, "puesta, en exterior"], [8, "vista frontal"]] }
+      }
+    },
+    "gaban-para-dama-algodon": {
+      "name": "Chaquetón para dama",
+      "priority": 4,
+      "gender": "mujer",
+      "type": "Chaquetón",
+      "categories": ["chaquetas"],
+      "material": "Algodón perchado Mónaco",
+      "composition": "100 % poliéster",
+      "summary": "Cierre asimétrico, capucha con cordón y bajo cruzado.",
+      "description": "Largo, con cierre asimétrico y el bajo cruzado en curva. Algodón perchado Mónaco, capucha con cordón y bolsillos laterales.",
+      "details": ["Cierre asimétrico", "Capucha con cordón", "Bajo cruzado en curva", "Bolsillos laterales", "Largo por debajo de la cadera"],
+      "colors": {
+        "GRIS OSCURO": { "swatch": "#3e3d41", "images": [[6, "vista frontal"], [3, "puesto"], [4, "puesto, de espalda"]] },
+        "NEGRO": { "swatch": "#151517", "images": [[7, "vista frontal"], [1, "puesto"], [2, "puesto, de frente"], [5, "puesto, caminando"], [8, "de espalda"]] }
+      }
+    },
+    "chaqueta-outdoor-poliester": {
+      "name": "Chaqueta de moda casual para hombre",
+      "priority": 5,
+      "gender": "hombre",
+      "type": "Chaqueta",
+      "categories": ["chaquetas"],
+      "material": "Algodón perchado Mónaco",
+      "composition": null,
+      "summary": "Cuatro bolsillos al frente, capucha con cordón y cierre completo.",
+      "description": "Cuatro bolsillos al frente —dos con solapa en el pecho—, capucha con cordón y cierre completo. En algodón perchado Mónaco.",
+      "details": ["Cuatro bolsillos frontales", "Dos con solapa en el pecho", "Capucha con cordón", "Cierre completo"],
+      "colors": {
+        "GRIS OSCURO": { "swatch": "#3a3a3c", "images": [[1, "puesta"], [2, "puesta, de cuerpo entero"], [3, "de espalda"]] }
+      }
+    },
+    "chaqueta-nature-flow": {
+      "name": "Chaqueta Nature Flow",
+      "priority": 6,
+      "gender": "mujer",
+      "type": "Chaqueta",
+      "categories": ["chaquetas"],
+      "material": "Super nailon impermeable",
+      "lining": "Malla pool",
+      "composition": null,
+      "summary": "Nailon impermeable, forro en malla, capucha y dos bolsillos.",
+      "description": "Super nailon impermeable por fuera y forro en malla pool por dentro. Capucha y dos bolsillos laterales para los días de lluvia.",
+      "details": ["Super nailon impermeable", "Forro en malla pool", "Capucha", "Dos bolsillos laterales"],
+      "colors": {
+        "NEGRO": { "swatch": "#141b21", "images": [[9, "puesta"], [7, "puesta"], [6, "puesta, de cuerpo entero"], [8, "de espalda"], [14, "puesta, con capucha"]] },
+        "GRIS OSCURO": { "swatch": "#3e3e3a", "images": [[3, "puesta"], [12, "puesta, de cerca"]] },
+        "GRIS CLARO": { "swatch": "#b4bbc2", "images": [[5, "puesta"], [13, "puesta, de frente"], [10, "puesta, de frente"]] },
+        "LILA": { "swatch": "#9a7fa6", "images": [[2, "puesta"], [20, "puesta, de cerca"], [18, "puesta, de frente"], [17, "de espalda"]] }
+      }
+    },
+    "lindo-abrigo-cuello-redondo-para-mujer": {
+      "name": "Abrigo fleece para mujer",
+      "priority": null,
+      "gender": "mujer",
+      "type": "Abrigo",
+      "categories": ["buzos"],
+      "material": "Bisonte ovejero sintético",
+      "composition": null,
+      "summary": "Largo y suave, en bisonte ovejero, con dos bolsillos al frente.",
+      "description": "Abrigo largo de bisonte ovejero sintético, con cuello redondo y dos bolsillos de parche al frente.",
+      "details": ["Bisonte ovejero sintético", "Cuello redondo", "Dos bolsillos de parche", "Largo a medio muslo"],
+      "colors": {
+        "NEGRO": { "swatch": "#1a1919", "images": [[3, "puesto"], [2, "puesto, sentada"], [5, "vista frontal"]] },
+        "LILA": { "swatch": "#a07aa8", "images": [[1, "puesto"], [7, "vista frontal"]] },
+        "GRIS CLARO": { "swatch": "#9d9aa0", "images": [[4, "puesto"], [6, "vista frontal"]] }
+      }
+    },
+    "buso-cuello-alto": {
+      "name": "Buzo fit para hombre",
+      "priority": null,
+      "gender": "hombre",
+      "type": "Buzo",
+      "categories": ["buzos"],
+      "material": "Zurich",
+      "composition": "94 % poliéster, 6 % spandex",
+      "summary": "Media cremallera y cuello alto, en tela Zurich con spandex.",
+      "description": "Liso y de corte ajustado, con media cremallera y cuello alto. Tela Zurich: 94 % poliéster y 6 % spandex, se estira con el movimiento.",
+      "details": ["Media cremallera", "Cuello alto", "Corte fit", "Puños y bajo en rib"],
+      "video": "GRIS",
+      "colors": {
+        "AZUL": { "swatch": "#232b40", "images": [[4, "puesto"], [3, "puesto, de cuerpo entero"], [9, "vista frontal"]] },
+        "GRIS": { "swatch": "#8f8f93", "images": [[5, "puesto"], [6, "puesto, de perfil"], [7, "vista frontal"]] },
+        "NEGRO": { "swatch": "#1d1d1f", "images": [[1, "puesto"], [2, "puesto, de cerca"], [8, "vista frontal"]] }
+      }
+    },
+    "buso-en-bisonte-para-dama": {
+      "name": "Buzo en peluche para mujer",
+      "priority": null,
+      "gender": "mujer",
+      "type": "Buzo",
+      "categories": ["buzos"],
+      "material": "Bisonte ovejero sintético",
+      "composition": null,
+      "summary": "Media cremallera, cuello alto y bolsillos con ribete en contraste.",
+      "description": "Buzo de peluche en bisonte ovejero sintético, con media cremallera, cuello alto y dos bolsillos frontales ribeteados en negro.",
+      "details": ["Media cremallera", "Cuello alto", "Dos bolsillos frontales", "Ribetes en negro"],
+      "colors": {
+        "Lila": { "swatch": "#b39bc4", "images": [[5, "puesto"], [4, "puesto, de cerca"], [6, "vista frontal"]] },
+        "Rosa": { "swatch": "#d8a3a6", "images": [[2, "puesto"], [1, "puesto, de cerca"], [3, "vista frontal"]] },
+        "Negro": { "swatch": "#1a1919", "images": [[7, "puesto"], [8, "de espalda"]] }
+      }
+    },
+    "chaqueta-tipo-camisa-para-mujer": {
+      "name": "Chaqueta tipo camisa para dama",
+      "priority": null,
+      "gender": "mujer",
+      "type": "Chaqueta",
+      "categories": ["chaquetas"],
+      "material": "Bisonte de cuadros ovejero sintético",
+      "composition": "100 % poliéster",
+      "summary": "Cuadros en bisonte ovejero, botones y bolsillos con solapa.",
+      "description": "Chaqueta tipo camisa en bisonte de cuadros ovejero sintético, con botones al frente y bolsillos con solapa en el pecho.",
+      "details": ["Cuadros en bisonte ovejero", "Cuello camisero", "Botones al frente", "Bolsillos con solapa en el pecho"],
+      "colors": {
+        "CAMEL": { "swatch": "#c48c5c", "swatch2": "#f1ebe4", "images": [[1, "puesta"], [3, "puesta, abierta"], [2, "de espalda"]] },
+        "NEGRO": { "swatch": "#151515", "swatch2": "#efefed", "images": [[5, "puesta"], [4, "de espalda"]] }
+      }
+    },
+    "abrigo-para-hombre": {
+      "name": "Abrigo para hombre",
+      "priority": null,
+      "gender": "hombre",
+      "type": "Abrigo",
+      "categories": ["chaquetas"],
+      "material": "Borrego fino",
+      "composition": "100 % poliéster",
+      "summary": "Borrego fino, capucha y botones al frente.",
+      "description": "Abrigo de borrego fino, con capucha y cierre de botones.",
+      "details": ["Borrego fino", "Capucha", "Botones al frente"],
+      "colors": {
+        "TABACO": { "swatch": "#7a3a26", "images": [[1, "puesto"], [2, "puesto, de frente"], [3, "puesto"]] },
+        "GRIS PERLA": { "swatch": "#b9b6b1", "images": [] },
+        "NEGRO": { "swatch": "#171717", "images": [] }
+      }
+    },
+    "chaqueta-primavera-cuadros": {
+      "name": "Chaqueta primavera de cuadros",
+      "priority": null,
+      "gender": "mujer",
+      "type": "Chaqueta",
+      "categories": ["chaquetas"],
+      "material": "Bisonte sintético",
+      "composition": null,
+      "summary": "Cuadros en bisonte sintético, con capucha.",
+      "description": "Chaqueta de cuadros en bisonte sintético, prelavada y con capucha.",
+      "details": ["Bisonte sintético", "Prelavada", "Capucha"],
+      "colors": {
+        "GRIS": { "swatch": "#8d8a88", "swatch2": "#efedea", "images": [[1, "puesta"]] },
+        "ROSADO": { "swatch": "#e3a9b4", "swatch2": "#f3ecea", "images": [[3, "puesta"]] }
+      }
+    }
+  }
+}

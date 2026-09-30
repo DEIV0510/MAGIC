@@ -1,0 +1,70 @@
+{%- capture wa_msg -%}Hola MAGIC WORLD, quiero ver la colección. ¿Me ayudas con tallas y colores?{%- endcapture -%}
+<footer class="ftr" data-tone="dark">
+  <div class="ftr__top">
+    <a class="ftr__logo" href="{{ routes.root_url }}" aria-label="MAGIC WORLD, ir al inicio">{% render 'mw-wordmark' %}</a>
+    <nav class="ftr__nav" aria-label="Pie de página">
+      <ul>
+        {%- for block in section.blocks -%}
+          {%- if block.type != 'link' -%}{%- continue -%}{%- endif -%}
+          <li {{ block.shopify_attributes }}><a href="{{ block.settings.link | default: routes.root_url }}">{{ block.settings.label }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+    <div class="ftr__contact">
+      <p class="t-label t-mute">WhatsApp</p>
+      <a href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener">{{ settings.whatsapp_display | default: '323 898 7323' }}</a>
+      {%- if settings.instagram_url != blank or settings.tiktok_url != blank or settings.facebook_url != blank -%}
+        <p class="t-label t-mute" style="margin-top:18px">Redes</p>
+        {%- if settings.instagram_url != blank -%}<a href="{{ settings.instagram_url }}" target="_blank" rel="noopener">Instagram</a>{%- endif -%}
+        {%- if settings.tiktok_url != blank -%}<a href="{{ settings.tiktok_url }}" target="_blank" rel="noopener">TikTok</a>{%- endif -%}
+        {%- if settings.facebook_url != blank -%}<a href="{{ settings.facebook_url }}" target="_blank" rel="noopener">Facebook</a>{%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+  <div class="ftr__bottom">
+    <p>© {{ 'now' | date: '%Y' }} MAGIC WORLD · {{ section.settings.tagline }}</p>
+    <div class="ftr__legal">
+      {%- assign legal = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'legal' and block.settings.link != blank -%}
+          {%- assign legal = legal | plus: 1 -%}
+          <a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if legal == 0 -%}
+        {%- for policy in shop.policies -%}
+          <a href="{{ policy.url }}">{{ policy.title }}</a>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pie MAGIC",
+  "class": "mw-footer-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Frase", "default": "Chaquetas, buzos y abrigos para hombre y mujer" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Enlace",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Texto", "default": "Colección" },
+        { "type": "url", "id": "link", "label": "Enlace" }
+      ]
+    },
+    {
+      "type": "legal",
+      "name": "Enlace legal",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Texto", "default": "Políticas" },
+        { "type": "url", "id": "link", "label": "Enlace" }
+      ]
+    }
+  ]
+}
+{% endschema %}

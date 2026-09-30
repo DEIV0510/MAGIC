@@ -11,7 +11,9 @@
     "brand": "node scripts/brand-assets.mjs",
     "font": "node scripts/subset-font.mjs",
     "check": "astro check && astro build && node scripts/check-links.mjs",
-    "shopify": "node scripts/shopify-export.mjs"
+    "shopify": "node scripts/shopify-export.mjs",
+    "theme": "node scripts/build-theme.mjs",
+    "theme:check": "npx --yes @shopify/cli@latest theme check --path shopify-theme"
   },
   "dependencies": {
     "astro": "^7.3.5",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@types/node": "^26.6.3",
+    "esbuild": "^0.28.2",
     "fontkit": "^2.0.4",
     "opentype.js": "^2.0.0",
     "subset-font": "^2.9.0",

@@ -1,0 +1,118 @@
+{%- comment -%}
+  Categorías como índice tipográfico. Al pasar el cursor la palabra se ensancha (eje de ancho
+  de Mona Sans) y una foto real la sigue. En táctil: miniatura fija.
+  Bloques "categoría": colección + prenda y color para la foto (o foto propia).
+{%- endcomment -%}
+{%- liquid
+  assign rows = section.blocks.size
+  assign floats = ''
+-%}
+<section class="cats" aria-labelledby="cats-title-{{ section.id }}" data-cats>
+  <div class="cats__head">
+    <h2 class="t-label" id="cats-title-{{ section.id }}">{{ section.settings.title }}</h2>
+    <p class="t-label t-mute">{% if rows < 10 %}0{% endif %}{{ rows }}</p>
+  </div>
+  <ul class="cats__list">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign col = block.settings.collection
+        assign url = block.settings.link | default: col.url | default: routes.all_products_collection_url
+        assign label = block.settings.label | default: col.title
+        assign count = col.products_count | default: 0
+        if block.settings.all
+          assign url = routes.all_products_collection_url
+          assign count = collections.all.products_count
+        endif
+        assign slug = 'cat-' | append: forloop.index
+        assign p = block.settings.product
+        assign pos = ''
+        assign bg = 'photo'
+        assign focus = '50% 24%'
+        if p != blank
+          capture raw
+            render 'mw-colors', product: p
+          endcapture
+          assign colors = raw | strip | split: '^'
+          assign want = block.settings.color | handleize
+          assign entry = colors[0] | split: '~'
+          for c in colors
+            assign f = c | split: '~'
+            if f[1] == want
+              assign entry = f
+            endif
+          endfor
+          assign imgs = entry[6] | split: ';'
+          assign pick = imgs[0] | split: ':'
+          for im in imgs
+            assign m = im | split: ':'
+            if m[1] == 'photo'
+              assign pick = m
+              break
+            endif
+          endfor
+          assign pos = pick[0]
+          assign bg = pick[1]
+          assign focus = pick[2]
+        endif
+        assign num = forloop.index
+      -%}
+      <li data-reveal style="--i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+        <a class="cat" href="{{ url }}" data-cat="{{ slug }}">
+          <span class="cat__main">
+            <span class="cat__idx t-index">{% if num < 10 %}0{% endif %}{{ num }}</span>
+            <span class="cat__name">{{ label }}</span>
+            <span class="cat__count t-index">({% if count < 10 %}0{% endif %}{{ count }})</span>
+          </span>
+          <span class="cat__side">
+            <span class="cat__thumb frame">
+              {%- if block.settings.image != blank -%}
+                {%- render 'mw-img', image: block.settings.image, alt: '', sizes: '76px' -%}
+              {%- elsif pos != blank -%}
+                {%- render 'mw-img', product: p, pos: pos, alt: '', sizes: '76px', bg: bg, focus: focus -%}
+              {%- endif -%}
+            </span>
+            {%- render 'mw-icon', name: 'arrow', class: 'cat__arrow' -%}
+          </span>
+        </a>
+      </li>
+      {%- capture fl -%}
+        <span class="frame" data-float="{{ slug }}">
+          {%- if block.settings.image != blank -%}
+            {%- render 'mw-img', image: block.settings.image, alt: '', sizes: '280px' -%}
+          {%- elsif pos != blank -%}
+            {%- render 'mw-img', product: p, pos: pos, alt: '', sizes: '280px', bg: bg, focus: focus -%}
+          {%- endif -%}
+        </span>
+      {%- endcapture -%}
+      {%- assign floats = floats | append: fl -%}
+    {%- endfor -%}
+  </ul>
+  <div class="cats__float" aria-hidden="true" data-cats-float>{{ floats }}</div>
+</section>
+
+{% schema %}
+{
+  "name": "Categorías",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Categorías" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Categoría",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Colección" },
+        { "type": "checkbox", "id": "all", "label": "Es toda la colección", "default": false },
+        { "type": "text", "id": "label", "label": "Nombre (opcional)" },
+        { "type": "url", "id": "link", "label": "Enlace (opcional)" },
+        { "type": "product", "id": "product", "label": "Prenda de la foto" },
+        { "type": "text", "id": "color", "label": "Color de la foto (como está en Shopify)" },
+        { "type": "image_picker", "id": "image", "label": "Foto propia (opcional)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Categorías" }],
+  "enabled_on": { "templates": ["index"] }
+}
+{% endschema %}

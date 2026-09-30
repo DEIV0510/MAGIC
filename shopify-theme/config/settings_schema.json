@@ -1,0 +1,41 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "MAGIC WORLD",
+    "theme_version": "1.0.0",
+    "theme_author": "MAGIC WORLD",
+    "theme_documentation_url": "https://github.com/DEIV0510/MAGIC",
+    "theme_support_url": "https://github.com/DEIV0510/MAGIC"
+  },
+  {
+    "name": "WhatsApp y redes",
+    "settings": [
+      { "type": "text", "id": "whatsapp_number", "label": "Número de WhatsApp (con 57, sin espacios)", "default": "573238987323" },
+      { "type": "text", "id": "whatsapp_display", "label": "Número como se muestra", "default": "323 898 7323" },
+      { "type": "url", "id": "instagram_url", "label": "Instagram" },
+      { "type": "url", "id": "tiktok_url", "label": "TikTok" },
+      { "type": "url", "id": "facebook_url", "label": "Facebook" }
+    ]
+  },
+  {
+    "name": "Compra",
+    "settings": [
+      { "type": "paragraph", "content": "El botón principal de la ficha lo activa Releasit (pago contraentrega). Aquí solo cambias sus textos." },
+      { "type": "text", "id": "buy_label", "label": "Botón principal", "default": "Pedir ahora" },
+      { "type": "text", "id": "buy_sub", "label": "Texto bajo el botón", "default": "Pago contraentrega · Envío gratis" },
+      { "type": "text", "id": "ship_note", "label": "Nota de envío (tarjetas y precios)", "default": "Envío gratis" },
+      { "type": "text", "id": "cod_note", "label": "Nota de pago", "default": "Pago contraentrega" },
+      { "type": "textarea", "id": "shipping_text", "label": "Texto «Envío y pedidos» de la ficha", "default": "Envío gratis a toda Colombia. Pagas contraentrega, cuando recibes tu pedido." },
+      { "type": "text", "id": "bag_note", "label": "Nota de la bolsa", "default": "Envío gratis a toda Colombia." },
+      { "type": "text", "id": "bag_note_cod", "label": "Nota de la bolsa con pago contraentrega", "default": "Envío gratis. Pagas contraentrega, cuando recibes tu pedido." },
+      { "type": "checkbox", "id": "show_compare_at", "label": "Mostrar el precio anterior tachado", "default": true }
+    ]
+  },
+  {
+    "name": "SEO",
+    "settings": [
+      { "type": "text", "id": "seo_home_title", "label": "Título de la portada", "default": "MAGIC WORLD · Chaquetas, buzos y abrigos para hombre y mujer" },
+      { "type": "textarea", "id": "seo_description", "label": "Descripción de la portada", "default": "Chaquetas, buzos y abrigos para hombre y mujer desde $70.000 con envío gratis a toda Colombia y pago contraentrega: hoodie de cordón cruzado, chaqueta UFC combinada, chaquetón para dama, Nature Flow y más." }
+    ]
+  }
+]

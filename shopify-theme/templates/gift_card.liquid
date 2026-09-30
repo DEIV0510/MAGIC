@@ -1,0 +1,24 @@
+{%- layout none -%}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tarjeta de regalo · MAGIC WORLD</title>
+    {{ 'magic.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body>
+    <main class="page">
+      <h1 class="page__title t-display">Tarjeta de regalo</h1>
+      <p class="t-lead">{{ gift_card.initial_value | money_without_trailing_zeros }}</p>
+      {%- if gift_card.enabled and gift_card.expired == false -%}
+        <p>Código: <strong>{{ gift_card.code | format_code }}</strong></p>
+        <p>Saldo: {{ gift_card.balance | money_without_trailing_zeros }}</p>
+      {%- else -%}
+        <p>Esta tarjeta ya no está activa.</p>
+      {%- endif -%}
+      <a class="btn" href="{{ shop.url }}"><span class="roll"><span>Ir a la tienda</span><span aria-hidden="true">Ir a la tienda</span></span></a>
+    </main>
+  </body>
+</html>

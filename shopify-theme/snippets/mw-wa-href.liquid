@@ -1,0 +1,12 @@
+{%- comment -%}
+  Enlace de WhatsApp con mensaje. Parámetro: text (opcional). El número sale de la configuración del tema.
+  url_encode deja los espacios como "+": se pasan a %20 para que WhatsApp los muestre bien.
+{%- endcomment -%}
+{%- liquid
+  assign mw_num = settings.whatsapp_number | default: '573238987323' | remove: '+' | remove: ' '
+  echo 'https://wa.me/' | append: mw_num
+  if text != blank
+    assign mw_text = text | strip | url_encode | replace: '+', '%20'
+    echo '?text=' | append: mw_text
+  endif
+-%}

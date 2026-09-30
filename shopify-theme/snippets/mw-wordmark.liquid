@@ -1,0 +1,28 @@
+{%- comment -%}
+  Logotipo MAGIC WORLD (trazados en snippets/mw-wordmark-sprite.liquid).
+  wm_layout: line (una línea) | stack (MAGIC sobre WORLD)
+  variant:   solid | cut (dos mitades independientes: la de arriba y la de abajo se mueven
+             y colorean por separado; cada una va en un <span> porque Chrome no compone
+             animaciones de translate aplicadas directo a un <svg>)
+  class, label (si hay label, el logo se anuncia como imagen)
+{%- endcomment -%}
+{%- liquid
+  assign wm_layout = wm_layout | default: 'line'
+  capture d
+    render 'mw-wordmark-data', wl: wm_layout
+  endcapture
+  assign d = d | strip | split: '~'
+  assign wm_w = d[0]
+  assign wm_h = d[1]
+  assign wm_c = d[2]
+  assign wm_hc = wm_h | minus: wm_c
+  assign ref = '#wm-' | append: wm_layout
+-%}
+{%- if variant == 'cut' -%}
+<span class="wm-cut wm-cut--{{ wm_layout }}{% if class != blank %} {{ class }}{% endif %}"{% if label != blank %} role="img" aria-label="{{ label }}"{% else %} aria-hidden="true"{% endif %}>
+  <span class="wm-cut__t"><svg viewBox="0 0 {{ wm_w }} {{ wm_c }}" preserveAspectRatio="xMidYMin meet" focusable="false" aria-hidden="true"><use href="{{ ref }}" width="{{ wm_w }}" height="{{ wm_h }}"></use></svg></span>
+  <span class="wm-cut__b"><svg viewBox="0 {{ wm_c }} {{ wm_w }} {{ wm_hc }}" preserveAspectRatio="xMidYMax meet" focusable="false" aria-hidden="true"><use href="{{ ref }}" width="{{ wm_w }}" height="{{ wm_h }}"></use></svg></span>
+</span>
+{%- else -%}
+<svg class="wm{% if class != blank %} {{ class }}{% endif %}" viewBox="0 0 {{ wm_w }} {{ wm_h }}"{% if label != blank %} role="img" aria-label="{{ label }}"{% else %} aria-hidden="true"{% endif %} focusable="false"><use href="{{ ref }}" width="{{ wm_w }}" height="{{ wm_h }}"></use></svg>
+{%- endif -%}

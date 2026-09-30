@@ -1,0 +1,158 @@
+{%- comment -%}
+  Producto destacado: la prenda delante de su nombre gigante en rojo. La foto es un recorte
+  con alfa (assets/mw-cut-*): la prenda tapa las letras. Los rótulos señalan detalles
+  VISIBLES en esa foto (coordenadas medidas sobre ella, en %).
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product
+  capture cut
+    render 'mw-assets', name: 'cut'
+  endcapture
+  assign cut = cut | strip | split: '~'
+  assign cut_widths = cut[1] | split: ','
+  assign cut_w = cut[2] | plus: 0
+  assign cut_h = cut[3] | plus: 0
+
+  assign name = section.settings.title | newline_to_br
+  assign number = ''
+  assign label = ''
+  assign lower = ''
+  assign price = ''
+  assign note = section.settings.note
+  if p != blank
+    capture info
+      render 'mw-map', part: 'info', handle: p.handle
+    endcapture
+    assign info = info | strip | split: '~'
+    assign pname = info[0] | default: p.title
+    assign number = info[1]
+    capture raw
+      render 'mw-colors', product: p
+    endcapture
+    assign colors = raw | strip | split: '^'
+    assign want = section.settings.color | handleize
+    assign entry = colors[0] | split: '~'
+    assign color_list = ''
+    for c in colors
+      assign f = c | split: '~'
+      if f[1] == want
+        assign entry = f
+      endif
+      if forloop.first
+        assign color_list = f[2]
+      elsif forloop.last
+        assign cl = f[2] | downcase
+        assign color_list = color_list | append: ' y ' | append: cl
+      else
+        assign cl = f[2] | downcase
+        assign color_list = color_list | append: ', ' | append: cl
+      endif
+    endfor
+    assign label = entry[2]
+    assign lower = label | downcase
+    assign price = p.price | money_without_trailing_zeros
+
+    assign sizes_text = ''
+    for o in p.options_with_values
+      assign oname = o.name | strip | downcase
+      if oname == 'talla' or oname == 'tallas' or oname == 'size'
+        assign sizes_text = 'Tallas ' | append: o.values.first | append: ' a ' | append: o.values.last
+      endif
+    endfor
+    if note == blank
+      assign note = settings.ship_note | default: 'Envío gratis' | append: ' · ' | append: color_list
+      if sizes_text != blank
+        assign note = note | append: ' · ' | append: sizes_text
+      endif
+    endif
+  endif
+-%}
+<section class="feature" data-feature data-progress="pin" aria-labelledby="feature-title-{{ section.id }}">
+  <div class="feature__pin">
+    <p class="feature__kicker t-label">
+      <span>{{ section.settings.kicker }}</span>
+      {%- if number != blank -%}
+        {%- assign num = number | plus: 0 -%}
+        <span class="t-index">{% if num < 10 %}0{% endif %}{{ num }}</span>
+      {%- endif -%}
+    </p>
+
+    <p class="feature__word" aria-hidden="true">{{ section.settings.word }}</p>
+
+    <div class="feature__stage">
+      <figure class="feature__figure">
+        {%- if section.settings.image != blank -%}
+          {%- render 'mw-img', image: section.settings.image, alt: pname, sizes: '(min-width: 1024px) 44vw, 90vw' -%}
+        {%- else -%}
+          <picture>
+            <source type="image/avif" srcset="{% for w in cut_widths %}{{ cut[0] | append: '-' | append: w | append: '.avif' | asset_url }} {{ w }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" sizes="(min-width: 1024px) 44vw, 90vw">
+            <source type="image/webp" srcset="{% for w in cut_widths %}{{ cut[0] | append: '-' | append: w | append: '.webp' | asset_url }} {{ w }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" sizes="(min-width: 1024px) 44vw, 90vw">
+            <img src="{{ cut[0] | append: '-' | append: cut_widths[1] | append: '.webp' | asset_url }}" width="{{ cut_w }}" height="{{ cut_h }}" alt="{{ pname }} en color {{ lower }}, vista frontal" loading="lazy" decoding="async" data-bg="cutout">
+          </picture>
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          <span class="callout" style="--x:{{ block.settings.x }}%;--y:{{ block.settings.y }}%;--at:{{ block.settings.at | divided_by: 100.0 }}" aria-hidden="true" {{ block.shopify_attributes }}>
+            <span class="callout__line"></span>
+            <span class="callout__label">{{ block.settings.label }}</span>
+          </span>
+        {%- endfor -%}
+      </figure>
+    </div>
+
+    <div class="feature__buy">
+      <h2 class="feature__name t-display" id="feature-title-{{ section.id }}">{{ name }}</h2>
+      {%- if p != blank -%}
+        <p class="feature__price">
+          {{ price }}
+          <small>{{ note }}</small>
+        </p>
+        <p class="sr-only">Detalles: {% for block in section.blocks %}{{ block.settings.label }}{% unless forloop.last %}, {% endunless %}{% endfor %}.</p>
+        <div class="feature__ctas">
+          {%- if p.available -%}
+            <button class="btn" type="button" data-quick="{{ p.handle }}" data-quick-color="{{ entry[0] | escape }}">
+              <span class="roll"><span>{{ section.settings.buy_label }}</span><span aria-hidden="true">{{ section.settings.buy_label }}</span></span>
+            </button>
+          {%- endif -%}
+          {%- capture msg -%}Hola MAGIC WORLD, me interesa la prenda {{ pname }} en color {{ lower }} ({{ price }}, envío incluido). ¿Me confirmas las tallas disponibles?{%- endcapture -%}
+          <a class="btn btn--ghost" href="{% render 'mw-wa-href', text: msg %}" target="_blank" rel="noopener">
+            {%- render 'mw-icon', name: 'whatsapp' -%}
+            <span class="roll"><span>{{ section.settings.wa_label }}</span><span aria-hidden="true">{{ section.settings.wa_label }}</span></span>
+          </a>
+        </div>
+        <a class="link" href="{{ p.url }}?variant={{ entry[5] }}">Ver detalles {% render 'mw-icon', name: 'arrow' %}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Producto destacado",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "product", "id": "product", "label": "Prenda" },
+    { "type": "text", "id": "color", "label": "Color de la foto (como está en Shopify)", "default": "NEGRO" },
+    { "type": "image_picker", "id": "image", "label": "Foto recortada (opcional)", "info": "PNG con fondo transparente. Vacía = el recorte del chaquetón negro incluido en el tema." },
+    { "type": "text", "id": "kicker", "label": "Antetítulo", "default": "Producto destacado" },
+    { "type": "text", "id": "word", "label": "Palabra de fondo", "default": "Chaquetón" },
+    { "type": "textarea", "id": "title", "label": "Nombre", "default": "Chaquetón\npara dama" },
+    { "type": "text", "id": "note", "label": "Nota bajo el precio", "info": "Vacía = envío + colores + tallas de la prenda." },
+    { "type": "text", "id": "buy_label", "label": "Botón comprar", "default": "Comprar ahora" },
+    { "type": "text", "id": "wa_label", "label": "Botón WhatsApp", "default": "Quiero esta prenda" }
+  ],
+  "blocks": [
+    {
+      "type": "callout",
+      "name": "Rótulo",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Texto", "default": "Detalle" },
+        { "type": "number", "id": "x", "label": "Posición horizontal (%)", "default": 50 },
+        { "type": "number", "id": "y", "label": "Posición vertical (%)", "default": 50 },
+        { "type": "number", "id": "at", "label": "Aparece al avanzar (%)", "default": 20 }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Producto destacado" }],
+  "enabled_on": { "templates": ["index"] }
+}
+{% endschema %}

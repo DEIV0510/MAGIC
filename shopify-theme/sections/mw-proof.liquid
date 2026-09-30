@@ -1,0 +1,108 @@
+{%- comment -%}
+  Beneficios SOLO con lo que se puede comprobar (bloques de texto), el video real del buzo fit
+  con la etiqueta MAGIC WORLD y la bodega real (imágenes incluidas en el tema).
+{%- endcomment -%}
+{%- liquid
+  capture vid
+    render 'mw-assets', name: 'video'
+  endcapture
+  assign vid = vid | strip | split: '~'
+  capture b1
+    render 'mw-assets', name: 'bodega-1'
+  endcapture
+  assign b1 = b1 | strip | split: '~'
+  capture b2
+    render 'mw-assets', name: 'bodega-2'
+  endcapture
+  assign b2 = b2 | strip | split: '~'
+-%}
+<section class="proof" aria-labelledby="proof-title-{{ section.id }}">
+  <h2 class="proof__title t-display" id="proof-title-{{ section.id }}" data-reveal="lines">
+    <span class="ln"><span>{{ section.settings.title }}</span></span>
+  </h2>
+  <ul class="proof__list">
+    {%- for block in section.blocks -%}
+      <li class="proof__item" data-reveal style="--i:{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+        <span class="t-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- if section.settings.show_video -%}
+    <figure class="pvideo proof__video" data-pvideo>
+      <div class="pvideo__frame">
+        <video
+          class="pvideo__v"
+          muted
+          playsinline
+          loop
+          preload="none"
+          poster="{{ vid[1] | asset_url }}"
+          width="{{ vid[2] }}"
+          height="{{ vid[3] }}"
+          aria-label="{{ section.settings.video_label | escape }}"
+          data-src="{{ vid[0] | asset_url }}"
+        ></video>
+        <button class="pvideo__btn" type="button" data-pvideo-toggle aria-label="Reproducir video">
+          <svg class="pvideo__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"></path></svg>
+          <svg class="pvideo__pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5h3.5v13H7zM13.5 5.5H17v13h-3.5z" fill="currentColor"></path></svg>
+        </button>
+        <span class="pvideo__tag t-label" aria-hidden="true">{% render 'mw-icon', name: 'arrow-ur' %}Video real</span>
+      </div>
+      <figcaption class="pvideo__cap t-label t-mute">{{ section.settings.video_caption }}</figcaption>
+    </figure>
+  {%- endif -%}
+
+  {%- if section.settings.show_docs -%}
+    <div class="proof__docs">
+      {%- assign docs = 'bodega-1,bodega-2' | split: ',' -%}
+      {%- for doc in docs -%}
+        {%- if forloop.first -%}{%- assign a = b1 -%}{%- assign alt = section.settings.doc_alt_1 -%}{%- else -%}{%- assign a = b2 -%}{%- assign alt = section.settings.doc_alt_2 -%}{%- endif -%}
+        {%- assign ws = a[1] | split: ',' -%}
+        <figure data-reveal="mask"{% unless forloop.first %} style="--i:1"{% endunless %}>
+          <picture>
+            <source type="image/avif" srcset="{% for w in ws %}{{ a[0] | append: '-' | append: w | append: '.avif' | asset_url }} {{ w }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" sizes="(min-width: 1024px) 16vw, 46vw">
+            <source type="image/webp" srcset="{% for w in ws %}{{ a[0] | append: '-' | append: w | append: '.webp' | asset_url }} {{ w }}w{% unless forloop.last %}, {% endunless %}{% endfor %}" sizes="(min-width: 1024px) 16vw, 46vw">
+            <img src="{{ a[0] | append: '-' | append: ws.last | append: '.webp' | asset_url }}" width="{{ a[2] }}" height="{{ a[3] }}" alt="{{ alt | escape }}" loading="lazy" decoding="async" data-bg="doc">
+          </picture>
+        </figure>
+      {%- endfor -%}
+      <p class="proof__docs-cap t-label">
+        <span>{{ section.settings.docs_left }}</span>
+        <span>{{ section.settings.docs_right }}</span>
+      </p>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Sin trucos",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Sin trucos." },
+    { "type": "checkbox", "id": "show_video", "label": "Mostrar el video del buzo fit", "default": true },
+    { "type": "text", "id": "video_label", "label": "Descripción del video", "default": "Buzo fit en gris: etiqueta MAGIC WORLD, cierre y elasticidad de la tela" },
+    { "type": "text", "id": "video_caption", "label": "Pie del video", "default": "Buzo fit · tela Zurich, sin filtros" },
+    { "type": "checkbox", "id": "show_docs", "label": "Mostrar la bodega", "default": true },
+    { "type": "text", "id": "doc_alt_1", "label": "Descripción foto 1", "default": "Estantería de la bodega de MAGIC WORLD con buzos empacados" },
+    { "type": "text", "id": "doc_alt_2", "label": "Descripción foto 2", "default": "Bodega de MAGIC WORLD con chaquetas y buzos empacados en estantes" },
+    { "type": "text", "id": "docs_left", "label": "Pie de la bodega (izquierda)", "default": "Nuestra bodega" },
+    { "type": "text", "id": "docs_right", "label": "Pie de la bodega (derecha)", "default": "Stock propio" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Beneficio",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Envío gratis" },
+        { "type": "textarea", "id": "text", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Sin trucos" }],
+  "enabled_on": { "templates": ["index"] }
+}
+{% endschema %}

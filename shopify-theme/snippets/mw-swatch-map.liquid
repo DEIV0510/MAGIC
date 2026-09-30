@@ -1,0 +1,81 @@
+{%- comment -%} GENERADO por scripts/build-theme.mjs — color del recuadro (key = handle/color); si no está, por nombre del color. {%- endcomment -%}
+{%- case key -%}
+    {%- when 'hoodie-para-hombre-algodonn/beige' -%}#c9b09a
+    {%- when 'hoodie-para-hombre-algodonn/negro' -%}#161616
+    {%- when 'hoodie-para-hombre-algodonn/azul-oscuro' -%}#1d2438
+    {%- when 'chaqueta-deportiva-para-hombre/negro' -%}#111111
+    {%- when 'chaqueta-deportiva-para-hombre/gris-oscuro' -%}#38383d
+    {%- when 'chaqueta-deportiva-para-hombre/azul-oscuro' -%}#1b2138
+    {%- when 'chaqueta-deportiva-para-hombre/beige' -%}#bfa189
+    {%- when 'chaqueta-ufc-combinada-para-hombre/negro' -%}linear-gradient(135deg, #111114 0 50%, #8f9097 50% 100%)
+    {%- when 'chaqueta-ufc-combinada-para-hombre/gris-claro' -%}linear-gradient(135deg, #bdbac2 0 50%, #141414 50% 100%)
+    {%- when 'chaqueta-ufc-combinada-para-hombre/beige' -%}linear-gradient(135deg, #cfa585 0 50%, #141414 50% 100%)
+    {%- when 'gaban-para-dama-algodon/gris-oscuro' -%}#3e3d41
+    {%- when 'gaban-para-dama-algodon/negro' -%}#151517
+    {%- when 'chaqueta-outdoor-poliester/gris-oscuro' -%}#3a3a3c
+    {%- when 'chaqueta-nature-flow/negro' -%}#141b21
+    {%- when 'chaqueta-nature-flow/gris-oscuro' -%}#3e3e3a
+    {%- when 'chaqueta-nature-flow/gris-claro' -%}#b4bbc2
+    {%- when 'chaqueta-nature-flow/lila' -%}#9a7fa6
+    {%- when 'lindo-abrigo-cuello-redondo-para-mujer/negro' -%}#1a1919
+    {%- when 'lindo-abrigo-cuello-redondo-para-mujer/lila' -%}#a07aa8
+    {%- when 'lindo-abrigo-cuello-redondo-para-mujer/gris-claro' -%}#9d9aa0
+    {%- when 'buso-cuello-alto/azul' -%}#232b40
+    {%- when 'buso-cuello-alto/gris' -%}#8f8f93
+    {%- when 'buso-cuello-alto/negro' -%}#1d1d1f
+    {%- when 'buso-en-bisonte-para-dama/lila' -%}#b39bc4
+    {%- when 'buso-en-bisonte-para-dama/rosa' -%}#d8a3a6
+    {%- when 'buso-en-bisonte-para-dama/negro' -%}#1a1919
+    {%- when 'chaqueta-tipo-camisa-para-mujer/camel' -%}linear-gradient(135deg, #c48c5c 0 50%, #f1ebe4 50% 100%)
+    {%- when 'chaqueta-tipo-camisa-para-mujer/negro' -%}linear-gradient(135deg, #151515 0 50%, #efefed 50% 100%)
+    {%- when 'abrigo-para-hombre/tabaco' -%}#7a3a26
+    {%- when 'abrigo-para-hombre/gris-perla' -%}#b9b6b1
+    {%- when 'abrigo-para-hombre/negro' -%}#171717
+    {%- when 'chaqueta-primavera-cuadros/gris' -%}linear-gradient(135deg, #8d8a88 0 50%, #efedea 50% 100%)
+    {%- when 'chaqueta-primavera-cuadros/rosado' -%}linear-gradient(135deg, #e3a9b4 0 50%, #f3ecea 50% 100%)
+  {%- else -%}
+    {%- assign mw_c = key | split: '/' | last -%}
+    {%- assign mw_first = mw_c | split: '-' | first -%}
+    {%- case mw_c -%}
+        {%- when 'negro' -%}#161616
+        {%- when 'blanco' -%}#f4f4f2
+        {%- when 'gris' -%}#8f8f93
+        {%- when 'gris-claro' -%}#b4b4b8
+        {%- when 'gris-oscuro' -%}#3a3a3c
+        {%- when 'gris-perla' -%}#b9b6b1
+        {%- when 'azul' -%}#232b40
+        {%- when 'azul-oscuro' -%}#1d2438
+        {%- when 'azul-marino' -%}#1f2940
+        {%- when 'beige' -%}#c9b09a
+        {%- when 'camel' -%}#c48c5c
+        {%- when 'tabaco' -%}#7a3a26
+        {%- when 'cafe' -%}#5a3b2a
+        {%- when 'lila' -%}#a07aa8
+        {%- when 'rosa' -%}#d8a3a6
+        {%- when 'rosado' -%}#e3a9b4
+        {%- when 'rojo' -%}#a52023
+        {%- when 'verde' -%}#4a5a3c
+      {%- else -%}
+        {%- case mw_first -%}
+        {%- when 'negro' -%}#161616
+        {%- when 'blanco' -%}#f4f4f2
+        {%- when 'gris' -%}#8f8f93
+        {%- when 'gris-claro' -%}#b4b4b8
+        {%- when 'gris-oscuro' -%}#3a3a3c
+        {%- when 'gris-perla' -%}#b9b6b1
+        {%- when 'azul' -%}#232b40
+        {%- when 'azul-oscuro' -%}#1d2438
+        {%- when 'azul-marino' -%}#1f2940
+        {%- when 'beige' -%}#c9b09a
+        {%- when 'camel' -%}#c48c5c
+        {%- when 'tabaco' -%}#7a3a26
+        {%- when 'cafe' -%}#5a3b2a
+        {%- when 'lila' -%}#a07aa8
+        {%- when 'rosa' -%}#d8a3a6
+        {%- when 'rosado' -%}#e3a9b4
+        {%- when 'rojo' -%}#a52023
+        {%- when 'verde' -%}#4a5a3c
+          {%- else -%}#8f8f93
+        {%- endcase -%}
+    {%- endcase -%}
+{%- endcase -%}

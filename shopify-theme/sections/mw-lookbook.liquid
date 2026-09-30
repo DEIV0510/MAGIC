@@ -1,0 +1,173 @@
+{%- comment -%}
+  Colección destacada: tira horizontal. En escritorio se fija y avanza con el scroll vertical;
+  en móvil (o con movimiento reducido) se desliza con el dedo.
+  Bloques "look": producto + color + forma (alta / baja / arriba) + foto opcional.
+{%- endcomment -%}
+{%- liquid
+  assign palette = ''
+  assign seen = '|'
+  assign pcount = 0
+  for p in collections.all.products limit: 50
+    capture raw
+      render 'mw-colors', product: p
+    endcapture
+    assign colors = raw | strip | split: '^'
+    for c in colors
+      assign f = c | split: '~'
+      if f[0] == blank
+        continue
+      endif
+      assign needle = '|' | append: f[1] | append: '|'
+      unless seen contains needle
+        assign seen = seen | append: f[1] | append: '|'
+        assign pcount = pcount | plus: 1
+        capture li
+          echo '<li style="--sw:' | append: f[3] | append: '" title="' | append: f[2] | append: '"><span class="sr-only">' | append: f[2] | append: '</span></li>'
+        endcapture
+        assign palette = palette | append: li
+      endunless
+    endfor
+  endfor
+  assign total = section.blocks.size
+-%}
+<section class="lookbook" id="coleccion" data-lookbook aria-labelledby="lookbook-title-{{ section.id }}">
+  <div class="lookbook__pin">
+    <div class="lookbook__intro">
+      <p class="t-label t-mute">{{ section.settings.kicker }}</p>
+      <h2 class="lookbook__title t-display" id="lookbook-title-{{ section.id }}" data-reveal="lines">
+        <span class="ln"><span>{{ section.settings.title_1 }}</span></span>
+        <span class="ln" style="--l:1"><span>{{ section.settings.title_2 }}</span></span>
+      </h2>
+      <p class="lookbook__text">{{ section.settings.text }}</p>
+      {%- if pcount > 0 -%}
+        <div class="palette">
+          <ul class="palette__dots" aria-label="Colores de la colección">{{ palette }}</ul>
+          <p class="t-label t-mute">{{ pcount }} colores</p>
+        </div>
+      {%- endif -%}
+      <p class="lookbook__hint t-label">
+        <span data-hint-touch>Desliza</span>
+        <span class="lookbook__ico" aria-hidden="true">{% render 'mw-icon', name: 'arrow' %}</span>
+      </p>
+    </div>
+
+    <div class="lookbook__track" data-lookbook-track>
+      {%- for block in section.blocks -%}
+        {%- assign p = block.settings.product -%}
+        {%- if p != blank -%}
+        {%- liquid
+          capture info
+            render 'mw-map', part: 'info', handle: p.handle
+          endcapture
+          assign info = info | strip | split: '~'
+          assign name = info[0] | default: p.title
+          capture raw
+            render 'mw-colors', product: p
+          endcapture
+          assign colors = raw | strip | split: '^'
+          assign want = block.settings.color | handleize
+          assign entry = colors[0] | split: '~'
+          for c in colors
+            assign f = c | split: '~'
+            if f[1] == want
+              assign entry = f
+            endif
+          endfor
+          assign imgs = entry[6] | split: ';'
+          assign pick = imgs[0] | split: ':'
+          for im in imgs
+            assign m = im | split: ':'
+            if m[1] == 'photo'
+              assign pick = m
+              break
+            endif
+          endfor
+          assign lower = entry[2] | downcase
+          assign price = p.price | money_without_trailing_zeros
+          unless p.available
+            assign price = 'Agotado'
+          endunless
+          # La tira se mueve en horizontal: con lazy, cada foto recién se pide al entrar en
+          # pantalla y se ve el marco vacío. Carga normal con prioridad baja.
+          assign load = 'eager'
+          assign num = forloop.index
+          assign alt = name | append: ' en color ' | append: lower
+          if pick[3] != blank
+            assign alt = alt | append: ', ' | append: pick[3]
+          endif
+        -%}
+        <a class="look look--{{ block.settings.form }}" href="{{ p.url }}?variant={{ entry[5] }}" {{ block.shopify_attributes }}>
+          <span class="look__frame frame">
+            {%- if block.settings.image != blank -%}
+              {%- render 'mw-img', image: block.settings.image, alt: alt, sizes: '(min-width: 1024px) 34vw, (min-width: 768px) 48vw, 72vw', loading: load, fetch: 'low' -%}
+            {%- else -%}
+              {%- render 'mw-img', product: p, pos: pick[0], alt: alt, sizes: '(min-width: 1024px) 34vw, (min-width: 768px) 48vw, 72vw', loading: load, fetch: 'low', bg: pick[1], focus: pick[2] -%}
+            {%- endif -%}
+          </span>
+          <span class="look__cap">
+            <span class="t-index">{% if num < 10 %}0{% endif %}{{ num }}</span>
+            <span class="look__name">
+              {{ name }}
+              <small>{{ entry[2] }} · {{ price }}</small>
+            </span>
+            {%- render 'mw-icon', name: 'arrow-ur' -%}
+          </span>
+        </a>
+        {%- endif -%}
+      {%- endfor -%}
+
+      <div class="look look--end">
+        <p>{{ section.settings.end_text | newline_to_br }}</p>
+        <a class="btn" href="{{ section.settings.end_link | default: routes.all_products_collection_url }}">
+          <span class="roll"><span>{{ section.settings.end_label }}</span><span aria-hidden="true">{{ section.settings.end_label }}</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="lookbook__progress t-label" aria-hidden="true">
+      <span>01</span>
+      <span class="lookbook__bar"></span>
+      <span>{% if total < 10 %}0{% endif %}{{ total }}</span>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lookbook",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Antetítulo", "default": "Colección 01" },
+    { "type": "text", "id": "title_1", "label": "Título, línea 1", "default": "Chaquetas" },
+    { "type": "text", "id": "title_2", "label": "Título, línea 2", "default": "y buzos." },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Para él y para ella. Tela premium, envío gratis y pago contraentrega en todas las prendas." },
+    { "type": "textarea", "id": "end_text", "label": "Texto final", "default": "Toda la\ncolección" },
+    { "type": "text", "id": "end_label", "label": "Botón final", "default": "Ver colección" },
+    { "type": "url", "id": "end_link", "label": "Enlace del botón final" }
+  ],
+  "blocks": [
+    {
+      "type": "look",
+      "name": "Look",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Prenda" },
+        { "type": "text", "id": "color", "label": "Color (como está en Shopify)" },
+        {
+          "type": "select",
+          "id": "form",
+          "label": "Forma",
+          "options": [
+            { "value": "tall", "label": "Alta" },
+            { "value": "low", "label": "Baja" },
+            { "value": "high", "label": "Arriba" }
+          ],
+          "default": "tall"
+        },
+        { "type": "image_picker", "id": "image", "label": "Foto (opcional)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lookbook" }],
+  "enabled_on": { "templates": ["index"] }
+}
+{% endschema %}

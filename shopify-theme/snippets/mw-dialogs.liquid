@@ -1,0 +1,87 @@
+{%- comment -%}
+  Bolsa y vista rápida: <dialog> nativo (foco atrapado, Escape, fondo inerte).
+  El buscador y el menú móvil viven en la sección del header (usan sus enlaces).
+  La vista rápida NO es un formulario /cart/add: así Releasit no la toca.
+{%- endcomment -%}
+{%- capture wa_msg -%}Hola MAGIC WORLD, quiero ver la colección. ¿Me ayudas con tallas y colores?{%- endcapture -%}
+
+<dialog class="sheet bag" id="bag" aria-labelledby="bag-title">
+  <div class="sheet__scrim" data-close aria-hidden="true"></div>
+  <div class="bag__panel" data-tone="light">
+    <div class="bag__head">
+      <h2 class="bag__title" id="bag-title">Bolsa <span data-bag-title-count></span></h2>
+      <button class="sheet__close" type="button" data-close aria-label="Cerrar bolsa">{% render 'mw-icon', name: 'close' %}</button>
+    </div>
+    <div class="bag__body" data-lenis-prevent>
+      <ul class="bag__lines" data-bag-lines aria-live="polite"></ul>
+      <div class="bag__empty" data-bag-empty{% if cart.item_count > 0 %} hidden{% endif %}>
+        <p>Tu bolsa está vacía.</p>
+        <a class="btn" href="{{ routes.all_products_collection_url }}" data-close-nav>
+          <span class="roll"><span>Ver colección</span><span aria-hidden="true">Ver colección</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="bag__foot" data-bag-foot{% if cart.item_count == 0 %} hidden{% endif %}>
+      <div class="bag__total">
+        <span>Total</span>
+        <span data-bag-total>{{ cart.total_price | money_without_trailing_zeros }}</span>
+      </div>
+      <p class="bag__note" data-bag-note data-cod="{{ settings.bag_note_cod | default: 'Envío gratis. Pagas contraentrega, cuando recibes tu pedido.' | escape }}">{{ settings.bag_note | default: 'Envío gratis a toda Colombia.' }}</p>
+      <a class="btn btn--block" href="{{ routes.cart_url }}" data-checkout>
+        <span class="roll"><span>Finalizar pedido</span><span aria-hidden="true">Finalizar pedido</span></span>
+      </a>
+      <a class="link bag__wa" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener" data-bag-wa>
+        {%- render 'mw-icon', name: 'whatsapp' -%}
+        Prefiero pedir por WhatsApp
+      </a>
+      <button class="btn btn--ghost btn--block" type="button" data-close>
+        <span class="roll"><span>Seguir comprando</span><span aria-hidden="true">Seguir comprando</span></span>
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet quick" id="quick" aria-labelledby="quick-title">
+  <div class="sheet__scrim" data-close aria-hidden="true"></div>
+  <div class="quick__panel" data-tone="light">
+    <div class="quick__head">
+      <p class="t-label">Elige tu talla</p>
+      <button class="sheet__close" type="button" data-close aria-label="Cerrar">{% render 'mw-icon', name: 'close' %}</button>
+    </div>
+    <form class="quick__body" data-quick-form novalidate>
+      <div class="quick__product">
+        <span class="quick__thumb frame"><img data-quick-img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="96" height="120"></span>
+        <div>
+          <h2 class="quick__name" id="quick-title" data-quick-name></h2>
+          <p class="quick__price">
+            <span data-quick-price></span>
+            <s class="quick__was" data-quick-compare hidden></s>
+            <small>{{ settings.ship_note | default: 'Envío gratis' }}</small>
+          </p>
+        </div>
+      </div>
+
+      <fieldset class="opt" data-quick-colors-field>
+        <legend class="opt__legend">Color: <strong data-quick-color-name></strong></legend>
+        <div class="opt__row" data-quick-colors></div>
+      </fieldset>
+
+      <fieldset class="opt" data-quick-sizes-field>
+        <legend class="opt__legend">Talla</legend>
+        <div class="opt__row" data-quick-sizes></div>
+        <p class="opt__error" data-quick-error role="alert" hidden>Elige una talla.</p>
+      </fieldset>
+
+      <div class="quick__ctas">
+        <button class="btn btn--block" type="submit" data-quick-submit>
+          <span class="roll"><span data-quick-label>{{ settings.buy_label | default: 'Pedir ahora' }}</span><span aria-hidden="true" data-quick-label>{{ settings.buy_label | default: 'Pedir ahora' }}</span></span>
+        </button>
+        <p class="quick__cod t-mute" data-quick-cod hidden>{{ settings.buy_sub | default: 'Pago contraentrega · Envío gratis' }}</p>
+        <button class="btn btn--ghost btn--block" type="button" data-quick-add hidden>
+          <span class="roll"><span>Agregar a la bolsa</span><span aria-hidden="true">Agregar a la bolsa</span></span>
+        </button>
+      </div>
+      <a class="link quick__more" href="{{ routes.root_url }}" data-quick-link data-close-nav>Ver detalles {% render 'mw-icon', name: 'arrow' %}</a>
+    </form>
+  </div>
+</dialog>

@@ -1,0 +1,15 @@
+<section class="page" aria-labelledby="page-title">
+  <p class="t-label t-mute">Error 404</p>
+  <h1 class="page__title t-display" id="page-title">
+    <span class="cut" style="--shift:4%"><span>Desapareció.</span><span aria-hidden="true">Desapareció.</span></span>
+  </h1>
+  <p class="t-lead" style="max-width:32ch">Esta página no existe. La colección sigue aquí.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+    <a class="btn" href="{{ routes.all_products_collection_url }}"><span class="roll"><span>Ver colección</span><span aria-hidden="true">Ver colección</span></span></a>
+    <a class="link" href="{{ routes.root_url }}">Ir al inicio {% render 'mw-icon', name: 'arrow' %}</a>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Página no encontrada", "settings": [] }
+{% endschema %}

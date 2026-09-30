@@ -1,0 +1,173 @@
+{%- comment -%}
+  Portada: una prenda en tres colores (fotos de la tienda) y el logotipo MAGIC WORLD cortado
+  justo en el borde de las fotos (en una línea en escritorio; apilado en móvil).
+  Bloques "panel": producto + color (tal cual en Shopify) + foto opcional.
+{%- endcomment -%}
+{%- liquid
+  assign speeds = '9,15,6,11' | split: ','
+  capture dl
+    render 'mw-wordmark-data', wl: 'line'
+  endcapture
+  assign dl = dl | strip | split: '~'
+  capture ds
+    render 'mw-wordmark-data', wl: 'stack'
+  endcapture
+  assign ds = ds | strip | split: '~'
+
+  assign min = 0
+  for p in collections.all.products limit: 50
+    if p.available
+      if min == 0 or p.price < min
+        assign min = p.price
+      endif
+    endif
+  endfor
+
+  assign first_now = ''
+  assign dots = ''
+-%}
+<section class="hero" aria-label="Portada" data-hero>
+  <div class="hero__stage">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign p = block.settings.product
+        assign i = forloop.index0
+        assign name = ''
+        assign label = ''
+        assign url = routes.all_products_collection_url
+        assign sw = '#8f8f93'
+        assign pos = ''
+        assign focus = '50% 24%'
+        if p != blank
+          capture info
+            render 'mw-map', part: 'info', handle: p.handle
+          endcapture
+          assign info = info | strip | split: '~'
+          assign name = info[0] | default: p.title
+          capture raw
+            render 'mw-colors', product: p
+          endcapture
+          assign colors = raw | strip | split: '^'
+          assign want = block.settings.color | handleize
+          assign entry = colors[0] | split: '~'
+          for c in colors
+            assign f = c | split: '~'
+            if f[1] == want
+              assign entry = f
+            endif
+          endfor
+          assign label = entry[2]
+          assign sw = entry[3]
+          assign url = p.url | append: '?variant=' | append: entry[5]
+          assign imgs = entry[6] | split: ';'
+          assign pick = imgs[0] | split: ':'
+          for im in imgs
+            assign m = im | split: ':'
+            if m[1] == 'photo'
+              assign pick = m
+              break
+            endif
+          endfor
+          assign pos = pick[0]
+          assign focus = pick[2]
+        endif
+        assign lower = label | downcase
+        assign now = name | append: ' — ' | append: label
+        if forloop.first
+          assign first_now = now
+        endif
+        assign num = i | plus: 1
+      -%}
+      <a
+        class="hero__panel{% if forloop.first %} is-active{% endif %}"
+        href="{{ url }}"
+        style="--i:{{ i }};--speed:{{ speeds[i] | default: 8 }}"
+        data-hero-panel
+        data-now="{{ now | escape }}"
+        aria-label="{{ name }}, color {{ lower }}"
+        {{ block.shopify_attributes }}
+      >
+        {%- capture alt -%}{{ name }} en color {{ lower }}, puesta{%- endcapture -%}
+        {%- if block.settings.image != blank -%}
+          {%- if forloop.first -%}
+            {%- render 'mw-img', image: block.settings.image, alt: alt, sizes: '(min-width: 768px) 34vw, 118vw', class: 'hero__img', priority: true -%}
+          {%- else -%}
+            {%- render 'mw-img', image: block.settings.image, alt: alt, sizes: '(min-width: 768px) 34vw, 118vw', class: 'hero__img', loading: 'eager', fetch: 'low' -%}
+          {%- endif -%}
+        {%- elsif pos != blank -%}
+          {%- if forloop.first -%}
+            {%- render 'mw-img', product: p, pos: pos, alt: alt, sizes: '(min-width: 768px) 34vw, 118vw', class: 'hero__img', focus: focus, priority: true -%}
+          {%- else -%}
+            {%- render 'mw-img', product: p, pos: pos, alt: alt, sizes: '(min-width: 768px) 34vw, 118vw', class: 'hero__img', focus: focus, loading: 'eager', fetch: 'low' -%}
+          {%- endif -%}
+        {%- endif -%}
+        <span class="hero__cap t-label">
+          <span class="t-index">{% if num < 10 %}0{% endif %}{{ num }}</span>
+          <span>{{ label }}</span>
+        </span>
+        <span class="hero__view" aria-hidden="true">{% render 'mw-icon', name: 'arrow-ur' %}</span>
+      </a>
+      {%- capture dot -%}<button class="hero__dot" type="button" style="--sw:{{ sw }}" aria-label="{{ label }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" data-hero-dot="{{ i }}"></button>{%- endcapture -%}
+      {%- assign dots = dots | append: dot -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="hero__base">
+    <h1 class="hero__mark">
+      <span class="sr-only">MAGIC WORLD — chaquetas, buzos y abrigos para hombre y mujer</span>
+      <span class="hero__wm hero__wm--line" style="--top-ratio:{{ dl[4] }}">{% render 'mw-wordmark', wm_layout: 'line', variant: 'cut' %}</span>
+      <span class="hero__wm hero__wm--stack" style="--top-ratio:{{ ds[4] }}">{% render 'mw-wordmark', wm_layout: 'stack', variant: 'cut' %}</span>
+    </h1>
+
+    <div class="hero__meta">
+      <div class="hero__now">
+        <p class="t-label"><span data-hero-now>{{ first_now }}</span></p>
+        <div class="hero__dots" role="group" aria-label="Color de la chaqueta">{{ dots }}</div>
+      </div>
+      <div class="hero__label">
+        <span class="scrollcue t-label" aria-hidden="true"><span class="scrollcue__bar"></span>Desliza</span>
+        <p class="t-label t-mute">{{ section.settings.kicker }}</p>
+      </div>
+      <div>
+        <p class="hero__line">{{ section.settings.line | newline_to_br }}</p>
+        <p class="hero__price t-label">{% if min > 0 %}Desde {{ min | money_without_trailing_zeros }} · {% endif %}{{ section.settings.price_note }}</p>
+      </div>
+      <div class="hero__ctas">
+        <a class="btn" href="{{ section.settings.cta_link | default: '#coleccion' }}">
+          <span class="roll"><span>{{ section.settings.cta_label }}</span><span aria-hidden="true">{{ section.settings.cta_label }}</span></span>
+        </a>
+        {%- capture wa_msg -%}Hola MAGIC WORLD, quiero ver la colección. ¿Me ayudas con tallas y colores?{%- endcapture -%}
+        <a class="btn btn--ghost btn--icon" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+          {%- render 'mw-icon', name: 'whatsapp' -%}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Portada",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Antetítulo", "default": "Colección 01 — Chaquetas, buzos y abrigos · Hombre / Mujer" },
+    { "type": "textarea", "id": "line", "label": "Frase", "default": "Capas para la ciudad.\nTela premium." },
+    { "type": "text", "id": "price_note", "label": "Nota junto al precio", "default": "Envío gratis · Pago contraentrega" },
+    { "type": "text", "id": "cta_label", "label": "Botón", "default": "Ver colección" },
+    { "type": "text", "id": "cta_link", "label": "Enlace del botón", "default": "#coleccion" }
+  ],
+  "blocks": [
+    {
+      "type": "panel",
+      "name": "Foto",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Prenda" },
+        { "type": "text", "id": "color", "label": "Color (como está en Shopify)", "default": "NEGRO" },
+        { "type": "image_picker", "id": "image", "label": "Foto (opcional)", "info": "Si la dejas vacía se usa la foto de la prenda en ese color." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Portada" }],
+  "enabled_on": { "templates": ["index"] }
+}
+{% endschema %}

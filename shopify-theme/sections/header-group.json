@@ -1,0 +1,24 @@
+{
+  "type": "header",
+  "name": "Encabezado",
+  "sections": {
+    "header": {
+      "type": "mw-header",
+      "blocks": {
+        "inicio": { "type": "link", "settings": { "label": "Inicio", "link": "/" } },
+        "hombre": { "type": "link", "settings": { "label": "Hombre", "link": "shopify://collections/hombre" } },
+        "mujer": { "type": "link", "settings": { "label": "Mujer", "link": "shopify://collections/mujer" } },
+        "coleccion": { "type": "link", "settings": { "label": "Colección", "link": "/collections/all" } },
+        "contacto": { "type": "link", "settings": { "label": "Contacto", "link": "/#contacto" } },
+        "s-hombre": { "type": "search_link", "settings": { "label": "Hombre", "link": "shopify://collections/hombre" } },
+        "s-mujer": { "type": "search_link", "settings": { "label": "Mujer", "link": "shopify://collections/mujer" } },
+        "s-chaquetas": { "type": "search_link", "settings": { "label": "Chaquetas", "link": "shopify://collections/chaquetas" } },
+        "s-buzos": { "type": "search_link", "settings": { "label": "Buzos", "link": "shopify://collections/buzos" } },
+        "s-todo": { "type": "search_link", "settings": { "label": "Toda la colección", "link": "/collections/all" } }
+      },
+      "block_order": ["inicio", "hombre", "mujer", "coleccion", "contacto", "s-hombre", "s-mujer", "s-chaquetas", "s-buzos", "s-todo"],
+      "settings": { "search_placeholder": "Chaqueta, hoodie, lila…" }
+    }
+  },
+  "order": ["header"]
+}

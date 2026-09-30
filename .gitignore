@@ -12,3 +12,8 @@ Thumbs.db
 !.env.example
 
 .vercel
+
+# Copia local del tema Horizon que estaba publicado en Shopify (respaldo, no se versiona)
+shopify-live/
+# Carpeta de trabajo de la CLI de Shopify
+.shopify/

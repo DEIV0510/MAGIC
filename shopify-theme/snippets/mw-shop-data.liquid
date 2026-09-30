@@ -1,0 +1,68 @@
+{%- comment -%}
+  Catálogo mínimo para el buscador, la vista rápida y la bolsa (lo lee theme-src/js/shopdata.ts).
+  Precios en centavos. v = [id, opción1, opción2, opción3, disponible, precio, precio antes].
+{%- endcomment -%}
+<script type="application/json" id="shop-data">[
+{%- for product in collections.all.products limit: 50 -%}
+  {%- liquid
+    capture info
+      render 'mw-map', part: 'info', handle: product.handle
+    endcapture
+    assign info = info | strip | split: '~'
+    assign name = info[0] | default: product.title
+    assign tag = info[3] | default: product.type
+    capture details
+      render 'mw-map', part: 'details', handle: product.handle
+    endcapture
+    assign details = details | strip_html
+
+    assign ci = -1
+    assign zi = -1
+    assign sizes = '[]'
+    for o in product.options_with_values
+      assign oname = o.name | strip | downcase
+      if oname == 'color' or oname == 'colores' or oname == 'colour'
+        assign ci = forloop.index0
+      elsif oname == 'talla' or oname == 'tallas' or oname == 'size' or oname == 'sizes'
+        assign zi = forloop.index0
+        assign sizes = o.values | json
+      endif
+    endfor
+
+    capture raw
+      render 'mw-colors', product: product
+    endcapture
+    assign colors = raw | strip | split: '^'
+    assign labels = ''
+  -%}
+  {%- unless forloop.first -%},{%- endunless -%}
+  {"h":{{ product.handle | json }},"u":{{ product.url | json }},"n":{{ name | json }},"t":{{ tag | json }},"p":{{ product.price | json }},"cp":{{ product.compare_at_price | default: 0 | json }},"a":{% if product.available %}1{% else %}0{% endif %},"ci":{{ ci }},"zi":{{ zi }},"z":{{ sizes }},
+  "c":[
+    {%- for c in colors -%}
+      {%- liquid
+        assign f = c | split: '~'
+        assign imgs = f[6] | split: ';'
+        assign m1 = imgs[0] | split: ':'
+        assign p = m1[0] | plus: 0
+        assign thumb = ''
+        if product.media[p]
+          assign thumb = product.media[p].preview_image | image_url: width: 480
+        endif
+        assign labels = labels | append: ' ' | append: f[2]
+      -%}
+      {%- if f[0] != blank -%}
+        {%- unless forloop.first -%},{%- endunless -%}
+        {"v":{{ f[0] | json }},"l":{{ f[2] | json }},"sw":{{ f[3] | json }},"i":{{ thumb | json }},"b":{{ m1[1] | default: 'photo' | json }}}
+      {%- endif -%}
+    {%- endfor -%}
+  ],
+  "v":[
+    {%- for v in product.variants -%}
+      {%- unless forloop.first -%},{%- endunless -%}
+      [{{ v.id }},{{ v.option1 | json }},{{ v.option2 | json }},{{ v.option3 | json }},{% if v.available %}1{% else %}0{% endif %},{{ v.price }},{{ v.compare_at_price | default: 0 }}]
+    {%- endfor -%}
+  ],
+  {%- capture hay -%}{{ name }} {{ product.title }} {{ tag }} {{ product.type }} {{ labels }} {{ details }} {{ info[4] | replace: ',', ' ' }} {{ info[2] }}{%- endcapture -%}
+  "k":{{ hay | strip | json }}}
+{%- endfor -%}
+]</script>

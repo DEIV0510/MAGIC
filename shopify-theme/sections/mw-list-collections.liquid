@@ -1,0 +1,39 @@
+{%- comment -%} /collections: índice tipográfico de todas las colecciones publicadas. {%- endcomment -%}
+<section class="cats" aria-labelledby="cats-title" style="padding-top:calc(var(--header-h) + clamp(32px, 6vw, 96px))">
+  <div class="cats__head">
+    <h1 class="t-label" id="cats-title">Colecciones</h1>
+    <p class="t-label t-mute">{% if collections.size < 10 %}0{% endif %}{{ collections.size }}</p>
+  </div>
+  <ul class="cats__list">
+    <li>
+      <a class="cat" href="{{ routes.all_products_collection_url }}">
+        <span class="cat__main">
+          <span class="cat__idx t-index">01</span>
+          <span class="cat__name">Toda la colección</span>
+          <span class="cat__count t-index">({{ collections.all.products_count }})</span>
+        </span>
+        <span class="cat__side">{% render 'mw-icon', name: 'arrow', class: 'cat__arrow' %}</span>
+      </a>
+    </li>
+    {%- assign n = 1 -%}
+    {%- for c in collections -%}
+      {%- if c.handle != 'frontpage' and c.handle != 'all' and c.products_count > 0 -%}
+        {%- assign n = n | plus: 1 -%}
+        <li>
+          <a class="cat" href="{{ c.url }}">
+            <span class="cat__main">
+              <span class="cat__idx t-index">{% if n < 10 %}0{% endif %}{{ n }}</span>
+              <span class="cat__name">{{ c.title }}</span>
+              <span class="cat__count t-index">({% if c.products_count < 10 %}0{% endif %}{{ c.products_count }})</span>
+            </span>
+            <span class="cat__side">{% render 'mw-icon', name: 'arrow', class: 'cat__arrow' %}</span>
+          </a>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</section>
+
+{% schema %}
+{ "name": "Lista de colecciones", "settings": [] }
+{% endschema %}

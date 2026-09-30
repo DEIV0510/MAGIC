@@ -1,0 +1,187 @@
+{%- comment -%}
+  Tarjeta de producto (misma que la web).
+  - Hover (escritorio): segunda foto, zoom leve, aparecen COMPRAR + WhatsApp.
+  - Táctil: acciones siempre visibles debajo de la foto.
+  - COMPRAR abre la vista rápida (color + talla).
+  - Colores: cambian foto, enlace, mensaje de WhatsApp y el color de la vista rápida.
+  Parámetros: product, size (xl | lg | md | sm), sizes, class, show_index (false para ocultar),
+  index (número a mostrar), heading (h2 | h3), eager, reveal (false para no animar), style
+{%- endcomment -%}
+{%- liquid
+  capture info
+    render 'mw-map', part: 'info', handle: product.handle
+  endcapture
+  assign info = info | strip | split: '~'
+  assign name = info[0] | default: product.title
+  assign number = info[1]
+  if index != blank
+    assign number = index
+  endif
+  assign tag = info[3] | default: product.type
+  assign heading = heading | default: 'h3'
+  assign size = size | default: 'md'
+
+  capture raw
+    render 'mw-colors', product: product
+  endcapture
+  assign colors = raw | strip | split: '^'
+  assign ncolors = colors.size
+
+  assign active = 0
+  for c in colors
+    assign f = c | split: '~'
+    if f[4] == '1'
+      assign active = forloop.index0
+      break
+    endif
+  endfor
+  assign af = colors[active] | split: '~'
+  assign a_label = af[2]
+  assign a_imgs = af[6] | split: ';'
+  assign a_first = a_imgs[0] | split: ':'
+  assign a_url = product.url
+  if active > 0
+    assign a_url = product.url | append: '?variant=' | append: af[5]
+  endif
+
+  assign ratio = '0.8'
+  if a_first[1] == 'white'
+    assign ap = a_first[0] | plus: 0
+    assign ar = product.media[ap].preview_image.aspect_ratio | default: 0.8
+    if ar < 0.74
+      assign ar = 0.74
+    elsif ar > 1
+      assign ar = 1
+    endif
+    assign ratio = ar | round: 3
+  endif
+
+  assign price = product.price | money_without_trailing_zeros
+  assign was = ''
+  if settings.show_compare_at and product.compare_at_price > product.price
+    assign was = product.compare_at_price | money_without_trailing_zeros
+  endif
+-%}
+<article
+  class="card card--{{ size }}{% if class != blank %} {{ class }}{% endif %}{% unless product.available %} card--out{% endunless %}"
+  data-card
+  data-handle="{{ product.handle }}"
+  data-color="{{ af[1] }}"
+  {% unless reveal == false %}data-reveal{% endunless %}
+  {% if style != blank %}style="{{ style }}"{% endif %}
+>
+  <div class="card__top">
+    {%- if show_index != false and number != blank -%}
+      {%- assign num = number | plus: 0 -%}
+      <span class="card__idx t-index">{% if num < 10 %}0{% endif %}{{ num }}</span>
+    {%- endif -%}
+    <span class="card__tag t-label t-mute">{{ tag }}</span>
+  </div>
+
+  <div class="card__media" data-card-media>
+    <a class="card__frame frame" style="--ar:{{ ratio }}" href="{{ a_url }}" tabindex="-1" aria-hidden="true" data-card-link>
+      {%- for c in colors -%}
+        {%- liquid
+          assign f = c | split: '~'
+          assign imgs = f[6] | split: ';'
+          assign m1 = imgs[0] | split: ':'
+          assign has2 = false
+          if imgs.size > 1
+            assign m2 = imgs[1] | split: ':'
+            assign has2 = true
+          elsif ncolors > 1
+            assign ni = forloop.index | modulo: ncolors
+            assign nf = colors[ni] | split: '~'
+            assign nimgs = nf[6] | split: ';'
+            assign m2 = nimgs[0] | split: ':'
+            if m2[0] != m1[0]
+              assign has2 = true
+            endif
+          endif
+          assign is_active = false
+          if forloop.index0 == active
+            assign is_active = true
+          endif
+          assign load = 'lazy'
+          if eager and is_active
+            assign load = 'eager'
+          endif
+          if f[0] != blank
+            assign cl = f[2] | downcase
+            assign alt = name | append: ' en color ' | append: cl
+          else
+            assign alt = name
+          endif
+          if m1[3] != blank
+            assign alt = alt | append: ', ' | append: m1[3]
+          endif
+        -%}
+        <span class="card__layer{% if is_active %} is-active{% endif %}{% if has2 %} card__layer--alt{% endif %}" data-layer="{{ f[1] }}">
+          {%- render 'mw-img', product: product, pos: m1[0], alt: alt, sizes: sizes, class: 'card__img card__img--main', loading: load, bg: m1[1], focus: m1[2] -%}
+          {%- if has2 -%}
+            {%- render 'mw-img', product: product, pos: m2[0], alt: '', sizes: sizes, class: 'card__img card__img--alt', loading: 'lazy', bg: m2[1], focus: m2[2] -%}
+          {%- endif -%}
+        </span>
+      {%- endfor -%}
+    </a>
+
+    <div class="card__actions">
+      {%- if product.available -%}
+        <button class="btn card__buy" type="button" data-quick="{{ product.handle }}" data-quick-color="{{ af[0] | escape }}">
+          <span class="roll"><span>Comprar</span><span aria-hidden="true">Comprar</span></span>
+          <span class="sr-only">{{ name }}</span>
+        </button>
+      {%- else -%}
+        <a class="btn card__buy is-soldout" href="{{ a_url }}" aria-label="{{ name }}: agotado, ver la prenda">
+          <span class="roll"><span>Agotado</span><span aria-hidden="true">Ver prenda</span></span>
+        </a>
+      {%- endif -%}
+      {%- capture msg -%}Hola MAGIC WORLD, me interesa la prenda {{ name }}{% if a_label != blank %} en color {{ a_label | downcase }}{% endif %} ({{ price }}, envío incluido). ¿Me confirmas las tallas disponibles?{%- endcapture -%}
+      <a class="btn btn--ghost btn--icon card__wa" href="{% render 'mw-wa-href', text: msg %}" target="_blank" rel="noopener" aria-label="Pedir {{ name }} por WhatsApp" data-wa-product>
+        {%- render 'mw-icon', name: 'whatsapp' -%}
+      </a>
+    </div>
+  </div>
+
+  <div class="card__info">
+    <{{ heading }} class="card__name"><a href="{{ a_url }}" data-card-link>{{ name }}</a></{{ heading }}>
+    <div class="card__row">
+      <p class="card__price">
+        <span class="card__amount">{{ price }}{% if was != blank %} <s class="card__was"><span class="sr-only">Antes </span>{{ was }}</s>{% endif %}</span>
+        {%- if product.available -%}
+          <span class="card__ship">{{ settings.ship_note | default: 'Envío gratis' }}</span>
+        {%- else -%}
+          <span class="card__ship card__ship--out">Agotado</span>
+        {%- endif -%}
+      </p>
+      {%- if ncolors > 1 -%}
+        <div class="swatches" role="group" aria-label="Colores de {{ name }}">
+          {%- for c in colors -%}
+            {%- liquid
+              assign f = c | split: '~'
+              assign cl = f[2] | downcase
+              capture cmsg
+                echo 'Hola MAGIC WORLD, me interesa la prenda ' | append: name | append: ' en color ' | append: cl
+                echo ' (' | append: price | append: ', envío incluido). ¿Me confirmas las tallas disponibles?'
+              endcapture
+            -%}
+            <button
+              class="swatch{% if f[4] != '1' %} is-out{% endif %}"
+              type="button"
+              style="--sw:{{ f[3] }}"
+              aria-pressed="{% if forloop.index0 == active %}true{% else %}false{% endif %}"
+              aria-label="{{ f[2] }}{% if f[4] != '1' %}, agotado{% endif %}"
+              title="{{ f[2] }}"
+              data-swatch="{{ f[1] }}"
+              data-value="{{ f[0] | escape }}"
+              data-href="{{ product.url }}?variant={{ f[5] }}"
+              data-wa="{% render 'mw-wa-href', text: cmsg %}"
+            ></button>
+          {%- endfor -%}
+        </div>
+      {%- elsif a_label != blank -%}
+        <p class="card__color t-mute">{{ a_label }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</article>

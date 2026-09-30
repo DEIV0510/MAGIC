@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "main": { "type": "mw-main-product", "settings": {} },
+    "related": { "type": "mw-related", "settings": { "title": "También\nen MAGIC WORLD", "limit": 3 } }
+  },
+  "order": ["main", "related"]
+}

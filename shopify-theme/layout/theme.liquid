@@ -1,0 +1,112 @@
+<!doctype html>
+{%- liquid
+  case template.name
+    when 'index'
+      assign mw_page = 'home'
+    when 'product'
+      assign mw_page = 'product'
+    when 'collection', 'search', 'list-collections'
+      assign mw_page = 'catalog'
+    else
+      assign mw_page = 'page'
+  endcase
+-%}
+<html lang="{{ request.locale.iso_code | default: 'es' }}" data-page="{{ mw_page }}"{% if request.design_mode %} class="shopify-design-mode"{% endif %}>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f0efeb">
+    <meta name="format-detection" content="telephone=no">
+    {%- render 'mw-meta' %}
+    <link rel="icon" href="{{ 'mw-favicon.svg' | asset_url }}" type="image/svg+xml">
+    <link rel="icon" href="{{ 'mw-favicon-32.png' | asset_url }}" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="{{ 'mw-apple-touch-icon.png' | asset_url }}">
+    {{ 'mona-sans.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+    <style>
+      @font-face {
+        font-family: 'Mona Sans';
+        src: url('{{ 'mona-sans.woff2' | asset_url }}') format('woff2');
+        font-weight: 400 800;
+        font-stretch: 75% 125%;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+    {{ 'magic.css' | asset_url | stylesheet_tag: preload: true }}
+    {%- if mw_page == 'home' or template.name == 'list-collections' %}
+    {{ 'magic-home.css' | asset_url | stylesheet_tag }}
+    {%- endif %}
+
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        var rm = false;
+        try {
+          rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        } catch (e) {}
+        d.classList.add(rm ? 'rm' : 'mo');
+        {%- if mw_page == 'home' and request.design_mode == false %}
+        // Pantalla de carga: solo la primera visita a la portada en la sesión.
+        try {
+          var c = navigator.connection;
+          var slow = c && (c.saveData || /2g/.test(c.effectiveType || ''));
+          if (!slow && !sessionStorage.getItem('magic:intro')) {
+            d.classList.add('intro');
+            sessionStorage.setItem('magic:intro', '1');
+          }
+        } catch (e) {}
+        {%- endif %}
+        // Transición entre páginas: la foto principal de la ficha recibe el nombre compartido.
+        window.addEventListener('pagereveal', function (e) {
+          if (!e.viewTransition) return;
+          var t = document.getElementById('vt-target');
+          if (!t) return;
+          t.style.viewTransitionName = 'product-hero';
+          e.viewTransition.finished.then(function () {
+            t.style.viewTransitionName = '';
+          });
+        });
+        // Red de seguridad: si magic.js nunca llega, todo se muestra a los 7 s.
+        window.__magicFallback = setTimeout(function () {
+          d.classList.add('fallback-show');
+        }, 7000);
+      })();
+      window.MW = {
+        root: {{ routes.root_url | append: '/' | replace: '//', '/' | json }},
+        cart: {{ routes.cart_url | json }},
+        wa: {{ settings.whatsapp_number | default: '573238987323' | remove: '+' | remove: ' ' | json }},
+        brand: 'MAGIC WORLD',
+        smooth: {{ 'magic-smooth.js' | asset_url | json }},
+        ship: {{ settings.ship_note | default: 'Envío gratis' | json }},
+        cod: {{ settings.cod_note | default: 'Pago contraentrega' | json }},
+        buy: {{ settings.buy_label | default: 'Pedir ahora' | json }},
+        buySub: {{ settings.buy_sub | default: 'Pago contraentrega · Envío gratis' | json }}
+      };
+    </script>
+    <script type="speculationrules">
+      {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/cart*","/checkout*","/account*","/apps/*","/rsi-*","/policies/*","/*\\?*pedir*"]}}]},"eagerness":"moderate"}]}
+    </script>
+    <script src="{{ 'magic.js' | asset_url }}" type="module"></script>
+
+    {{ content_for_header }}
+  </head>
+  <body>
+    {%- render 'mw-wordmark-sprite' -%}
+    <a class="skip" href="#main">Saltar al contenido</a>
+    {% sections 'header-group' %}
+    <main id="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+    {% sections 'footer-group' %}
+    {%- render 'mw-dialogs' -%}
+    <aside aria-label="Contacto por WhatsApp">
+      {%- capture wa_msg -%}Hola MAGIC WORLD, quiero ver la colección. ¿Me ayudas con tallas y colores?{%- endcapture -%}
+      <a class="wa-float" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp" data-wa-float>
+        <span class="wa-float__icon">{% render 'mw-icon', name: 'whatsapp' %}</span>
+        <span class="wa-float__label" aria-hidden="true">Pedir por WhatsApp</span>
+      </a>
+    </aside>
+    {%- render 'mw-shop-data' -%}
+  </body>
+</html>

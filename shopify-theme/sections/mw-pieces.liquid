@@ -1,0 +1,96 @@
+{%- comment -%}
+  Piezas clave 01–06: el orden comercial con jerarquía visual (01 y 04 grandes, el resto
+  medianas) + el resto de la colección (fila deslizable en móvil).
+{%- endcomment -%}
+{%- liquid
+  assign sizes_1 = '(min-width: 768px) 56vw, 92vw'
+  assign sizes_2 = '(min-width: 768px) 32vw, 92vw'
+  assign sizes_3 = '(min-width: 768px) 38vw, 92vw'
+  assign sizes_4 = '(min-width: 768px) 52vw, 92vw'
+  assign sizes_5 = '(min-width: 768px) 40vw, 92vw'
+  assign sizes_6 = '(min-width: 768px) 38vw, 92vw'
+-%}
+<section class="pieces" id="piezas" aria-labelledby="pieces-title-{{ section.id }}">
+  <header class="pieces__head">
+    <div>
+      <p class="t-label t-mute" style="margin-bottom:16px">{{ section.settings.kicker }}</p>
+      <h2 class="pieces__title t-display" id="pieces-title-{{ section.id }}" data-reveal="lines">
+        <span class="ln"><span>{{ section.settings.title_1 }}</span></span>
+        <span class="ln" style="--l:1"><span>{{ section.settings.title_2 }}</span></span>
+      </h2>
+    </div>
+    <div class="pieces__side">
+      <p>{{ section.settings.text }}</p>
+      <a class="link" href="{{ routes.all_products_collection_url }}">{{ section.settings.link_label }} {% render 'mw-icon', name: 'arrow' %}</a>
+    </div>
+  </header>
+
+  <div class="pieces__grid">
+    {%- for p in section.settings.featured limit: 6 -%}
+      {%- liquid
+        assign n = forloop.index
+        case n
+          when 1
+            assign size = 'xl'
+            assign sz = sizes_1
+          when 4
+            assign size = 'lg'
+            assign sz = sizes_4
+          when 2
+            assign size = 'md'
+            assign sz = sizes_2
+          when 3
+            assign size = 'md'
+            assign sz = sizes_3
+          when 5
+            assign size = 'md'
+            assign sz = sizes_5
+          else
+            assign size = 'md'
+            assign sz = sizes_6
+        endcase
+        assign cls = 'piece piece--' | append: n
+      -%}
+      {%- render 'mw-card', product: p, size: size, sizes: sz, class: cls, index: n -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.more.size > 0 -%}
+    <div class="pieces__more">
+      <div class="pieces__more-head">
+        <h3 class="pieces__more-title t-display">{{ section.settings.more_title }}</h3>
+        <a class="link" href="{{ routes.all_products_collection_url }}">Ver todo {% render 'mw-icon', name: 'arrow' %}</a>
+      </div>
+      <div class="pieces__more-grid" data-reveal>
+        {%- for p in section.settings.more -%}
+          {%- if p.available -%}
+            {%- render 'mw-card', product: p, size: 'sm', sizes: '(min-width: 1100px) 31vw, (min-width: 768px) 46vw, 72vw', show_index: false, heading: 'h3', eager: true, reveal: false -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- for p in section.settings.more -%}
+          {%- unless p.available -%}
+            {%- render 'mw-card', product: p, size: 'sm', sizes: '(min-width: 1100px) 31vw, (min-width: 768px) 46vw, 72vw', show_index: false, heading: 'h3', eager: true, reveal: false -%}
+          {%- endunless -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Piezas clave",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Antetítulo", "default": "Selección — 01/06" },
+    { "type": "text", "id": "title_1", "label": "Título, línea 1", "default": "Piezas" },
+    { "type": "text", "id": "title_2", "label": "Título, línea 2", "default": "clave" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Precios con envío incluido. Eliges color y talla y pagas al recibir." },
+    { "type": "text", "id": "link_label", "label": "Enlace", "default": "Toda la colección" },
+    { "type": "product_list", "id": "featured", "label": "Las 6 piezas clave (en orden)", "limit": 6 },
+    { "type": "text", "id": "more_title", "label": "Título del resto", "default": "También en la colección" },
+    { "type": "product_list", "id": "more", "label": "Resto de la colección", "limit": 12 }
+  ],
+  "presets": [{ "name": "Piezas clave" }],
+  "enabled_on": { "templates": ["index"] }
+}
+{% endschema %}

@@ -1,0 +1,136 @@
+{
+  "sections": {
+    "loader": {
+      "type": "mw-loader",
+      "settings": { "left": "Colección 01", "right": "Hombre / Mujer" }
+    },
+    "hero": {
+      "type": "mw-hero",
+      "blocks": {
+        "p1": { "type": "panel", "settings": { "product": "chaqueta-deportiva-para-hombre", "color": "GRIS OSCURO" } },
+        "p2": { "type": "panel", "settings": { "product": "chaqueta-deportiva-para-hombre", "color": "NEGRO" } },
+        "p3": { "type": "panel", "settings": { "product": "chaqueta-deportiva-para-hombre", "color": "AZUL OSCURO" } }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "kicker": "Colección 01 — Chaquetas, buzos y abrigos · Hombre / Mujer",
+        "line": "Capas para la ciudad.\nTela premium.",
+        "price_note": "Envío gratis · Pago contraentrega",
+        "cta_label": "Ver colección",
+        "cta_link": "#coleccion"
+      }
+    },
+    "lookbook": {
+      "type": "mw-lookbook",
+      "blocks": {
+        "l1": { "type": "look", "settings": { "product": "gaban-para-dama-algodon", "color": "GRIS OSCURO", "form": "tall" } },
+        "l2": { "type": "look", "settings": { "product": "hoodie-para-hombre-algodonn", "color": "AZUL OSCURO", "form": "low" } },
+        "l3": { "type": "look", "settings": { "product": "chaqueta-nature-flow", "color": "LILA", "form": "tall" } },
+        "l4": { "type": "look", "settings": { "product": "chaqueta-ufc-combinada-para-hombre", "color": "NEGRO", "form": "high" } },
+        "l5": { "type": "look", "settings": { "product": "lindo-abrigo-cuello-redondo-para-mujer", "color": "LILA", "form": "tall" } },
+        "l6": { "type": "look", "settings": { "product": "chaqueta-outdoor-poliester", "color": "GRIS OSCURO", "form": "low" } },
+        "l7": { "type": "look", "settings": { "product": "buso-cuello-alto", "color": "AZUL", "form": "high" } },
+        "l8": { "type": "look", "settings": { "product": "chaqueta-tipo-camisa-para-mujer", "color": "CAMEL", "form": "tall" } }
+      },
+      "block_order": ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8"],
+      "settings": {
+        "kicker": "Colección 01",
+        "title_1": "Chaquetas",
+        "title_2": "y buzos.",
+        "text": "Para él y para ella. Tela premium y envío gratis en todas las prendas.",
+        "end_text": "Toda la\ncolección",
+        "end_label": "Ver colección"
+      }
+    },
+    "pieces": {
+      "type": "mw-pieces",
+      "settings": {
+        "kicker": "Selección — 01/06",
+        "title_1": "Piezas",
+        "title_2": "clave",
+        "text": "Precios con envío incluido. Eliges color y talla, y pagas al recibir.",
+        "link_label": "Toda la colección",
+        "featured": [
+          "hoodie-para-hombre-algodonn",
+          "chaqueta-deportiva-para-hombre",
+          "chaqueta-ufc-combinada-para-hombre",
+          "gaban-para-dama-algodon",
+          "chaqueta-outdoor-poliester",
+          "chaqueta-nature-flow"
+        ],
+        "more_title": "También en la colección",
+        "more": [
+          "lindo-abrigo-cuello-redondo-para-mujer",
+          "buso-cuello-alto",
+          "buso-en-bisonte-para-dama",
+          "chaqueta-tipo-camisa-para-mujer",
+          "abrigo-para-hombre",
+          "chaqueta-primavera-cuadros"
+        ]
+      }
+    },
+    "feature": {
+      "type": "mw-feature",
+      "blocks": {
+        "c1": { "type": "callout", "settings": { "label": "Capucha con cordón", "x": 42, "y": 34, "at": 20 } },
+        "c2": { "type": "callout", "settings": { "label": "Cierre asimétrico", "x": 58.5, "y": 46, "at": 32 } },
+        "c3": { "type": "callout", "settings": { "label": "Bolsillos laterales", "x": 64.5, "y": 63, "at": 44 } },
+        "c4": { "type": "callout", "settings": { "label": "Bajo cruzado", "x": 55, "y": 86, "at": 56 } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
+        "product": "gaban-para-dama-algodon",
+        "color": "NEGRO",
+        "kicker": "Producto destacado",
+        "word": "Chaquetón",
+        "title": "Chaquetón\npara dama",
+        "note": "",
+        "buy_label": "Comprar ahora",
+        "wa_label": "Quiero esta prenda"
+      }
+    },
+    "categories": {
+      "type": "mw-categories",
+      "blocks": {
+        "k1": { "type": "category", "settings": { "collection": "hombre", "label": "Hombre", "product": "hoodie-para-hombre-algodonn", "color": "NEGRO" } },
+        "k2": { "type": "category", "settings": { "collection": "mujer", "label": "Mujer", "product": "chaqueta-nature-flow", "color": "LILA" } },
+        "k3": { "type": "category", "settings": { "collection": "chaquetas", "label": "Chaquetas", "product": "chaqueta-outdoor-poliester", "color": "GRIS OSCURO" } },
+        "k4": { "type": "category", "settings": { "collection": "buzos", "label": "Buzos", "product": "buso-cuello-alto", "color": "GRIS" } },
+        "k5": { "type": "category", "settings": { "all": true, "label": "Nueva colección", "product": "gaban-para-dama-algodon", "color": "GRIS OSCURO" } }
+      },
+      "block_order": ["k1", "k2", "k3", "k4", "k5"],
+      "settings": { "title": "Categorías" }
+    },
+    "proof": {
+      "type": "mw-proof",
+      "blocks": {
+        "b1": { "type": "item", "settings": { "title": "Envío gratis", "text": "A toda Colombia. El precio de cada prenda ya lo incluye." } },
+        "b2": { "type": "item", "settings": { "title": "Pago contraentrega", "text": "Pagas cuando recibes tu pedido." } },
+        "b3": { "type": "item", "settings": { "title": "Tela premium", "text": "Algodón perchado Mónaco, bisonte ovejero y nailon impermeable." } },
+        "b4": { "type": "item", "settings": { "title": "Tallas S a 2XL", "text": "En la mayoría de prendas; cada ficha muestra las suyas." } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "title": "Sin trucos.",
+        "show_video": true,
+        "video_label": "Buzo fit en gris: etiqueta MAGIC WORLD, cierre y elasticidad de la tela",
+        "video_caption": "Buzo fit · tela Zurich, sin filtros",
+        "show_docs": true,
+        "doc_alt_1": "Estantería de la bodega de MAGIC WORLD con buzos empacados",
+        "doc_alt_2": "Bodega de MAGIC WORLD con chaquetas y buzos empacados en estantes",
+        "docs_left": "Nuestra bodega",
+        "docs_right": "Stock propio"
+      }
+    },
+    "final": {
+      "type": "mw-final",
+      "settings": {
+        "kicker": "Contacto",
+        "title_1": "Pídela",
+        "title_2": "por WhatsApp.",
+        "text": "Envío gratis y pago contraentrega. Te confirmamos talla y disponibilidad por WhatsApp."
+      }
+    }
+  },
+  "order": ["loader", "hero", "lookbook", "pieces", "feature", "categories", "proof", "final"]
+}

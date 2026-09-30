@@ -1,0 +1,160 @@
+{%- comment -%}
+  Header fijo: transparente sobre la portada, papel al bajar, tinta sobre secciones oscuras.
+  Incluye el buscador y el menú móvil (usan los mismos enlaces).
+{%- endcomment -%}
+{%- liquid
+  assign surface = 'paper'
+  if template.name == 'index'
+    assign surface = 'clear'
+  endif
+  assign home_label = 'MAGIC WORLD, ir al inicio'
+-%}
+<header class="hdr" data-surface="{{ surface }}" data-initial="{{ surface }}">
+  <div class="hdr__bar">
+    <nav class="hdr__nav" aria-label="Principal">
+      <ul>
+        {%- for block in section.blocks -%}
+          {%- if block.type != 'link' -%}{%- continue -%}{%- endif -%}
+          {%- liquid
+            assign url = block.settings.link | default: routes.root_url
+            assign current = false
+            if url == routes.root_url or url == '/'
+              if request.path == routes.root_url or request.path == '/'
+                assign current = true
+              endif
+            else
+              unless url contains '#'
+                if request.path == url or request.path contains url
+                  assign current = true
+                endif
+              endunless
+            endif
+          -%}
+          <li {{ block.shopify_attributes }}>
+            <a href="{{ url }}"{% if current %} aria-current="page"{% endif %}>{{ block.settings.label }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <a class="hdr__logo" href="{{ routes.root_url }}" aria-label="{{ home_label }}">{% render 'mw-wordmark' %}</a>
+
+    <div class="hdr__actions">
+      <button class="hdr__btn" type="button" data-open="search" aria-haspopup="dialog" aria-controls="search" aria-label="Buscar">
+        {%- render 'mw-icon', name: 'search' -%}
+        <span class="hdr__txt" aria-hidden="true">Buscar</span>
+      </button>
+      <a class="hdr__btn" href="{{ routes.cart_url }}" data-open="bag" aria-haspopup="dialog" aria-controls="bag" aria-label="{% if cart.item_count > 0 %}Bolsa, {{ cart.item_count }} {% if cart.item_count == 1 %}prenda{% else %}prendas{% endif %}{% else %}Bolsa, vacía{% endif %}" data-bag-button>
+        {%- render 'mw-icon', name: 'bag' -%}
+        <span class="hdr__txt" aria-hidden="true">Bolsa</span>
+        <span class="hdr__count" data-bag-count{% if cart.item_count == 0 %} data-empty{% endif %} aria-hidden="true">{{ cart.item_count }}</span>
+      </a>
+      <button class="hdr__btn hdr__menu" type="button" data-open="menu" aria-haspopup="dialog" aria-controls="menu" aria-label="Abrir menú">
+        {%- render 'mw-icon', name: 'menu' -%}
+      </button>
+    </div>
+  </div>
+</header>
+
+{%- capture wa_msg -%}Hola MAGIC WORLD, quiero ver la colección. ¿Me ayudas con tallas y colores?{%- endcapture -%}
+
+<dialog class="sheet search" id="search" aria-label="Buscar en la colección">
+  <div class="sheet__scrim" data-close aria-hidden="true"></div>
+  <div class="search__panel" data-tone="light">
+    <form class="search__form" role="search" action="{{ routes.search_url }}" method="get" data-search-form>
+      {%- render 'mw-icon', name: 'search' -%}
+      <label class="sr-only" for="search-input">Buscar prendas</label>
+      <input class="search__input" id="search-input" type="search" name="q" placeholder="{{ section.settings.search_placeholder }}" autocomplete="off" spellcheck="false" enterkeyhint="search" data-search-input>
+      <input type="hidden" name="type" value="product">
+      <button class="sheet__close" type="button" data-close aria-label="Cerrar buscador">{% render 'mw-icon', name: 'close' %}</button>
+    </form>
+    <div class="search__body" data-lenis-prevent>
+      <p class="search__status t-label t-mute" data-search-status aria-live="polite">Categorías</p>
+      <div class="search__hint" data-search-hint>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'search_link' -%}
+            <a href="{{ block.settings.link }}" data-close-nav {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <ul class="search__results" data-search-results></ul>
+      <div class="search__empty" data-search-empty hidden>
+        <p>No encontramos esa prenda en la colección.</p>
+        <a class="link" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener">Pregúntanos por WhatsApp {% render 'mw-icon', name: 'arrow' %}</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet menu" id="menu" aria-label="Menú">
+  <div class="menu__panel" data-tone="dark">
+    <div class="menu__top">
+      <a class="hdr__logo" href="{{ routes.root_url }}" aria-label="{{ home_label }}">{% render 'mw-wordmark' %}</a>
+      <button class="sheet__close" type="button" data-close aria-label="Cerrar menú">{% render 'mw-icon', name: 'close' %}</button>
+    </div>
+    <nav aria-label="Menú principal" style="flex:1;display:flex">
+      <ol class="menu__list">
+        {%- for block in section.blocks -%}
+          {%- if block.type != 'link' -%}{%- continue -%}{%- endif -%}
+          {%- liquid
+            assign url = block.settings.link | default: routes.root_url
+            assign current = false
+            if url == routes.root_url or url == '/'
+              if request.path == routes.root_url or request.path == '/'
+                assign current = true
+              endif
+            else
+              unless url contains '#'
+                if request.path == url or request.path contains url
+                  assign current = true
+                endif
+              endunless
+            endif
+          -%}
+          <li style="--i:{{ forloop.index0 }}">
+            <a href="{{ url }}"{% if current %} aria-current="page"{% endif %} data-close-nav>
+              <span class="t-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+              <span class="menu__word">{{ block.settings.label }}</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ol>
+    </nav>
+    <div class="menu__foot">
+      <a class="btn btn--red btn--block" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener">
+        {%- render 'mw-icon', name: 'whatsapp' -%}
+        <span>Pedir por WhatsApp</span>
+      </a>
+      <p>WhatsApp {{ settings.whatsapp_display | default: '323 898 7323' }}</p>
+    </div>
+  </div>
+</dialog>
+
+{% schema %}
+{
+  "name": "Encabezado MAGIC",
+  "class": "mw-header-section",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "text", "id": "search_placeholder", "label": "Texto del buscador", "default": "Chaqueta, hoodie, lila…" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Enlace",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Texto", "default": "Colección" },
+        { "type": "url", "id": "link", "label": "Enlace" }
+      ]
+    },
+    {
+      "type": "search_link",
+      "name": "Categoría del buscador",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Texto", "default": "Chaquetas" },
+        { "type": "url", "id": "link", "label": "Enlace" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,116 @@
+{%- comment -%}
+  Colores de un producto en el orden de la web (theme-src/catalog-map.json) con sus fotos.
+  Parámetro: product.
+  Salida (una línea): entradas separadas por ^; cada una =
+    valor~clave~etiqueta~muestra~disponible~variante~fotos
+  fotos = pos:fondo:foco:vista;pos:fondo:foco:vista  (pos = índice en product.media, desde 0)
+  Sin opción de color: una sola entrada con valor vacío y todas las fotos.
+{%- endcomment -%}
+{%- liquid
+  assign cpos = 0
+  for o in product.options_with_values
+    assign oname = o.name | strip | downcase
+    if oname == 'color' or oname == 'colores' or oname == 'colour'
+      assign cpos = o.position
+      assign copt = o
+    endif
+  endfor
+
+  if cpos == 0
+    assign all = ''
+    for m in product.media
+      if m.media_type == 'image'
+        assign all = all | append: forloop.index0 | append: ':photo:50% 24%:;'
+      endif
+    endfor
+    assign vid = product.selected_or_first_available_variant.id
+    assign av = 0
+    if product.available
+      assign av = 1
+    endif
+    echo '~~~#8f8f93~' | append: av | append: '~' | append: vid | append: '~' | append: all
+  else
+    capture info
+      render 'mw-map', part: 'info', handle: product.handle
+    endcapture
+    assign info = info | strip | split: '~'
+
+    assign order = ''
+    if info.size > 6
+      assign mapkeys = info[6] | split: ','
+      for k in mapkeys
+        for v in copt.values
+          assign vk = v | handleize
+          if vk == k
+            assign order = order | append: v | append: '^'
+          endif
+        endfor
+      endfor
+    endif
+    for v in copt.values
+      assign probe = '^' | append: order
+      assign needle = '^' | append: v | append: '^'
+      unless probe contains needle
+        assign order = order | append: v | append: '^'
+      endunless
+    endfor
+    assign values = order | split: '^'
+    assign prop = 'option' | append: cpos
+
+    for v in values
+      assign key = v | handleize
+      assign label = v | downcase | capitalize
+      assign mkey = product.handle | append: '/' | append: key
+      capture sw
+        render 'mw-swatch-map', key: mkey
+      endcapture
+      assign sw = sw | strip
+      assign vs = product.variants | where: prop, v
+      assign avs = vs | where: 'available'
+      assign av = 0
+      assign vid = vs.first.id
+      if avs.size > 0
+        assign av = 1
+        assign vid = avs.first.id
+      endif
+
+      capture list
+        render 'mw-media-map', key: mkey
+      endcapture
+      assign list = list | strip | split: '|'
+      assign imgs = ''
+      for entry in list
+        assign parts = entry | split: '~'
+        assign needle = '/' | append: parts[0] | append: '.'
+        for m in product.media
+          if m.media_type == 'image'
+            assign src = m.preview_image.src
+            if src contains needle
+              assign imgs = imgs | append: forloop.index0 | append: ':' | append: parts[1] | append: ':' | append: parts[2] | append: ':' | append: parts[3] | append: ';'
+              break
+            endif
+          endif
+        endfor
+      endfor
+
+      if imgs == blank
+        for variant in vs
+          if variant.featured_media
+            assign fpos = variant.featured_media.position | minus: 1
+            assign imgs = fpos | append: ':photo:50% 24%:;'
+            break
+          endif
+        endfor
+      endif
+      if imgs == blank and product.featured_media
+        assign fpos = product.featured_media.position | minus: 1
+        assign imgs = fpos | append: ':photo:50% 24%:;'
+      endif
+
+      unless forloop.first
+        echo '^'
+      endunless
+      echo v | append: '~' | append: key | append: '~' | append: label | append: '~' | append: sw | append: '~' | append: av | append: '~' | append: vid | append: '~' | append: imgs
+    endfor
+  endif
+-%}

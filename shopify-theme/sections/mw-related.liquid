@@ -1,0 +1,74 @@
+{%- comment -%}
+  Relacionados: primero mismo género y misma categoría, luego mismo género, luego categoría.
+  Solo prendas disponibles.
+{%- endcomment -%}
+{%- liquid
+  capture mine
+    render 'mw-map', part: 'info', handle: product.handle
+  endcapture
+  assign mine = mine | strip | split: '~'
+  assign my_gender = mine[2]
+  assign my_cat = mine[4] | split: ',' | first
+  assign picked = '|'
+  assign count = 0
+  assign limit = section.settings.limit | default: 3
+  assign passes = '3,2,1,0' | split: ','
+  for pass in passes
+    assign want = pass | plus: 0
+    for p in collections.all.products limit: 50
+      if count >= limit
+        break
+      endif
+      if p.handle == product.handle or p.available == false
+        continue
+      endif
+      assign needle = '|' | append: p.handle | append: '|'
+      if picked contains needle
+        continue
+      endif
+      capture pi
+        render 'mw-map', part: 'info', handle: p.handle
+      endcapture
+      assign pi = pi | strip | split: '~'
+      assign score = 0
+      if my_gender != blank and pi[2] == my_gender
+        assign score = score | plus: 2
+      endif
+      assign pcat = pi[4] | split: ',' | first
+      if my_cat != blank and pcat == my_cat
+        assign score = score | plus: 1
+      endif
+      if score == want
+        assign picked = picked | append: p.handle | append: '|'
+        assign count = count | plus: 1
+      endif
+    endfor
+  endfor
+  assign handles = picked | split: '|'
+-%}
+{%- if count > 0 -%}
+<section class="related" aria-labelledby="related-title-{{ section.id }}">
+  <div class="related__head">
+    <h2 class="related__title t-display" id="related-title-{{ section.id }}">{{ section.settings.title | newline_to_br }}</h2>
+    <a class="link" href="{{ routes.all_products_collection_url }}">Ver colección {% render 'mw-icon', name: 'arrow' %}</a>
+  </div>
+  <div class="related__row">
+    {%- for h in handles -%}
+      {%- if h != blank -%}
+        {%- render 'mw-card', product: all_products[h], size: 'sm', sizes: '(min-width: 1024px) 31vw, 76vw', reveal: false, eager: true -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Relacionados",
+  "settings": [
+    { "type": "textarea", "id": "title", "label": "Título", "default": "También\nen MAGIC WORLD" },
+    { "type": "range", "id": "limit", "label": "Prendas", "min": 2, "max": 6, "step": 1, "default": 3 }
+  ],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

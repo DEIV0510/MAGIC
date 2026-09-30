@@ -1,0 +1,60 @@
+{%- comment -%} Página de contacto: WhatsApp primero (así se venden las prendas) y formulario de Shopify. {%- endcomment -%}
+{%- capture wa_msg -%}Hola MAGIC WORLD, quiero ver la colección. ¿Me ayudas con tallas y colores?{%- endcapture -%}
+<section class="page contact" aria-labelledby="page-title">
+  <nav class="crumbs" aria-label="Ruta de navegación">
+    <ol>
+      <li><a href="{{ routes.root_url }}">Inicio</a></li>
+      <li aria-current="page">{{ page.title | default: 'Contacto' }}</li>
+    </ol>
+  </nav>
+  <h1 class="page__title t-display" id="page-title">{{ section.settings.title }}</h1>
+  <div class="contact__grid">
+    <div class="contact__side">
+      <p class="t-lead">{{ section.settings.text }}</p>
+      <a class="btn btn--red" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener">
+        {%- render 'mw-icon', name: 'whatsapp' -%}
+        <span class="roll"><span>Pedir por WhatsApp</span><span aria-hidden="true">Pedir por WhatsApp</span></span>
+      </a>
+      <p class="t-label t-mute">WhatsApp {{ settings.whatsapp_display | default: '323 898 7323' }}</p>
+      {%- if page.content != blank -%}
+        <div class="prose rte">{{ page.content }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- form 'contact', class: 'contact__form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="contact__ok" role="status">Recibimos tu mensaje. Te respondemos pronto.</p>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <p class="opt__error" role="alert">Revisa los datos: {{ form.errors | default_errors }}</p>
+      {%- endif -%}
+      <div class="field">
+        <label for="c-name">Nombre</label>
+        <input id="c-name" type="text" name="contact[name]" autocomplete="name" value="{{ form.name }}">
+      </div>
+      <div class="field">
+        <label for="c-email">Correo</label>
+        <input id="c-email" type="email" name="contact[email]" autocomplete="email" required value="{{ form.email }}">
+      </div>
+      <div class="field">
+        <label for="c-phone">Celular (opcional)</label>
+        <input id="c-phone" type="tel" name="contact[phone]" autocomplete="tel" value="{{ form.phone }}">
+      </div>
+      <div class="field">
+        <label for="c-body">Mensaje</label>
+        <textarea id="c-body" name="contact[body]" rows="5">{{ form.body }}</textarea>
+      </div>
+      <button class="btn" type="submit"><span class="roll"><span>Enviar mensaje</span><span aria-hidden="true">Enviar mensaje</span></span></button>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contacto",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Contacto" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "La forma más rápida es WhatsApp: te confirmamos talla, color y disponibilidad." }
+  ]
+}
+{% endschema %}

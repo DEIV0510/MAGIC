@@ -1,0 +1,8 @@
+{
+  "general": {
+    "password_page": { "title": "Muy pronto" },
+    "search": { "title": "Buscar" }
+  },
+  "products": { "product": { "sold_out": "Agotado", "add_to_cart": "Agregar a la bolsa" } },
+  "cart": { "general": { "title": "Bolsa", "empty": "Tu bolsa está vacía." } }
+}

@@ -1,0 +1,27 @@
+{%- comment -%} Páginas de texto (y blog/artículo): título gigante + contenido de Shopify. {%- endcomment -%}
+<section class="page" aria-labelledby="page-title">
+  <nav class="crumbs" aria-label="Ruta de navegación">
+    <ol>
+      <li><a href="{{ routes.root_url }}">Inicio</a></li>
+      <li aria-current="page">{{ page.title | default: article.title | default: blog.title }}</li>
+    </ol>
+  </nav>
+  <h1 class="page__title t-display" id="page-title">{{ page.title | default: article.title | default: blog.title }}</h1>
+  <div class="prose rte">
+    {%- if page -%}
+      {{ page.content }}
+    {%- elsif article -%}
+      {{ article.content }}
+    {%- elsif blog -%}
+      <ul>
+        {%- for a in blog.articles -%}
+          <li><a href="{{ a.url }}">{{ a.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Página", "settings": [] }
+{% endschema %}

@@ -1,0 +1,84 @@
+{%- comment -%}
+  SEO y redes: título, descripción, canónica, Open Graph, Twitter y JSON-LD.
+  En las fichas con texto de la web, el título y la descripción usan el nombre limpio y el resumen.
+{%- endcomment -%}
+{%- liquid
+  assign brand = 'MAGIC WORLD'
+  assign og_type = 'website'
+  assign og_image = 'mw-og.jpg' | asset_url | prepend: 'https:'
+  assign og_alt = 'MAGIC WORLD — chaquetas, buzos y abrigos para hombre y mujer'
+  assign title = page_title
+  assign description = page_description | default: settings.seo_description
+
+  case template.name
+    when 'index'
+      assign title = settings.seo_home_title | default: 'MAGIC WORLD · Chaquetas, buzos y abrigos para hombre y mujer'
+      assign description = settings.seo_description
+    when 'product'
+      capture info
+        render 'mw-map', part: 'info', handle: product.handle
+      endcapture
+      assign info = info | strip | split: '~'
+      assign pname = info[0] | default: product.title
+      assign title = pname | append: ' · ' | append: brand
+      assign og_type = 'product'
+      assign og_alt = pname
+      if product.featured_image
+        assign og_image = product.featured_image | image_url: width: 1200 | prepend: 'https:'
+      endif
+      if info.size > 0
+        capture summary
+          render 'mw-map', part: 'summary', handle: product.handle
+        endcapture
+        assign price = product.price | money_without_trailing_zeros
+        assign description = pname | append: ' de ' | append: brand | append: ': ' | append: price | append: ' con envío gratis y pago contraentrega. ' | append: summary
+      endif
+    when 'collection'
+      if collection.handle == 'all'
+        assign title = 'Colección · ' | append: brand
+      else
+        assign title = collection.title | append: ' · ' | append: brand
+      endif
+      if collection.image
+        assign og_image = collection.image | image_url: width: 1200 | prepend: 'https:'
+      endif
+    else
+      unless title contains brand or title contains shop.name
+        assign title = title | append: ' · ' | append: brand
+      endunless
+  endcase
+  if current_page != 1
+    assign title = title | append: ' · Página ' | append: current_page
+  endif
+  assign description = description | strip_html | strip_newlines | truncate: 170
+-%}
+<title>{{ title | escape }}</title>
+{%- if description != blank %}
+<meta name="description" content="{{ description | escape }}">
+{%- endif %}
+<link rel="canonical" href="{{ canonical_url }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:site_name" content="{{ brand }}">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="{{ title | escape }}">
+<meta property="og:description" content="{{ description | escape }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:image:secure_url" content="{{ og_image }}">
+<meta property="og:image:alt" content="{{ og_alt | escape }}">
+{%- if template.name == 'product' %}
+<meta property="product:price:amount" content="{{ product.price | divided_by: 100.0 }}">
+<meta property="product:price:currency" content="{{ cart.currency.iso_code }}">
+{%- endif %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title | escape }}">
+<meta name="twitter:description" content="{{ description | escape }}">
+<meta name="twitter:image" content="{{ og_image }}">
+{%- capture org -%}
+{"@context":"https://schema.org","@type":"Organization","name":"MAGIC WORLD","url":{{ shop.url | json }},"logo":{{ 'mw-apple-touch-icon.png' | asset_url | prepend: 'https:' | json }},"contactPoint":{"@type":"ContactPoint","telephone":{{ settings.whatsapp_display | default: '323 898 7323' | prepend: '+57 ' | json }},"contactType":"sales","availableLanguage":"es"}}
+{%- endcapture %}
+<script type="application/ld+json">{{ org }}</script>
+{%- if template.name == 'index' %}
+{%- assign search_target = shop.url | append: routes.search_url | append: '?q=' | append: '{search_term_string}' %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"MAGIC WORLD","url":{{ shop.url | json }},"inLanguage":"es-CO","potentialAction":{"@type":"SearchAction","target":{{ search_target | json }},"query-input":"required name=search_term_string"}}</script>
+{%- endif %}

@@ -1,0 +1,93 @@
+{%- comment -%}
+  Página /cart. Con Releasit activo, la app convierte "Finalizar pedido" en su formulario de
+  pago contraentrega para todo el carrito; sin la app, el botón va al checkout de Shopify.
+  Funciona sin JS (formularios y enlaces nativos).
+{%- endcomment -%}
+{%- capture wa_msg -%}Hola MAGIC WORLD, quiero hacer este pedido:{% for item in cart.items %}
+{{ forloop.index }}. {{ item.product.title }} — {{ item.variant.title }} · Cantidad {{ item.quantity }} · {{ item.final_line_price | money_without_trailing_zeros }}{% endfor %}
+Total: {{ cart.total_price | money_without_trailing_zeros }} (envío incluido){%- endcapture -%}
+<section class="page cartpage" aria-labelledby="cart-title">
+  <nav class="crumbs" aria-label="Ruta de navegación">
+    <ol>
+      <li><a href="{{ routes.root_url }}">Inicio</a></li>
+      <li aria-current="page">Bolsa</li>
+    </ol>
+  </nav>
+  <h1 class="page__title t-display" id="cart-title">Bolsa</h1>
+
+  {%- if cart.item_count > 0 -%}
+    <form class="cartpage__form" action="{{ routes.cart_url }}" method="post" id="mw-cart-form">
+      <ul class="bag__lines cartpage__lines">
+        {%- for item in cart.items -%}
+          {%- liquid
+            capture info
+              render 'mw-map', part: 'info', handle: item.product.handle
+            endcapture
+            assign info = info | strip | split: '~'
+            assign iname = info[0] | default: item.product.title
+            assign ccolor = ''
+            assign csize = ''
+            for o in item.options_with_values
+              assign oname = o.name | strip | downcase
+              if oname == 'color' or oname == 'colores'
+                assign ccolor = o.value | downcase | capitalize
+              elsif oname == 'talla' or oname == 'tallas' or oname == 'size'
+                assign csize = o.value
+              endif
+            endfor
+            assign minus = item.quantity | minus: 1
+            assign plus = item.quantity | plus: 1
+          -%}
+          <li>
+            <div class="bag__thumb frame">
+              {%- if item.image -%}
+                {{ item.image | image_url: width: 240 | image_tag: alt: '', loading: 'lazy', width: 84, height: 105 }}
+              {%- endif -%}
+            </div>
+            <div class="bag__info">
+              <div class="bag__row bag__row--top">
+                <a class="bag__name" href="{{ item.url }}">{{ iname }}</a>
+                <p class="bag__price">{{ item.final_line_price | money_without_trailing_zeros }}</p>
+              </div>
+              <p class="bag__meta">{{ ccolor }}{% if ccolor != blank and csize != blank %} · {% endif %}{% if csize != blank %}Talla {{ csize }}{% endif %}</p>
+              <div class="bag__row">
+                <div class="qty">
+                  <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity={{ minus }}" aria-label="Quitar una unidad de {{ iname }}">{% render 'mw-icon', name: 'minus' %}</a>
+                  <output aria-label="Cantidad: {{ item.quantity }}">{{ item.quantity }}</output>
+                  <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity={{ plus }}" aria-label="Agregar una unidad de {{ iname }}">{% render 'mw-icon', name: 'plus' %}</a>
+                </div>
+                <a class="bag__remove" href="{{ item.url_to_remove }}" aria-label="Quitar {{ iname }} de la bolsa">Quitar</a>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <div class="cartpage__foot">
+        <div class="bag__total">
+          <span>Total</span>
+          <span>{{ cart.total_price | money_without_trailing_zeros }}</span>
+        </div>
+        <p class="bag__note">{{ settings.bag_note_cod | default: 'Envío gratis. Pagas contraentrega, cuando recibes tu pedido.' }}</p>
+        <button class="btn btn--block cartpage__checkout" type="submit" name="checkout">
+          <span class="roll"><span>Finalizar pedido</span><span aria-hidden="true">Finalizar pedido</span></span>
+        </button>
+        <a class="link bag__wa" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener">
+          {%- render 'mw-icon', name: 'whatsapp' -%}
+          Prefiero pedir por WhatsApp
+        </a>
+      </div>
+    </form>
+  {%- else -%}
+    <div class="bag__empty">
+      <p>Tu bolsa está vacía.</p>
+      <a class="btn" href="{{ routes.all_products_collection_url }}">
+        <span class="roll"><span>Ver colección</span><span aria-hidden="true">Ver colección</span></span>
+      </a>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{ "name": "Bolsa", "settings": [] }
+{% endschema %}

@@ -1,0 +1,117 @@
+{%- comment -%}
+  Catálogo (colecciones): título gigante, conteo, filtros por categoría y rejilla de tarjetas.
+  Las prendas agotadas van al final.
+{%- endcomment -%}
+{%- liquid
+  assign is_all = false
+  if collection.handle == 'all' or collection.handle == blank
+    assign is_all = true
+  endif
+  assign heading = collection.title
+  assign lead = collection.description | strip_html
+  if is_all
+    assign heading = section.settings.all_heading
+    assign lead = section.settings.all_text
+  endif
+  assign total = collection.products_count
+  capture wa_msg
+    echo 'Hola MAGIC WORLD, quiero ver la colección. ¿Me ayudas con tallas y colores?'
+  endcapture
+-%}
+<section class="catalog" aria-labelledby="catalog-title">
+  <header class="catalog__head">
+    <nav class="crumbs" aria-label="Ruta de navegación">
+      <ol>
+        <li><a href="{{ routes.root_url }}">Inicio</a></li>
+        <li aria-current="page">{% if is_all %}Colección{% else %}{{ collection.title }}{% endif %}</li>
+      </ol>
+    </nav>
+    <div class="catalog__title-row">
+      <h1 class="catalog__title t-display" id="catalog-title" data-reveal="lines">
+        <span class="ln"><span>{{ heading }}</span></span>
+      </h1>
+      <p class="catalog__count t-label t-mute">{% if total < 10 %}0{% endif %}{{ total }} {% if total == 1 %}prenda{% else %}prendas{% endif %}</p>
+    </div>
+    {%- if lead != blank -%}
+      <p class="catalog__lead">{{ lead }}</p>
+    {%- endif -%}
+    <nav class="filters" aria-label="Categorías">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign url = block.settings.link | default: routes.all_products_collection_url
+          assign current = false
+          if request.path == url
+            assign current = true
+          endif
+        -%}
+        <a href="{{ url }}"{% if current %} aria-current="page"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+      {%- endfor -%}
+    </nav>
+  </header>
+
+  {%- paginate collection.products by 24 -%}
+    <div class="catalog__grid">
+      {%- assign i = 0 -%}
+      {%- for p in collection.products -%}
+        {%- if p.available -%}
+          {%- assign m = i | modulo: 3 -%}
+          {%- capture st -%}--i:{{ m }}{%- endcapture -%}
+          {%- if i < 2 -%}
+            {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', eager: true, style: st -%}
+          {%- else -%}
+            {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st -%}
+          {%- endif -%}
+          {%- assign i = i | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for p in collection.products -%}
+        {%- unless p.available -%}
+          {%- assign m = i | modulo: 3 -%}
+          {%- capture st -%}--i:{{ m }}{%- endcapture -%}
+          {%- render 'mw-card', product: p, size: 'md', sizes: '(min-width: 1100px) 31vw, (min-width: 640px) 46vw, 92vw', heading: 'h2', style: st -%}
+          {%- assign i = i | plus: 1 -%}
+        {%- endunless -%}
+      {%- endfor -%}
+    </div>
+    {%- if paginate.pages > 1 -%}
+      <nav class="pager" aria-label="Páginas">
+        {%- if paginate.previous -%}<a class="link" href="{{ paginate.previous.url }}">Anterior</a>{%- endif -%}
+        <span class="t-label t-mute">Página {{ paginate.current_page }} de {{ paginate.pages }}</span>
+        {%- if paginate.next -%}<a class="link" href="{{ paginate.next.url }}">Siguiente {% render 'mw-icon', name: 'arrow' %}</a>{%- endif -%}
+      </nav>
+    {%- endif -%}
+  {%- endpaginate -%}
+
+  {%- if total == 0 -%}
+    <p class="catalog__lead">Pronto habrá prendas aquí.</p>
+  {%- endif -%}
+
+  <div class="catalog__cta">
+    <p class="t-lead">{{ section.settings.cta_text }}</p>
+    <a class="btn btn--red" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener">
+      {%- render 'mw-icon', name: 'whatsapp' -%}
+      <span class="roll"><span>Pedir por WhatsApp</span><span aria-hidden="true">Pedir por WhatsApp</span></span>
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Catálogo",
+  "settings": [
+    { "type": "text", "id": "all_heading", "label": "Título de toda la colección", "default": "Colección 01" },
+    { "type": "textarea", "id": "all_text", "label": "Texto de toda la colección", "default": "La colección completa de MAGIC WORLD: chaquetas, buzos y abrigos para hombre y mujer, con envío gratis y pago contraentrega." },
+    { "type": "text", "id": "cta_text", "label": "Texto final", "default": "¿Dudas con la talla o el color? Escríbenos." }
+  ],
+  "blocks": [
+    {
+      "type": "filter",
+      "name": "Filtro",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Texto", "default": "Todo" },
+        { "type": "url", "id": "link", "label": "Enlace" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "mw-main-collection",
+      "blocks": {
+        "f1": { "type": "filter", "settings": { "label": "Todo", "link": "/collections/all" } },
+        "f2": { "type": "filter", "settings": { "label": "Hombre", "link": "shopify://collections/hombre" } },
+        "f3": { "type": "filter", "settings": { "label": "Mujer", "link": "shopify://collections/mujer" } },
+        "f4": { "type": "filter", "settings": { "label": "Chaquetas", "link": "shopify://collections/chaquetas" } },
+        "f5": { "type": "filter", "settings": { "label": "Buzos", "link": "shopify://collections/buzos" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5"],
+      "settings": {
+        "all_heading": "Colección 01",
+        "all_text": "La colección completa de MAGIC WORLD: chaquetas, buzos y abrigos para hombre y mujer, con envío gratis y pago contraentrega.",
+        "cta_text": "¿Dudas con la talla o el color? Escríbenos."
+      }
+    }
+  },
+  "order": ["main"]
+}

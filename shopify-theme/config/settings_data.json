@@ -1,0 +1,26 @@
+{
+  "current": {
+    "whatsapp_number": "573238987323",
+    "whatsapp_display": "323 898 7323",
+    "buy_label": "Pedir ahora",
+    "buy_sub": "Pago contraentrega · Envío gratis",
+    "ship_note": "Envío gratis",
+    "cod_note": "Pago contraentrega",
+    "shipping_text": "Envío gratis a toda Colombia. Pagas contraentrega, cuando recibes tu pedido.",
+    "bag_note": "Envío gratis a toda Colombia.",
+    "bag_note_cod": "Envío gratis. Pagas contraentrega, cuando recibes tu pedido.",
+    "show_compare_at": true,
+    "seo_home_title": "MAGIC WORLD · Chaquetas, buzos y abrigos para hombre y mujer",
+    "seo_description": "Chaquetas, buzos y abrigos para hombre y mujer desde $70.000 con envío gratis a toda Colombia y pago contraentrega: hoodie de cordón cruzado, chaqueta UFC combinada, chaquetón para dama, Nature Flow y más.",
+    "blocks": {
+      "13669795325273674392": {
+        "type": "shopify://apps/releasit-cod-form/blocks/app-embed/72faf214-4174-4fec-886b-0d0e8d3af9a2",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Default": {}
+  }
+}

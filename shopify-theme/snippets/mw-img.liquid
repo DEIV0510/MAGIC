@@ -1,0 +1,77 @@
+{%- comment -%}
+  Foto de producto desde el CDN de Shopify (WebP/AVIF automáticos, srcset con anchos
+  que nunca superan el original).
+  Parámetros:
+    image     objeto imagen (o bien product + pos)
+    product, pos   producto e índice en product.media (desde 0)
+    alt, sizes, class
+    bg        white | photo  → el CSS decide: blanco se funde con el papel; ambiente cubre el marco
+    focus     object-position para cover ("50% 24%")
+    loading   lazy (por defecto) | eager
+    priority  true → fetchpriority=high + preload por cabecera HTTP (solo la foto del LCP)
+    fetch     low | high (opcional)
+    dom_id    id del <img> (opcional)
+{%- endcomment -%}
+{%- liquid
+  if image == blank and product and pos != blank
+    assign p = pos | plus: 0
+    assign image = product.media[p].preview_image
+  endif
+  assign bg = bg | default: 'photo'
+  assign focus = focus | default: '50% 24%'
+  assign loading = loading | default: 'lazy'
+  assign style = '--focus:' | append: focus
+-%}
+{%- if image -%}
+  {%- if priority -%}
+    {%- if dom_id != blank -%}
+      {{- image | image_url: width: 1600 | image_tag: widths: '360, 540, 720, 960, 1200, 1600', sizes: sizes, alt: alt, class: class, loading: 'eager', fetchpriority: 'high', decoding: 'async', draggable: 'false', data-bg: bg, style: style, id: dom_id, preload: true -}}
+    {%- else -%}
+      {{- image | image_url: width: 1600 | image_tag: widths: '360, 540, 720, 960, 1200, 1600', sizes: sizes, alt: alt, class: class, loading: 'eager', fetchpriority: 'high', decoding: 'async', draggable: 'false', data-bg: bg, style: style, preload: true -}}
+    {%- endif -%}
+  {%- else -%}
+    {%- liquid
+      assign steps = '360,540,720,960,1200,1600' | split: ','
+      assign srcset = ''
+      assign top = 0
+      for w in steps
+        assign wi = w | plus: 0
+        if wi <= image.width
+          assign u = image | image_url: width: wi
+          if srcset != ''
+            assign srcset = srcset | append: ', '
+          endif
+          assign srcset = srcset | append: u | append: ' ' | append: wi | append: 'w'
+          assign top = wi
+        endif
+      endfor
+      if top < image.width and image.width < 1600
+        assign u = image | image_url: width: image.width
+        if srcset != ''
+          assign srcset = srcset | append: ', '
+        endif
+        assign srcset = srcset | append: u | append: ' ' | append: image.width | append: 'w'
+      endif
+      assign fallback_w = 720
+      if image.width < 720
+        assign fallback_w = image.width
+      endif
+    -%}
+    <img
+      src="{{ image | image_url: width: fallback_w }}"
+      srcset="{{ srcset }}"
+      sizes="{{ sizes }}"
+      width="{{ image.width }}"
+      height="{{ image.height }}"
+      alt="{{ alt | escape }}"
+      loading="{{ loading }}"
+      decoding="async"
+      {% if fetch != blank %}fetchpriority="{{ fetch }}"{% endif %}
+      {% if class != blank %}class="{{ class }}"{% endif %}
+      {% if dom_id != blank %}id="{{ dom_id }}"{% endif %}
+      data-bg="{{ bg }}"
+      style="{{ style }}"
+      draggable="false"
+    >
+  {%- endif -%}
+{%- endif -%}

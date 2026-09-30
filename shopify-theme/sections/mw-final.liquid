@@ -1,0 +1,40 @@
+{%- capture wa_msg -%}Hola MAGIC WORLD, quiero ver la colección. ¿Me ayudas con tallas y colores?{%- endcapture -%}
+<section class="final" id="contacto" data-tone="dark" aria-labelledby="final-title-{{ section.id }}">
+  <div class="final__grid">
+    <div>
+      <p class="t-label t-mute" style="margin-bottom:22px">{{ section.settings.kicker }}</p>
+      <h2 class="final__title t-display" id="final-title-{{ section.id }}" data-reveal="lines">
+        <span class="ln"><span>{{ section.settings.title_1 }}</span></span>
+        <span class="ln" style="--l:1"><span>{{ section.settings.title_2 }}</span></span>
+      </h2>
+    </div>
+    <div class="final__side">
+      <p class="final__text">{{ section.settings.text }}</p>
+      <div class="final__ctas">
+        <a class="btn btn--red" href="{% render 'mw-wa-href', text: wa_msg %}" target="_blank" rel="noopener">
+          {%- render 'mw-icon', name: 'whatsapp' -%}
+          <span class="roll"><span>Pedir por WhatsApp</span><span aria-hidden="true">Pedir por WhatsApp</span></span>
+        </a>
+        <a class="link" href="{{ routes.all_products_collection_url }}">Ver colección {% render 'mw-icon', name: 'arrow' %}</a>
+      </div>
+      <p class="t-label t-mute">WhatsApp {{ settings.whatsapp_display | default: '323 898 7323' }}</p>
+    </div>
+  </div>
+  <div class="final__mark" data-progress="enter">
+    {%- render 'mw-wordmark', wm_layout: 'line', variant: 'cut', class: 'final__wm--line' -%}
+    {%- render 'mw-wordmark', wm_layout: 'stack', variant: 'cut', class: 'final__wm--stack' -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cierre WhatsApp",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Antetítulo", "default": "Contacto" },
+    { "type": "text", "id": "title_1", "label": "Título, línea 1", "default": "Pídela" },
+    { "type": "text", "id": "title_2", "label": "Título, línea 2", "default": "por WhatsApp." },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Envío gratis y pago contraentrega. Te confirmamos talla y disponibilidad por WhatsApp." }
+  ],
+  "presets": [{ "name": "Cierre WhatsApp" }]
+}
+{% endschema %}

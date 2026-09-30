@@ -1,0 +1,5 @@
+/* En la web el pie iba justo después del cierre oscuro (.final + .ftr). En Shopify el pie
+   vive en otro grupo de secciones: en la portada se aplica directo. */
+.ftr {
+  padding-top: clamp(28px, 4vw, 48px);
+}
