@@ -64,8 +64,13 @@ npm run theme          # genera shopify-theme/ (CSS, JS y mapas de contenido)
 npm run theme -- --refresh   # igual, pero vuelve a descargar los productos de la tienda
 npm run theme:check    # revisión de Shopify (debe dar 0 problemas)
 npx @shopify/cli theme dev  --store c0a6fe-5e.myshopify.com --path shopify-theme   # vista local
-npx @shopify/cli theme push --store c0a6fe-5e.myshopify.com --path shopify-theme --theme 162941861993
+npx @shopify/cli theme push --store c0a6fe-5e.myshopify.com --path shopify-theme --theme 162941861993 --allow-live --only <archivo>
 ```
+
+`--allow-live` es obligatorio para tocar el tema publicado (sin él la CLI pide
+confirmación y falla). Subir con `--only` solo lo que cambió y, si va
+`templates/*.json`, bajar antes el del tema en vivo y comparar: si el cliente editó algo
+en Personalizar, un push lo pisa.
 
 | Qué | Dónde |
 |---|---|
@@ -82,8 +87,25 @@ npx @shopify/cli theme push --store c0a6fe-5e.myshopify.com --path shopify-theme
   Releasit lo convierte en su botón con la variante elegida (color + talla); sin talla
   el tema no deja abrir el formulario. En `/cart` va el botón de Releasit del carrito.
   El botón flotante de Releasit se oculta y el suyo toma el estilo de la web.
-- Colecciones creadas para el menú: `hombre`, `mujer`, `chaquetas`, `buzos`.
+- Colecciones creadas para el menú: `hombre`, `mujer`, `chaquetas`, `buzos`. Son
+  **manuales**: un producto nuevo hay que agregarlo a mano a las que le toquen.
 - `shopify-live/` (no va al repo) es la copia del tema Horizon que estaba publicado.
+- **Testimonio** (portada, entre «Sin trucos» y el cierre): video de un cliente con el
+  hoodie negro. Arranca sin sonido con subtítulos; «Activar sonido» lo reinicia con audio.
+  Textos, prenda, color, subtítulos (`inicio-fin | texto` por línea) y un video propio
+  (subido en Contenido → Archivos) se cambian en Personalizar → Testimonio. El video
+  incluido sale de `assets/source/testimonio.mp4` con `npm run images` + `npm run theme`.
+
+### Prendas nuevas
+
+1. Fotos en `assets/source/nuevos-<fecha>/` (copias exactas, origen en `ORIGEN.md`),
+   subidas a GitHub: Shopify las descarga desde ahí al importar.
+2. Completar `shopify/nuevos.json` con lo que confirme el cliente: `price`, `compareAt`
+   (precio antes, opcional), `sizes` y, si llevan inventario, `stock`.
+3. `npm run shopify:nuevos` → `shopify/nuevos.csv` (no se genera mientras falte precio o
+   tallas) → Admin → Productos → Importar.
+4. Agregarlas a sus colecciones, sumarlas a `theme-src/catalog-map.json` y
+   `npm run theme -- --refresh` + push para que el diseño muestre sus colores y fotos.
 
 ## Pendiente del cliente
 
@@ -93,6 +115,8 @@ npx @shopify/cli theme push --store c0a6fe-5e.myshopify.com --path shopify-theme
 - Dominio propio (si lo compran): cambiarlo en `astro.config.mjs`.
 - Ocultas por falta de datos (fotos en `assets/source/archivo/`): el abrigo negro con
   hebillas y la chaqueta de dama con cordón en la cintura.
+- **Tienda (Shopify)**: precio, precio antes y tallas de las 3 prendas nuevas del
+  2026-10-01 (`shopify/nuevos.json`), y confirmar los nombres propuestos.
 
 ## Estructura
 
