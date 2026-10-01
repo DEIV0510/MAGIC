@@ -13,7 +13,8 @@
     "check": "astro check && astro build && node scripts/check-links.mjs",
     "shopify": "node scripts/shopify-export.mjs",
     "theme": "node scripts/build-theme.mjs",
-    "theme:check": "npx --yes @shopify/cli@latest theme check --path shopify-theme"
+    "theme:check": "npx --yes @shopify/cli@latest theme check --path shopify-theme",
+    "shopify:nuevos": "node scripts/shopify-nuevos.mjs"
   },
   "dependencies": {
     "astro": "^7.3.5",

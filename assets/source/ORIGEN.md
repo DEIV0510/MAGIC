@@ -72,3 +72,24 @@ No se usan: combinada.png, perchado.png, peluche3.png (texto o botones pintados 
 | abrigo-hombre-tabaco.png | lindoabrigo.png (2026-09-29) |
 | fit-video.mp4 | FIT.mp4 (2026-09-29) |
 | testimonio.mp4 | testimonio.mp4 (2026-10-01; = WhatsApp Video 2026-09-28 at 3.34.52 PM.mp4): cliente con el hoodie negro de cordón cruzado |
+
+Lote 3: 2026-10-01 (3 prendas nuevas, solo fotos; sin nombre, precio ni tallas todavía). Son las mismas prendas que en el lote 1 quedaron ocultas (abrigo con hebillas, chaqueta con cordón) y la «táctica» de franjas.
+
+| Archivo | Nombre original |
+|---|---|
+| nuevos-2026-10-01/abrigo-hebillas-negro-espalda.jpg | WhatsApp Image 2026-10-01 at 10.00.21 AM (1).jpeg |
+| nuevos-2026-10-01/abrigo-hebillas-negro-abierto.jpg | WhatsApp Image 2026-10-01 at 10.00.21 AM.jpeg |
+| nuevos-2026-10-01/abrigo-hebillas-negro-frente.jpg | WhatsApp Image 2026-10-01 at 10.00.25 AM.jpeg |
+| nuevos-2026-10-01/abrigo-hebillas-negro-lado.jpg | WhatsApp Image 2026-10-01 at 10.00.24 AM (4).jpeg |
+| nuevos-2026-10-01/chaqueta-cordon-negro-frente.jpg | WhatsApp Image 2026-10-01 at 10.00.22 AM.jpeg |
+| nuevos-2026-10-01/chaqueta-cordon-negro-lado.jpg | WhatsApp Image 2026-10-01 at 10.00.25 AM (2).jpeg |
+| nuevos-2026-10-01/chaqueta-cordon-rojo-frente.jpg | WhatsApp Image 2026-10-01 at 10.00.22 AM (1).jpeg |
+| nuevos-2026-10-01/chaqueta-cordon-rojo-espalda.jpg | WhatsApp Image 2026-10-01 at 10.00.25 AM (3).jpeg |
+| nuevos-2026-10-01/chaqueta-cordon-azul-lado.jpg | WhatsApp Image 2026-10-01 at 10.00.25 AM (1).jpeg |
+| nuevos-2026-10-01/franjas-negro-modelo.jpg | WhatsApp Image 2026-10-01 at 10.00.23 AM (1).jpeg |
+| nuevos-2026-10-01/franjas-negro-frente.jpg | WhatsApp Image 2026-10-01 at 10.00.24 AM (3).jpeg |
+| nuevos-2026-10-01/franjas-negro-abierta.jpg | WhatsApp Image 2026-10-01 at 10.00.24 AM.jpeg |
+| nuevos-2026-10-01/franjas-azul-modelo.jpg | WhatsApp Image 2026-10-01 at 10.00.23 AM.jpeg |
+| nuevos-2026-10-01/franjas-azul-frente.jpg | WhatsApp Image 2026-10-01 at 10.00.24 AM (2).jpeg |
+| nuevos-2026-10-01/franjas-azul-abierta.jpg | WhatsApp Image 2026-10-01 at 10.00.23 AM (2).jpeg |
+| nuevos-2026-10-01/franjas-rojo-abierta.jpg | WhatsApp Image 2026-10-01 at 10.00.24 AM (1).jpeg |

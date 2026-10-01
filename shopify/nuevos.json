@@ -1,0 +1,62 @@
+{
+  "_fuente": "Fotos del cliente del 2026-10-01 (assets/source/nuevos-2026-10-01), sin nombre, precio ni tallas. Nombres y textos propuestos a partir de lo que se ve en las fotos (sin inventar telas). price / compareAt / sizes en null hasta que el cliente los confirme: npm run shopify:nuevos no genera el CSV mientras falten.",
+  "products": [
+    {
+      "handle": "chaqueta-cordon-para-dama",
+      "name": "Chaqueta con cordón para dama",
+      "gender": "mujer",
+      "type": "Chaqueta",
+      "collections": ["Mujer", "Chaquetas"],
+      "price": null,
+      "compareAt": null,
+      "sizes": null,
+      "summary": "Capucha, cierre completo y cordón para ajustar la cintura.",
+      "description": "Chaqueta con capucha y cierre frontal completo. El cordón de la cintura ajusta la silueta.",
+      "details": ["Capucha con cordón", "Cierre frontal completo", "Cintura ajustable con cordón"],
+      "colors": [
+        { "value": "ROJO", "label": "Rojo", "swatch": "#b3202a", "images": [["chaqueta-cordon-rojo-frente", "de frente"], ["chaqueta-cordon-rojo-espalda", "de espalda"]] },
+        { "value": "NEGRO", "label": "Negro", "swatch": "#141414", "images": [["chaqueta-cordon-negro-frente", "de frente"], ["chaqueta-cordon-negro-lado", "de lado"]] },
+        { "value": "AZUL OSCURO", "label": "Azul oscuro", "swatch": "#1f2a44", "images": [["chaqueta-cordon-azul-lado", "de lado"]] }
+      ]
+    },
+    {
+      "handle": "abrigo-asimetrico-hebillas-para-dama",
+      "name": "Abrigo asimétrico con hebillas para dama",
+      "gender": "mujer",
+      "type": "Abrigo",
+      "collections": ["Mujer"],
+      "price": null,
+      "compareAt": null,
+      "sizes": null,
+      "summary": "Capucha amplia, cierre asimétrico y hebillas en los puños.",
+      "description": "Abrigo largo con capucha amplia y cierre en diagonal. Los puños llevan correa con hebilla metálica.",
+      "details": ["Capucha amplia", "Cierre asimétrico", "Correa con hebilla en los puños", "Corte largo"],
+      "colors": [
+        {
+          "value": "NEGRO",
+          "label": "Negro",
+          "swatch": "#141414",
+          "images": [["abrigo-hebillas-negro-frente", "de frente, con la capucha puesta"], ["abrigo-hebillas-negro-lado", "de lado"], ["abrigo-hebillas-negro-abierto", "abierto"], ["abrigo-hebillas-negro-espalda", "de espalda"]]
+        }
+      ]
+    },
+    {
+      "handle": "chaqueta-franjas-para-hombre",
+      "name": "Chaqueta con franjas para hombre",
+      "gender": "hombre",
+      "type": "Chaqueta",
+      "collections": ["Hombre", "Chaquetas"],
+      "price": null,
+      "compareAt": null,
+      "sizes": null,
+      "summary": "Cuello alto, tres bolsillos con cierre y franjas de contraste.",
+      "description": "Cuello alto, cierre completo y tres bolsillos con cierre. Franjas blancas a los lados y forro interior negro.",
+      "details": ["Cuello alto", "Cierre frontal completo", "Bolsillo de pecho con cierre", "Dos bolsillos laterales con cierre", "Franjas de contraste en blanco", "Forro interior negro"],
+      "colors": [
+        { "value": "NEGRO", "label": "Negro", "swatch": "#141414", "images": [["franjas-negro-modelo", "puesta"], ["franjas-negro-frente", "de frente"], ["franjas-negro-abierta", "abierta, con el forro a la vista"]] },
+        { "value": "AZUL OSCURO", "label": "Azul oscuro", "swatch": "#1f2a44", "images": [["franjas-azul-modelo", "puesta"], ["franjas-azul-frente", "de frente"], ["franjas-azul-abierta", "abierta, con el forro a la vista"]] },
+        { "value": "ROJO", "label": "Rojo", "swatch": "#b3202a", "images": [["franjas-rojo-abierta", "abierta, con el forro a la vista"]] }
+      ]
+    }
+  ]
+}

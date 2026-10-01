@@ -11,42 +11,11 @@
 // - Prendas sin precio o sin tallas NO se exportan (se listan como pendientes).
 // Uso: npm run shopify
 import fs from 'node:fs';
+import { CATEGORY, blankRow, cap, html, money, toCsv, trimTo } from './shopify-csv.mjs';
 
 const SITE = (process.env.SITE_URL || 'https://magic-tienda.vercel.app').replace(/\/$/, '');
 const VENDOR = 'MAGIC WORLD';
 const OUT_DIR = 'shopify';
-
-const HEADERS = [
-  'Title', 'URL handle', 'Description', 'Vendor', 'Product category', 'Type', 'Tags', 'Published on online store', 'Status',
-  'SKU', 'Barcode', 'Option1 name', 'Option1 value', 'Option1 Linked To', 'Option2 name', 'Option2 value', 'Option2 Linked To',
-  'Option3 name', 'Option3 value', 'Option3 Linked To', 'Price', 'Compare-at price', 'Cost per item', 'Charge tax', 'Tax code',
-  'Unit price total measure', 'Unit price total measure unit', 'Unit price base measure', 'Unit price base measure unit',
-  'Inventory tracker', 'Inventory quantity', 'Continue selling when out of stock', 'Weight value (grams)', 'Weight unit for display',
-  'Requires shipping', 'Fulfillment service', 'Product image URL', 'Image position', 'Image alt text', 'Variant image URL', 'Gift card',
-  'SEO title', 'SEO description', 'Color (product.metafields.shopify.color-pattern)', 'Google Shopping / Google product category',
-  'Google Shopping / Gender', 'Google Shopping / Age group', 'Google Shopping / Manufacturer part number (MPN)',
-  'Google Shopping / Ad group name', 'Google Shopping / Ads labels', 'Google Shopping / Condition', 'Google Shopping / Custom product',
-  'Google Shopping / Custom label 0', 'Google Shopping / Custom label 1', 'Google Shopping / Custom label 2',
-  'Google Shopping / Custom label 3', 'Google Shopping / Custom label 4',
-];
-
-// Categorías verificadas en la taxonomía oficial de Shopify (Shopify/product-taxonomy).
-const CATEGORY = {
-  Buzo: 'Apparel & Accessories > Clothing > Clothing Tops > Sweatshirts',
-  Hoodie: 'Apparel & Accessories > Clothing > Clothing Tops > Hoodies',
-  Chaqueta: 'Apparel & Accessories > Clothing > Outerwear > Coats & Jackets',
-  Chaquetón: 'Apparel & Accessories > Clothing > Outerwear > Coats & Jackets',
-  Abrigo: 'Apparel & Accessories > Clothing > Outerwear > Coats & Jackets',
-};
-
-const esc = (v) => {
-  const s = v == null ? '' : String(v);
-  return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-};
-const html = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const money = (n) => `$${n.toLocaleString('es-CO').replace(/,/g, '.')}`;
-const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
-const trimTo = (s, max) => (s.length <= max ? s : `${s.slice(0, max - 1).replace(/\s+\S*$/, '')}…`);
 
 const { products } = JSON.parse(fs.readFileSync('src/data/catalog.json', 'utf8'));
 const media = JSON.parse(fs.readFileSync('src/data/media.json', 'utf8'));
@@ -88,7 +57,7 @@ for (const p of products) {
   const n = Math.max(images.length, variants.length);
 
   for (let i = 0; i < n; i++) {
-    const r = Object.fromEntries(HEADERS.map((h) => [h, '']));
+    const r = blankRow();
     r['URL handle'] = p.slug;
     if (i === 0) {
       Object.assign(r, {
@@ -137,8 +106,7 @@ for (const p of products) {
   }
 }
 
-// Shopify pide UTF-8 (sin BOM) y saltos de línea LF.
-const csv = [HEADERS.map(esc).join(','), ...rows.map((r) => HEADERS.map((h) => esc(r[h])).join(','))].join('\n') + '\n';
+const csv = toCsv(rows);
 fs.mkdirSync(OUT_DIR, { recursive: true });
 fs.writeFileSync(`${OUT_DIR}/productos.csv`, csv, 'utf8');
 
