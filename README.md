@@ -51,8 +51,13 @@ de la foto (así no se publica una imagen rota).
 ## Tema de Shopify
 
 La tienda `c0a6fe-5e.myshopify.com` (worldmagic.store) usa el tema **MAGIC WORLD**
-(id `162941861993`): la misma portada, animaciones, bolsa, vista rápida y ficha de la
-web, pero con los productos, precios, tallas, stock y fotos **de Shopify**.
+(id `162941861993`, **publicado el 2026-10-01**): la misma portada, animaciones, bolsa,
+vista rápida y ficha de la web, pero con los productos, precios, tallas, stock y fotos
+**de Shopify**. El tema anterior (Horizon, id `162389983337`) quedó guardado en
+Tienda online → Temas y se puede volver a publicar con un clic.
+
+Al subir cambios con `theme push` al tema publicado, se ven en la tienda al instante:
+probar antes en un borrador (`theme push --unpublished`) si el cambio es grande.
 
 ```bash
 npm run theme          # genera shopify-theme/ (CSS, JS y mapas de contenido)
