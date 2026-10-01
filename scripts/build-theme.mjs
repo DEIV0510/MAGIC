@@ -269,6 +269,11 @@ const video = JSON.parse(read('src/data/video.json'));
 copy(path.join('public', video.src), 'mw-fit.mp4');
 copy(path.join('public', video.poster), `mw-fit-poster${path.extname(video.poster)}`);
 assetsInfo.video = { w: video.w, h: video.h, poster: `mw-fit-poster${path.extname(video.poster)}` };
+// Testimonio de un cliente (npm run images → scripts/prepare-testimonial.mjs).
+const testi = JSON.parse(read('src/data/testimonial.json'));
+copy(path.join('public', testi.src), 'mw-testimonio.mp4');
+copy(path.join('public', testi.poster), `mw-testimonio-poster${path.extname(testi.poster)}`);
+assetsInfo.testimonio = { w: testi.w, h: testi.h, poster: `mw-testimonio-poster${path.extname(testi.poster)}` };
 
 // Datos de las imágenes propias para el Liquid (anchos reales disponibles).
 const W = (a) => a.widths.join(',');
@@ -280,6 +285,7 @@ fs.writeFileSync(
   {%- when 'bodega-1' -%}mw-bodega-1~${W(assetsInfo.bodega1)}~${assetsInfo.bodega1.w}~${assetsInfo.bodega1.h}
   {%- when 'bodega-2' -%}mw-bodega-2~${W(assetsInfo.bodega2)}~${assetsInfo.bodega2.w}~${assetsInfo.bodega2.h}
   {%- when 'video' -%}mw-fit.mp4~${assetsInfo.video.poster}~${assetsInfo.video.w}~${assetsInfo.video.h}
+  {%- when 'testimonio' -%}mw-testimonio.mp4~${assetsInfo.testimonio.poster}~${assetsInfo.testimonio.w}~${assetsInfo.testimonio.h}
 {%- endcase -%}
 `,
 );
@@ -305,5 +311,5 @@ fs.writeFileSync(
 `,
 );
 
-console.log('· fuente, iconos, OG, recorte, bodega y video copiados');
+console.log('· fuente, iconos, OG, recorte, bodega, video y testimonio copiados');
 console.log('✔ Tema listo en shopify-theme/');

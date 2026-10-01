@@ -71,3 +71,4 @@ No se usan: combinada.png, perchado.png, peluche3.png (texto o botones pintados 
 | tipo-camisa-camel-espalda.png | tipocamisa2.png (2026-09-29) |
 | abrigo-hombre-tabaco.png | lindoabrigo.png (2026-09-29) |
 | fit-video.mp4 | FIT.mp4 (2026-09-29) |
+| testimonio.mp4 | testimonio.mp4 (2026-10-01; = WhatsApp Video 2026-09-28 at 3.34.52 PM.mp4): cliente con el hoodie negro de cordón cruzado |

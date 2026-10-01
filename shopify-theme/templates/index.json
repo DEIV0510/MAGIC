@@ -122,6 +122,10 @@
         "docs_right": "Stock propio"
       }
     },
+    "testimonial": {
+      "type": "mw-testimonial",
+      "settings": { "product": "hoodie-para-hombre-algodonn", "color": "NEGRO" }
+    },
     "final": {
       "type": "mw-final",
       "settings": {
@@ -132,5 +136,5 @@
       }
     }
   },
-  "order": ["loader", "hero", "lookbook", "pieces", "feature", "categories", "proof", "final"]
+  "order": ["loader", "hero", "lookbook", "pieces", "feature", "categories", "proof", "testimonial", "final"]
 }

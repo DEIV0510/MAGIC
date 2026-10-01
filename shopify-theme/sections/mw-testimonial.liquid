@@ -1,0 +1,176 @@
+{%- comment -%}
+  Testimonio real de un cliente: la cita en grande + su video. El video arranca sin sonido al
+  verse, con subtítulos; «Activar sonido» lo reinicia con audio. Por defecto usa el video incluido
+  en el tema (mw-testimonio.mp4); en «Video del cliente» se puede elegir otro subido a Shopify.
+  Subtítulos: una línea por frase, «inicio-fin | texto» en segundos (el texto también se muestra
+  como transcripción).
+{%- endcomment -%}
+{%- liquid
+  capture tv
+    render 'mw-assets', name: 'testimonio'
+  endcapture
+  assign tv = tv | strip | split: '~'
+  assign v_src = tv[0] | asset_url
+  assign v_poster = tv[1] | asset_url
+  assign v_w = tv[2]
+  assign v_h = tv[3]
+
+  assign up = section.settings.video
+  if up != blank
+    assign v_poster = up.preview_image | image_url: width: 1280
+    assign v_w = up.preview_image.width
+    assign v_h = up.preview_image.height
+    assign best = 0
+    for s in up.sources
+      if s.format == 'mp4' and s.height <= 1080 and s.height > best
+        assign v_src = s.url
+        assign best = s.height
+      endif
+    endfor
+  endif
+
+  assign p = section.settings.product
+  assign link = blank
+  assign piece = blank
+  assign want = section.settings.color | upcase | strip
+  if p != blank
+    assign link = p.url
+    capture info
+      render 'mw-map', part: 'info', handle: p.handle
+    endcapture
+    assign info = info | strip | split: '~'
+    assign piece = info[0] | default: p.title
+    if want != blank
+      for v in p.variants
+        assign hit = false
+        for o in v.options
+          assign ou = o | upcase | strip
+          if ou == want
+            assign hit = true
+          endif
+        endfor
+        if hit
+          assign link = v.url
+          break
+        endif
+      endfor
+    endif
+  endif
+  assign color_label = section.settings.color | strip | downcase | capitalize
+
+  assign lines = section.settings.captions | newline_to_br | split: '<br />'
+  assign transcript = ''
+  for l in lines
+    assign parts = l | split: '|'
+    if parts.size > 1
+      assign t = parts | slice: 1, 9 | join: '|' | strip
+      assign transcript = transcript | append: ' ' | append: t
+    endif
+  endfor
+  assign transcript = transcript | strip
+-%}
+<section class="testi" aria-labelledby="testi-title-{{ section.id }}">
+  <div class="testi__head">
+    <p class="t-label">{{ section.settings.label }}</p>
+    <p class="t-label t-mute">{{ section.settings.label_right }}</p>
+  </div>
+
+  <div class="testi__text">
+    <h2 class="testi__quote t-display" id="testi-title-{{ section.id }}" data-reveal>
+      <span class="testi__mark" aria-hidden="true">“</span>{{ section.settings.quote }}<span aria-hidden="true">”</span>
+    </h2>
+    {%- if section.settings.more != blank -%}
+      <p class="testi__more" data-reveal style="--i:1">{{ section.settings.more }}</p>
+    {%- endif -%}
+    <p class="testi__who t-label" data-reveal style="--i:2">
+      <span>{{ section.settings.author }}</span>
+      {%- if piece != blank -%}
+        <span class="t-mute">{{ piece }}{% if color_label != blank %} · {{ color_label }}{% endif %}</span>
+      {%- endif -%}
+    </p>
+    {%- if link != blank and section.settings.link_label != blank -%}
+      <a class="link testi__link" href="{{ link }}" data-reveal style="--i:3">{{ section.settings.link_label }} {% render 'mw-icon', name: 'arrow' %}</a>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} El revelado (clip-path) va en el marco y no en la figura: la figura es la que mira el IntersectionObserver. {%- endcomment -%}
+  <figure class="pvideo testi__video" data-tvideo data-captions="{{ section.settings.captions | escape }}">
+    <div class="pvideo__frame testi__frame" style="--ar:{{ v_w }} / {{ v_h }}" data-reveal="mask">
+      <video
+        class="pvideo__v"
+        muted
+        playsinline
+        loop
+        preload="none"
+        poster="{{ v_poster }}"
+        width="{{ v_w }}"
+        height="{{ v_h }}"
+        aria-label="{{ section.settings.video_label | escape }}"
+        data-src="{{ v_src }}"
+      ></video>
+      <p class="testi__cc" data-tvideo-cc aria-hidden="true" hidden></p>
+      <span class="pvideo__tag t-label" aria-hidden="true">{% render 'mw-icon', name: 'arrow-ur' %}{{ section.settings.tag }}</span>
+      <div class="testi__ctrl">
+        <button
+          class="testi__sound t-label"
+          type="button"
+          data-tvideo-sound
+          data-on="{{ section.settings.sound_on | escape }}"
+          data-off="{{ section.settings.sound_off | escape }}"
+          aria-pressed="false"
+        >
+          <svg class="testi__muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"></path><path d="m15.5 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"></path></svg>
+          <svg class="testi__loud" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"></path><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8"></path></svg>
+          <span data-tvideo-sound-label>{{ section.settings.sound_on }}</span>
+        </button>
+        <button class="pvideo__btn" type="button" data-tvideo-toggle aria-label="Reproducir video">
+          <svg class="pvideo__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"></path></svg>
+          <svg class="pvideo__pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5h3.5v13H7zM13.5 5.5H17v13h-3.5z" fill="currentColor"></path></svg>
+        </button>
+      </div>
+    </div>
+    <figcaption class="testi__cap">
+      <span class="t-label t-mute">{{ section.settings.caption }}</span>
+      {%- if transcript != blank -%}
+        <details class="testi__tr">
+          <summary class="t-label">{{ section.settings.transcript_label }} {% render 'mw-icon', name: 'plus' %}</summary>
+          <p>{{ transcript }}</p>
+        </details>
+      {%- endif -%}
+    </figcaption>
+  </figure>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonio",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Etiqueta", "default": "Testimonio" },
+    { "type": "text", "id": "label_right", "label": "Etiqueta derecha", "default": "01" },
+    { "type": "text", "id": "quote", "label": "Cita (en grande)", "default": "Quedó muy bien, muy bonita la calidad." },
+    { "type": "textarea", "id": "more", "label": "Resto de la cita", "default": "Ya estoy haciendo nuevos pedidos. Llegó muy bien, llegó aprisa, llegó excelente." },
+    { "type": "text", "id": "author", "label": "Quién lo dice", "default": "Cliente de MAGIC WORLD" },
+    { "type": "header", "content": "Prenda" },
+    { "type": "product", "id": "product", "label": "Prenda que lleva puesta" },
+    { "type": "text", "id": "color", "label": "Color (como está en Shopify)", "default": "NEGRO" },
+    { "type": "text", "id": "link_label", "label": "Texto del enlace", "default": "Ver la prenda" },
+    { "type": "header", "content": "Video" },
+    { "type": "video", "id": "video", "label": "Video del cliente", "info": "Opcional. Vacío = el video incluido en el tema." },
+    { "type": "text", "id": "video_label", "label": "Descripción del video", "default": "Un cliente muestra puesto el hoodie negro de cordón cruzado y cuenta cómo le llegó" },
+    { "type": "text", "id": "tag", "label": "Etiqueta sobre el video", "default": "Cliente real" },
+    { "type": "text", "id": "caption", "label": "Pie del video", "default": "Video de un cliente, sin cortes" },
+    { "type": "text", "id": "sound_on", "label": "Botón: activar sonido", "default": "Activar sonido" },
+    { "type": "text", "id": "sound_off", "label": "Botón: quitar sonido", "default": "Silenciar" },
+    { "type": "text", "id": "transcript_label", "label": "Título de la transcripción", "default": "Lo que dice" },
+    {
+      "type": "textarea",
+      "id": "captions",
+      "label": "Subtítulos",
+      "info": "Una frase por línea: inicio-fin | texto (en segundos). Ej.: 0-2.1 | Muy buenas tardes.",
+      "default": "0-2.1 | Muy buenas tardes.\n2.1-5.9 | Aquí está el saco: quedó muy bien,\n5.9-7.7 | muy bonita la calidad.\n9.7-12.2 | Ya estoy haciendo nuevos pedidos.\n12.2-15.2 | De pronto, si tienen más catálogo,\n15.2-18.6 | más modelitos, yo les pido.\n18.6-22 | Llegó muy bien, llegó aprisa,\n22-23.8 | llegó excelente. Muchas gracias."
+    }
+  ],
+  "presets": [{ "name": "Testimonio" }],
+  "enabled_on": { "templates": ["index", "page", "product"] }
+}
+{% endschema %}

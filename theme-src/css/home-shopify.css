@@ -3,3 +3,203 @@
 .ftr {
   padding-top: clamp(28px, 4vw, 48px);
 }
+
+/* =========================================================
+   TESTIMONIO — cita en grande + video del cliente con subtítulos
+   ========================================================= */
+.testi {
+  padding: var(--section) var(--m);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+}
+
+.testi__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.testi__text {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+  justify-items: start;
+}
+
+.testi__quote {
+  font-size: clamp(2.5rem, 1rem + 5.6vw, 6.25rem);
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.testi__mark {
+  color: var(--red);
+}
+
+.testi__more {
+  max-width: 34ch;
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.1875rem);
+  line-height: 1.45;
+  color: var(--fg-mute);
+}
+
+.testi__who {
+  display: grid;
+  gap: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-strong);
+  min-width: min(100%, 300px);
+}
+
+.testi__frame {
+  aspect-ratio: var(--ar, 16 / 9);
+}
+
+/* En el celular el 16:9 queda bajito para subtítulos + controles: se recorta a 4:3 (la prenda va al centro) */
+@media (max-width: 767.98px) {
+  .testi__frame {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.testi__ctrl {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  gap: 4px;
+}
+
+/* El botón de reproducir entra en la fila de controles (en la web va suelto en la esquina) */
+.testi__ctrl .pvideo__btn {
+  position: static;
+}
+
+.testi__sound {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 14px 0 12px;
+  background: var(--paper);
+  color: var(--ink);
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+
+.testi__sound svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.testi__loud,
+.testi__video.is-sound .testi__muted {
+  display: none;
+}
+
+.testi__video.is-sound .testi__loud {
+  display: block;
+}
+
+.testi__video.is-sound .testi__sound {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .testi__sound:hover {
+    background: var(--red);
+    color: #fff;
+  }
+}
+
+/* Subtítulos: franja de tinta por línea, sobre la imagen y lejos de los controles */
+.testi__cc {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 72px;
+  font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1.0625rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--paper);
+  pointer-events: none;
+}
+
+.testi__cc span {
+  padding: 3px 8px 4px;
+  background: rgb(10 10 10 / 0.82);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.testi__cap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+
+.testi__tr summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.testi__tr summary::-webkit-details-marker {
+  display: none;
+}
+
+.testi__tr summary svg {
+  width: 14px;
+  height: 14px;
+  transition: rotate 0.4s var(--ease-out);
+}
+
+.testi__tr[open] summary svg {
+  rotate: 45deg;
+}
+
+.testi__tr p {
+  max-width: 62ch;
+  margin-top: 10px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--fg-mute);
+}
+
+@media (min-width: 768px) {
+  .testi__cc {
+    right: auto;
+    bottom: 12px;
+    max-width: calc(100% - 260px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testi {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--g);
+    row-gap: clamp(40px, 5vw, 72px);
+    align-items: end;
+  }
+
+  .testi__head {
+    grid-column: 1 / -1;
+  }
+
+  .testi__text {
+    grid-column: 1 / span 5;
+    padding-bottom: 4px;
+  }
+
+  .testi__video {
+    grid-column: 6 / span 7;
+  }
+}
