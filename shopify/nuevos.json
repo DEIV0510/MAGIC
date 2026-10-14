@@ -1,8 +1,9 @@
 {
-  "_fuente": "Fichas del cliente pegadas el 2026-10-14 (chaquetón cruzado e impermeable térmica) + fotos de assets/source (lotes 2026-10-01 y 2026-10-13). Las tallas no venían en las fichas: null hasta que el cliente las confirme (npm run shopify:nuevos no genera el CSV mientras falten). Las rutas de fotos son relativas a assets/source.",
+  "_fuente": "Fichas del cliente pegadas el 2026-10-14 (chaquetón cruzado e impermeable térmica) + fotos de assets/source (lotes 2026-10-01 y 2026-10-13), revisadas por 3 revisores independientes. Las tallas no venían en las fichas: null hasta que el cliente las confirme (npm run shopify:nuevos no genera el CSV mientras falten). Rutas de fotos relativas a assets/source; las listas para subir salen con npm run shopify:fotos (quita restos de captura de los bordes).",
   "products": [
     {
       "handle": "chaqueton-estilo-cruzado-para-dama",
+      "fotos": "chaqueton-cruzado",
       "name": "Chaquetón estilo cruzado para dama",
       "gender": "mujer",
       "type": "Chaquetón",
@@ -11,10 +12,10 @@
       "compareAt": null,
       "promoX2": 150000,
       "sizes": null,
-      "material": "Algodón perchado Mónaco",
+      "material": "Algodón perchado Mónaco: térmico, suave al tacto y muy durable",
       "summary": "Corte cruzado con cremallera diagonal, capota amplia y hebillas en las mangas.",
-      "description": "Chaquetón de corte cruzado en algodón perchado Mónaco: térmico, suave al tacto y muy durable. Cremallera frontal diagonal de 75 cm, capota amplia y hebillas decorativas en las mangas.",
-      "details": ["Algodón perchado Mónaco, térmico", "Cremallera frontal diagonal de 75 cm", "Capota amplia", "Hebillas decorativas en las mangas"],
+      "description": "Chaquetón de corte cruzado, abrigado y suave, que se adapta a la figura.",
+      "details": ["Cremallera frontal diagonal de 75 cm", "Capota amplia", "Hebillas decorativas en las mangas", "Buenos acabados, con buena horma y resistencia"],
       "colors": [
         {
           "value": "ROJO",
@@ -31,9 +32,10 @@
           "value": "NEGRO",
           "label": "Negro",
           "swatch": "#141414",
+          "_images": "abrigo-hebillas-negro-lado es en realidad de frente (= cruzado.jpeg, la que el cliente eligió); abrigo-hebillas-negro-frente es de tres cuartos. Los nombres del lote 2026-10-01 quedaron cruzados.",
           "images": [
-            ["nuevos-2026-10-01/abrigo-hebillas-negro-frente", "de frente, con la capota puesta"],
-            ["nuevos-2026-10-01/abrigo-hebillas-negro-lado", "de lado"],
+            ["nuevos-2026-10-01/abrigo-hebillas-negro-lado", "de frente, con la capota puesta"],
+            ["nuevos-2026-10-01/abrigo-hebillas-negro-frente", "de tres cuartos"],
             ["nuevos-2026-10-01/abrigo-hebillas-negro-abierto", "abierto"],
             ["nuevos-2026-10-01/abrigo-hebillas-negro-espalda", "de espalda"]
           ]
@@ -42,18 +44,20 @@
     },
     {
       "handle": "chaqueta-impermeable-termica",
+      "fotos": "impermeable-termica",
       "name": "Chaqueta impermeable térmica",
       "gender": "mujer",
+      "_gender": "La ficha no dice dama: sale de las fotos (modelos mujeres, cintura entallada). Confirmar con el cliente junto con las tallas.",
       "type": "Chaqueta",
       "collections": ["Mujer", "Chaquetas"],
       "price": 97000,
       "compareAt": null,
       "promoX2": 165000,
       "sizes": null,
-      "material": "Súper nailon con forro térmico en yersilon",
+      "material": "Exterior en súper nailon impermeable de alta resistencia; forro térmico en yersilon",
       "summary": "Súper nailon impermeable, forro térmico y cintura ajustable con cordón.",
-      "description": "Exterior en súper nailon impermeable que repele el agua y corta el viento, con forro térmico en yersilon que guarda el calor. Cremallera de seguridad de 90 cm y cordón con caucho y tancas para ajustar la cintura.",
-      "details": ["Exterior en súper nailon impermeable", "Forro térmico en yersilon", "Cremallera de seguridad de 90 cm", "Cintura ajustable con cordón y tancas", "Confección reforzada, etiqueta de marca y empaque original"],
+      "description": "Protege del frío y de la lluvia: el exterior repele el agua y corta el viento, y el forro, suave por dentro, mantiene el calor.",
+      "details": ["Cremallera frontal de seguridad de 90 cm, con cursor de seguridad", "Cordón con caucho y tancas ajustables en la cintura", "Confección reforzada", "Etiqueta de marca, empaque en cartón y marquilla original"],
       "colors": [
         {
           "value": "ROJO",
@@ -61,7 +65,7 @@
           "swatch": "#b3202a",
           "images": [
             ["nuevos-2026-10-13/impermeable-rojo-modelo", "puesta"],
-            ["nuevos-2026-10-01/chaqueta-cordon-rojo-frente", "de frente"],
+            ["nuevos-2026-10-01/chaqueta-cordon-rojo-frente", "de tres cuartos"],
             ["nuevos-2026-10-01/chaqueta-cordon-rojo-espalda", "de espalda"]
           ]
         },
@@ -71,8 +75,8 @@
           "swatch": "#1f2a44",
           "images": [
             ["nuevos-2026-10-13/impermeable-azul-modelo", "puesta"],
+            ["nuevos-2026-10-01/chaqueta-cordon-azul-lado", "de tres cuartos"],
             ["nuevos-2026-10-13/impermeable-azul-modelo-espalda", "puesta, de espalda"],
-            ["nuevos-2026-10-01/chaqueta-cordon-azul-lado", "de lado"],
             ["nuevos-2026-10-13/impermeable-azul-espalda", "de espalda"]
           ]
         },
@@ -82,19 +86,19 @@
           "swatch": "#141414",
           "images": [
             ["nuevos-2026-10-01/chaqueta-cordon-negro-frente", "de frente"],
-            ["nuevos-2026-10-01/chaqueta-cordon-negro-lado", "de lado"]
+            ["nuevos-2026-10-01/chaqueta-cordon-negro-lado", "de tres cuartos"]
           ]
         }
       ]
     },
     {
-      "handle": "chaqueta-franjas-para-hombre",
+      "handle": "chaqueta-nordica-para-hombre",
       "name": "Chaqueta con franjas para hombre",
-      "pendiente": "El cliente no ha mandado ficha de esta prenda (lote 2026-10-01). No se sube.",
+      "pendiente": "YA EXISTE en la tienda: es la «CHAQUETA NORDICA PARA HOMBRE» que el cliente creó el 2026-10-02 (mismas fotos y colores, $85.000, una sola variante «Default Title», agotada, sin descripción). NUNCA importarla por CSV (saldría duplicada): cuando llegue su ficha, completarla en el admin (opciones COLOR + Talla antes de cargar stock) y mapearla en el tema.",
       "gender": "hombre",
       "type": "Chaqueta",
       "collections": ["Hombre", "Chaquetas"],
-      "price": null,
+      "price": 85000,
       "compareAt": null,
       "sizes": null,
       "summary": "Cuello alto, tres bolsillos con cierre y franjas de contraste.",
@@ -103,13 +107,14 @@
       "colors": [
         { "value": "NEGRO", "label": "Negro", "swatch": "#141414", "images": [["nuevos-2026-10-01/franjas-negro-modelo", "puesta"], ["nuevos-2026-10-01/franjas-negro-frente", "de frente"], ["nuevos-2026-10-01/franjas-negro-abierta", "abierta, con el forro a la vista"]] },
         { "value": "AZUL OSCURO", "label": "Azul oscuro", "swatch": "#1f2a44", "images": [["nuevos-2026-10-01/franjas-azul-modelo", "puesta"], ["nuevos-2026-10-01/franjas-azul-frente", "de frente"], ["nuevos-2026-10-01/franjas-azul-abierta", "abierta, con el forro a la vista"]] },
-        { "value": "ROJO", "label": "Rojo", "swatch": "#b3202a", "images": [["nuevos-2026-10-01/franjas-rojo-abierta", "abierta, con el forro a la vista"]] }
+        { "value": "ROJO", "label": "Rojo", "swatch": "#b3202a", "images": [["tactica-rojo-modelo", "puesta"], ["tactica-rojo-frente", "de frente"], ["nuevos-2026-10-01/franjas-rojo-abierta", "abierta, con el forro a la vista"]] }
       ]
     }
   ],
   "cambios": [
     {
       "handle": "chaqueta-outdoor-poliester",
+      "fotos": "chaqueta-casual",
       "producto": "CHAQUETA DE MODA CASUAL PARA HOMBRE",
       "pedido": "2026-10-14: «AGREGAR ESTE COLOR A ESTE PRODUCTO Y SUBIR PRECIO A 79.990»",
       "precio": { "antes": 75000, "nuevo": 79990, "compareAt": 150000, "aplica": "todas las variantes (GRIS OSCURO y NEGRO)" },
@@ -118,6 +123,7 @@
         "_opcion": "El nombre de la opción en la tienda lleva un espacio al final («COLOR »). Talla es la opción 1 y COLOR la 2.",
         "valor": "NEGRO",
         "tallas": ["S", "M", "L", "XL", "2XL"],
+        "_tallas": "Las mismas del gris por suposición (Shopify pide una variante por talla); confirmar con el cliente.",
         "swatch": "#141414",
         "images": [
           ["nuevos-2026-10-13/casual-negro-modelo", "puesta"],
@@ -125,7 +131,20 @@
           ["archivo/casual-negro-estudio", "de frente"]
         ]
       },
-      "descripcion": "La descripción de la tienda dice «SOLO $75.000» y «precio especial de solo $75.000»: con el precio nuevo hay que cambiar esas dos cifras a $79.990 (pedir OK)."
+      "pasos": [
+        "Admin → producto: agregar NEGRO a «COLOR »; editar en bloque las 10 variantes: precio 79.990, precio antes 150.000, SIN seguimiento de cantidad (las nuevas pueden nacer con seguimiento en 0 = «Agotado»).",
+        "Subir las 3 fotos de shopify/fotos (chaqueta-casual-negro-1..3) — entran al final, posiciones 4-6 — y poner chaqueta-casual-negro-1 como imagen de las 5 variantes NEGRO.",
+        "Comprobar con /products/chaqueta-outdoor-poliester.js: 10 variantes, price 7999000, compare_at 15000000, available true, inventory_management null, 6 fotos.",
+        "Releasit, oferta «CH OUTDOOR»: el 2x es un descuento FIJO de $10.000 (hoy 2 × 75.000 − 10.000 = $140.000). Con $79.990 el par pasa a $149.980. Preguntar: ¿par en $140.000 (descuento $19.980, como Hoodie y Deportiva) o $149.980? Cambiarlo DESPUÉS del precio.",
+        "Descripción: dice «SOLO $75.000» y «precio especial de solo $75.000» (y un banner «Últimas unidades»): con OK, cambiar las cifras a $79.990.",
+        "Tema: agregar NEGRO a theme-src/catalog-map.json (posiciones 4-6 según el .js), npm run theme -- --refresh (sin «⚠ Revisar»), push --allow-live --only de snippets/mw-map, mw-media-map y mw-swatch-map."
+      ]
     }
+  ],
+  "despuesDeImportar": [
+    "Contar fotos: 8 en el chaquetón y 9 en la impermeable (/products/<handle>.js); la imagen de variante no debe duplicarse.",
+    "Agregar los 2 productos a las colecciones Mujer y Chaquetas (son manuales: el CSV no los mete).",
+    "Releasit: crear la oferta 2x de cada uno (chaquetón: 2 × 90.000 − 30.000 = $150.000; impermeable: 2 × 97.000 − 29.000 = $165.000, el «ahorras $29.000» del cliente), con el mismo estilo de las demás ofertas. Probar el total en el formulario sin enviarlo.",
+    "Tema: mapear los 2 handles en theme-src/catalog-map.json con las posiciones reales, npm run theme -- --refresh y push --allow-live --only de los 3 snippets de mapas."
   ]
 }

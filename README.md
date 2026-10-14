@@ -98,14 +98,20 @@ en Personalizar, un push lo pisa.
 
 ### Prendas nuevas
 
-1. Fotos en `assets/source/nuevos-<fecha>/` (copias exactas, origen en `ORIGEN.md`),
-   subidas a GitHub: Shopify las descarga desde ahí al importar.
+1. Fotos en `assets/source/nuevos-<fecha>/` (copias exactas, origen en `ORIGEN.md`). Mirar
+   el md5: el cliente reenvía fotos que ya mandó.
 2. Completar `shopify/nuevos.json` con lo que confirme el cliente: `price`, `compareAt`
-   (precio antes, opcional), `sizes` y, si llevan inventario, `stock`.
-3. `npm run shopify:nuevos` → `shopify/nuevos.csv` (no se genera mientras falte precio o
-   tallas) → Admin → Productos → Importar.
-4. Agregarlas a sus colecciones, sumarlas a `theme-src/catalog-map.json` y
-   `npm run theme -- --refresh` + push para que el diseño muestre sus colores y fotos.
+   (precio antes, opcional), `sizes` y, si llevan inventario, `stock`. Antes de crear una
+   prenda, revisar que el cliente no la haya creado ya a mano en la tienda (`pendiente`).
+3. `npm run shopify:fotos` → `shopify/fotos/` (nombres claros; quita los restos de captura
+   medidos en los bordes, sin ampliar) y subirlo a GitHub: Shopify descarga de ahí.
+4. `npm run shopify:nuevos` → `shopify/nuevos.csv` (no se genera mientras falte precio o
+   tallas) → Admin → Productos → Importar (OK explícito, prueba con 1).
+5. Seguir `despuesDeImportar` de `nuevos.json`: colecciones (manuales), oferta 2x en
+   Releasit, `theme-src/catalog-map.json` + `npm run theme -- --refresh` + push de los mapas.
+6. Cambios a productos que ya existen (color nuevo, precio): `cambios` de `nuevos.json`, en
+   el admin. **Ojo con Releasit**: las ofertas 2x son descuentos fijos; si sube el precio,
+   sube el par.
 
 ## Pendiente del cliente
 
@@ -115,8 +121,9 @@ en Personalizar, un push lo pisa.
 - Dominio propio (si lo compran): cambiarlo en `astro.config.mjs`.
 - Ocultas por falta de datos (fotos en `assets/source/archivo/`): el abrigo negro con
   hebillas y la chaqueta de dama con cordón en la cintura.
-- **Tienda (Shopify)**: precio, precio antes y tallas de las 3 prendas nuevas del
-  2026-10-01 (`shopify/nuevos.json`), y confirmar los nombres propuestos.
+- **Tienda (Shopify)**, ver `shopify/nuevos.json`: tallas del chaquetón cruzado y de la
+  impermeable térmica; precio del par de la casual en Releasit tras subirla a $79.990; la
+  «Chaqueta nórdica» que el cliente creó a mano está agotada y sin tallas ni colores.
 
 ## Estructura
 
