@@ -93,3 +93,18 @@ Lote 3: 2026-10-01 (3 prendas nuevas, solo fotos; sin nombre, precio ni tallas t
 | nuevos-2026-10-01/franjas-azul-frente.jpg | WhatsApp Image 2026-10-01 at 10.00.24 AM (2).jpeg |
 | nuevos-2026-10-01/franjas-azul-abierta.jpg | WhatsApp Image 2026-10-01 at 10.00.23 AM (2).jpeg |
 | nuevos-2026-10-01/franjas-rojo-abierta.jpg | WhatsApp Image 2026-10-01 at 10.00.24 AM (1).jpeg |
+
+Lote 4: 2026-10-13 (llegó el 2026-10-14). 20 fotos; 10 son copias exactas de lotes anteriores (md5 igual): cruzado.jpeg = nuevos-2026-10-01/abrigo-hebillas-negro-lado, impermeabletermica.jpeg = nuevos-2026-10-01/chaqueta-cordon-negro-frente, nuevocolor.jpeg = archivo/casual-negro-estudio, y 7 WhatsApp de las mismas dos prendas. Las 10 nuevas:
+
+| Archivo | Nombre original |
+|---|---|
+| nuevos-2026-10-13/cruzado-rojo-modelo.jpg | WhatsApp Image 2026-10-13 at 7.40.44 PM (2).jpeg |
+| nuevos-2026-10-13/cruzado-rojo-modelo-lado.jpg | WhatsApp Image 2026-10-13 at 7.40.44 PM (3).jpeg |
+| nuevos-2026-10-13/cruzado-rojo-frente.jpg | WhatsApp Image 2026-10-13 at 7.40.45 PM.jpeg |
+| nuevos-2026-10-13/cruzado-rojo-espalda.jpg | WhatsApp Image 2026-10-13 at 7.40.45 PM (1).jpeg |
+| nuevos-2026-10-13/impermeable-rojo-modelo.jpg | WhatsApp Image 2026-10-13 at 7.51.58 PM.jpeg |
+| nuevos-2026-10-13/impermeable-azul-modelo.jpg | WhatsApp Image 2026-10-13 at 7.51.59 PM.jpeg |
+| nuevos-2026-10-13/impermeable-azul-modelo-espalda.jpg | WhatsApp Image 2026-10-13 at 7.51.59 PM (1).jpeg |
+| nuevos-2026-10-13/impermeable-azul-espalda.jpg | WhatsApp Image 2026-10-13 at 7.52.00 PM (1).jpeg |
+| nuevos-2026-10-13/casual-negro-modelo.jpg | WhatsApp Image 2026-10-13 at 7.57.47 PM.jpeg |
+| nuevos-2026-10-13/casual-negro-modelo-playa.jpg | WhatsApp Image 2026-10-13 at 7.57.47 PM (1).jpeg |

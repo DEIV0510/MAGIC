@@ -3,19 +3,25 @@
 //
 // - No inventa datos: si una prenda no tiene precio o tallas, no se genera el CSV (lista lo
 //   que falta).
-// - Fotos: originales del cliente en assets/source/nuevos-2026-10-01, servidas por GitHub
-//   (repo público): tienen que estar subidas al repo ANTES de importar.
+// - Fotos: originales del cliente en assets/source (rutas relativas a esa carpeta en
+//   nuevos.json), servidas por GitHub (repo público): tienen que estar subidas al repo ANTES
+//   de importar.
+// - Prendas con "pendiente" (sin ficha del cliente) se saltan.
 // - Opciones como en la tienda: COLOR (en mayúsculas, igual que los demás productos) y Talla.
 // - Inventario sin seguimiento (siempre disponible) salvo que la prenda traiga "stock".
+// - Los cambios a productos que YA existen ("cambios" en nuevos.json) no van por CSV: se hacen
+//   en el admin (pisar un producto por CSV puede reemplazar sus fotos).
 // Uso: npm run shopify:nuevos
 import fs from 'node:fs';
 import { CATEGORY, blankRow, cap, html, money, toCsv, trimTo } from './shopify-csv.mjs';
 
-const RAW = 'https://raw.githubusercontent.com/DEIV0510/MAGIC/main/assets/source/nuevos-2026-10-01';
-const LOCAL = 'assets/source/nuevos-2026-10-01';
+const RAW = 'https://raw.githubusercontent.com/DEIV0510/MAGIC/main/assets/source';
+const LOCAL = 'assets/source';
 const VENDOR = 'magic world';
 
-const { products } = JSON.parse(fs.readFileSync('shopify/nuevos.json', 'utf8'));
+const all = JSON.parse(fs.readFileSync('shopify/nuevos.json', 'utf8')).products;
+const products = all.filter((p) => !p.pendiente);
+for (const p of all.filter((x) => x.pendiente)) console.log(`(se salta) ${p.name}: ${p.pendiente}`);
 
 const missing = [];
 for (const p of products) {
@@ -35,6 +41,7 @@ for (const p of products) {
   const body = [
     `<p>${html(p.description)}</p>`,
     `<ul>${p.details.map((d) => `<li>${html(d)}</li>`).join('')}</ul>`,
+    p.material ? `<p><strong>Tela:</strong> ${html(p.material)}.</p>` : '',
     `<p><strong>Tallas:</strong> ${p.sizes.join(', ')}.</p>`,
     '<p>Envío gratis y pago contraentrega.</p>',
   ].join('');
