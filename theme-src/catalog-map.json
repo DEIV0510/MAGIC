@@ -101,7 +101,8 @@
       "description": "Cuatro bolsillos al frente —dos con solapa en el pecho—, capucha con cordón y cierre completo. En algodón perchado Mónaco.",
       "details": ["Cuatro bolsillos frontales", "Dos con solapa en el pecho", "Capucha con cordón", "Cierre completo"],
       "colors": {
-        "GRIS OSCURO": { "swatch": "#3a3a3c", "images": [[1, "puesta"], [2, "puesta, de cuerpo entero"], [3, "de espalda"]] }
+        "GRIS OSCURO": { "swatch": "#3a3a3c", "images": [[1, "puesta"], [2, "puesta, de cuerpo entero"], [3, "de espalda"]] },
+        "NEGRO": { "swatch": "#141414", "images": [[4, "puesta"], [5, "puesta, en exteriores"], [6, "de frente"]] }
       }
     },
     "chaqueta-nature-flow": {
@@ -222,6 +223,40 @@
       "colors": {
         "GRIS": { "swatch": "#8d8a88", "swatch2": "#efedea", "images": [[1, "puesta"]] },
         "ROSADO": { "swatch": "#e3a9b4", "swatch2": "#f3ecea", "images": [[3, "puesta"]] }
+      }
+    },
+    "chaqueton-estilo-cruzado-para-dama": {
+      "name": "Chaquetón estilo cruzado para dama",
+      "priority": null,
+      "gender": "mujer",
+      "type": "Chaquetón",
+      "categories": ["chaquetas"],
+      "material": "Algodón perchado Mónaco",
+      "composition": null,
+      "summary": "Corte cruzado con cremallera diagonal, capota amplia y hebillas en las mangas.",
+      "description": "Chaquetón de corte cruzado, abrigado y suave, que se adapta a la figura. En algodón perchado Mónaco: térmico, suave al tacto y muy durable.",
+      "details": ["Cremallera frontal diagonal de 75 cm", "Capota amplia", "Hebillas decorativas en las mangas", "Buenos acabados, con buena horma y resistencia"],
+      "colors": {
+        "ROJO": { "swatch": "#b3202a", "images": [[1, "puesto"], [2, "puesto, de lado"], [3, "de frente, con la capota puesta"], [4, "de espalda"]] },
+        "NEGRO": { "swatch": "#141414", "images": [[5, "de frente, con la capota puesta"], [6, "de tres cuartos"], [7, "abierto"], [8, "de espalda"]] }
+      }
+    },
+    "chaqueta-impermeable-termica": {
+      "name": "Chaqueta impermeable térmica",
+      "priority": null,
+      "gender": "mujer",
+      "type": "Chaqueta",
+      "categories": ["chaquetas"],
+      "material": "Súper nailon impermeable",
+      "lining": "Forro térmico en yersilon",
+      "composition": null,
+      "summary": "Súper nailon impermeable, forro térmico y cintura ajustable con cordón.",
+      "description": "Protege del frío y de la lluvia: el exterior repele el agua y corta el viento, y el forro, suave por dentro, mantiene el calor.",
+      "details": ["Cremallera frontal de seguridad de 90 cm, con cursor de seguridad", "Cordón con caucho y tancas ajustables en la cintura", "Confección reforzada", "Etiqueta de marca, empaque en cartón y marquilla original"],
+      "colors": {
+        "ROJO": { "swatch": "#b3202a", "images": [[1, "puesta"], [2, "de tres cuartos"], [3, "de espalda"]] },
+        "AZUL OSCURO": { "swatch": "#1f2a44", "images": [[4, "puesta"], [5, "de tres cuartos"], [6, "puesta, de espalda"], [7, "de espalda"]] },
+        "NEGRO": { "swatch": "#141414", "images": [[8, "de frente"], [9, "de tres cuartos"]] }
       }
     }
   }

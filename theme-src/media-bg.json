@@ -354,5 +354,85 @@
  "Disenosintitulo_5_f860e8d9-d8c1-42d3-ad57-0450275bcb56": {
   "bg": "photo",
   "focus": "50% 24%"
+ },
+ "chaqueta-casual-negro-1": {
+  "bg": "photo",
+  "focus": "50% 24%"
+ },
+ "chaqueta-casual-negro-2": {
+  "bg": "photo",
+  "focus": "50% 24%"
+ },
+ "chaqueta-casual-negro-3": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "chaqueton-cruzado-rojo-1": {
+  "bg": "photo",
+  "focus": "50% 24%"
+ },
+ "chaqueton-cruzado-rojo-2": {
+  "bg": "photo",
+  "focus": "50% 24%"
+ },
+ "chaqueton-cruzado-rojo-3": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "chaqueton-cruzado-rojo-4": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "chaqueton-cruzado-negro-1": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "chaqueton-cruzado-negro-2": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "chaqueton-cruzado-negro-3": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "chaqueton-cruzado-negro-4": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "impermeable-termica-rojo-1": {
+  "bg": "photo",
+  "focus": "50% 24%"
+ },
+ "impermeable-termica-rojo-2": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "impermeable-termica-rojo-3": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "impermeable-termica-azul-oscuro-1": {
+  "bg": "photo",
+  "focus": "50% 24%"
+ },
+ "impermeable-termica-azul-oscuro-2": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "impermeable-termica-azul-oscuro-3": {
+  "bg": "photo",
+  "focus": "50% 24%"
+ },
+ "impermeable-termica-azul-oscuro-4": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "impermeable-termica-negro-1": {
+  "bg": "white",
+  "focus": "50% 50%"
+ },
+ "impermeable-termica-negro-2": {
+  "bg": "white",
+  "focus": "50% 50%"
  }
 }

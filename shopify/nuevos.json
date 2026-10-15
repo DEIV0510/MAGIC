@@ -1,5 +1,5 @@
 {
-  "_fuente": "Fichas del cliente pegadas el 2026-10-14 (chaquetón cruzado e impermeable térmica) + fotos de assets/source (lotes 2026-10-01 y 2026-10-13), revisadas por 3 revisores independientes. Las tallas no venían en las fichas: null hasta que el cliente las confirme (npm run shopify:nuevos no genera el CSV mientras falten). Rutas de fotos relativas a assets/source; las listas para subir salen con npm run shopify:fotos (quita restos de captura de los bordes).",
+  "_fuente": "Fichas del cliente pegadas el 2026-10-14 (chaquetón cruzado e impermeable térmica) + fotos de assets/source (lotes 2026-10-01 y 2026-10-13), revisadas por 3 revisores independientes. Tallas S a 2XL confirmadas por el usuario el 2026-10-15 (no venían en las fichas). Rutas de fotos relativas a assets/source; las listas para subir salen con npm run shopify:fotos (quita restos de captura de los bordes).",
   "products": [
     {
       "handle": "chaqueton-estilo-cruzado-para-dama",
@@ -11,7 +11,7 @@
       "price": 90000,
       "compareAt": null,
       "promoX2": 150000,
-      "sizes": null,
+      "sizes": ["S", "M", "L", "XL", "2XL"],
       "material": "Algodón perchado Mónaco: térmico, suave al tacto y muy durable",
       "summary": "Corte cruzado con cremallera diagonal, capota amplia y hebillas en las mangas.",
       "description": "Chaquetón de corte cruzado, abrigado y suave, que se adapta a la figura.",
@@ -53,7 +53,7 @@
       "price": 97000,
       "compareAt": null,
       "promoX2": 165000,
-      "sizes": null,
+      "sizes": ["S", "M", "L", "XL", "2XL"],
       "material": "Exterior en súper nailon impermeable de alta resistencia; forro térmico en yersilon",
       "summary": "Súper nailon impermeable, forro térmico y cintura ajustable con cordón.",
       "description": "Protege del frío y de la lluvia: el exterior repele el agua y corta el viento, y el forro, suave por dentro, mantiene el calor.",

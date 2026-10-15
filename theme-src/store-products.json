@@ -1,12 +1,1353 @@
 [
  {
+  "id": 15410094538857,
+  "title": "CHAQUETA IMPERMEABLE TÉRMICA",
+  "handle": "chaqueta-impermeable-termica",
+  "body_html": "<p>Protege del frío y de la lluvia: el exterior repele el agua y corta el viento, y el forro, suave por dentro, mantiene el calor.</p><ul>\n<li>Cremallera frontal de seguridad de 90 cm, con cursor de seguridad</li>\n<li>Cordón con caucho y tancas ajustables en la cintura</li>\n<li>Confección reforzada</li>\n<li>Etiqueta de marca, empaque en cartón y marquilla original</li>\n</ul><p><strong>Tela:</strong> Exterior en súper nailon impermeable de alta resistencia; forro térmico en yersilon.</p><p><strong>Tallas:</strong> S, M, L, XL, 2XL.</p><p>Envío gratis y pago contraentrega.</p>",
+  "published_at": "2026-10-15T09:31:20-05:00",
+  "created_at": "2026-10-15T09:31:20-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
+  "vendor": "magic world",
+  "product_type": "Chaqueta",
+  "tags": [
+   "Chaquetas",
+   "Mujer"
+  ],
+  "variants": [
+   {
+    "id": 67699785465961,
+    "title": "ROJO / S",
+    "option1": "ROJO",
+    "option2": "S",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068199529,
+     "product_id": 15410094538857,
+     "position": 1,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color rojo, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-rojo-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785465961,
+      67699785498729,
+      67699785531497,
+      67699785564265,
+      67699785597033
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 1,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785498729,
+    "title": "ROJO / M",
+    "option1": "ROJO",
+    "option2": "M",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068199529,
+     "product_id": 15410094538857,
+     "position": 1,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color rojo, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-rojo-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785465961,
+      67699785498729,
+      67699785531497,
+      67699785564265,
+      67699785597033
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 2,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785531497,
+    "title": "ROJO / L",
+    "option1": "ROJO",
+    "option2": "L",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068199529,
+     "product_id": 15410094538857,
+     "position": 1,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color rojo, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-rojo-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785465961,
+      67699785498729,
+      67699785531497,
+      67699785564265,
+      67699785597033
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 3,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785564265,
+    "title": "ROJO / XL",
+    "option1": "ROJO",
+    "option2": "XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068199529,
+     "product_id": 15410094538857,
+     "position": 1,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color rojo, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-rojo-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785465961,
+      67699785498729,
+      67699785531497,
+      67699785564265,
+      67699785597033
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 4,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785597033,
+    "title": "ROJO / 2XL",
+    "option1": "ROJO",
+    "option2": "2XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068199529,
+     "product_id": 15410094538857,
+     "position": 1,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color rojo, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-rojo-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785465961,
+      67699785498729,
+      67699785531497,
+      67699785564265,
+      67699785597033
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 5,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785629801,
+    "title": "AZUL OSCURO / S",
+    "option1": "AZUL OSCURO",
+    "option2": "S",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068297833,
+     "product_id": 15410094538857,
+     "position": 4,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:23-05:00",
+     "alt": "Chaqueta impermeable térmica en color azul oscuro, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-1.jpg?v=1792074683",
+     "variant_ids": [
+      67699785629801,
+      67699785662569,
+      67699785695337,
+      67699785728105,
+      67699785760873
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 6,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785662569,
+    "title": "AZUL OSCURO / M",
+    "option1": "AZUL OSCURO",
+    "option2": "M",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068297833,
+     "product_id": 15410094538857,
+     "position": 4,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:23-05:00",
+     "alt": "Chaqueta impermeable térmica en color azul oscuro, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-1.jpg?v=1792074683",
+     "variant_ids": [
+      67699785629801,
+      67699785662569,
+      67699785695337,
+      67699785728105,
+      67699785760873
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 7,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785695337,
+    "title": "AZUL OSCURO / L",
+    "option1": "AZUL OSCURO",
+    "option2": "L",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068297833,
+     "product_id": 15410094538857,
+     "position": 4,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:23-05:00",
+     "alt": "Chaqueta impermeable térmica en color azul oscuro, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-1.jpg?v=1792074683",
+     "variant_ids": [
+      67699785629801,
+      67699785662569,
+      67699785695337,
+      67699785728105,
+      67699785760873
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 8,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785728105,
+    "title": "AZUL OSCURO / XL",
+    "option1": "AZUL OSCURO",
+    "option2": "XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068297833,
+     "product_id": 15410094538857,
+     "position": 4,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:23-05:00",
+     "alt": "Chaqueta impermeable térmica en color azul oscuro, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-1.jpg?v=1792074683",
+     "variant_ids": [
+      67699785629801,
+      67699785662569,
+      67699785695337,
+      67699785728105,
+      67699785760873
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 9,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785760873,
+    "title": "AZUL OSCURO / 2XL",
+    "option1": "AZUL OSCURO",
+    "option2": "2XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068297833,
+     "product_id": 15410094538857,
+     "position": 4,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:23-05:00",
+     "alt": "Chaqueta impermeable térmica en color azul oscuro, puesta",
+     "width": 1286,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-1.jpg?v=1792074683",
+     "variant_ids": [
+      67699785629801,
+      67699785662569,
+      67699785695337,
+      67699785728105,
+      67699785760873
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 10,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785793641,
+    "title": "NEGRO / S",
+    "option1": "NEGRO",
+    "option2": "S",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068428905,
+     "product_id": 15410094538857,
+     "position": 8,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color negro, de frente",
+     "width": 1080,
+     "height": 1342,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-negro-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785793641,
+      67699785826409,
+      67699785859177,
+      67699785891945,
+      67699785924713
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 11,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785826409,
+    "title": "NEGRO / M",
+    "option1": "NEGRO",
+    "option2": "M",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068428905,
+     "product_id": 15410094538857,
+     "position": 8,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color negro, de frente",
+     "width": 1080,
+     "height": 1342,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-negro-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785793641,
+      67699785826409,
+      67699785859177,
+      67699785891945,
+      67699785924713
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 12,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785859177,
+    "title": "NEGRO / L",
+    "option1": "NEGRO",
+    "option2": "L",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068428905,
+     "product_id": 15410094538857,
+     "position": 8,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color negro, de frente",
+     "width": 1080,
+     "height": 1342,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-negro-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785793641,
+      67699785826409,
+      67699785859177,
+      67699785891945,
+      67699785924713
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 13,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785891945,
+    "title": "NEGRO / XL",
+    "option1": "NEGRO",
+    "option2": "XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068428905,
+     "product_id": 15410094538857,
+     "position": 8,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color negro, de frente",
+     "width": 1080,
+     "height": 1342,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-negro-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785793641,
+      67699785826409,
+      67699785859177,
+      67699785891945,
+      67699785924713
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 14,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699785924713,
+    "title": "NEGRO / 2XL",
+    "option1": "NEGRO",
+    "option2": "2XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758068428905,
+     "product_id": 15410094538857,
+     "position": 8,
+     "created_at": "2026-10-15T09:31:20-05:00",
+     "updated_at": "2026-10-15T09:31:22-05:00",
+     "alt": "Chaqueta impermeable térmica en color negro, de frente",
+     "width": 1080,
+     "height": 1342,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-negro-1.jpg?v=1792074682",
+     "variant_ids": [
+      67699785793641,
+      67699785826409,
+      67699785859177,
+      67699785891945,
+      67699785924713
+     ]
+    },
+    "available": true,
+    "price": "97000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 15,
+    "product_id": 15410094538857,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   }
+  ],
+  "images": [
+   {
+    "id": 36758068199529,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 1,
+    "updated_at": "2026-10-15T09:31:22-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [
+     67699785465961,
+     67699785498729,
+     67699785531497,
+     67699785564265,
+     67699785597033
+    ],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-rojo-1.jpg?v=1792074682",
+    "width": 1286,
+    "height": 1600
+   },
+   {
+    "id": 36758068232297,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 2,
+    "updated_at": "2026-10-15T09:31:22-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-rojo-2.jpg?v=1792074682",
+    "width": 1080,
+    "height": 1342
+   },
+   {
+    "id": 36758068265065,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 3,
+    "updated_at": "2026-10-15T09:31:22-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-rojo-3.jpg?v=1792074682",
+    "width": 1080,
+    "height": 1344
+   },
+   {
+    "id": 36758068297833,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 4,
+    "updated_at": "2026-10-15T09:31:23-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [
+     67699785629801,
+     67699785662569,
+     67699785695337,
+     67699785728105,
+     67699785760873
+    ],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-1.jpg?v=1792074683",
+    "width": 1286,
+    "height": 1600
+   },
+   {
+    "id": 36758068330601,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 5,
+    "updated_at": "2026-10-15T09:31:22-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-2.jpg?v=1792074682",
+    "width": 1080,
+    "height": 1343
+   },
+   {
+    "id": 36758068363369,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 6,
+    "updated_at": "2026-10-15T09:31:22-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-3.jpg?v=1792074682",
+    "width": 1194,
+    "height": 1600
+   },
+   {
+    "id": 36758068396137,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 7,
+    "updated_at": "2026-10-15T09:31:22-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-azul-oscuro-4.jpg?v=1792074682",
+    "width": 1281,
+    "height": 1600
+   },
+   {
+    "id": 36758068428905,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 8,
+    "updated_at": "2026-10-15T09:31:22-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [
+     67699785793641,
+     67699785826409,
+     67699785859177,
+     67699785891945,
+     67699785924713
+    ],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-negro-1.jpg?v=1792074682",
+    "width": 1080,
+    "height": 1342
+   },
+   {
+    "id": 36758068461673,
+    "created_at": "2026-10-15T09:31:20-05:00",
+    "position": 9,
+    "updated_at": "2026-10-15T09:31:22-05:00",
+    "product_id": 15410094538857,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/impermeable-termica-negro-2.jpg?v=1792074682",
+    "width": 1080,
+    "height": 1343
+   }
+  ],
+  "options": [
+   {
+    "name": "COLOR",
+    "position": 1,
+    "values": [
+     "ROJO",
+     "AZUL OSCURO",
+     "NEGRO"
+    ]
+   },
+   {
+    "name": "Talla",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 15410093752425,
+  "title": "CHAQUETÓN ESTILO CRUZADO PARA DAMA",
+  "handle": "chaqueton-estilo-cruzado-para-dama",
+  "body_html": "<p>Chaquetón de corte cruzado, abrigado y suave, que se adapta a la figura.</p><ul>\n<li>Cremallera frontal diagonal de 75 cm</li>\n<li>Capota amplia</li>\n<li>Hebillas decorativas en las mangas</li>\n<li>Buenos acabados, con buena horma y resistencia</li>\n</ul><p><strong>Tela:</strong> Algodón perchado Mónaco: térmico, suave al tacto y muy durable.</p><p><strong>Tallas:</strong> S, M, L, XL, 2XL.</p><p>Envío gratis y pago contraentrega.</p>",
+  "published_at": "2026-10-15T09:27:22-05:00",
+  "created_at": "2026-10-15T09:27:23-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
+  "vendor": "magic world",
+  "product_type": "Chaquetón",
+  "tags": [
+   "Chaquetas",
+   "Mujer"
+  ],
+  "variants": [
+   {
+    "id": 67699775340649,
+    "title": "ROJO / S",
+    "option1": "ROJO",
+    "option2": "S",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057681001,
+     "product_id": 15410093752425,
+     "position": 1,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color rojo, puesto",
+     "width": 1194,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775340649,
+      67699775373417,
+      67699775406185,
+      67699775438953,
+      67699775471721
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 1,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775373417,
+    "title": "ROJO / M",
+    "option1": "ROJO",
+    "option2": "M",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057681001,
+     "product_id": 15410093752425,
+     "position": 1,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color rojo, puesto",
+     "width": 1194,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775340649,
+      67699775373417,
+      67699775406185,
+      67699775438953,
+      67699775471721
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 2,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775406185,
+    "title": "ROJO / L",
+    "option1": "ROJO",
+    "option2": "L",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057681001,
+     "product_id": 15410093752425,
+     "position": 1,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color rojo, puesto",
+     "width": 1194,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775340649,
+      67699775373417,
+      67699775406185,
+      67699775438953,
+      67699775471721
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 3,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775438953,
+    "title": "ROJO / XL",
+    "option1": "ROJO",
+    "option2": "XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057681001,
+     "product_id": 15410093752425,
+     "position": 1,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color rojo, puesto",
+     "width": 1194,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775340649,
+      67699775373417,
+      67699775406185,
+      67699775438953,
+      67699775471721
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 4,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775471721,
+    "title": "ROJO / 2XL",
+    "option1": "ROJO",
+    "option2": "2XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057681001,
+     "product_id": 15410093752425,
+     "position": 1,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color rojo, puesto",
+     "width": 1194,
+     "height": 1600,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775340649,
+      67699775373417,
+      67699775406185,
+      67699775438953,
+      67699775471721
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 5,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775504489,
+    "title": "NEGRO / S",
+    "option1": "NEGRO",
+    "option2": "S",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057812073,
+     "product_id": 15410093752425,
+     "position": 5,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color negro, de frente, con la capota puesta",
+     "width": 1080,
+     "height": 1344,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775504489,
+      67699775537257,
+      67699775570025,
+      67699775602793,
+      67699775635561
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 6,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775537257,
+    "title": "NEGRO / M",
+    "option1": "NEGRO",
+    "option2": "M",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057812073,
+     "product_id": 15410093752425,
+     "position": 5,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color negro, de frente, con la capota puesta",
+     "width": 1080,
+     "height": 1344,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775504489,
+      67699775537257,
+      67699775570025,
+      67699775602793,
+      67699775635561
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 7,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775570025,
+    "title": "NEGRO / L",
+    "option1": "NEGRO",
+    "option2": "L",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057812073,
+     "product_id": 15410093752425,
+     "position": 5,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color negro, de frente, con la capota puesta",
+     "width": 1080,
+     "height": 1344,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775504489,
+      67699775537257,
+      67699775570025,
+      67699775602793,
+      67699775635561
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 8,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775602793,
+    "title": "NEGRO / XL",
+    "option1": "NEGRO",
+    "option2": "XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057812073,
+     "product_id": 15410093752425,
+     "position": 5,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color negro, de frente, con la capota puesta",
+     "width": 1080,
+     "height": 1344,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775504489,
+      67699775537257,
+      67699775570025,
+      67699775602793,
+      67699775635561
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 9,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699775635561,
+    "title": "NEGRO / 2XL",
+    "option1": "NEGRO",
+    "option2": "2XL",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": {
+     "id": 36758057812073,
+     "product_id": 15410093752425,
+     "position": 5,
+     "created_at": "2026-10-15T09:27:23-05:00",
+     "updated_at": "2026-10-15T09:27:25-05:00",
+     "alt": "Chaquetón estilo cruzado para dama en color negro, de frente, con la capota puesta",
+     "width": 1080,
+     "height": 1344,
+     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-1.jpg?v=1792074445",
+     "variant_ids": [
+      67699775504489,
+      67699775537257,
+      67699775570025,
+      67699775602793,
+      67699775635561
+     ]
+    },
+    "available": true,
+    "price": "90000.00",
+    "grams": 0,
+    "compare_at_price": null,
+    "position": 10,
+    "product_id": 15410093752425,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   }
+  ],
+  "images": [
+   {
+    "id": 36758057681001,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "position": 1,
+    "updated_at": "2026-10-15T09:27:25-05:00",
+    "product_id": 15410093752425,
+    "variant_ids": [
+     67699775340649,
+     67699775373417,
+     67699775406185,
+     67699775438953,
+     67699775471721
+    ],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-1.jpg?v=1792074445",
+    "width": 1194,
+    "height": 1600
+   },
+   {
+    "id": 36758057713769,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "position": 2,
+    "updated_at": "2026-10-15T09:27:25-05:00",
+    "product_id": 15410093752425,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-2.jpg?v=1792074445",
+    "width": 1194,
+    "height": 1600
+   },
+   {
+    "id": 36758057746537,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "position": 3,
+    "updated_at": "2026-10-15T09:27:25-05:00",
+    "product_id": 15410093752425,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-3.jpg?v=1792074445",
+    "width": 1194,
+    "height": 1600
+   },
+   {
+    "id": 36758057779305,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "position": 4,
+    "updated_at": "2026-10-15T09:27:25-05:00",
+    "product_id": 15410093752425,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-rojo-4.jpg?v=1792074445",
+    "width": 1275,
+    "height": 1597
+   },
+   {
+    "id": 36758057812073,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "position": 5,
+    "updated_at": "2026-10-15T09:27:25-05:00",
+    "product_id": 15410093752425,
+    "variant_ids": [
+     67699775504489,
+     67699775537257,
+     67699775570025,
+     67699775602793,
+     67699775635561
+    ],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-1.jpg?v=1792074445",
+    "width": 1080,
+    "height": 1344
+   },
+   {
+    "id": 36758057844841,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "position": 6,
+    "updated_at": "2026-10-15T09:27:25-05:00",
+    "product_id": 15410093752425,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-2.jpg?v=1792074445",
+    "width": 1080,
+    "height": 1350
+   },
+   {
+    "id": 36758057877609,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "position": 7,
+    "updated_at": "2026-10-15T09:27:25-05:00",
+    "product_id": 15410093752425,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-3.jpg?v=1792074445",
+    "width": 1080,
+    "height": 1349
+   },
+   {
+    "id": 36758057910377,
+    "created_at": "2026-10-15T09:27:23-05:00",
+    "position": 8,
+    "updated_at": "2026-10-15T09:27:25-05:00",
+    "product_id": 15410093752425,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueton-cruzado-negro-4.jpg?v=1792074445",
+    "width": 1080,
+    "height": 1353
+   }
+  ],
+  "options": [
+   {
+    "name": "COLOR",
+    "position": 1,
+    "values": [
+     "ROJO",
+     "NEGRO"
+    ]
+   },
+   {
+    "name": "Talla",
+    "position": 2,
+    "values": [
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL"
+    ]
+   }
+  ]
+ },
+ {
+  "id": 15390068015209,
+  "title": "CHAQUETA NORDICA PARA HOMBRE",
+  "handle": "chaqueta-nordica-para-hombre",
+  "body_html": "",
+  "published_at": "2026-10-02T10:53:49-05:00",
+  "created_at": "2026-10-02T10:53:48-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
+  "vendor": "magic world",
+  "product_type": "",
+  "tags": [],
+  "variants": [
+   {
+    "id": 67580777005161,
+    "title": "Default Title",
+    "option1": "Default Title",
+    "option2": null,
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": true,
+    "featured_image": null,
+    "available": false,
+    "price": "85000.00",
+    "grams": 1000,
+    "compare_at_price": null,
+    "position": 1,
+    "product_id": 15390068015209,
+    "created_at": "2026-10-02T10:53:48-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   }
+  ],
+  "images": [
+   {
+    "id": 36649405022313,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 1,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_sr3wuhsr3wuhsr3w.jpg?v=1790955349",
+    "width": 896,
+    "height": 1198
+   },
+   {
+    "id": 36649405218921,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 2,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/040202bc-4db5-4a33-ac71-57e04b807636.jpg?v=1790955349",
+    "width": 766,
+    "height": 1024
+   },
+   {
+    "id": 36649405120617,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 3,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/49de3315-28b9-418f-b042-3596148b2dfb.jpg?v=1790955349",
+    "width": 766,
+    "height": 1024
+   },
+   {
+    "id": 36649405055081,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 4,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/499fbcdf-850a-4dda-a233-316980187dcd.jpg?v=1790955349",
+    "width": 766,
+    "height": 1024
+   },
+   {
+    "id": 36649405251689,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 5,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_u8hx41u8hx41u8hx.jpg?v=1790955349",
+    "width": 896,
+    "height": 1198
+   },
+   {
+    "id": 36649405153385,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 6,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/45e2d751-5280-4afc-97bd-ff617aae0e9f.jpg?v=1790955349",
+    "width": 766,
+    "height": 1024
+   },
+   {
+    "id": 36649405087849,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 7,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/d023d5ac-bfe0-4d77-be87-0c4be15297d8.jpg?v=1790955349",
+    "width": 766,
+    "height": 1024
+   },
+   {
+    "id": 36649405186153,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 8,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/64766900-8097-4278-a160-f00e5f885b57.jpg?v=1790955349",
+    "width": 766,
+    "height": 1024
+   },
+   {
+    "id": 36649405284457,
+    "created_at": "2026-10-02T10:35:47-05:00",
+    "position": 9,
+    "updated_at": "2026-10-02T10:35:49-05:00",
+    "product_id": 15390068015209,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_43bwa43bwa43bwa4.jpg?v=1790955349",
+    "width": 896,
+    "height": 1198
+   }
+  ],
+  "options": [
+   {
+    "name": "Title",
+    "position": 1,
+    "values": [
+     "Default Title"
+    ]
+   }
+  ]
+ },
+ {
   "id": 9409789788265,
   "title": "CHAQUETA UFC COMBINADA PARA HOMBRE",
   "handle": "chaqueta-ufc-combinada-para-hombre",
   "body_html": "<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_5mpdc05mpdc05mpd.jpg?v=1787257511\" alt=\"\"><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_x3912dx3912dx391.jpg?v=1786756322\" alt=\"\"><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_ieek9hieek9hieek.jpg?v=1786751762\" alt=\"\"></p>\n<p>🔥 <b>CHAQUETA UFC COMBINADA — ESTILO Y PODER EN CADA DETALLE</b> 🔥</p>\n<p>Eleva tu <i>outfit</i> al siguiente nivel con el balance perfecto entre confort y actitud urbana. Diseñada para quienes no temen destacar. 😎</p>\n<p>✨ <b>¿Por qué te va a encantar?</b></p>\n<ul>\n<li>\n<p><b>Diseño exclusivo:</b> Combinación raglán bicolor de alto contraste que estiliza tu figura. 🔲</p>\n</li>\n<li>\n<p><b>Detalles premium:</b> Cierre frontal completo, bolsillos funcionales y capota amplia para mayor cobertura. 🧥</p>\n</li>\n<li>\n<p><b>Ajuste perfecto:</b> Pretina y puños reforzados en color negro que aseguran máxima durabilidad y un entalle impecable. 🎯</p>\n</li>\n<li>\n<p><b>Sello inconfundible:</b> Estampado UFC en el pecho que demuestra tu pasión por el entrenamiento y el estilo de vida activo. 🥊</p>\n</li>\n</ul>\n<p>⚡ <i>¡Unidades limitadas! Añádela al carrito y domina la calle.</i> 🛒👇</p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_k9npzok9npzok9np.jpg?v=1787256764\" alt=\"\"></p>",
   "published_at": "2026-08-04T11:16:22-05:00",
   "created_at": "2026-08-04T11:16:21-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -28,7 +1369,7 @@
     "position": 1,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020026473,
@@ -47,7 +1388,7 @@
     "position": 2,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020059241,
@@ -66,7 +1407,7 @@
     "position": 3,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020092009,
@@ -85,7 +1426,7 @@
     "position": 4,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020124777,
@@ -104,7 +1445,7 @@
     "position": 5,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020157545,
@@ -123,7 +1464,7 @@
     "position": 6,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020190313,
@@ -142,7 +1483,7 @@
     "position": 7,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020223081,
@@ -161,7 +1502,7 @@
     "position": 8,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020255849,
@@ -180,7 +1521,7 @@
     "position": 9,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020288617,
@@ -199,7 +1540,7 @@
     "position": 10,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020321385,
@@ -218,7 +1559,7 @@
     "position": 11,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020354153,
@@ -237,7 +1578,7 @@
     "position": 12,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020386921,
@@ -256,7 +1597,7 @@
     "position": 13,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020419689,
@@ -275,7 +1616,7 @@
     "position": 14,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47870020452457,
@@ -294,7 +1635,7 @@
     "position": 15,
     "product_id": 9409789788265,
     "created_at": "2026-08-04T12:05:24-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -425,10 +1766,10 @@
   "id": 7694413004905,
   "title": "CHAQUETA DE MODA CASUAL PARA HOMBRE",
   "handle": "chaqueta-outdoor-poliester",
-  "body_html": "<h3><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_b76erfb76erfb76e.jpg?v=1789135483\" alt=\"\"></h3>\n<h3><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_5mpdc05mpdc05mpd.jpg?v=1787257511\" alt=\"\"></h3>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_x3912dx3912dx391.jpg?v=1786756322\" alt=\"\"></p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_ieek9hieek9hieek.jpg?v=1786751762\" alt=\"\"></p>\n<h3>🔥 CHAQUETA DE MODA CASUAL PARA HOMBRE<strong> — SOLO $75.000 🔥</strong>\n</h3>\n<p>✨ <strong>OFERTA ESPECIAL + PAGO EN CASA + ENVIO GRATIS </strong> ✨</p>\n<p>Prepárate para cualquier clima con nuestra <strong>CHAQUETA DE MODA CASUAL PARA HOMBRE</strong>, diseñada para brindar <strong>protección, comodidad y estilo deportivo</strong> en tus actividades diarias o al aire libre.</p>\n<p>💥 <strong>¿Por qué comprarla?</strong><br>Porque es una chaqueta versátil que te acompaña en cualquier plan, protege sin ser pesada y hoy la consigues a un <strong>precio especial de solo $75.000</strong>.</p>\n<p>📦 <strong>Pídela ahora y paga al recibir. ¡Un básico outdoor que no puede faltar!</strong></p>\n<p><strong><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_k9npzok9npzok9np.jpg?v=1787256764\" alt=\"\"></strong></p>",
+  "body_html": "<h3><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_b76erfb76erfb76e.jpg?v=1789135483\" alt=\"\"></h3>\n<h3><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_5mpdc05mpdc05mpd.jpg?v=1787257511\" alt=\"\"></h3>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_x3912dx3912dx391.jpg?v=1786756322\" alt=\"\"></p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_ieek9hieek9hieek.jpg?v=1786751762\" alt=\"\"></p>\n<h3>🔥 CHAQUETA DE MODA CASUAL PARA HOMBRE<strong> — SOLO $79.990 🔥</strong>\n</h3>\n<p>✨ <strong>OFERTA ESPECIAL + PAGO EN CASA + ENVIO GRATIS </strong> ✨</p>\n<p>Prepárate para cualquier clima con nuestra <strong>CHAQUETA DE MODA CASUAL PARA HOMBRE</strong>, diseñada para brindar <strong>protección, comodidad y estilo deportivo</strong> en tus actividades diarias o al aire libre.</p>\n<p>💥 <strong>¿Por qué comprarla?</strong><br>Porque es una chaqueta versátil que te acompaña en cualquier plan, protege sin ser pesada y hoy la consigues a un <strong>precio especial de solo $79.990</strong>.</p>\n<p>📦 <strong>Pídela ahora y paga al recibir. ¡Un básico outdoor que no puede faltar!</strong></p>\n<p><strong><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_k9npzok9npzok9np.jpg?v=1787256764\" alt=\"\"></strong></p>",
   "published_at": "2026-01-30T11:16:34-05:00",
   "created_at": "2026-01-30T11:16:33-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -444,13 +1785,13 @@
     "taxable": false,
     "featured_image": null,
     "available": true,
-    "price": "75000.00",
+    "price": "79990.00",
     "grams": 0,
     "compare_at_price": "150000.00",
     "position": 1,
     "product_id": 7694413004905,
     "created_at": "2026-07-24T11:01:48-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47831583916137,
@@ -463,13 +1804,13 @@
     "taxable": false,
     "featured_image": null,
     "available": true,
-    "price": "75000.00",
+    "price": "79990.00",
     "grams": 0,
     "compare_at_price": "150000.00",
     "position": 2,
     "product_id": 7694413004905,
     "created_at": "2026-07-24T11:01:48-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47831583948905,
@@ -482,13 +1823,13 @@
     "taxable": false,
     "featured_image": null,
     "available": true,
-    "price": "75000.00",
+    "price": "79990.00",
     "grams": 0,
     "compare_at_price": "150000.00",
     "position": 3,
     "product_id": 7694413004905,
     "created_at": "2026-07-24T11:01:48-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47831583981673,
@@ -501,13 +1842,13 @@
     "taxable": false,
     "featured_image": null,
     "available": true,
-    "price": "75000.00",
+    "price": "79990.00",
     "grams": 0,
     "compare_at_price": "150000.00",
     "position": 4,
     "product_id": 7694413004905,
     "created_at": "2026-07-24T11:01:48-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47831584014441,
@@ -520,13 +1861,108 @@
     "taxable": false,
     "featured_image": null,
     "available": true,
-    "price": "75000.00",
+    "price": "79990.00",
     "grams": 0,
     "compare_at_price": "150000.00",
     "position": 5,
     "product_id": 7694413004905,
     "created_at": "2026-07-24T11:01:48-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699790381161,
+    "title": "S / NEGRO",
+    "option1": "S",
+    "option2": "NEGRO",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": null,
+    "available": true,
+    "price": "79990.00",
+    "grams": 0,
+    "compare_at_price": "150000.00",
+    "position": 6,
+    "product_id": 7694413004905,
+    "created_at": "2026-10-15T09:35:47-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699790413929,
+    "title": "M / NEGRO",
+    "option1": "M",
+    "option2": "NEGRO",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": null,
+    "available": true,
+    "price": "79990.00",
+    "grams": 0,
+    "compare_at_price": "150000.00",
+    "position": 7,
+    "product_id": 7694413004905,
+    "created_at": "2026-10-15T09:35:47-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699790446697,
+    "title": "L / NEGRO",
+    "option1": "L",
+    "option2": "NEGRO",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": null,
+    "available": true,
+    "price": "79990.00",
+    "grams": 0,
+    "compare_at_price": "150000.00",
+    "position": 8,
+    "product_id": 7694413004905,
+    "created_at": "2026-10-15T09:35:47-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699790479465,
+    "title": "XL / NEGRO",
+    "option1": "XL",
+    "option2": "NEGRO",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": null,
+    "available": true,
+    "price": "79990.00",
+    "grams": 0,
+    "compare_at_price": "150000.00",
+    "position": 9,
+    "product_id": 7694413004905,
+    "created_at": "2026-10-15T09:35:47-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
+   },
+   {
+    "id": 67699790512233,
+    "title": "2XL / NEGRO",
+    "option1": "2XL",
+    "option2": "NEGRO",
+    "option3": null,
+    "sku": null,
+    "requires_shipping": true,
+    "taxable": false,
+    "featured_image": null,
+    "available": true,
+    "price": "79990.00",
+    "grams": 0,
+    "compare_at_price": "150000.00",
+    "position": 10,
+    "product_id": 7694413004905,
+    "created_at": "2026-10-15T09:35:47-05:00",
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -562,6 +1998,39 @@
     "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/5_14.png?v=1776183080",
     "width": 1080,
     "height": 1350
+   },
+   {
+    "id": 36758076817513,
+    "created_at": "2026-10-15T09:38:50-05:00",
+    "position": 4,
+    "updated_at": "2026-10-15T09:38:52-05:00",
+    "product_id": 7694413004905,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueta-casual-negro-1.jpg?v=1792075132",
+    "width": 1297,
+    "height": 1600
+   },
+   {
+    "id": 36758076850281,
+    "created_at": "2026-10-15T09:38:50-05:00",
+    "position": 5,
+    "updated_at": "2026-10-15T09:38:51-05:00",
+    "product_id": 7694413004905,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueta-casual-negro-2.jpg?v=1792075131",
+    "width": 1297,
+    "height": 1600
+   },
+   {
+    "id": 36758076883049,
+    "created_at": "2026-10-15T09:38:50-05:00",
+    "position": 6,
+    "updated_at": "2026-10-15T09:38:51-05:00",
+    "product_id": 7694413004905,
+    "variant_ids": [],
+    "src": "https://cdn.shopify.com/s/files/1/0596/8727/2553/files/chaqueta-casual-negro-3.jpg?v=1792075131",
+    "width": 1080,
+    "height": 1323
    }
   ],
   "options": [
@@ -580,7 +2049,8 @@
     "name": "COLOR ",
     "position": 2,
     "values": [
-     "GRIS OSCURO"
+     "GRIS OSCURO",
+     "NEGRO"
     ]
    }
   ]
@@ -592,7 +2062,7 @@
   "body_html": "<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_5mpdc05mpdc05mpd.jpg?v=1787257511\" alt=\"\"></p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_x3912dx3912dx391.jpg?v=1786756322\" alt=\"\"></p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_ieek9hieek9hieek.jpg?v=1786751762\" alt=\"\"></p>\n<p>🔥 <strong>HOODIE EN ALGODÓN PERCHADO MONACO — CALIDAD PREMIUM Y ESTILO 🔥</strong><br>✨ <strong>OFERTA ESPECIAL + PAGO EN CASA</strong><strong> Y ENVIO GRATIS</strong>✨</p>\n<p>Conoce nuestro <strong>Hoodie en Algodón PERCHADO MONACO </strong>, una prenda diseñada para brindarte <strong>máxima comodidad, abrigo ligero y un look moderno</strong> que funciona para cualquier ocasión.</p>\n<p>💥 <strong>¿Por qué comprarlo?</strong><br>Porque es un hoodie que une <strong>estilo, calidad y confort</strong> en una sola prenda. Te verás bien, te sentirás cómodo y tendrás una pieza duradera en tu clóset.</p>\n<p>🚚 <strong>Pago en casa:</strong> lo recibes primero y pagas después. Sin riesgos, fácil y seguro.</p>\n<p>📦 <strong>Pide tu Hoodie en Algodón perchado hoy y lleva tu estilo a otro nivel.</strong></p>\n<p><strong><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_k9npzok9npzok9np.jpg?v=1787256764\" alt=\"\"></strong></p>",
   "published_at": "2026-01-26T11:01:47-05:00",
   "created_at": "2026-01-26T11:01:46-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -614,7 +2084,7 @@
     "position": 1,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718439017,
@@ -633,7 +2103,7 @@
     "position": 2,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42852888543337,
@@ -652,7 +2122,7 @@
     "position": 3,
     "product_id": 7689341272169,
     "created_at": "2026-01-26T11:01:46-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718537321,
@@ -671,7 +2141,7 @@
     "position": 4,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718504553,
@@ -690,7 +2160,7 @@
     "position": 5,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42852888576105,
@@ -709,7 +2179,7 @@
     "position": 6,
     "product_id": 7689341272169,
     "created_at": "2026-01-26T11:01:46-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718602857,
@@ -728,7 +2198,7 @@
     "position": 7,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718570089,
@@ -747,7 +2217,7 @@
     "position": 8,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42852888608873,
@@ -766,7 +2236,7 @@
     "position": 9,
     "product_id": 7689341272169,
     "created_at": "2026-01-26T11:01:46-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718668393,
@@ -785,7 +2255,7 @@
     "position": 10,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718635625,
@@ -804,7 +2274,7 @@
     "position": 11,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42852888641641,
@@ -823,7 +2293,7 @@
     "position": 12,
     "product_id": 7689341272169,
     "created_at": "2026-01-26T11:01:46-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718733929,
@@ -842,7 +2312,7 @@
     "position": 13,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763718701161,
@@ -861,7 +2331,7 @@
     "position": 14,
     "product_id": 7689341272169,
     "created_at": "2026-07-06T22:27:15-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42852888674409,
@@ -880,7 +2350,7 @@
     "position": 15,
     "product_id": 7689341272169,
     "created_at": "2026-01-26T11:01:46-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -1014,7 +2484,7 @@
   "body_html": "<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_5mpdc05mpdc05mpd.jpg?v=1787257511\" alt=\"\"></p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_x3912dx3912dx391.jpg?v=1786756322\" alt=\"\"></p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_ieek9hieek9hieek.jpg?v=1786751762\" alt=\"\"></p>\n<p>🔥 <strong>CHAQUETA DEPORTIVA PARA HOMBRE EN ALGODÓN — CALIDAD SUPERIOR 🔥</strong><br>✨ <strong>50% DE DESCUENTO + PAGO EN CASA</strong> ✨</p>\n<p>Diseñada para hombres que buscan <strong>comodidad, estilo y funcionalidad</strong>, nuestra <strong>chaqueta deportiva en algodón</strong> es la prenda ideal para acompañarte en tu rutina diaria, entrenamientos o salidas casuales.</p>\n<p>💥 <strong>¿Por qué comprarla?</strong><br>Porque es una chaqueta que <strong>rinde, dura y se ve bien</strong>, y hoy la llevas a un precio especial con descuento por tiempo limitado. Es una prenda básica que eleva cualquier outfit deportivo o urbano.</p>\n<p>🔥 <strong>Aprovecha la oferta antes de que se agote.</strong><br>📦 ¡Pídela ahora y paga al recibir!</p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_k9npzok9npzok9np.jpg?v=1787256764\" alt=\"\"></p>",
   "published_at": "2026-01-22T10:36:11-05:00",
   "created_at": "2026-01-22T10:36:09-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -1036,7 +2506,7 @@
     "position": 1,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594281065,
@@ -1055,7 +2525,7 @@
     "position": 2,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836260969,
@@ -1074,7 +2544,7 @@
     "position": 3,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836293737,
@@ -1093,7 +2563,7 @@
     "position": 4,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594477673,
@@ -1112,7 +2582,7 @@
     "position": 5,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594313833,
@@ -1131,7 +2601,7 @@
     "position": 6,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836326505,
@@ -1150,7 +2620,7 @@
     "position": 7,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836359273,
@@ -1169,7 +2639,7 @@
     "position": 8,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594510441,
@@ -1188,7 +2658,7 @@
     "position": 9,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594346601,
@@ -1207,7 +2677,7 @@
     "position": 10,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836392041,
@@ -1226,7 +2696,7 @@
     "position": 11,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836424809,
@@ -1245,7 +2715,7 @@
     "position": 12,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594543209,
@@ -1264,7 +2734,7 @@
     "position": 13,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594379369,
@@ -1283,7 +2753,7 @@
     "position": 14,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836457577,
@@ -1302,7 +2772,7 @@
     "position": 15,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836490345,
@@ -1321,7 +2791,7 @@
     "position": 16,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594575977,
@@ -1340,7 +2810,7 @@
     "position": 17,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47763594412137,
@@ -1359,7 +2829,7 @@
     "position": 18,
     "product_id": 7686246924393,
     "created_at": "2026-07-06T22:01:14-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836523113,
@@ -1378,7 +2848,7 @@
     "position": 19,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47838836555881,
@@ -1397,7 +2867,7 @@
     "position": 20,
     "product_id": 7686246924393,
     "created_at": "2026-07-27T17:25:06-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -1576,7 +3046,7 @@
   "body_html": "<h3><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_5mpdc05mpdc05mpd.jpg?v=1787257511\" alt=\"\"></h3>\n<h3>\n<img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Code_Generated_Image.png?v=1787357819\" alt=\"\"><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_ieek9hieek9hieek.jpg?v=1786751762\" alt=\"\">🔥 <strong>CHAQUETON PARA DAMA EN ALGODÓN — SOLO $87990 🔥</strong>\n</h3>\n<p>✨ <strong>50% DE DESCUENTO + PAGO EN CASA</strong> ✨</p>\n<p>Luce elegante y cómoda con nuestro <strong>gabán en algodón para dama</strong>, una prenda versátil que eleva cualquier outfit y te acompaña en los días frescos con estilo y suavidad.</p>\n<p>💥 <strong>¿Por qué comprarlo?</strong><br>Porque es una prenda básica pero elegante que combina con todo, dura mucho más y hoy la llevas a un <strong>precio increíble de solo $87990</strong></p>\n<p>🔥 <strong>Oferta por tiempo limitado — últimas unidades.</strong><br>📦 ¡Pide el tuyo ahora y paga al recibir!</p>\n<p><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Gemini_Generated_Image_k9npzok9npzok9np.jpg?v=1787256764\" alt=\"\"></p>",
   "published_at": "2026-01-14T15:12:37-05:00",
   "created_at": "2026-01-14T15:12:36-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -1598,7 +3068,7 @@
     "position": 1,
     "product_id": 7679784943721,
     "created_at": "2026-08-21T19:08:16-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47939096019049,
@@ -1617,7 +3087,7 @@
     "position": 2,
     "product_id": 7679784943721,
     "created_at": "2026-08-21T19:08:16-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47939096051817,
@@ -1636,7 +3106,7 @@
     "position": 3,
     "product_id": 7679784943721,
     "created_at": "2026-08-21T19:08:16-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47832070258793,
@@ -1655,7 +3125,7 @@
     "position": 4,
     "product_id": 7679784943721,
     "created_at": "2026-07-24T15:52:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47832070291561,
@@ -1674,7 +3144,7 @@
     "position": 5,
     "product_id": 7679784943721,
     "created_at": "2026-07-24T15:52:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47939096084585,
@@ -1693,7 +3163,7 @@
     "position": 6,
     "product_id": 7679784943721,
     "created_at": "2026-08-21T19:08:16-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47939096117353,
@@ -1712,7 +3182,7 @@
     "position": 7,
     "product_id": 7679784943721,
     "created_at": "2026-08-21T19:08:16-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47939096150121,
@@ -1731,7 +3201,7 @@
     "position": 8,
     "product_id": 7679784943721,
     "created_at": "2026-08-21T19:08:16-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47832070357097,
@@ -1750,7 +3220,7 @@
     "position": 9,
     "product_id": 7679784943721,
     "created_at": "2026-07-24T15:52:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 47832070389865,
@@ -1769,7 +3239,7 @@
     "position": 10,
     "product_id": 7679784943721,
     "created_at": "2026-07-24T15:52:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -1891,7 +3361,7 @@
   "body_html": "<p><img src=\"https://cdn.shopify.com/s/files/1/0524/2329/5144/files/Guia_de_talla_Mujer_480x480.jpg?v=1725315984\" alt=\"Guía de tallas | Belife\"><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">✨ ¡Luce increíble y mantente abrigada con nuestros Busos en Peluche para Mujer! ✨</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">🔥 OFERTA LIMITADA: $75.000 – 50% DE DESCUENTO + PAGO EN CASA 🔥</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">💖 Comodidad y estilo en una sola prenda:</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Nuestros busos en peluche están hechos con materiales ultra suaves y térmicos, perfectos para los días fríos. Su interior afelpado te abraza con calidez mientras su diseño moderno resalta tu estilo casual y femenino.</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">🌟 Beneficios que amarás:</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">❄️ Abrigo total: tejido de peluche grueso que conserva el calor corporal.</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">👚 Suavidad extrema: sensación acolchada y ligera al tacto.</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">💃 Diseño versátil: ideal para usar con jeans, leggins o pantalones tipo cargo.</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">🧼 Fácil de lavar: no se deforma ni pierde su textura.</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">🚚 Paga al recibirlo: sin riesgos, directo a la puerta de tu casa.</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">💥 ¿Por qué comprarlo?</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Porque combina moda, comodidad y practicidad en una sola prenda. Además, con este 50% de descuento, te llevas calidad premium a precio de oportunidad.</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">🩶 No te quedes sin el tuyo, los más lindos se agotan rápido.</span></span></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Haz tu pedido hoy y recibe tu buso en peluche por solo $75.000 con pago en casa.</span></span></p>",
   "published_at": "2025-11-06T13:11:16-05:00",
   "created_at": "2025-11-06T13:08:34-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -1930,7 +3400,7 @@
     "position": 1,
     "product_id": 7636256653417,
     "created_at": "2025-11-06T13:10:50-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42664387772521,
@@ -1966,7 +3436,7 @@
     "position": 2,
     "product_id": 7636256653417,
     "created_at": "2025-11-06T13:11:12-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42664387805289,
@@ -2002,7 +3472,7 @@
     "position": 3,
     "product_id": 7636256653417,
     "created_at": "2025-11-06T13:11:12-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42664387838057,
@@ -2038,7 +3508,7 @@
     "position": 4,
     "product_id": 7636256653417,
     "created_at": "2025-11-06T13:11:12-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42664387870825,
@@ -2074,7 +3544,7 @@
     "position": 5,
     "product_id": 7636256653417,
     "created_at": "2025-11-06T13:11:12-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42666082467945,
@@ -2110,7 +3580,7 @@
     "position": 6,
     "product_id": 7636256653417,
     "created_at": "2025-11-07T08:44:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42666082500713,
@@ -2146,7 +3616,7 @@
     "position": 7,
     "product_id": 7636256653417,
     "created_at": "2025-11-07T08:44:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42666082533481,
@@ -2182,7 +3652,7 @@
     "position": 8,
     "product_id": 7636256653417,
     "created_at": "2025-11-07T08:44:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42666082566249,
@@ -2218,7 +3688,7 @@
     "position": 9,
     "product_id": 7636256653417,
     "created_at": "2025-11-07T08:44:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42666082599017,
@@ -2254,7 +3724,7 @@
     "position": 10,
     "product_id": 7636256653417,
     "created_at": "2025-11-07T08:44:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42715861778537,
@@ -2290,7 +3760,7 @@
     "position": 11,
     "product_id": 7636256653417,
     "created_at": "2025-11-29T11:02:41-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42715861811305,
@@ -2326,7 +3796,7 @@
     "position": 12,
     "product_id": 7636256653417,
     "created_at": "2025-11-29T11:02:41-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42715861844073,
@@ -2362,7 +3832,7 @@
     "position": 13,
     "product_id": 7636256653417,
     "created_at": "2025-11-29T11:02:41-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42715861876841,
@@ -2398,7 +3868,7 @@
     "position": 14,
     "product_id": 7636256653417,
     "created_at": "2025-11-29T11:02:41-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42715861909609,
@@ -2434,7 +3904,7 @@
     "position": 15,
     "product_id": 7636256653417,
     "created_at": "2025-11-29T11:02:41-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -2575,7 +4045,7 @@
   "body_html": "<h2 style=\"text-align: center;\"><br></h2>\n<p data-end=\"357\" data-start=\"199\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">🌧️💃 </span></span><strong data-end=\"249\" data-start=\"205\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">¡NO MÁS ROPA MOJADA NI ESTILO ARRUINADO!</span></span></strong><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"> 💃🌧️ </span></span><br data-end=\"258\" data-start=\"255\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">¿Estás cansada de salir y terminar empapada por la lluvia? </span></span><br data-end=\"319\" data-start=\"316\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">¡Tenemos la solución perfecta para ti!</span></span></p>\n<p data-end=\"644\" data-start=\"359\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">👑 </span></span><strong data-end=\"414\" data-start=\"362\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Chaquetas Impermeables para Mujer en Súper Nylon</span></span></strong><br data-end=\"417\" data-start=\"414\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"> Diseñadas para mujeres prácticas, con estilo y que no se detiene por el clima. </span></span><br data-end=\"499\" data-start=\"496\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">✅ Súper resistentes al agua </span></span><br data-end=\"529\" data-start=\"526\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">✅ Livianas, frescas y cómodas </span></span><br data-end=\"561\" data-start=\"558\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">✅ Diseños modernos que combinan con todo </span></span><br data-end=\"604\" data-start=\"601\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">✅ ¡Protección real sin perder el estilo!</span></span></p>\n<p data-end=\"847\" data-start=\"646\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">🎯 </span></span><strong data-end=\"682\" data-start=\"649\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">¿Por qué debes tener la tuya?</span></span></strong><br data-end=\"685\" data-start=\"682\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"> Porque te cuidas, te valoras y mereces sentirte bien cada vez que salgas, sin importar si llueve o hace frío. ¡Esta chaqueta es tu nueva aliada para el día a día!</span></span></p>\n<p data-end=\"920\" data-start=\"849\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">💥 </span></span><strong data-end=\"891\" data-start=\"852\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">HOY solo $79.990 – 50% de DESCUENTO</span></span></strong><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"> 💥 </span></span><br data-end=\"897\" data-start=\"894\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">(PRECIO REAL: $160.000)</span></span></p>\n<p data-end=\"1019\" data-start=\"922\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">🛍️ </span></span><strong data-end=\"944\" data-start=\"926\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">¡Paga en casa!</span></span></strong><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"> Recibela y paga al momento de entrega. </span></span><br data-end=\"986\" data-start=\"983\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">🚚 Envío rápido – Cupos limitados</span></span></p>\n<p data-end=\"1128\" data-start=\"1021\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">⚠️¡SOLO </span></span><strong data-end=\"1042\" data-start=\"1024\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">POR HOY!</span></span></strong><br data-end=\"1045\" data-start=\"1042\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"> No te quedes sin la tuya. La próxima vez que llueva... vas a querer haberla pedido.</span></span></p>\n<p data-end=\"1189\" data-start=\"1130\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">📲 </span></span><strong data-end=\"1189\" data-start=\"1133\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Escríbenos ya y reserva la tuya antes que se agoten.</span></span></strong></p>\n<h2 style=\"text-align: center;\"><br></h2>\n<p><br></p>\n<p> </p>",
   "published_at": "2025-08-08T18:09:39-05:00",
   "created_at": "2025-08-08T18:09:33-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -2614,7 +4084,7 @@
     "position": 1,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375236713,
@@ -2650,7 +4120,7 @@
     "position": 2,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375269481,
@@ -2686,7 +4156,7 @@
     "position": 3,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375302249,
@@ -2722,7 +4192,7 @@
     "position": 4,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375335017,
@@ -2758,7 +4228,7 @@
     "position": 5,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375367785,
@@ -2794,7 +4264,7 @@
     "position": 6,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375400553,
@@ -2830,7 +4300,7 @@
     "position": 7,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375433321,
@@ -2866,7 +4336,7 @@
     "position": 8,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375466089,
@@ -2902,7 +4372,7 @@
     "position": 9,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375498857,
@@ -2938,7 +4408,7 @@
     "position": 10,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375531625,
@@ -2974,7 +4444,7 @@
     "position": 11,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375564393,
@@ -3010,7 +4480,7 @@
     "position": 12,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375597161,
@@ -3046,7 +4516,7 @@
     "position": 13,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375629929,
@@ -3082,7 +4552,7 @@
     "position": 14,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375662697,
@@ -3118,7 +4588,7 @@
     "position": 15,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375695465,
@@ -3154,7 +4624,7 @@
     "position": 16,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375728233,
@@ -3190,7 +4660,7 @@
     "position": 17,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375761001,
@@ -3226,7 +4696,7 @@
     "position": 18,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375793769,
@@ -3262,7 +4732,7 @@
     "position": 19,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42492375826537,
@@ -3298,7 +4768,7 @@
     "position": 20,
     "product_id": 7582475354217,
     "created_at": "2025-08-19T13:45:27-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -3578,7 +5048,7 @@
   "body_html": "<p><img src=\"https://cdn.shopify.com/s/files/1/0524/2329/5144/files/Guia_de_talla_Mujer_480x480.jpg?v=1725315984\" class=\"sFlh5c FyHeAf iPVvYb\" alt=\"Guía de tallas | Belife\"></p>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">¡Atención! 🚨 Esta es la oferta que no puedes dejar pasar.</span></span></p>\n<h3><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">¡La prenda perfecta para el frío ya está aquí! 🤩</span></span></h3>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Descubre nuestros abrigos de </span></span><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">lana para mujer</span></span></b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\"> , la combinación ideal de calidez, estilo y comodidad. Olvídate del frío sin sacrificar tu mirada.</span></span></p>\n<hr>\n<p><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Beneficios que te encantarán:</span></span></b></p>\n<ul>\n<li>\n<p><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Súper suaves y abrigadores:</span></span></b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\"> El material polar es conocido por su increíble suavidad y su capacidad para retener el calor, manteniéndote cómodo y protegido en los días más fríos.</span></span></p>\n</li>\n<li>\n<p><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Ligeros y versátiles:</span></span></b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\"> A diferencia de otros abrigos pesados, este es tan ligero que puedes llevar a todos los lados. Es perfecto para tus aviones al aire libre, un día en la oficina o simplemente para estar cómodo en casa.</span></span></p>\n</li>\n<li>\n<p><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Diseño moderno:</span></span></b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\"> Con un corte y colores que se adaptan a tu estilo, este abrigo es la pieza clave para realzar cualquier outfit. Combínalo con jeans, leggings o faldas.</span></span></p>\n</li>\n</ul>\n<h3><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">¡Aprovecha nuestra oferta especial! 🔥</span></span></h3>\n<ul>\n<li>\n<p><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">50% de descuento:</span></span></b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\"> Llévalo a un precio increíble, de $150.000 a solo </span></span><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">$75.000</span></span></b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\"> .</span></span></p>\n</li>\n<li>\n<p><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Paga en casa:</span></span></b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\"> Recíbelo en la puerta de tu hogar y paga al recibir. ¡Sin riesgos!</span></span></p>\n</li>\n</ul>\n<p><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">¡No dejes que se agoten! </span></span><b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\">Pide el tuyo ahora</span></span></b><span dir=\"auto\" style=\"vertical-align: inherit;\"><span dir=\"auto\" style=\"vertical-align: inherit;\"> y prepárate para lucir fantástico mientras te mantienes abrigada. ⏳</span></span></p>",
   "published_at": "2025-03-07T17:36:46-05:00",
   "created_at": "2025-03-07T17:36:46-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -3600,7 +5070,7 @@
     "position": 1,
     "product_id": 7493654642793,
     "created_at": "2025-08-21T13:32:11-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42499421765737,
@@ -3619,7 +5089,7 @@
     "position": 2,
     "product_id": 7493654642793,
     "created_at": "2025-08-21T13:32:11-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42499421798505,
@@ -3638,7 +5108,7 @@
     "position": 3,
     "product_id": 7493654642793,
     "created_at": "2025-08-21T13:32:11-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42499421831273,
@@ -3657,7 +5127,7 @@
     "position": 4,
     "product_id": 7493654642793,
     "created_at": "2025-08-21T13:32:11-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42499421864041,
@@ -3676,7 +5146,7 @@
     "position": 5,
     "product_id": 7493654642793,
     "created_at": "2025-08-21T13:32:11-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101094505,
@@ -3695,7 +5165,7 @@
     "position": 6,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101127273,
@@ -3714,7 +5184,7 @@
     "position": 7,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101160041,
@@ -3733,7 +5203,7 @@
     "position": 8,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101192809,
@@ -3752,7 +5222,7 @@
     "position": 9,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101225577,
@@ -3771,7 +5241,7 @@
     "position": 10,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101422185,
@@ -3790,7 +5260,7 @@
     "position": 11,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101454953,
@@ -3809,7 +5279,7 @@
     "position": 12,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101487721,
@@ -3828,7 +5298,7 @@
     "position": 13,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101520489,
@@ -3847,7 +5317,7 @@
     "position": 14,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238101553257,
@@ -3866,7 +5336,7 @@
     "position": 15,
     "product_id": 7493654642793,
     "created_at": "2025-04-18T19:20:30-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -3978,7 +5448,7 @@
   "body_html": "<h2 style=\"text-align: center;\"><img src=\"https://d2r9epyceweg5n.cloudfront.net/stores/001/011/318/rte/TABLA_BUZOS.jpg\" alt=\"Talles Medidas Buzo Medidas Buzo Hombre Tabla De Talles Buzos Hombre Buzo  De Lana\"></h2>\n<p data-end=\"344\" data-start=\"155\">🔥💪 <strong data-end=\"200\" data-start=\"160\">¡NO ES SOLO UN BUSO, ES UNA ACTITUD!</strong> 💪🔥<br data-end=\"208\" data-start=\"205\">¿Quieres sentirte cómodo, verte increíble y estar lista para todo el día?<br data-end=\"284\" data-start=\"281\">Tenemos el complemento perfecto para tu energía y tu estilo.</p>\n<p data-end=\"475\" data-start=\"346\">👕 <strong data-end=\"391\" data-start=\"349\">Buso Fit en ZURICH Premium</strong><br data-end=\"394\" data-start=\"391\">Diseñado para hombres que se mueven, que brillan y que no se conforman con menos.</p>\n<p data-end=\"633\" data-start=\"477\">✅ Tela suave, fresca y transpirable<br data-end=\"515\" data-start=\"512\">✅ Ajuste fit que estiliza tu figura<br data-end=\"553\" data-start=\"550\">✅ Costuras reforzadas para durar<br data-end=\"588\" data-start=\"585\">✅ Perfecto para entrenar, salir o relajarte</p>\n<p data-end=\"855\" data-start=\"635\">🎯 <strong data-end=\"665\" data-start=\"638\">¿Por qué debes tenerlo?</strong><br data-end=\"668\" data-start=\"665\">Porque mereces sentirte bien contigo misma en cada momento: al entrenar, salir a la calle o simplemente estar cómodo sin perder tu estilo. ¡Este buso es versátil, moderno y hecho para ti!</p>\n<p data-end=\"955\" data-start=\"857\">💥 <strong data-end=\"892\" data-start=\"860\">PRECIO ESPECIAL HOY: $76000</strong>💥<br data-end=\"898\" data-start=\"895\">(PRECIO REAL: $160.000 – ¡50% DE DESCUENTO SOLO POR HOY!)</p>\n<p data-end=\"1058\" data-start=\"957\">💸 <strong data-end=\"978\" data-start=\"960\">¡Paga en casa!</strong> Recíbelo y paga al momento de entrega.<br data-end=\"1020\" data-start=\"1017\">🚚 Envío rápido, unidades limitadas.</p>\n<p data-end=\"1158\" data-start=\"1060\">⚠️ <strong data-end=\"1080\" data-start=\"1063\">SOLO POR HOY.</strong><br data-end=\"1083\" data-start=\"1080\">No dejes pasar esta oportunidad de renovar tu outfit con calidad y actitud.</p>\n<p data-end=\"1219\" data-start=\"1160\">📲 <strong data-end=\"1219\" data-start=\"1163\">Escríbenos ya y asegura el tuyo antes que se agoten.</strong></p>",
   "published_at": "2024-12-03T19:14:21-05:00",
   "created_at": "2024-12-03T19:14:21-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -4000,7 +5470,7 @@
     "position": 1,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722692713,
@@ -4019,7 +5489,7 @@
     "position": 2,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722725481,
@@ -4038,7 +5508,7 @@
     "position": 3,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722758249,
@@ -4057,7 +5527,7 @@
     "position": 4,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722791017,
@@ -4076,7 +5546,7 @@
     "position": 5,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722987625,
@@ -4095,7 +5565,7 @@
     "position": 6,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967723020393,
@@ -4114,7 +5584,7 @@
     "position": 7,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967723053161,
@@ -4133,7 +5603,7 @@
     "position": 8,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967723085929,
@@ -4152,7 +5622,7 @@
     "position": 9,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967723118697,
@@ -4171,7 +5641,7 @@
     "position": 10,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722823785,
@@ -4190,7 +5660,7 @@
     "position": 11,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722856553,
@@ -4209,7 +5679,7 @@
     "position": 12,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722889321,
@@ -4228,7 +5698,7 @@
     "position": 13,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722922089,
@@ -4247,7 +5717,7 @@
     "position": 14,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41967722954857,
@@ -4266,7 +5736,7 @@
     "position": 15,
     "product_id": 7442777866345,
     "created_at": "2024-12-03T19:14:22-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -4400,7 +5870,7 @@
   "body_html": "<div class=\"product__description rte quick-add-hidden\">\n<h2 style=\"text-align: center;\"><img src=\"https://cdn.shopify.com/s/files/1/0689/0923/6482/files/WhatsApp_Image_2025-02-06_at_12.39.53_PM.jpg?v=1738872812\" width=\"569\" height=\"267\"></h2>\n<p style=\"text-align: center;\"><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Diseno_sin_titulo_16_67ed61cf-26e8-43e4-9b09-7655c8e7be25.jpg?v=1739219431\" alt=\"\"></p>\n<h2 style=\"text-align: center;\"><strong><img src=\"https://cdn.shopify.com/s/files/1/0689/0923/6482/files/WhatsApp_Image_2025-01-22_at_3.29.35_PM_480x480.jpg?v=1737578982\" width=\"556\" height=\"621\"></strong></h2>\n<p style=\"text-align: center;\"><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Diseno_sin_titulo_18_1f4afb9d-e352-4b03-96ab-22ceedd92d82.jpg?v=1739219431\" alt=\"\"></p>\n<p style=\"text-align: center;\"><img src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Diseno_sin_titulo_21_f7b8bc2f-eb94-45c1-8764-a0fe9187fa60.jpg?v=1739219431\" alt=\"\"></p>\n<p style=\"text-align: center;\"><img height=\"623\" width=\"561\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/1_483cd5de-e269-4409-a0c7-7fae26c713dd.jpg?v=1732117345\" alt=\"\"></p>\n<p style=\"text-align: center;\"><img alt=\"\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/ELABORADA_EN_BISONTE_SINTETICO.jpg?v=1732120708\" width=\"558\" height=\"558\"></p>\n<p style=\"text-align: center;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">ENVÍOS EN NUESTRA PÁGINA </span></span></p>\n<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">El envío es completamente GRATIS y los pagos son contra entrega. </span></span><br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">El envío tarda de 3 A 5 días si es para afuera de BOGOTÁ. </span></span><br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Si está en BOGOTÁ al siguiente día te hacemos la entrega.</span></span></p>\n<p style=\"text-align: center;\"><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">MÉTODOS DE PAGO</span></span></p>\n<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Todos nuestro pago son contra entrega.</span></span></p>\n<p style=\"text-align: center;\"><br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">CARACTERÍSTICAS</span></span></p>\n<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">La chaqueta primavera de cuadros está elaborada en bisonte sintético. </span></span><br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Cuenta con su respectivo prelavado. </span></span><br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Todas las tallas disponibles. </span></span><br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Todos los colores disponibles. </span></span><br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Entrega rápida y segura.</span></span></p>\n<p style=\"text-align: center;\"> <br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\"> GARANTÍA</span></span></p>\n<p><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Garantía de 30 días por costura. </span></span><br><span style=\"vertical-align: inherit;\"><span style=\"vertical-align: inherit;\">Si no te queda la talla te realizamos el cambio.</span></span></p>\n</div>",
   "published_at": "2024-11-20T09:48:53-05:00",
   "created_at": "2024-11-20T09:48:54-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -4422,7 +5892,7 @@
     "position": 1,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282399849,
@@ -4441,7 +5911,7 @@
     "position": 2,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282432617,
@@ -4460,7 +5930,7 @@
     "position": 3,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282465385,
@@ -4479,7 +5949,7 @@
     "position": 4,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282498153,
@@ -4498,7 +5968,7 @@
     "position": 5,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282530921,
@@ -4517,7 +5987,7 @@
     "position": 6,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282563689,
@@ -4536,7 +6006,7 @@
     "position": 7,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282596457,
@@ -4555,7 +6025,7 @@
     "position": 8,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282629225,
@@ -4574,7 +6044,7 @@
     "position": 9,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 42238282661993,
@@ -4593,7 +6063,7 @@
     "position": 10,
     "product_id": 7438520057961,
     "created_at": "2025-04-18T20:20:55-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -4660,7 +6130,7 @@
   "body_html": "<div class=\"product__description rte quick-add-hidden\">\n<p>ABAJO ENCUENTRAS MÁS INFORMACIÓN ⬇</p>\n<p>¿Primera vez comprando en línea? ¡No te preocupes!<br>Nosotros lo hacemos fácil para ti.</p>\n<p><br></p>\n<p style=\"text-align: center;\"><img alt=\"\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/CHAQUETA_TIPO_CAMISA_3.jpg?v=1732034014\" width=\"559\" height=\"559\"></p>\n<p style=\"text-align: center;\"><img alt=\"\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/1.jpg?v=1731967125\" width=\"560\" height=\"622\"></p>\n<p style=\"text-align: center;\"><img alt=\"\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/CHAQUETA_TIPO_CAMISA_4f424343-b5f2-434a-bfc9-4a84e84dffec.jpg?v=1732035540\" width=\"559\" height=\"559\"></p>\n<p style=\"text-align: center;\"><img alt=\"\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/CHAQUETA_TIPO_CAMISA_A_CUADROS.jpg?v=1732644014\" width=\"559\" height=\"559\"></p>\n<p style=\"text-align: center;\">ENVÍOS EN NUESTRA PÁGINA </p>\n<p>El envío es completamente GRATIS y los pagos son contra entrega.<br>El envío tarda de 3 A 5 días si es para afuera de BOGOTÁ.<br>Si está en BOGOTÁ al siguiente día te hacemos la entrega.</p>\n<p style=\"text-align: center;\">MÉTODOS DE PAGO</p>\n<p>Todos nuestro pago son contra entrega.</p>\n<p style=\"text-align: center;\"><br>CARACTERÍSTICAS</p>\n<p>La chaqueta tipo camisa está elaborada en bisonte sintético.<br>Cuenta con su respectivo pre lavado.<br>Todas las tallas disponibles.<br>Todos los colores disponibles.<br>Entrega rápida y segura.</p>\n<p style=\"text-align: center;\"> <br> GARANTÍA</p>\n<p>Garantía de 30 días por costura.<br>Si no te queda la talla te realizamos el cambio.</p>\n</div>\n<p><button class=\"share-button__button\"><svg width=\"13\" height=\"12\" viewbox=\"0 0 13 12\" class=\"icon icon-share\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M1.625 8.125V10.2917C1.625 10.579 1.73914 10.8545 1.9423 11.0577C2.14547 11.2609 2.42102 11.375 2.70833 11.375H10.2917C10.579 11.375 10.8545 11.2609 11.0577 11.0577C11.2609 10.8545 11.375 10.579 11.375 10.2917V8.125\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.14775 1.27137C6.34301 1.0761 6.65959 1.0761 6.85485 1.27137L9.56319 3.9797C9.75845 4.17496 9.75845 4.49154 9.56319 4.6868C9.36793 4.88207 9.05135 4.88207 8.85609 4.6868L6.5013 2.33203L4.14652 4.6868C3.95126 4.88207 3.63468 4.88207 3.43942 4.6868C3.24415 4.49154 3.24415 4.17496 3.43942 3.9797L6.14775 1.27137Z\" fill=\"currentColor\"></path><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.5 1.125C6.77614 1.125 7 1.34886 7 1.625V8.125C7 8.40114 6.77614 8.625 6.5 8.625C6.22386 8.625 6 8.40114 6 8.125V1.625C6 1.34886 6.22386 1.125 6.5 1.125Z\" fill=\"currentColor\"></path></svg>Share</button></p>",
   "published_at": "2024-11-18T16:51:07-05:00",
   "created_at": "2024-11-18T16:51:07-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -4682,7 +6152,7 @@
     "position": 1,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976582832233,
@@ -4701,7 +6171,7 @@
     "position": 2,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976582865001,
@@ -4720,7 +6190,7 @@
     "position": 3,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976582897769,
@@ -4739,7 +6209,7 @@
     "position": 4,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976582930537,
@@ -4758,7 +6228,7 @@
     "position": 5,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976582963305,
@@ -4777,7 +6247,7 @@
     "position": 6,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976582996073,
@@ -4796,7 +6266,7 @@
     "position": 7,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976583028841,
@@ -4815,7 +6285,7 @@
     "position": 8,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976583061609,
@@ -4834,7 +6304,7 @@
     "position": 9,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976583094377,
@@ -4853,7 +6323,7 @@
     "position": 10,
     "product_id": 7437613727849,
     "created_at": "2024-12-11T10:29:19-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
@@ -4942,7 +6412,7 @@
   "body_html": "<p>ABAJO ENCUENTRAS MÁS INFORMACIÓN ⬇</p>\n<p>¿Primera vez comprando en línea? ¡No te preocupes!</p>\n<p>Nosotros lo hacemos fácil para ti.</p>\n<p><img alt=\"\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/CHAQUETA_TIPO_CAMISA_2f0cf53a-6605-451d-8e4b-77934a03ed1e.jpg?v=1732118944\" width=\"561\" height=\"561\"></p>\n<p style=\"text-align: center;\"><img height=\"560\" width=\"560\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Diseno_sin_titulo_8_702445cc-bd9c-46d3-b294-23d714644ffe.jpg?v=1731963271\" alt=\"\"></p>\n<p style=\"text-align: center;\"><img height=\"560\" width=\"560\" src=\"https://cdn.shopify.com/s/files/1/0596/8727/2553/files/Diseno_sin_titulo_9_6b2f1fe2-cfb9-4b63-975c-c7c0cb0ba6cb.jpg?v=1731963512\" alt=\"\"></p>",
   "published_at": "2024-11-18T11:09:37-05:00",
   "created_at": "2024-11-18T11:09:37-05:00",
-  "updated_at": "2026-09-30T15:43:16-05:00",
+  "updated_at": "2026-10-15T09:43:56-05:00",
   "vendor": "magic world",
   "product_type": "",
   "tags": [],
@@ -4964,7 +6434,7 @@
     "position": 1,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602525801,
@@ -4983,7 +6453,7 @@
     "position": 2,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602558569,
@@ -5002,7 +6472,7 @@
     "position": 3,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602591337,
@@ -5021,7 +6491,7 @@
     "position": 4,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602624105,
@@ -5040,7 +6510,7 @@
     "position": 5,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602329193,
@@ -5059,7 +6529,7 @@
     "position": 6,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602361961,
@@ -5078,7 +6548,7 @@
     "position": 7,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602394729,
@@ -5097,7 +6567,7 @@
     "position": 8,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602427497,
@@ -5116,7 +6586,7 @@
     "position": 9,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602460265,
@@ -5135,7 +6605,7 @@
     "position": 10,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602165353,
@@ -5154,7 +6624,7 @@
     "position": 11,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602198121,
@@ -5173,7 +6643,7 @@
     "position": 12,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602230889,
@@ -5192,7 +6662,7 @@
     "position": 13,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602263657,
@@ -5211,7 +6681,7 @@
     "position": 14,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    },
    {
     "id": 41976602296425,
@@ -5230,7 +6700,7 @@
     "position": 15,
     "product_id": 7437357449321,
     "created_at": "2024-12-11T10:49:58-05:00",
-    "updated_at": "2026-09-30T15:43:16-05:00"
+    "updated_at": "2026-10-15T09:43:56-05:00"
    }
   ],
   "images": [
