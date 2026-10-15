@@ -315,5 +315,6 @@
     "Agregar los 2 productos a las colecciones Mujer y Chaquetas (son manuales: el CSV no los mete).",
     "Releasit: crear la oferta 2x de cada uno (chaquetón: 2 × 90.000 − 30.000 = $150.000; impermeable: 2 × 97.000 − 29.000 = $165.000, el «ahorras $29.000» del cliente), con el mismo estilo de las demás ofertas. Probar el total en el formulario sin enviarlo.",
     "Tema: mapear los 2 handles en theme-src/catalog-map.json con las posiciones reales, npm run theme -- --refresh y push --allow-live --only de los 3 snippets de mapas."
-  ]
+  ],
+  "hecho": "2026-10-15: todos los pasos de arriba aplicados y comprobados en worldmagic.store. Releasit (ofertas de cantidad, descuento fijo en el 2x): «CHAQUETON CRUZADO» −$30.000 → par $150.000; «IMPERMEABLE TERMICA» −$29.000 → par $165.000; «CH OUTDOOR » −$19.980 → par $140.000. Las dos nuevas son copias de «CH OUTDOOR» (mismo estilo) con su producto. La nórdica no tiene 2x: su ficha no trae promoción."
 }
