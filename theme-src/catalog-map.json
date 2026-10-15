@@ -258,6 +258,24 @@
         "AZUL OSCURO": { "swatch": "#1f2a44", "images": [[4, "puesta"], [5, "de tres cuartos"], [6, "puesta, de espalda"], [7, "de espalda"]] },
         "NEGRO": { "swatch": "#141414", "images": [[8, "de frente"], [9, "de tres cuartos"]] }
       }
+    },
+    "chaqueta-nordica-para-hombre": {
+      "name": "Chaqueta nórdica para hombre",
+      "priority": null,
+      "gender": "hombre",
+      "type": "Chaqueta",
+      "categories": ["chaquetas"],
+      "material": "Súper nylon",
+      "lining": "Biotto",
+      "composition": null,
+      "summary": "Súper nylon resistente al viento, forro en biotto y líneas laterales a contraste.",
+      "description": "Exterior en súper nylon, duradero y resistente al viento y al desgaste, con forro interior en biotto, suave y ligero.",
+      "details": ["Bolsillo interno para el celular, la billetera o documentos", "Bolsillos externos con cremallera, uno en el pecho", "Cuello alto", "Cierre reforzado", "Líneas laterales a contraste"],
+      "colors": {
+        "AZUL OSCURO": { "swatch": "#1f2a44", "images": [[1, "puesta"], [2, "de frente"], [3, "abierta, con el forro a la vista"]] },
+        "NEGRO": { "swatch": "#141414", "images": [[4, "puesta"], [5, "de frente"], [6, "abierta, con el forro a la vista"]] },
+        "ROJO": { "swatch": "#b3202a", "images": [[7, "puesta"], [9, "de frente"], [8, "abierta, con el forro a la vista"]] }
+      }
     }
   }
 }

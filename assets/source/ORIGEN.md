@@ -108,3 +108,9 @@ Lote 4: 2026-10-13 (llegó el 2026-10-14). 20 fotos; 10 son copias exactas de lo
 | nuevos-2026-10-13/impermeable-azul-espalda.jpg | WhatsApp Image 2026-10-13 at 7.52.00 PM (1).jpeg |
 | nuevos-2026-10-13/casual-negro-modelo.jpg | WhatsApp Image 2026-10-13 at 7.57.47 PM.jpeg |
 | nuevos-2026-10-13/casual-negro-modelo-playa.jpg | WhatsApp Image 2026-10-13 at 7.57.47 PM (1).jpeg |
+
+Lote 5: 2026-10-15 (Chaqueta nórdica; WhatsApp del 2026-10-02). 9 de las 10 fotos son copias exactas de tactica-*.jpg del lote 1 (la tienda ya las tiene en mejor resolución). La nueva:
+
+| Archivo | Nombre original |
+|---|---|
+| nuevos-2026-10-15/nordica-promo-85000.jpg | WhatsApp Image 2026-10-02 at 11.27.33 AM.jpeg (pieza publicitaria con el precio escrito: no se sube a la galería) |
