@@ -7,25 +7,51 @@
       "name": "Chaquetón estilo cruzado para dama",
       "gender": "mujer",
       "type": "Chaquetón",
-      "collections": ["Mujer", "Chaquetas"],
+      "collections": [
+        "Mujer",
+        "Chaquetas"
+      ],
       "price": 90000,
       "compareAt": null,
       "promoX2": 150000,
-      "sizes": ["S", "M", "L", "XL", "2XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
       "material": "Algodón perchado Mónaco: térmico, suave al tacto y muy durable",
       "summary": "Corte cruzado con cremallera diagonal, capota amplia y hebillas en las mangas.",
       "description": "Chaquetón de corte cruzado, abrigado y suave, que se adapta a la figura.",
-      "details": ["Cremallera frontal diagonal de 75 cm", "Capota amplia", "Hebillas decorativas en las mangas", "Buenos acabados, con buena horma y resistencia"],
+      "details": [
+        "Cremallera frontal diagonal de 75 cm",
+        "Capota amplia",
+        "Hebillas decorativas en las mangas",
+        "Buenos acabados, con buena horma y resistencia"
+      ],
       "colors": [
         {
           "value": "ROJO",
           "label": "Rojo",
           "swatch": "#b3202a",
           "images": [
-            ["nuevos-2026-10-13/cruzado-rojo-modelo", "puesto"],
-            ["nuevos-2026-10-13/cruzado-rojo-modelo-lado", "puesto, de lado"],
-            ["nuevos-2026-10-13/cruzado-rojo-frente", "de frente, con la capota puesta"],
-            ["nuevos-2026-10-13/cruzado-rojo-espalda", "de espalda"]
+            [
+              "nuevos-2026-10-13/cruzado-rojo-modelo",
+              "puesto"
+            ],
+            [
+              "nuevos-2026-10-13/cruzado-rojo-modelo-lado",
+              "puesto, de lado"
+            ],
+            [
+              "nuevos-2026-10-13/cruzado-rojo-frente",
+              "de frente, con la capota puesta"
+            ],
+            [
+              "nuevos-2026-10-13/cruzado-rojo-espalda",
+              "de espalda"
+            ]
           ]
         },
         {
@@ -34,10 +60,22 @@
           "swatch": "#141414",
           "_images": "abrigo-hebillas-negro-lado es en realidad de frente (= cruzado.jpeg, la que el cliente eligió); abrigo-hebillas-negro-frente es de tres cuartos. Los nombres del lote 2026-10-01 quedaron cruzados.",
           "images": [
-            ["nuevos-2026-10-01/abrigo-hebillas-negro-lado", "de frente, con la capota puesta"],
-            ["nuevos-2026-10-01/abrigo-hebillas-negro-frente", "de tres cuartos"],
-            ["nuevos-2026-10-01/abrigo-hebillas-negro-abierto", "abierto"],
-            ["nuevos-2026-10-01/abrigo-hebillas-negro-espalda", "de espalda"]
+            [
+              "nuevos-2026-10-01/abrigo-hebillas-negro-lado",
+              "de frente, con la capota puesta"
+            ],
+            [
+              "nuevos-2026-10-01/abrigo-hebillas-negro-frente",
+              "de tres cuartos"
+            ],
+            [
+              "nuevos-2026-10-01/abrigo-hebillas-negro-abierto",
+              "abierto"
+            ],
+            [
+              "nuevos-2026-10-01/abrigo-hebillas-negro-espalda",
+              "de espalda"
+            ]
           ]
         }
       ]
@@ -49,24 +87,47 @@
       "gender": "mujer",
       "_gender": "La ficha no dice dama: sale de las fotos (modelos mujeres, cintura entallada). Confirmar con el cliente junto con las tallas.",
       "type": "Chaqueta",
-      "collections": ["Mujer", "Chaquetas"],
+      "collections": [
+        "Mujer",
+        "Chaquetas"
+      ],
       "price": 97000,
       "compareAt": null,
       "promoX2": 165000,
-      "sizes": ["S", "M", "L", "XL", "2XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
       "material": "Exterior en súper nailon impermeable de alta resistencia; forro térmico en yersilon",
       "summary": "Súper nailon impermeable, forro térmico y cintura ajustable con cordón.",
       "description": "Protege del frío y de la lluvia: el exterior repele el agua y corta el viento, y el forro, suave por dentro, mantiene el calor.",
-      "details": ["Cremallera frontal de seguridad de 90 cm, con cursor de seguridad", "Cordón con caucho y tancas ajustables en la cintura", "Confección reforzada", "Etiqueta de marca, empaque en cartón y marquilla original"],
+      "details": [
+        "Cremallera frontal de seguridad de 90 cm, con cursor de seguridad",
+        "Cordón con caucho y tancas ajustables en la cintura",
+        "Confección reforzada",
+        "Etiqueta de marca, empaque en cartón y marquilla original"
+      ],
       "colors": [
         {
           "value": "ROJO",
           "label": "Rojo",
           "swatch": "#b3202a",
           "images": [
-            ["nuevos-2026-10-13/impermeable-rojo-modelo", "puesta"],
-            ["nuevos-2026-10-01/chaqueta-cordon-rojo-frente", "de tres cuartos"],
-            ["nuevos-2026-10-01/chaqueta-cordon-rojo-espalda", "de espalda"]
+            [
+              "nuevos-2026-10-13/impermeable-rojo-modelo",
+              "puesta"
+            ],
+            [
+              "nuevos-2026-10-01/chaqueta-cordon-rojo-frente",
+              "de tres cuartos"
+            ],
+            [
+              "nuevos-2026-10-01/chaqueta-cordon-rojo-espalda",
+              "de espalda"
+            ]
           ]
         },
         {
@@ -74,10 +135,22 @@
           "label": "Azul oscuro",
           "swatch": "#1f2a44",
           "images": [
-            ["nuevos-2026-10-13/impermeable-azul-modelo", "puesta"],
-            ["nuevos-2026-10-01/chaqueta-cordon-azul-lado", "de tres cuartos"],
-            ["nuevos-2026-10-13/impermeable-azul-modelo-espalda", "puesta, de espalda"],
-            ["nuevos-2026-10-13/impermeable-azul-espalda", "de espalda"]
+            [
+              "nuevos-2026-10-13/impermeable-azul-modelo",
+              "puesta"
+            ],
+            [
+              "nuevos-2026-10-01/chaqueta-cordon-azul-lado",
+              "de tres cuartos"
+            ],
+            [
+              "nuevos-2026-10-13/impermeable-azul-modelo-espalda",
+              "puesta, de espalda"
+            ],
+            [
+              "nuevos-2026-10-13/impermeable-azul-espalda",
+              "de espalda"
+            ]
           ]
         },
         {
@@ -85,29 +158,105 @@
           "label": "Negro",
           "swatch": "#141414",
           "images": [
-            ["nuevos-2026-10-01/chaqueta-cordon-negro-frente", "de frente"],
-            ["nuevos-2026-10-01/chaqueta-cordon-negro-lado", "de tres cuartos"]
+            [
+              "nuevos-2026-10-01/chaqueta-cordon-negro-frente",
+              "de frente"
+            ],
+            [
+              "nuevos-2026-10-01/chaqueta-cordon-negro-lado",
+              "de tres cuartos"
+            ]
           ]
         }
       ]
     },
     {
       "handle": "chaqueta-nordica-para-hombre",
-      "name": "Chaqueta con franjas para hombre",
-      "pendiente": "YA EXISTE en la tienda: es la «CHAQUETA NORDICA PARA HOMBRE» que el cliente creó el 2026-10-02 (mismas fotos y colores, $85.000, una sola variante «Default Title», agotada, sin descripción). NUNCA importarla por CSV (saldría duplicada): cuando llegue su ficha, completarla en el admin (opciones COLOR + Talla antes de cargar stock) y mapearla en el tema.",
+      "name": "Chaqueta nórdica para hombre",
+      "pendiente": "YA EXISTE en la tienda y quedó COMPLETA el 2026-10-15: CSV con «sobrescribir» (COLOR × Talla, $85.000, sin seguimiento de stock, texto del cliente), foto por color, colecciones Hombre y Chaquetas y entrada en el mapa del tema. Nunca importarla con shopify:nuevos.",
       "gender": "hombre",
       "type": "Chaqueta",
-      "collections": ["Hombre", "Chaquetas"],
+      "collections": [
+        "Hombre",
+        "Chaquetas"
+      ],
       "price": 85000,
       "compareAt": null,
-      "sizes": null,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
       "summary": "Cuello alto, tres bolsillos con cierre y franjas de contraste.",
       "description": "Cuello alto, cierre completo y tres bolsillos con cierre. Franjas blancas a los lados y forro interior negro.",
-      "details": ["Cuello alto", "Cierre frontal completo", "Bolsillo de pecho con cierre", "Dos bolsillos laterales con cierre", "Franjas de contraste en blanco", "Forro interior negro"],
+      "details": [
+        "Cuello alto",
+        "Cierre frontal completo",
+        "Bolsillo de pecho con cierre",
+        "Dos bolsillos laterales con cierre",
+        "Franjas de contraste en blanco",
+        "Forro interior negro"
+      ],
       "colors": [
-        { "value": "NEGRO", "label": "Negro", "swatch": "#141414", "images": [["nuevos-2026-10-01/franjas-negro-modelo", "puesta"], ["nuevos-2026-10-01/franjas-negro-frente", "de frente"], ["nuevos-2026-10-01/franjas-negro-abierta", "abierta, con el forro a la vista"]] },
-        { "value": "AZUL OSCURO", "label": "Azul oscuro", "swatch": "#1f2a44", "images": [["nuevos-2026-10-01/franjas-azul-modelo", "puesta"], ["nuevos-2026-10-01/franjas-azul-frente", "de frente"], ["nuevos-2026-10-01/franjas-azul-abierta", "abierta, con el forro a la vista"]] },
-        { "value": "ROJO", "label": "Rojo", "swatch": "#b3202a", "images": [["tactica-rojo-modelo", "puesta"], ["tactica-rojo-frente", "de frente"], ["nuevos-2026-10-01/franjas-rojo-abierta", "abierta, con el forro a la vista"]] }
+        {
+          "value": "NEGRO",
+          "label": "Negro",
+          "swatch": "#141414",
+          "images": [
+            [
+              "nuevos-2026-10-01/franjas-negro-modelo",
+              "puesta"
+            ],
+            [
+              "nuevos-2026-10-01/franjas-negro-frente",
+              "de frente"
+            ],
+            [
+              "nuevos-2026-10-01/franjas-negro-abierta",
+              "abierta, con el forro a la vista"
+            ]
+          ]
+        },
+        {
+          "value": "AZUL OSCURO",
+          "label": "Azul oscuro",
+          "swatch": "#1f2a44",
+          "images": [
+            [
+              "nuevos-2026-10-01/franjas-azul-modelo",
+              "puesta"
+            ],
+            [
+              "nuevos-2026-10-01/franjas-azul-frente",
+              "de frente"
+            ],
+            [
+              "nuevos-2026-10-01/franjas-azul-abierta",
+              "abierta, con el forro a la vista"
+            ]
+          ]
+        },
+        {
+          "value": "ROJO",
+          "label": "Rojo",
+          "swatch": "#b3202a",
+          "images": [
+            [
+              "tactica-rojo-modelo",
+              "puesta"
+            ],
+            [
+              "tactica-rojo-frente",
+              "de frente"
+            ],
+            [
+              "nuevos-2026-10-01/franjas-rojo-abierta",
+              "abierta, con el forro a la vista"
+            ]
+          ]
+        }
       ]
     }
   ],
@@ -117,18 +266,38 @@
       "fotos": "chaqueta-casual",
       "producto": "CHAQUETA DE MODA CASUAL PARA HOMBRE",
       "pedido": "2026-10-14: «AGREGAR ESTE COLOR A ESTE PRODUCTO Y SUBIR PRECIO A 79.990»",
-      "precio": { "antes": 75000, "nuevo": 79990, "compareAt": 150000, "aplica": "todas las variantes (GRIS OSCURO y NEGRO)" },
+      "precio": {
+        "antes": 75000,
+        "nuevo": 79990,
+        "compareAt": 150000,
+        "aplica": "todas las variantes (GRIS OSCURO y NEGRO)"
+      },
       "colorNuevo": {
         "opcion": "COLOR ",
         "_opcion": "El nombre de la opción en la tienda lleva un espacio al final («COLOR »). Talla es la opción 1 y COLOR la 2.",
         "valor": "NEGRO",
-        "tallas": ["S", "M", "L", "XL", "2XL"],
+        "tallas": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ],
         "_tallas": "Las mismas del gris por suposición (Shopify pide una variante por talla); confirmar con el cliente.",
         "swatch": "#141414",
         "images": [
-          ["nuevos-2026-10-13/casual-negro-modelo", "puesta"],
-          ["nuevos-2026-10-13/casual-negro-modelo-playa", "puesta, en exteriores"],
-          ["archivo/casual-negro-estudio", "de frente"]
+          [
+            "nuevos-2026-10-13/casual-negro-modelo",
+            "puesta"
+          ],
+          [
+            "nuevos-2026-10-13/casual-negro-modelo-playa",
+            "puesta, en exteriores"
+          ],
+          [
+            "archivo/casual-negro-estudio",
+            "de frente"
+          ]
         ]
       },
       "pasos": [
